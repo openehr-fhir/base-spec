@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "HIER-OBJECT-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_hier_object_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID",
+  "version" : "1.1.0",
+  "name" : "HIER_OBJECT_ID",
+  "title" : "HIER_OBJECT_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Concrete type corresponding to hierarchical identifiers of the form defined by UID_BASED_ID.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "HIER_OBJECT_ID",
+      "short" : "Concrete type corresponding to hierarchical identifiers of the form defined by UID_BASED_ID",
+      "definition" : "Concrete type corresponding to hierarchical identifiers of the form defined by UID_BASED_ID.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

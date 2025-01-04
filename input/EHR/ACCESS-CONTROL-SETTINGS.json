@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACCESS-CONTROL-SETTINGS",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_access_control_settings_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACCESS-CONTROL-SETTINGS",
+  "version" : "1.1.0",
+  "name" : "ACCESS_CONTROL_SETTINGS",
+  "title" : "ACCESS_CONTROL_SETTINGS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACCESS_CONTROL_SETTINGS",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACCESS_CONTROL_SETTINGS",
+      "short" : "Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent",
+      "definition" : "Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

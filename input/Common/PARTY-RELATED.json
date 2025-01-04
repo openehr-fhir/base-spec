@@ -1,0 +1,55 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY-RELATED",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_party_related_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATED",
+  "version" : "1.1.0",
+  "name" : "PARTY_RELATED",
+  "title" : "PARTY_RELATED",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Proxy type for identifying a party and its relationship to the subject of the record. Use where the relationship between the party and the subject of the record must be known.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY_RELATED",
+      "short" : "Proxy type for identifying a party and its relationship to the subject of the record",
+      "definition" : "Proxy type for identifying a party and its relationship to the subject of the record. Use where the relationship between the party and the subject of the record must be known.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "PARTY_RELATED.relationship",
+      "short" : "Relationship of subject of this ENTRY to the subject of the record. May be coded",
+      "definition" : "Relationship of subject of this ENTRY to the subject of the record. May be coded. If it is the patient, coded as self.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-subject_relationship"
+      }
+
+    }]
+  }
+}

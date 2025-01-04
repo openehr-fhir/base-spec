@@ -1,0 +1,71 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "FOLDER",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_folder_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/FOLDER",
+  "version" : "1.1.0",
+  "name" : "FOLDER",
+  "title" : "FOLDER",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The concept of a named folder. It is strongly recommended that the inherited attribute uid be populated in top-level (i.e. tree-root) FOLDER objects, using the UID copied from the object_id() of the uid field of the enclosing VERSION object. For example, the ORIGINAL_VERSION.uid 87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2 would be copied to the uid field of the top FOLDER object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/FOLDER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "FOLDER",
+      "short" : "The concept of a named folder",
+      "definition" : "The concept of a named folder.",
+      "comment" : "It is strongly recommended that the inherited attribute uid be populated in top-level (i.e. tree-root) FOLDER objects, using the UID copied from the object_id() of the uid field of the enclosing VERSION object. For example, the ORIGINAL_VERSION.uid 87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2 would be copied to the uid field of the top FOLDER object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "FOLDER.items",
+      "short" : "References to other (usually) versioned objects logically in this folder",
+      "definition" : "The list of references to other (usually) versioned objects logically in this folder.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+      }]
+    }, {
+      "path" : "FOLDER.folders",
+      "short" : "Sub-folders of this FOLDER",
+      "definition" : "Sub-folders of this FOLDER.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/FOLDER"
+      }]
+    }, {
+      "path" : "FOLDER.details",
+      "short" : "Archetypable meta-data for FOLDER",
+      "definition" : "Archetypable meta-data for FOLDER.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }]
+    }]
+  }
+}

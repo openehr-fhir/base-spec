@@ -1,0 +1,18 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "integrity-check-algorithms",
+  "url" : "https://specifications.openehr.org/fhir/valueset-integrity_check_algorithms",
+  "version" : "3.1.0",
+  "name" : "integrity_check_algorithms",
+  "title" : "Integrity check algorithms",
+  "description" : "Integrity check algorithms",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "compose" : {
+    "include" : [{
+      "system" : "https://specifications.openehr.org/fhir/codesystem-integrity_check_algorithms"
+    }]
+  }
+}

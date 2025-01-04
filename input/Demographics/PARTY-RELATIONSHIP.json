@@ -1,0 +1,90 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY-RELATIONSHIP",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_party_relationship_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP",
+  "version" : "1.1.0",
+  "name" : "PARTY_RELATIONSHIP",
+  "title" : "PARTY_RELATIONSHIP",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic description of a relationship between parties.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATIONSHIP",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY_RELATIONSHIP",
+      "short" : "Generic description of a relationship between parties",
+      "definition" : "Generic description of a relationship between parties.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "PARTY_RELATIONSHIP.details",
+      "short" : "The detailed description of the relationship",
+      "definition" : "The detailed description of the relationship.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }]
+    }, {
+      "path" : "PARTY_RELATIONSHIP.target",
+      "short" : "Target of relationship",
+      "definition" : "Target of relationship.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+      }]
+    }, {
+      "path" : "PARTY_RELATIONSHIP.time_validity",
+      "short" : "Valid time interval for this relationship",
+      "definition" : "Valid time interval for this relationship.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-DATE"
+          }]
+        }]
+      }]
+    }, {
+      "path" : "PARTY_RELATIONSHIP.source",
+      "short" : "Source of relationship",
+      "definition" : "Source of relationship.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+      }]
+    }]
+  }
+}

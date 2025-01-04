@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "OBJECT-VERSION-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_object_version_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID",
+  "version" : "1.1.0",
+  "name" : "OBJECT_VERSION_ID",
+  "title" : "OBJECT_VERSION_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Globally unique identifier for one version of a versioned object; lexical form: object_id '::' creating_system_id '::' version_tree_id.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "OBJECT_VERSION_ID",
+      "short" : "Globally unique identifier for one version of a versioned object",
+      "definition" : "Globally unique identifier for one version of a versioned object; lexical form: object_id '::' creating_system_id '::' version_tree_id.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

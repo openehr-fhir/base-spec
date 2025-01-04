@@ -1,0 +1,13 @@
+== Suppressed Messages ==
+
+# copied/inherited from openEHR
+TYPE_SPECIFIC_CHECKS_DT_MARKDOWN_HTML
+Constraint failed: cnl-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation' (defined in http://hl7.org/fhir/StructureDefinition/CodeSystem)
+Constraint failed: cnl-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation' (defined in http://hl7.org/fhir/StructureDefinition/ValueSet)
+The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+
+# openEHR type and path names have their own rules
+Rule eld-20: 'The first component of the path should be UpperCamelCase.%
+
+# don't care
+Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0

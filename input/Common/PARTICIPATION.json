@@ -1,0 +1,99 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTICIPATION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_participation_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION",
+  "version" : "1.1.0",
+  "name" : "PARTICIPATION",
+  "title" : "PARTICIPATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Model of a participation of a Party (any Actor or Role) in an activity. Used to represent any participation of a Party in some activity, which is not explicitly in the model, e.g. assisting nurse. Can be used to record past or future participations. Should not be used in place of more permanent relationships between demographic entities.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTICIPATION",
+      "short" : "A proxy description of a party, including an optional link to data for this party",
+      "definition" : "Abstract concept of a proxy description of a party, including an optional link to data for this party in a demographic or other identity management system. Sub- typed into PARTY_IDENTIFIED and PARTY_SELF.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "PARTICIPATION.function",
+      "short" : "Reference to more detailed demographic or identification information for this party",
+      "definition" : "Optional reference to more detailed demographic or identification information for this party, in an external system.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-participation_function"
+      }
+
+    }, {
+      "path" : "PARTICIPATION.mode",
+      "short" : "Reference to more detailed demographic or identification information for this party",
+      "definition" : "Optional reference to more detailed demographic or identification information for this party, in an external system.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-participation_mode"
+      }
+    }, {
+      "path" : "PARTICIPATION.performer",
+      "short" : "Reference to more detailed demographic or identification information for this party",
+      "definition" : "Optional reference to more detailed demographic or identification information for this party, in an external system.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }]
+    }, {
+      "path" : "PARTICIPATION.time",
+      "short" : "Reference to more detailed demographic or identification information for this party",
+      "definition" : "Optional reference to more detailed demographic or identification information for this party, in an external system.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension": [{
+            "url" : "name",
+            "valueCode" : "T"
+          }, {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+          }]
+        }]
+      }]
+    }]
+  }
+}

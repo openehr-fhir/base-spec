@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EHR-ACCESS",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_access_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/EHR-ACCESS",
+  "version" : "1.1.0",
+  "name" : "EHR_ACCESS",
+  "title" : "EHR_ACCESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EHR_ACCESS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EHR_ACCESS",
+      "short" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object",
+      "definition" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "EHR_ACCESS.settings",
+      "short" : "Access control settings for the EHR. Instance is a subtype of the type ACCESS_CONTROL_SETTINGS, allowing for the use of different access control schemes",
+      "definition" : "Access control settings for the EHR. Instance is a subtype of the type ACCESS_CONTROL_SETTINGS, allowing for the use of different access control schemes.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ACCESS-CONTROL-SETTINGS"
+      }]
+    }]
+  }
+}

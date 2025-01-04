@@ -1,0 +1,61 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-QUANTIFIED",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_quantified_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "version" : "1.1.0",
+  "name" : "DV_QUANTIFIED",
+  "title" : "DV_QUANTIFIED",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract class defining the concept of true quantified values, i.e. values which are not only ordered, but which have a precise magnitude.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_QUANTIFIED",
+      "short" : "A data type that represents scale values, where there is: a) implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite; d) non-integer values are allowed",
+      "definition" : "A data type that represents scale values, where there is:\r\n\r\na) implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite; d) non-integer values are allowed.\r\n\r\n  Example:\r\n````  \r\n  Borg CR 10 Scale\r\n  \r\n  0    No Breathlessness at all\r\n  0.5  Very Very Slight (Just Noticeable)\r\n  1    Very Slight\r\n  2    Slight Breathlessness\r\n  3    Moderate\r\n  ... etc\r\n````",
+      "comment" : "For scores that include only Integers, DV_QUANTIFIED may also be used, but DV_ORDINAL should be supported to accommodate existing data instances of that type.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTIFIED.magnitude_status",
+      "short" : "Optional status of magnitude: =, <, >, <=, >=, ~",
+      "definition" : "Optional status of magnitude with values:\r\n* '=' : magnitude is a point value\r\n* '<' : value is < magnitude\r\n* '>' : value is > magnitude\r\n* '<=' : value is <= magnitude\r\n* '>=' : value is >= magnitude\r\n* '~' : value is approximately magnitude\r\n\r\nIf not present, assumed meaning is '=' .",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTIFIED.accuracy",
+      "short" : "Accuracy of measurement. Exact form of expression determined in descendants",
+      "definition" : "Accuracy of measurement. Exact form of expression determined in descendants.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Base"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

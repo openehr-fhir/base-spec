@@ -1,0 +1,44 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "integrity-check-algorithms",
+  "url" : "https://specifications.openehr.org/fhir/codesystem-integrity_check_algorithms",
+  "version" : "3.1.0",
+  "name" : "integrity_check_algorithms",
+  "title" : "Integrity check algorithms",
+  "description" : "Integrity check algorithms",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "caseSensitive" : true,
+  "valueSet" : "https://specifications.openehr.org/fhir/valueset-integrity-check-algorithms",
+  "content" : "complete",
+  "concept" : [{
+    "code" : "SHA-1",
+    "display" : "SHA-1"
+  },
+  {
+    "code" : "SHA-224",
+    "display" : "SHA-224"
+  },
+  {
+    "code" : "SHA-256",
+    "display" : "SHA-256"
+  },
+  {
+    "code" : "SHA-384",
+    "display" : "SHA-384"
+  },
+  {
+    "code" : "SHA-512",
+    "display" : "SHA-512"
+  },
+  {
+    "code" : "SHA-512/224",
+    "display" : "SHA-512/224"
+  },
+  {
+    "code" : "SHA-512/256",
+    "display" : "SHA-512/256"
+  }]
+}

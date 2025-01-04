@@ -1,0 +1,39 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSIONED-COMPOSITION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_versioned_composition_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },{
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/COMPOSITION"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-COMPOSITION",
+  "version" : "1.1.0",
+  "name" : "VERSIONED_COMPOSITION",
+  "title" : "VERSIONED_COMPOSITION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openCOMPOSITION",
+  "contact" : [{
+    "name" : "openCOMPOSITION",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Version-controlled composition abstraction, defined by inheriting VERSIONED_OBJECT<COMPOSITION>.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_COMPOSITION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "derivation" : "specialization"
+}

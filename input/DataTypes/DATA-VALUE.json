@@ -1,0 +1,46 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DATA-VALUE",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_data_value_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-as-leaf"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-defns-parent"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "version" : "1.1.0",
+  "name" : "DATA_VALUE",
+  "title" : "DATA_VALUE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract parent of all DV_ data value types. Serves as a common ancestor of all data value types in openEHR models",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DATA_VALUE",
+      "short" : "Abstract parent of all DV_ data value types",
+      "definition" : "Abstract parent of all DV_ data value types. Serves as a common ancestor of all data value types in openEHR models.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

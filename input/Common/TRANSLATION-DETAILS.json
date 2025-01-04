@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TRANSLATION-DETAILS",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_translation_details_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION-DETAILS",
+  "version" : "1.1.0",
+  "name" : "TRANSLATION_DETAILS",
+  "title" : "TRANSLATION_DETAILS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Class providing details of a natural language translation.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION_DETAILS",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "TRANSLATION_DETAILS",
+      "short" : "Class providing details of a natural language translation",
+      "definition" : "Class providing details of a natural language translation.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "TRANSLATION_DETAILS.language",
+      "short" : "Language of the translation",
+      "definition" : "Language of the translation.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }]
+    }, {
+      "path" : "TRANSLATION_DETAILS.author",
+      "short" : "Translator name and other demographic details",
+      "definition" : "Translator name and other demographic details.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "TRANSLATION_DETAILS.accreditation",
+      "short" : "Accreditation of translator, usually a national translator’s registration or association membership id",
+      "definition" : "Accreditation of translator, usually a national translator’s registration or association membership id.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "TRANSLATION_DETAILS.other_details",
+      "short" : "Any other meta-data",
+      "definition" : "Any other meta-data.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

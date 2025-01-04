@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "GENERIC-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_generic_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/GENERIC-ID",
+  "version" : "1.1.0",
+  "name" : "GENERIC_ID",
+  "title" : "GENERIC_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic identifier type for identifiers whose format is otherwise unknown to openEHR. Includes an attribute for naming the identification scheme (which may well be local).",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/GENERIC_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OBJECT-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "GENERIC_ID",
+      "short" : "Generic identifier type for identifiers whose format is otherwise unknown to openEHR",
+      "definition" : "Generic identifier type for identifiers whose format is otherwise unknown to openEHR. Includes an attribute for naming the identification scheme (which may well be local).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

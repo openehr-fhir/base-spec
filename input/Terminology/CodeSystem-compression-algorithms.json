@@ -1,0 +1,36 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "compression-algorithms",
+  "url" : "https://specifications.openehr.org/fhir/codesystem-compression_algorithms",
+  "version" : "3.1.0",
+  "name" : "compression_algorithms",
+  "title" : "Compression algorithms",
+  "description" : "Compression algorithms",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "caseSensitive" : true,
+  "valueSet" : "https://specifications.openehr.org/fhir/valueset-compression_algorithms",
+  "content" : "complete",
+  "concept" : [{
+    "code" : "compress",
+    "display" : "compress"
+  },
+  {
+    "code" : "deflate",
+    "display" : "deflate"
+  },
+  {
+    "code" : "gzip",
+    "display" : "gzip"
+  },
+  {
+    "code" : "zlib",
+    "display" : "zlib"
+  },
+  {
+    "code" : "other",
+    "display" : "other"
+  }]
+}

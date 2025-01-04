@@ -1,0 +1,91 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-COUNT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_count_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-COUNT",
+  "version" : "1.1.0",
+  "name" : "DV_COUNT",
+  "title" : "DV_COUNT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_COUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_COUNT",
+      "short" : "Countable quantities. Used for countable types",
+      "definition" : "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.",
+      "comment" : "Misuse: Not to be used for amounts of physical entities (which all have units).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_COUNT.magnitude",
+      "short" : "Numeric magnitude",
+      "definition" : "Numeric magnitude.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_COUNT.normal_range",
+      "short" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value",
+      "definition" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension": [{
+            "url" : "name",
+            "valueCode" : "T"
+          }, {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-COUNT"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_COUNT.other_reference_ranges",
+      "short" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value",
+      "definition" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension": [{
+            "url" : "name",
+            "valueCode" : "T"
+          }, {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-COUNT"
+            }]
+          }]
+        }],
+      "isModifier" : false
+    }]
+  }
+}

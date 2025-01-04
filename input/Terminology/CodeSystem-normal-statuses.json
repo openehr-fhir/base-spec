@@ -1,0 +1,44 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "normal-statuses",
+  "url" : "https://specifications.openehr.org/fhir/codesystem-normal_statuses",
+  "version" : "3.1.0",
+  "name" : "normal_statuses",
+  "title" : "Normal statuses",
+  "description" : "Normal statuses",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "caseSensitive" : true,
+  "valueSet" : "https://specifications.openehr.org/fhir/valueset-normal_statuses",
+  "content" : "complete",
+  "concept" : [{
+    "code" : "HHH",
+    "display" : "HHH"
+  },
+  {
+    "code" : "HH",
+    "display" : "HH"
+  },
+  {
+    "code" : "H",
+    "display" : "H"
+  },
+  {
+    "code" : "N",
+    "display" : "N"
+  },
+  {
+    "code" : "L",
+    "display" : "L"
+  },
+  {
+    "code" : "LL",
+    "display" : "LL"
+  },
+  {
+    "code" : "LLL",
+    "display" : "LLL"
+  }]
+}

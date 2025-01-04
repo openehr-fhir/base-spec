@@ -1,0 +1,94 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "AUDIT-DETAILS",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_audit_details_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS",
+  "version" : "1.1.0",
+  "name" : "AUDIT_DETAILS",
+  "title" : "AUDIT_DETAILS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The set of attributes required to document the committal of an information item to a repository.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "AUDIT_DETAILS",
+      "short" : "The set of attributes required to document the committal of an information item to a repository",
+      "definition" : "The set of attributes required to document the committal of an information item to a repository.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "AUDIT_DETAILS.system_id",
+      "short" : "Identifier of the logical EHR system where the change was committed",
+      "definition" : "Identifier of the logical EHR system where the change was committed. This is almost always owned by the organisation legally responsible for the EHR, and is distinct from any application, or any hosting infrastructure.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "AUDIT_DETAILS.time_committed",
+      "short" : "Time of committal of the item",
+      "definition" : "Time of committal of the item.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+      }]
+    }, {
+      "path" : "AUDIT_DETAILS.change_type",
+      "short" : "Type of change",
+      "definition" : "Type of change. Coded using the openEHR Terminology audit change type group.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-audit_change_type"
+      }
+    }, {
+      "path" : "AUDIT_DETAILS.description",
+      "short" : "Reason for committal. This may be used to qualify the value in the change_type field",
+      "definition" : "Reason for committal. This may be used to qualify the value in the change_type field. For example, if the change affects only the EHR directory, this field might be used to indicate 'Folder `episode 2018-02-16` added' or similar.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }]
+    }, {
+      "path" : "AUDIT_DETAILS.committer",
+      "short" : "Identity and optional reference into identity management service, of user who committed the item",
+      "definition" : "Identity and optional reference into identity management service, of user who committed the item.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }]
+    }]
+  }
+}

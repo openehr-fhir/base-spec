@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "REVISION-HISTORY-ITEM",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_revision_history_item_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY-ITEM",
+  "version" : "1.1.0",
+  "name" : "REVISION_HISTORY_ITEM",
+  "title" : "REVISION_HISTORY_ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of AUDIT_DETAILS instances with revision identifier of the revision to which the AUDIT_DETAILS instance belongs.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY_ITEM",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "REVISION_HISTORY_ITEM",
+      "short" : "An entry in a revision history, corresponding to a version from a versioned container",
+      "definition" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of AUDIT_DETAILS instances with revision identifier of the revision to which the AUDIT_DETAILS instance belongs.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "REVISION_HISTORY_ITEM.version_id",
+      "short" : "Version identifier for this revision",
+      "definition" : "Version identifier for this revision.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+      }]
+    }, {
+      "path" : "REVISION_HISTORY_ITEM.audits",
+      "short" : "The audits for this revision (at least one)",
+      "definition" : "The audits for this revision; there will always be at least one commit audit (which may itself be an ATTESTATION), there may also be further attestations.",
+      "min" : 1,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+      }]
+    }]
+  }
+}

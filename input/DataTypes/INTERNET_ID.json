@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "INTERNET-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_internet_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/INTERNET-ID",
+  "version" : "1.1.0",
+  "name" : "INTERNET_ID",
+  "title" : "INTERNET_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Model of a reverse internet domain, as used to uniquely identify an internet domain. In the form of a dot-separated string in the reverse order of a domain name, specified by IETF RFC 1034.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/INTERNET_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "INTERNET_ID",
+      "short" : "Model of a reverse internet domain, as used to uniquely identify an internet domain",
+      "definition" : "Model of a reverse internet domain, as used to uniquely identify an internet domain. In the form of a dot-separated string in the reverse order of a domain name, specified by IETF RFC 1034.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

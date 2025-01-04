@@ -1,0 +1,129 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <!-- The spaces between the open and close "a" tag are mandatory.  (Cuz HTML renderers are dumb...) -->
+  <a name="intro"> </a>
+  <h3>Introduction</h3>
+	<p>
+    This publication contains information to support implementers working across multiple versions
+    of FHIR. Specifically, this publication contains the following information: 
+  </p>
+  <ul>
+   <li>Maps: a series of <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a> resources that describe how resources, elements, codes, and search parameters relate to each other across versions</li>
+   <li>Transforms: a series of <a href="{{site.data.fhir.path}}structuremap.html">StructureMap</a> resources that define executable transforms between the different versions</li>
+   <li>Extensions: a series of <a href="{{site.data.fhir.path}}structuredefinition.html">StructureDefinition</a> resources that define the actual cross version extensions as described in the <a href="{{site.data.fhir.path}}versions.html#extensions">FHIR Specification</a></li>
+  </ul>
+  <p>
+    This publication only contains derivative content based on the FHIR core specification publications, the FHIR Extension Pack, and <a href="http://terminology.hl7.org">the HL7 terminology</a>.  
+    As such, this publication is not subject to ballot; it is released when signficant issues are found and fixed. Change requests or issues against this publication should be made against 
+    the <a href="https://github.com/HL7/fhir-cross-version">GitHub repository</a>. Issues with this content can be discussed <a href="https://chat.fhir.org/#narrow/stream/426854-FHIR-cross-version-issues">here</a>.
+  </p>
+	<a name="finding"> </a>
+  <h3>Finding Content</h3>
+  <p>
+  This publication has a lot of content in it. The quickest way to find anything is to 
+  start at the cross-version resource table:
+  </p>
+  <ul>
+    <li><a href="cross-version-resources.html">Cross-Version Resource Table</a></li>
+    <li><a href="cross-version-types.html">Cross-Version DataTypes Table</a></li>
+  </ul>
+
+  <h3>About the content</h3>
+	<a name="mappings"> </a>
+	<h4>Mappings</h4>
+  <p>
+   Notes about the Concept Maps:
+  </p>
+  <table class="grid">
+   <tr>
+    <td>Resources</td>
+    <td>These map between the resources across FHIR versions. Content is added, deleted or moved, and the scope and intent of ther resources 
+    changes subtly or significantly. Where the strength of the relationship is 'equivalent' (<code>=</code>), then the resource has 
+    been renamed, but where the strength is 'source-is-broader-than-target' (<code>&gt;</code>) or 'source-is-narrower-than-target' (<code>&lt;</code>),
+    that means that the scope of the resource has been changed, and data moved between them, or re-organized. The changes may be quite 
+    significant in those cases. These relationships cannot be used as input to automated conversion engines.</td>
+   </tr>
+   <tr>
+    <td>Elements</td>
+    <td>These map between elements across FHIR versions. These relationships are based on the <i>definition</i> of the element. 
+    Note that elements may be renamed, redefined, added, deleted or moved between versions, or the value domain (the set of valid values allowed in the element) may change
+    between versions. Where the strength of the relationship is 'equivalent' (<code>=</code>), then the resource has 
+    been renamed, but where the strength is 'source-is-broader-than-target' (<code>&gt;</code>) or 'source-is-narrower-than-target' (<code>&lt;</code>),
+    that means that the definition of the element has been changed. The changes may be quite 
+    significant in those cases. These relationships cannot be used as input to automated conversion engines even when the relationship is '=' because 
+    these relationships do not account for the value domains of the elements.</td>
+   </tr>
+   <tr>
+    <td>Codes</td>
+    <td>These relationships are between the allowed codes for equivalent coded elements across FHIR versions, where the coding strength is 'required' or 'extensible'.
+     Since these mappings are between 'concepts', the conceptual mappings are generally suitable for use by automated engines, and these mappings are used by the transforms.
+     Note that even for these maps, manual review will always be needed when the relationship is not 'equivalent'</td>
+   </tr>
+   <tr>
+    <td>Search Parameters</td>
+    <td>These map between search parameters across versions. Search Parameters are generally more stable than the rest of the FHIR, but even 
+    so, they may be renamed, redefined, or have a different type. The relationships defined in these mappings do not account for changes in the 
+    value domains or functionality of the search parameters, only their conceptual definition.</td>
+   </tr>
+  </table>
+
+	<a name="transforms"> </a>
+	<h4>Transforms</h4>
+  <p>
+    The implementation scope of the conversion maps is fixed: implementing a proper transform from version to version.
+  </p>
+  <p>
+    A known limitation of the transforms is that they do not produce or consume cross-version extensions, due to the 
+    fact that they were written before the rest of the content in this IG was produced. Contributions in this regard 
+    will be welcome.
+  </p>
+
+	<a name="extensions"> </a>
+	<h4>Extensions</h4>
+  <p>
+  Cross version extensions. The extensions are derived from the definitions above. 
+  Only valid extensions are defined - those that contain content not valid in other versions. 
+  See [x] for the logic pertaining to which FHIR elements across the versions are considered 
+  to be valid cross-version extensions. 
+  </p>
+  <p>
+  The cross version extensions are defined in this single publication that contains all of them,
+  which version they are valid for; these definitions are found in the package <code>hl7.fhir.uv.xver</code>.
+  In addition, this publication also produces the following additional packages:
+  </p>
+  <ul>
+   <li><code>hl7.fhir.uv.xver.r2</code>: All the extensions valid to use against R2, in R2 format</li>
+   <li><code>hl7.fhir.uv.xver.r3</code>: All the extensions valid to use against R3, in R3 format</li>
+   <li><code>hl7.fhir.uv.xver.r4</code> All the extensions valid to use against R4, in R4 format</li>
+   <li><code>hl7.fhir.uv.xver.r4b</code> All the extensions valid to use against R4B, in R4B format</li>
+   <li><code>hl7.fhir.uv.xver.r5</code> All the extensions valid to use against R5, in R5 format</li>
+  </ul>
+  <p>
+  </p>
+
+	<a name="ip"> </a>
+	<h3>Intellectual Property Considerations</h3>
+	<p>
+    This implementation guide and the underlying FHIR specification are licensed as public domain under the <a href="{{site.data.fhir.path}}license.html#license">FHIR license</a>.  The
+    license page also describes rules for the use of the FHIR name and logo.
+  </p>
+  <p>    
+    This guide includes content that references external IP such as from LOINC and SNOMED CT that have more restrictive licensing requirements.  
+    Implementers should make themselves familiar with licensing and any other constraints of terminologies used as part of their implementation process.  
+    In some cases, licensing requirements may limit the systems that data captured using certain codes may be shared with.
+  </p>
+  {% include ip-statements.xhtml %}
+  
+<div style="display: none">
+  <a name="igs"> </a>
+  <h3>Dependencies</h3>
+  <p>
+    This IG depends on the following additional IGs:
+  </p>
+  
+  {%include dependency-table-short.xhtml %}
+
+
+  {%include globals-table.xhtml %}
+</div>
+
+</div>

@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-DATE-TIME",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_date_time_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME",
+  "version" : "1.1.0",
+  "name" : "DV_DATE_TIME",
+  "title" : "DV_DATE_TIME",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. Used for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a HISTORY in an OBSERVATION which is only partially known.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_DATE_TIME",
+      "short" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601",
+      "definition" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. Used for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a HISTORY in an OBSERVATION which is only partially known.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_DATE_TIME.value",
+      "short" : "ISO8601 date string",
+      "definition" : "ISO8601 date string.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

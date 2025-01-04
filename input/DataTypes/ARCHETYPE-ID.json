@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ARCHETYPE-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_archetype_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ARCHETYPE-ID",
+  "version" : "1.1.0",
+  "name" : "ARCHETYPE_ID",
+  "title" : "ARCHETYPE_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Identifier for archetypes. Ideally these would identify globally unique archetypes. Lexical form: rm_originator '-' rm_name '-' rm_entity '.' concept_name { '-' specialisation }* '.v' number.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ARCHETYPE_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OBJECT-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ARCHETYPE_ID",
+      "short" : "Identifier for archetypes. Ideally these would identify globally unique archetypes",
+      "definition" : "Identifier for archetypes. Ideally these would identify globally unique archetypes. Lexical form: rm_originator '-' rm_name '-' rm_entity '.' concept_name { '-' specialisation }* '.v' number.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

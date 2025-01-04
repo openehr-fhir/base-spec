@@ -1,0 +1,32 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "character-sets",
+  "url" : "https://specifications.openehr.org/fhir/codesystem-character_sets",
+  "version" : "3.1.0",
+  "name" : "character_sets",
+  "title" : "Character Set",
+  "description" : "Character Set",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "caseSensitive" : true,
+  "valueSet" : "https://specifications.openehr.org/fhir/valueset-character-sets",
+  "content" : "complete",
+  "concept" : [
+    { "code" : "ISO-10646-UTF-1" },
+    { "code" : "ISO_8859-1:1987" },
+    { "code" : "ISO-8859-2" },
+    { "code" : "ISO_8859-3:1988" },
+    { "code" : "ISO-8859-15" },
+    { "code" : "US-ASCII" },
+    { "code" : "UTF-7" },
+    { "code" : "UTF-8" },
+    { "code" : "UTF-16" },
+    { "code" : "UTF-16BE" },
+    { "code" : "UTF-16LE" },
+    { "code" : "UTF-32" },
+    { "code" : "UTF-32BE" },
+    { "code" : "UTF-32LE" }
+  ]
+}

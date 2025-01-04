@@ -1,0 +1,75 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ELEMENT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_element_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
+  "version" : "1.1.0",
+  "name" : "ELEMENT",
+  "title" : "ELEMENT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The leaf variant of ITEM, to which a DATA_VALUE instance is attached.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ELEMENT",
+      "short" : "The leaf variant of ITEM, to which a DATA_VALUE instance is attached",
+      "definition" : "The leaf variant of ITEM, to which a DATA_VALUE instance is attached.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "ELEMENT.null_flavour",
+      "short" : "Flavour of null value, e.g. 253|unknown|, 271|no information|, 272|masked|, and 273|not applicable|",
+      "definition" : "Flavour of null value, e.g. 253|unknown|, 271|no information|, 272|masked|, and 273|not applicable|.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-null_flavours"
+      }
+
+    },{
+      "path" : "ELEMENT.value",
+      "short" : "Property representing leaf value object of ELEMENT (any concrete subtype of DATA_VALUE)",
+      "definition" : "Property representing leaf value object of ELEMENT. In real data, any concrete subtype of DATA_VALUE can be used.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "ELEMENT.null_reason",
+      "short" : "Optional specific reason for null value; if set, null_flavour must be set",
+      "definition" : "Optional specific reason for null value; if set, null_flavour must be set. Null reason may apply only to a minority of clinical data, commonly needed in reporting contexts.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

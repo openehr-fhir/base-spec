@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="territories"/>
+  <url value="https://specifications.openehr.org/fhir/valueset-territories"/>
+  <version value="3.1.0"/>
+  <name value="territories"/>
+  <title value="Territories"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://specifications.openehr.org/releases/TERM/Release-3.1.0"/>
+    </telecom>
+  </contact>
+  <description value="Territories"/>
+  <compose>
+    <include>
+      <system value="urn:iso:std:iso:3166"/>
+    </include>
+  </compose>
+</ValueSet>

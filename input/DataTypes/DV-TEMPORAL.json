@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-TEMPORAL",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_temporal_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "version" : "1.1.0",
+  "name" : "DV_TEMPORAL",
+  "title" : "DV_TEMPORAL",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is DV_DURATION.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_TEMPORAL",
+      "short" : "Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is DV_DURATION",
+      "definition" : "Specialised temporal variant of DV_ABSOLUTE_QUANTITY whose diff type is DV_DURATION.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_TEMPORAL.accuracy",
+      "short" : "Time accuracy, expressed as a duration",
+      "definition" : "Time accuracy, expressed as a duration.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

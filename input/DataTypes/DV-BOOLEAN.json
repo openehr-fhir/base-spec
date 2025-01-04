@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-BOOLEAN",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_boolean_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-BOOLEAN",
+  "version" : "1.1.0",
+  "name" : "DV_BOOLEAN",
+  "title" : "DV_BOOLEAN",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Items which are truly boolean data, such as true/false or yes/no answers. For such data, it is important to devise the meanings (usually questions in subjective data) carefully, so that the only allowed results are in fact true or false.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_BOOLEAN",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_BOOLEAN",
+      "short" : "Items which are truly boolean data",
+      "definition" : "Items which are truly boolean data, such as true/false or yes/no answers. For such data, it is important to devise the meanings (usually questions in subjective data) carefully, so that the only allowed results are in fact true or false.",
+      "comment" : "Misuse: The DV_BOOLEAN class should not be used as a replacement for naively modelled enumerated types such as male/female etc. Such values should be coded, and in any case the enumeration often has more than two values.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_BOOLEAN.value",
+      "short" : "Boolean value of this item",
+      "definition" : "Boolean value of this item. Actual values may be language or implementation dependent.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

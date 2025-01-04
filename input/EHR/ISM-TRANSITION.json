@@ -1,0 +1,88 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ISM-TRANSITION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ism_transition_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ISM-TRANSITION",
+  "version" : "1.1.0",
+  "name" : "ISM_TRANSITION",
+  "title" : "ISM_TRANSITION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ISM_TRANSITION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ISM_TRANSITION",
+      "short" : "Model of a transition in the Instruction State Machine, caused by a careflow step",
+      "definition" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ISM_TRANSITION.current_state",
+      "short" : "The ISM current state. Coded by openEHR terminology group Instruction states",
+      "definition" : "The ISM current state. Coded by openEHR terminology group Instruction states.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-instruction_states"
+      }
+    }, {
+      "path" : "ISM_TRANSITION.transition",
+      "short" : "The ISM transition which occurred to arrive in the current_state",
+      "definition" : "The ISM transition which occurred to arrive in the current_state. Coded by openEHR terminology group Instruction transitions.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-instruction_transitions"
+      }
+    }, {
+      "path" : "ISM_TRANSITION.careflow_step",
+      "short" : "The step in the careflow process which occurred as part of generating this action",
+      "definition" : "The step in the careflow process which occurred as part of generating this action, e.g. dispense , start_administration. This attribute represents the clinical label for the activity, as opposed to current_state which represents the state machine (ISM) computable form. Defined in archetype.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }]
+    }, {
+      "path" : "ISM_TRANSITION.reason",
+      "short" : "Optional possibility of adding one or more reasons for this careflow step having been taken",
+      "definition" : "Optional possibility of adding one or more reasons for this careflow step having been taken. Multiple reasons may occur in medication management for example.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }]
+    }]
+  }
+}

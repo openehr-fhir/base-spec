@@ -1,0 +1,109 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ENTRY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_entry_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
+  "version" : "1.1.0",
+  "name" : "ENTRY",
+  "title" : "ENTRY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The abstract parent of all ENTRY subtypes. An ENTRY is the root of a logical item of hard clinical information created in the clinical statement context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition. An ENTRY is also the minimal unit of information any query should return, since a whole ENTRY (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ENTRY",
+      "short" : "The abstract parent of all ENTRY subtypes",
+      "definition" : "The abstract parent of all ENTRY subtypes. An ENTRY is the root of a logical item of hard clinical information created in the clinical statement context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition.",
+      "comment" : "An ENTRY is also the minimal unit of information any query should return, since a whole ENTRY (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ENTRY.language",
+      "short" : "Mandatory indicator of the localised language in which this Entry is written. Coded from openEHR Code Set languages",
+      "definition" : "Mandatory indicator of the localised language in which this Entry is written. Coded from openEHR Code Set languages.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/all-languages"
+      }
+    }, {
+      "path" : "ENTRY.encoding",
+      "short" : "Name of character set in which text values in this Entry are encoded",
+      "definition" : "Name of character set in which text values in this Entry are encoded. Coded from openEHR Code Set character sets.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-character_sets"
+      }
+    }, {
+      "path" : "ENTRY.other_participations",
+      "short" : "Other participations at ENTRY level",
+      "definition" : "Other participations at ENTRY level.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION"
+      }]
+    }, {
+      "path" : "ENTRY.workflow_id",
+      "short" : "Identifier of externally held workflow engine data for this workflow execution, for this subject of care",
+      "definition" : "Identifier of externally held workflow engine data for this workflow execution, for this subject of care.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+      }]
+    }, {
+      "path" : "ENTRY.subject",
+      "short" : "Id of human subject of this ENTRY, e.g. organ donor, foetus, a family member, or another clinically relevant person",
+      "definition" : "Id of human subject of this ENTRY, e.g.:\r\n\r\n* organ donor\r\n* foetus\r\n* a family member\r\n* another clinically relevant person",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }]
+    }, {
+      "path" : "ENTRY.provider",
+      "short" : "Optional identification of provider of the information in this ENTRY, which might be the patient, a patient agent, the clinician, a device",
+      "definition" : "Optional identification of provider of the information in this ENTRY, which might be:\r\n\r\n* the patient\r\n* a patient agent, e.g. parent, guardian\r\n* the clinician\r\n* a device or software\r\n\r\n\r\nGenerally only used when the recorder needs to make it explicit. Otherwise, Composition composer and other participants are assumed.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }]
+    }]
+  }
+}

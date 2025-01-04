@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "SECTION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_section_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/SECTION",
+  "version" : "1.1.0",
+  "name" : "SECTION",
+  "title" : "SECTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Represents a heading in a heading structure, or section tree. Created according to archetyped structures for typical headings such as SOAP, physical examination, but also pathology result heading structures. Should not be used instead of ENTRY hierarchical structures.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/SECTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "SECTION",
+      "short" : "Represents a heading in a heading structure, or section tree",
+      "definition" : "Represents a heading in a heading structure, or section tree. Created according to archetyped structures for typical headings such as SOAP, physical examination, but also pathology result heading structures. Should not be used instead of ENTRY hierarchical structures.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "SECTION.items",
+      "short" : "Ordered list of content items under this section, which may include more SECTIONs or ENTRYs",
+      "definition" : "Ordered list of content items under this section, which may include: more SECTIONs; ENTRYs.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM"
+      }]
+    }]
+  }
+}

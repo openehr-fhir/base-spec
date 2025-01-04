@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-AMOUNT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_amount_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "version" : "1.1.0",
+  "name" : "DV_AMOUNT",
+  "title" : "DV_AMOUNT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract class defining the concept of relative quantified 'amounts'. For relative quantities, the + and - operators are defined (unlike descendants of DV_ABSOLUTE_QUANTITY, such as the date/time types).",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_AMOUNT",
+      "short" : "Abstract class defining the concept of relative quantified 'amounts'",
+      "definition" : "Abstract class defining the concept of relative quantified 'amounts'. For relative quantities, the + and - operators are defined (unlike descendants of DV_ABSOLUTE_QUANTITY, such as the date/time types).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_AMOUNT.accuracy_is_percent",
+      "short" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value",
+      "definition" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_AMOUNT.accuracy",
+      "short" : "Accuracy of measurement, expressed either as a half-range percent value (accuracy_is_percent = True) or a half-range quantity",
+      "definition" : "Accuracy of measurement, expressed either as a half-range percent value (accuracy_is_percent = True) or a half-range quantity. A value of 0 means that accuracy is 100%, i.e. no error.\r\n\r\nA value of unknown_accuracy_value means that accuracy was not recorded.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

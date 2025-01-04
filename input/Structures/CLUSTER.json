@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CLUSTER",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_cluster_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CLUSTER",
+  "version" : "1.1.0",
+  "name" : "CLUSTER",
+  "title" : "CLUSTER",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CLUSTER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CLUSTER",
+      "short" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list",
+      "definition" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "CLUSTER.items",
+      "short" : "Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER",
+      "definition" : "Ordered list of items - CLUSTER or ELEMENT objects - under this CLUSTER.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM"
+      }],
+      "isModifier" : false
+    }
+]
+  }
+}

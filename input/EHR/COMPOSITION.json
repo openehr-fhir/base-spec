@@ -1,0 +1,113 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "COMPOSITION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_composition_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/COMPOSITION",
+  "version" : "1.1.0",
+  "name" : "COMPOSITION",
+  "title" : "COMPOSITION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Content of one version in a VERSIONED_COMPOSITION. A Composition is considered the unit of modification of the record, the unit of transmission in record Extracts, and the unit of attestation by authorising clinicians. In this latter sense, it may be considered equivalent to a signed document. NOTE: It is strongly recommended that the inherited attribute uid be populated in Compositions, using the UID copied from the object_id() of the uid field of the enclosing VERSION object. For example, the ORIGINAL_VERSION.uid 87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2 would be copied to the uid field of the Composition.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/COMPOSITION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "COMPOSITION",
+      "short" : "One version in a VERSIONED_COMPOSITION: the unit of modification of the record, the unit of transmission in record Extracts, and the unit of attestation by authorising clinicians",
+      "definition" : "Content of one version in a VERSIONED_COMPOSITION. A Composition is considered the unit of modification of the record, the unit of transmission in record Extracts, and the unit of attestation by authorising clinicians. In this latter sense, it may be considered equivalent to a signed document.",
+      "comment" : "NOTE: It is strongly recommended that the inherited attribute uid be populated in Compositions, using the UID copied from the object_id() of the uid field of the enclosing VERSION object. For example, the ORIGINAL_VERSION.uid 87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2 would be copied to the uid field of the Composition.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "COMPOSITION.language",
+      "short" : "Mandatory indicator of the localised language in which this Composition is written. Coded from openEHR Code Set languages",
+      "definition" : "Mandatory indicator of the localised language in which this Composition is written. Coded from openEHR Code Set languages. The language of an Entry if different from the Composition is indicated in ENTRY.language.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/all-languages"
+      }
+    }, {
+      "path" : "COMPOSITION.territory",
+      "short" : "Name of territory in which this Composition was written. Coded from the ISO 3166 standard",
+      "definition" : "Name of territory in which this Composition was written. Coded from openEHR countries code set, which is an expression of the ISO 3166 standard.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-territories"
+      }
+    }, {
+      "path" : "COMPOSITION.category",
+      "short" : "Temporal category of this Composition, e.g. * 431|persistent|, 451|episodic|, or 433|event|",
+      "definition" : "Temporal category of this Composition, i.e.\r\n\r\n* 431|persistent| - of potential life-time validity;* 451|episodic| - valid over the life of a care episode;* 433|event| - valid at the time of recording (long-term validity requires subsequent clinical assessment).\r\n\r\nor any other code defined in the openEHR terminology group 'category'.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-composition_category"
+      }
+    }, {
+      "path" : "COMPOSITION.context",
+      "short" : "The clinical session context of this Composition, i.e. the contextual attributes of the clinical session",
+      "definition" : "The clinical session context of this Composition, i.e. the contextual attributes of the clinical session.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EVENT-CONTEXT"
+      }]
+    }, {
+      "path" : "COMPOSITION.composer",
+      "short" : "The person primarily responsible for the content of the Composition. This is the identifier which should appear on the screen",
+      "definition" : "The person primarily responsible for the content of the Composition (but not necessarily its committal into the EHR system). This is the identifier which should appear on the screen. It may or may not be the person who entered the data. When it is the patient, the special self instance of PARTY_PROXY will be used.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }]
+    }, {
+      "path" : "COMPOSITION.content",
+      "short" : "The content of this Composition",
+      "definition" : "The content of this Composition.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM"
+      }]
+    }]
+  }
+}

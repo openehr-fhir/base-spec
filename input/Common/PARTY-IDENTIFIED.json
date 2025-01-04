@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY-IDENTIFIED",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_party_identified_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED",
+  "version" : "1.1.0",
+  "name" : "PARTY_IDENTIFIED",
+  "title" : "PARTY_IDENTIFIED",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Proxy data for an identified party other than the subject of the record, minimally consisting of human-readable identifier(s), such as name, formal (and possibly computable) identifiers such as NHS number, and an optional link to external data. There must be at least one of name, identifier or external_ref present. Used to describe parties where only identifiers may be known, and there is no entry at all in the demographic system (or even no demographic system). Typically for health care providers, e.g. name and provider number of an institution. Should not be used to include patient identifying information.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY_IDENTIFIED",
+      "short" : "Proxy data for an identified party other than the subject of the record",
+      "definition" : "Proxy data for an identified party other than the subject of the record, minimally consisting of human-readable identifier(s), such as name, formal (and possibly computable) identifiers such as NHS number, and an optional link to external data. There must be at least one of name, identifier or external_ref present.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "PARTY_IDENTIFIED.name",
+      "short" : "Optional human-readable name",
+      "definition" : "Optional human-readable name (in String form).",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "PARTY_IDENTIFIED.identifiers",
+      "short" : "One or more formal identifiers (possibly computable)",
+      "definition" : "One or more formal identifiers (possibly computable).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-IDENTIFIER"
+      }]
+    }]
+  }
+}

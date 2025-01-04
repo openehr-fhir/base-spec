@@ -1,0 +1,91 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_party_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "version" : "1.1.0",
+  "name" : "PARTY",
+  "title" : "PARTY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Ancestor of all Party types, including real world entities and their roles. A Party is any entity which can participate in an activity. The name attribute inherited from LOCATABLE is used to indicate the actual type of party (note that the actual names, i.e. identities of parties are indicated in the identities attribute, not the name attribute).",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY",
+      "short" : "Ancestor of all Party types, including real world entities and their roles",
+      "definition" : "Ancestor of all Party types, including real world entities and their roles. A Party is any entity which can participate in an activity. The name attribute inherited from LOCATABLE is used to indicate the actual type of party (note that the actual names, i.e. identities of parties are indicated in the identities attribute, not the name attribute).",
+      "comment" : "It is strongly recommended that the inherited attribute uid be populated in PARTY objects, using the UID copied from the object_id() of the uid field of the enclosing VERSION object. For example, the ORIGINAL_VERSION.uid 87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2 would be copied to the uid field of the PARTY object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "PARTY.identities",
+      "short" : "Identities used by the party to identify itself, such as legal name, stage names, aliases, nicknames and so on",
+      "definition" : "Identities used by the party to identify itself, such as legal name, stage names, aliases, nicknames and so on.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTITY"
+      }]
+    }, {
+      "path" : "PARTY.contacts",
+      "short" : "Contacts for this party",
+      "definition" : "Contacts for this party.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTACT"
+      }]
+    }, {
+      "path" : "PARTY.details",
+      "short" : "All other details for this Party",
+      "definition" : "All other details for this Party.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }]
+    }, {
+      "path" : "PARTY.reverse_relationships",
+      "short" : "References to relationships in which this Party takes part as target",
+      "definition" : "References to relationships in which this Party takes part as target.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE-REF"
+      }]
+    }, {
+      "path" : "PARTY.relationships",
+      "short" : "Relationships in which this Party takes part as source",
+      "definition" : "Relationships in which this Party takes part as source.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP"
+      }]
+    }]
+  }
+}

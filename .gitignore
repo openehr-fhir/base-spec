@@ -1,0 +1,44 @@
+# Temporary folders #
+#####################
+temp
+template
+output
+fsh-generated
+
+# Don't commit this because it's so large #
+###########################################
+/input-cache/org.hl7.fhir.publisher.jar
+/input-cache/publisher.jar
+
+# Windows generated files #
+###########################
+Thumbs.db
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+
+# backup files #
+################
+*.bak
+
+input-cache/schemas/R4/
+
+input-cache/schemas/R5/
+
+input-cache/txcache/
+input-cache
+_gencontinuous.bat
+_gencontinuous.bat
+_gencontinuous.sh
+_gencontinuous.sh
+_updatePublisher.bat
+_updatePublisher.bat
+_updatePublisher.sh
+_updatePublisher.sh
+_updatePublisher.sh
+_genonce.sh
+/FHIR-tools.xml
+
+translations/

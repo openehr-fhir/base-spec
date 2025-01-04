@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-DATE",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_date_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DATE",
+  "version" : "1.1.0",
+  "name" : "DV_DATE",
+  "title" : "DV_DATE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_DATE",
+      "short" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day",
+      "definition" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_DATE.value",
+      "short" : "ISO8601 date string",
+      "definition" : "ISO8601 date string.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "dateTime"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

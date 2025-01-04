@@ -1,0 +1,84 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "INTERVAL-EVENT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_interval_event_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension": [{
+      "url" : "name",
+      "valueCode" : "T"
+    }, {
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL-EVENT",
+  "version" : "1.1.0",
+  "name" : "INTERVAL_EVENT",
+  "title" : "INTERVAL_EVENT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines a single interval event in a series.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/INTERVAL_EVENT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EVENT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "INTERVAL_EVENT",
+      "short" : "Defines a single interval event in a series",
+      "definition" : "Defines a single interval event in a series.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "INTERVAL_EVENT.width",
+      "short" : "Duration of the time interval during which the values recorded under data are true",
+      "definition" : "Duration of the time interval during which the values recorded under data are true and, if set, the values recorded under state are true. Void if an instantaneous event.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "INTERVAL_EVENT.sample_count",
+      "short" : "Optional count of original samples to which this event corresponds",
+      "definition" : "Optional count of original samples to which this event corresponds.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "INTERVAL_EVENT.math_function",
+      "short" : "Mathematical function of the data of this event",
+      "definition" : "Mathematical function of the data of this event, e.g. maximum, mean etc. Coded using openEHR vocabulary event math function. Default value 640|actual|, meaning 'actual value'.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-event_math_function"
+      }
+
+    }]
+  }
+}

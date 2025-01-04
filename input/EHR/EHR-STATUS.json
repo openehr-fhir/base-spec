@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EHR-STATUS",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_status_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/EHR-STATUS",
+  "version" : "1.1.0",
+  "name" : "EHR_STATUS",
+  "title" : "EHR_STATUS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Single object per EHR containing various EHR-wide status flags and settings, including whether this EHR can be queried, modified etc. This object is always modifiable, in order to change the status of the EHR as a whole.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EHR_STATUS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EHR_STATUS",
+      "short" : "Single object per EHR containing various EHR-wide status flags and settings, including whether this EHR can be queried, modified etc",
+      "definition" : "Single object per EHR containing various EHR-wide status flags and settings, including whether this EHR can be queried, modified etc. This object is always modifiable, in order to change the status of the EHR as a whole.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "EHR_STATUS.subject",
+      "short" : "The subject of this EHR. The external_ref attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons",
+      "definition" : "The subject of this EHR. The external_ref attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-SELF"
+      }]
+    }, {
+      "path" : "EHR_STATUS.is_queryable",
+      "short" : "True if this EHR should be included in population queries, i.e. if this EHR is considered active in the population",
+      "definition" : "True if this EHR should be included in population queries, i.e. if this EHR is considered active in the population.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }, {
+      "path" : "EHR_STATUS.is_modifiable",
+      "short" : "True if the EHR, other than the EHR_STATUS object, is allowed to be written to. The EHR_STATUS object itself can always be written to",
+      "definition" : "True if the EHR, other than the EHR_STATUS object, is allowed to be written to. The EHR_STATUS object itself can always be written to.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }, {
+      "path" : "EHR_STATUS.other_details",
+      "short" : "Any other details of the EHR summary object, in the form of an archetyped ITEM_STRUCTURE",
+      "definition" : "Any other details of the EHR summary object, in the form of an archetyped ITEM_STRUCTURE.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }]
+    }]
+  }
+}

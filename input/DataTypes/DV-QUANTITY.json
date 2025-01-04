@@ -1,0 +1,131 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-QUANTITY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_quantity_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTITY",
+  "version" : "1.1.0",
+  "name" : "DV_QUANTITY",
+  "title" : "DV_QUANTITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Quantitified type representing scientific quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (Unified Code for Units of Measure (UCUM), by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute) (case-sensitive form) by default, or another system if units_system is set.\r\n\r\nCan also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, DV_DURATION may be used).",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_QUANTITY",
+      "short" : "Quantitified type representing scientific quantities, i.e. quantities expressed as a magnitude and units",
+      "definition" : "Quantitified type representing scientific quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (Unified Code for Units of Measure (UCUM), by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute) (case-sensitive form) by default, or another system if units_system is set.\r\n\r\nCan also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, DV_DURATION may be used).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.magnitude",
+      "short" : "Numeric magnitude of the quantity",
+      "definition" : "Numeric magnitude of the quantity.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.precision",
+      "short" : "Precision to which the value of the quantity is expressed, in terms of number of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places",
+      "definition" : "Precision to which the value of the quantity is expressed, in terms of number of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.units",
+      "short" : "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in units_system, when set",
+      "definition" : "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in units_system, when set.\r\n\r\nIn either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.\r\n\r\nIf the units_display_name field is set, this may be used for display. If not, the implementations must effect the resolution of the units value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.\r\n\r\n\r\nExample values from UCUM: 'kg/m^2', 'mm[Hg]', 'ms-1', 'km/h'",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.units_system",
+      "short" : "URI identifying a terminology containing units concepts (from the FHIR terminologies list). UCUM is default",
+      "definition" : "Optional field used to specify a units system from which codes in units are defined. Value is a URI identifying a terminology containing units concepts from the (HL7 FHIR terminologies list).\r\n\r\nIf not set, the UCUM standard (case-sensitive codes) is assumed as the units system.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.units_display_name",
+      "short" : "Optional field containing the displayable form of the units field, e.g. '°C'",
+      "definition" : "Optional field containing the displayable form of the units field, e.g. '°C'.\r\n\r\nIf not set, the application environment needs to determine the displayable form.",
+      "comment" : "The display name may be language-dependent for various older and non-systematic units. For this reason, it is not recommended to add unit display names to archetypes, only to templates (for localisation purposes).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.normal_range",
+      "short" : "Optional normal range",
+      "definition" : "Optional normal range.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-PROPORTION"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_QUANTITY.other_reference_ranges",
+      "short" : "Optional tagged other reference ranges for this value in its particular measurement context",
+      "definition" : "Optional tagged other reference ranges for this value in its particular measurement context.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-PROPORTION"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    }]
+  }
+}

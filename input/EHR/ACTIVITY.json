@@ -1,0 +1,71 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACTIVITY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_activity_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY",
+  "version" : "1.1.0",
+  "name" : "ACTIVITY",
+  "title" : "ACTIVITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Used to specify actions in the future. Enables simple and complex specifications to be expressed, including in a fully-computable workflow form. Used for any actionable statement such as medication and therapeutic orders, monitoring, recall and review. Enough details must be provided for the specification to be directly executed by an actor, either human or machine. Not to be used for plan items which are only specified in general terms.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACTIVITY",
+      "short" : "Defines a single activity within an Instruction, such as a medication administration",
+      "definition" : "Defines a single activity within an Instruction, such as a medication administration.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ACTIVITY.timing",
+      "short" : "Timing of the activity, in the form of a parsable string",
+      "definition" : "Timing of the activity, in the form of a parsable string. If used, the preferred syntax is ISO8601 'R' format, but other formats may be used including HL7 GTS.",
+      "comment" : "May be omitted if: timing is represented structurally in the description attribute (e.g. via archetyped elements), or unavailable, e.g. imported legacy data; in such cases, the INSTRUCTION.narrative should carry text that indicates the timing of its activities.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+      }]
+    }, {
+      "path" : "ACTIVITY.action_archetype_id",
+      "short" : "Perl-compliant regular expression pattern indicating the valid identifiers of archetypes for Actions corresponding to this Activity",
+      "definition" : "Perl-compliant regular expression pattern, enclosed in '//' delimiters, indicating the valid identifiers of archetypes for Actions corresponding to this Activity specification. Defaults to /.*/, meaning any archetype.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "ACTIVITY.description",
+      "short" : "Description of the activity, in the form of an archetyped structure",
+      "definition" : "Description of the activity, in the form of an archetyped structure.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }]
+    }]
+  }
+}

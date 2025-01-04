@@ -1,0 +1,120 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "RESOURCE-DESCRIPTION-ITEM",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_resource_description_item_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/RESOURCE-DESCRIPTION-ITEM",
+  "version" : "1.1.0",
+  "name" : "RESOURCE_DESCRIPTION_ITEM",
+  "title" : "RESOURCE_DESCRIPTION_ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Language-specific detail of resource description. When a resource is translated for use in another language environment, each RESOURCE_DESCRIPTION_ITEM needs to be copied and translated into the new language.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/RESOURCE_DESCRIPTION_ITEM",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "RESOURCE_DESCRIPTION_ITEM",
+      "short" : "Language-specific detail of resource description",
+      "definition" : "Language-specific detail of resource description. When a resource is translated for use in another language environment, each RESOURCE_DESCRIPTION_ITEM needs to be copied and translated into the new language.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.language",
+      "short" : "The localised language in which the items in this description item are written",
+      "definition" : "The localised language in which the items in this description item are written. Coded from openEHR code set languages.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.purpose",
+      "short" : "Purpose of the resource",
+      "definition" : "Purpose of the resource.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.keywords",
+      "short" : "Keywords which characterise this resource, used e.g. for indexing and searching",
+      "definition" : "Keywords which characterise this resource, used e.g. for indexing and searching.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.use",
+      "short" : "Description of the uses of the resource, i.e. contexts in which it could be used",
+      "definition" : "Description of the uses of the resource, i.e. contexts in which it could be used.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.misuse",
+      "short" : "Description of any misuses of the resource, i.e. contexts in which it should not be used",
+      "definition" : "Description of any misuses of the resource, i.e. contexts in which it should not be used.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.copyright",
+      "short" : "Optional copyright statement for the resource as a knowledge resource",
+      "definition" : "Optional copyright statement for the resource as a knowledge resource.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.original_resource_uri",
+      "short" : "URIs of original clinical document(s) or description of which resource is a formalisation",
+      "definition" : "URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "RESOURCE_DESCRIPTION_ITEM.other_details",
+      "short" : "Additional language-senstive resource metadata, as a list of name/value pairs",
+      "definition" : "Additional language-senstive resource metadata, as a list of name/value pairs.",
+      "min" : 1,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

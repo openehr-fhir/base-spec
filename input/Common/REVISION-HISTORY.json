@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "REVISION-HISTORY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_revision_history_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY",
+  "version" : "1.1.0",
+  "name" : "REVISION_HISTORY",
+  "title" : "REVISION_HISTORY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "REVISION_HISTORY",
+      "short" : "Defines the notion of a revision history of audit items",
+      "definition" : "Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "REVISION_HISTORY.most_recent_version",
+      "short" : "The version id of the most recent item, as a String",
+      "definition" : "The version id of the most recent item, as a String.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }, {
+      "path" : "REVISION_HISTORY.most_recent_version_time_committed",
+      "short" : "The commit date/time of the most recent item, as a String",
+      "definition" : "The commit date/time of the most recent item, as a String.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

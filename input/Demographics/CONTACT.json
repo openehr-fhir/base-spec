@@ -1,0 +1,70 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CONTACT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_contact_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CONTACT",
+  "version" : "1.1.0",
+  "name" : "CONTACT",
+  "title" : "CONTACT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Description of a means of contact of a Party. Actual structure is archetyped.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CONTACT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CONTACT",
+      "short" : "Description of a means of contact of a Party. Actual structure is archetyped",
+      "definition" : "Description of a means of contact of a Party. Actual structure is archetyped.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "CONTACT.addresses",
+      "short" : "A set of address alternatives for this contact purpose and time validity combination",
+      "definition" : "A set of address alternatives for this contact purpose and time validity combination.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ADDRESS"
+      }]
+    }, {
+      "path" : "CONTACT.time_validity",
+      "short" : "Valid time interval for this contact descriptor",
+      "definition" : "Valid time interval for this contact descriptor.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-DATE"
+          }]
+        }]
+      }]
+    }]
+  }
+}

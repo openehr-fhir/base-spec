@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TEMPLATE-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_template_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/TEMPLATE-ID",
+  "version" : "1.1.0",
+  "name" : "TEMPLATE_ID",
+  "title" : "TEMPLATE_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Identifier for templates. Lexical form to be determined.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/TEMPLATE_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OBJECT-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "TEMPLATE_ID",
+      "short" : "Identifier for templates",
+      "definition" : "Identifier for templates. Lexical form to be determined.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

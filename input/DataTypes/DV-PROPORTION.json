@@ -1,0 +1,125 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-PROPORTION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_proportion_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-PROPORTION",
+  "version" : "1.1.0",
+  "name" : "DV_PROPORTION",
+  "title" : "DV_PROPORTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_PROPORTION",
+      "short" : "Countable quantities. Used for countable types",
+      "definition" : "Countable quantities. Used for countable types such as pregnancies and steps (taken by a physiotherapy patient), number of cigarettes smoked in a day.",
+      "comment" : "Misuse: Not to be used for amounts of physical entities (which all have units).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.numerator",
+      "short" : "Numerator of ratio",
+      "definition" : "Numerator of ratio.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.denominator",
+      "short" : "Denominator of ratio",
+      "definition" : "Denominator of ratio.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.type",
+      "short" : "Indicates semantic type of proportion, including percent, unitary etc",
+      "definition" : "Indicates semantic type of proportion, including percent, unitary etc.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-proportion_kind"
+      },
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.precision",
+      "short" : "Precision to which the numerator and denominator values of the proportion are expressed, in terms of number of decimal places",
+      "definition" : "Precision to which the numerator and denominator values of the proportion are expressed, in terms of number of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.normal_range",
+      "short" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value",
+      "definition" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-PROPORTION"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_PROPORTION.other_reference_ranges",
+      "short" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value",
+      "definition" : "If True, indicates that when this object was created, accuracy was recorded as a percent value; if False, as an absolute quantity value.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-PROPORTION"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    }]
+  }
+}

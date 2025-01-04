@@ -1,0 +1,95 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-ORDERED",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_ordered_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "version" : "1.1.0",
+  "name" : "DV_ORDERED",
+  "title" : "DV_ORDERED",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions < and is_strictly_comparable_to(), the latter of which must evaluate to True for instances being compared with the < function, or used as limits in the DV_INTERVAL<T> class",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_ORDERED",
+      "short" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities",
+      "definition" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions < and is_strictly_comparable_to(), the latter of which must evaluate to True for instances being compared with the < function, or used as limits in the DV_INTERVAL<T> class.",
+      "comment" : "Data value types which are to be used as limits in the DV_INTERVAL<T> class must inherit from this class, and implement the function is_strictly_comparable_to() to ensure that instances compare meaningfully. For example, instances of DV_QUANTITY can only be compared if they measure the same kind of physical quantity.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_ORDERED.normal_status",
+      "short" : "Optional normal status indicator of value with respect to normal range for this value",
+      "definition" : "Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group normal_status.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-normal_statuses"
+      }
+    },{
+      "path" : "DV_ORDERED.normal_range",
+      "short" : "Optional normal range",
+      "definition" : "Optional normal range.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    },{
+      "path" : "DV_ORDERED.other_reference_ranges",
+      "short" : "Optional tagged other reference ranges for this value in its particular measurement context",
+      "definition" : "Optional tagged other reference ranges for this value in its particular measurement context.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    }]
+  }
+}

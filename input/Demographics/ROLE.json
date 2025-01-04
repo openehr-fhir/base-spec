@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ROLE",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_role_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ROLE",
+  "version" : "1.1.0",
+  "name" : "ROLE",
+  "title" : "ROLE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ROLE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ROLE",
+      "short" : "Generic description of a role performed by an Actor. Roles are used to define the responsibilities undertaken by a Party for a purpose",
+      "definition" : "Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ROLE.time_validity",
+      "short" : "Identities used by the ROLE to identify itself, such as legal name, stage names, aliases, nicknames and so on",
+      "definition" : "Identities used by the ROLE to identify itself, such as legal name, stage names, aliases, nicknames and so on.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-DATE"
+          }]
+        }]
+      }]
+    }, {
+      "path" : "ROLE.performer",
+      "short" : "Contacts for this ROLE",
+      "definition" : "Contacts for this ROLE.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+      }]
+    }, {
+      "path" : "ROLE.capabilities",
+      "short" : "All other details for this ROLE",
+      "definition" : "All other details for this ROLE.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CAPABILITY"
+      }]
+    }]
+  }
+}

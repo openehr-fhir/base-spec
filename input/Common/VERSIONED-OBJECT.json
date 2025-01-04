@@ -1,0 +1,79 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSIONED-OBJECT",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_versioned_object_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },{
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "version" : "1.1.0",
+  "name" : "VERSIONED_OBJECT",
+  "title" : "VERSIONED_OBJECT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Version control abstraction, defining semantics for versioning one complex object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "VERSIONED_OBJECT",
+      "short" : "Version control abstraction, defining semantics for versioning one complex object",
+      "definition" : "Version control abstraction, defining semantics for versioning one complex object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "VERSIONED_OBJECT.uid",
+      "short" : "Unique identifier of this version container in the form of a UID with no extension",
+      "definition" : "Unique identifier of this version container in the form of a UID with no extension. This id will be the same in all instances of the same container in a distributed environment, meaning that it can be understood as the uid of the virtual version tree.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+      }]
+    }, {
+      "path" : "VERSIONED_OBJECT.owner_id",
+      "short" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity",
+      "definition" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+      }]
+    }, {
+      "path" : "VERSIONED_OBJECT.time_created",
+      "short" : "Time of initial creation of this versioned object",
+      "definition" : "Time of initial creation of this versioned object.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+      }]
+    }]
+  }
+}

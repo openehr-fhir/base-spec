@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "GROUP",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_group_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/GROUP",
+  "version" : "1.1.0",
+  "name" : "GROUP",
+  "title" : "GROUP",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A group is a real world group of parties which is created by another party, usually an organisation, for some specific purpose. A typical clinical example is that of the specialist care team, e.g. cardiology team . The members of the group usually work together.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/GROUP",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "GROUP",
+      "short" : "A group is a real world group of parties which is created by another party, usually an organisation, for some specific purpose",
+      "definition" : "A group is a real world group of parties which is created by another party, usually an organisation, for some specific purpose. A typical clinical example is that of the specialist care team, e.g. cardiology team . The members of the group usually work together.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

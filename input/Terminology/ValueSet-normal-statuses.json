@@ -1,0 +1,18 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "normal-statuses",
+  "url" : "https://specifications.openehr.org/fhir/valueset-normal_statuses",
+  "version" : "3.1.0",
+  "name" : "NormalStatuses",
+  "title" : "Normal statuses",
+  "description" : "Normal statuses",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-04-11",
+  "publisher" : "http://openehr.org/",
+  "compose" : {
+    "include" : [{
+      "system" : "https://specifications.openehr.org/fhir/codesystem-normal_statuses"
+    }]
+  }
+}

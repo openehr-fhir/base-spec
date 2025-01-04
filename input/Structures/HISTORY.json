@@ -1,0 +1,109 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "HISTORY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_history_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension": [{
+      "url" : "name",
+      "valueCode" : "T"
+    }, {
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/HISTORY",
+  "version" : "1.1.0",
+  "name" : "HISTORY",
+  "title" : "HISTORY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of ITEM_STRUCTURE, ensuring that each Event in the events of a given instance is of the same structural type, i.e. ITEM_TREE, ITEM_LIST etc. For a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the EVENT.offset must be a multiple of period for each Event. Missing events in a period History are however allowed.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/HISTORY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-STRUCTURE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "HISTORY",
+      "short" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of ITEM_STRUCTURE",
+      "definition" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of ITEM_STRUCTURE, ensuring that each Event in the events of a given instance is of the same structural type, i.e. ITEM_TREE, ITEM_LIST etc. For a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the EVENT.offset must be a multiple of period for each Event. Missing events in a period History are however allowed.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "HISTORY.origin",
+      "short" : "Time origin of this event history",
+      "definition" : "Time origin of this event history. The first event is not necessarily at the origin point.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "HISTORY.period",
+      "short" : "Period between samples in this segment if periodic",
+      "definition" : "Period between samples in this segment if periodic.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "HISTORY.duration",
+      "short" : "Duration of the entire History",
+      "definition" : "Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "HISTORY.summary",
+      "short" : "Optional summary data that aggregates, organizes, reduces and transforms the event series",
+      "definition" : "Optional summary data that aggregates, organizes, reduces and transforms the event series. This may be a text or image that presents a graphical presentation, or some data that assists with the interpretation of the data",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "HISTORY.events",
+      "short" : "The events in the series",
+      "definition" : "The events in the series. This attribute is of a generic type whose parameter must be a descendant of ITEM_STRUCTURE",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EVENT",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "T"
+          }]
+        }]
+      }],
+      "isModifier" : false
+    }]
+  }
+}

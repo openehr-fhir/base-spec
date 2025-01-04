@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-GENERAL-TIME-SPECIFICATION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_general_time_specification_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-GENERAL-TIME-SPECIFICATION",
+  "version" : "1.1.0",
+  "name" : "DV_GENERAL_TIME_SPECIFICATION",
+  "title" : "DV_GENERAL_TIME_SPECIFICATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Specifies points in time in a general syntax. Based on the HL7v3 GTS data type.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_GENERAL_TIME_SPECIFICATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TIME-SPECIFICATION",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_GENERAL_TIME_SPECIFICATION",
+      "short" : "Specifies points in time in a general syntax. Based on the HL7v3 GTS data type",
+      "definition" : "Specifies points in time in a general syntax. Based on the HL7v3 GTS data type.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

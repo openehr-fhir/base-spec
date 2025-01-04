@@ -1,0 +1,52 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-DURATION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_duration_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION",
+  "version" : "1.1.0",
+  "name" : "DV_DURATION",
+  "title" : "DV_DURATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is backwards in time rather than forwards. Used for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_DURATION",
+      "short" : "A data type that represents scale values, where there is: a) implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite; d) non-integer values are allowed",
+      "definition" : "A data type that represents scale values, where there is:\r\n\r\na) implied ordering, b) no implication that the distance between each value is constant, and c) the total number of values is finite; d) non-integer values are allowed.\r\n\r\n  Example:\r\n````  \r\n  Borg CR 10 Scale\r\n  \r\n  0    No Breathlessness at all\r\n  0.5  Very Very Slight (Just Noticeable)\r\n  1    Very Slight\r\n  2    Slight Breathlessness\r\n  3    Moderate\r\n  ... etc\r\n````",
+      "comment" : "For scores that include only Integers, DV_DURATION may also be used, but DV_ORDINAL should be supported to accommodate existing data instances of that type.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_DURATION.value",
+      "short" : "ISO8601 duration string, including described deviations to support negative values and weeks",
+      "definition" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is backwards in time rather than forwards. Used for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. Misuse: Durations cannot be used to represent points in time, or intervals of time.",
+      "comment" : "Two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

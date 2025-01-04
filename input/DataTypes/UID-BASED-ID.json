@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "UID-BASED-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_uid_based_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID",
+  "version" : "1.1.0",
+  "name" : "UID_BASED_ID",
+  "title" : "UID_BASED_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract model of UID-based identifiers consisting of a root part and an optional extension; lexical form: root '::' extension",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OBJECT-ID",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "UID_BASED_ID",
+      "short" : "Abstract model of UID-based identifiers consisting of a root part and an optional extension; lexical form: root '::' extension",
+      "definition" : "Abstract model of UID-based identifiers consisting of a root part and an optional extension; lexical form: root '::' extension.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

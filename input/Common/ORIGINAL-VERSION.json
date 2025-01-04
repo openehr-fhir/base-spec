@@ -1,0 +1,123 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ORIGINAL-VERSION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_original_version_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },{
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL-VERSION",
+  "version" : "1.1.0",
+  "name" : "ORIGINAL_VERSION",
+  "title" : "ORIGINAL_VERSION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A Version containing locally created content and optional attestations.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL_VERSION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSION",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ORIGINAL_VERSION",
+      "short" : "A Version containing locally created content and optional attestations",
+      "definition" : "A Version containing locally created content and optional attestations.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ORIGINAL_VERSION.uid",
+      "short" : "Stored version of inheritance precursor",
+      "definition" : "Stored version of inheritance precursor.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+      }]
+    }, {
+      "path" : "ORIGINAL_VERSION.preceding_version_uid",
+      "short" : "Stored version of inheritance precursor",
+      "definition" : "Stored version of inheritance precursor.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+      }]
+    }, {
+      "path" : "ORIGINAL_VERSION.other_input_version_uids",
+      "short" : "Identifiers of other versions whose content was merged into this version, if any",
+      "definition" : "Identifiers of other versions whose content was merged into this version, if any.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+      }]
+    }, {
+      "path" : "ORIGINAL_VERSION.lifecycle_state",
+      "short" : "Lifecycle state of the content item in this version",
+      "definition" : "Lifecycle state of the content item in this version; coded by openEHR vocabulary version lifecycle state.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-version_lifecycle_state"
+      }
+    }, {
+      "path" : "ORIGINAL_VERSION.attestations",
+      "short" : "Set of attestations relating to this version",
+      "definition" : "Set of attestations relating to this version.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ATTESTATION"
+      }]
+    }, {
+      "path" : "ORIGINAL_VERSION.data",
+      "short" : "Data content of this Version",
+      "definition" : "Data content of this Version.",
+      "min" : 0,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/Any",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "T"
+          }]
+        }]
+      }]
+    }]
+  }
+}

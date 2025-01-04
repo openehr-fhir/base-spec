@@ -1,0 +1,50 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSION-TREE-ID",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_version_tree_id_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSION-TREE-ID",
+  "version" : "1.1.0",
+  "name" : "VERSION_TREE_ID",
+  "title" : "VERSION_TREE_ID",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Version tree identifier for one version. Lexical form: trunk_version [ '.' branch_number '.' branch_version ].",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSION_TREE_ID",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "VERSION_TREE_ID",
+      "short" : "Version tree identifier for one version",
+      "definition" : "Version tree identifier for one version. Lexical form: trunk_version [ '.' branch_number '.' branch_version ].",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "VERSION_TREE_ID.value",
+      "short" : "Version tree identifier for one version",
+      "definition" : "Version tree identifier for one version. Lexical form: trunk_version [ '.' branch_number '.' branch_version ].",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

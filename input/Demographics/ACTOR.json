@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACTOR",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_actor_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "version" : "1.1.0",
+  "name" : "ACTOR",
+  "title" : "ACTOR",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACTOR",
+      "short" : "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role",
+      "definition" : "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "ACTOR.languages",
+      "short" : "Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant)",
+      "definition" : "Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }]
+    }, {
+      "path" : "ACTOR.roles",
+      "short" : "Identifiers of the Version container for each Role played by this Party",
+      "definition" : "Identifiers of the Version container for each Role played by this Party.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+      }]
+    }]
+  }
+}

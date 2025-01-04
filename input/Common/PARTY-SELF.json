@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY-SELF",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_party_self_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-SELF",
+  "version" : "1.1.0",
+  "name" : "PARTY_SELF",
+  "title" : "PARTY_SELF",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have external_ref set.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_SELF",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY_SELF",
+      "short" : "Party proxy representing the subject of the record",
+      "definition" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have external_ref set.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

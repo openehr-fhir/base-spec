@@ -1,0 +1,48 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV-ABSOLUTE-QUANTITY",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_absolute_quantity_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "version" : "1.1.0",
+  "name" : "DV_ABSOLUTE_QUANTITY",
+  "title" : "DV_ABSOLUTE_QUANTITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract class defining the concept of quantified entities whose values are absolute with respect to an origin. Dates and Times are the main example.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_ABSOLUTE_QUANTITY",
+      "short" : "Quantitified type representing scientific quantities, i.e. quantities expressed as a magnitude and units",
+      "definition" : "Quantitified type representing scientific quantities, i.e. quantities expressed as a magnitude and units. Units are expressed in the UCUM syntax (Unified Code for Units of Measure (UCUM), by Gunther Schadow and Clement J. McDonald of The Regenstrief Institute) (case-sensitive form) by default, or another system if units_system is set.\r\n\r\nCan also be used for time durations, where it is more convenient to treat these as simply a number of seconds rather than days, months, years (in the latter case, DV_DURATION may be used).",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "DV_ABSOLUTE_QUANTITY.accuracy",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

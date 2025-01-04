@@ -1,0 +1,69 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "IMPORTED-VERSION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_imported_version_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },{
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }]
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/IMPORTED-VERSION",
+  "version" : "1.1.0",
+  "name" : "IMPORTED_VERSION",
+  "title" : "IMPORTED_VERSION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Versions whose content is an ORIGINAL_VERSION copied from another location; this class inherits commit_audit and contribution from VERSION<T>, providing imported versions with their own audit trail and Contribution, distinct from those of the imported ORIGINAL_VERSION.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/IMPORTED_VERSION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSION",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "IMPORTED_VERSION",
+      "short" : "Versions whose content is an ORIGINAL_VERSION copied from another location",
+      "definition" : "Versions whose content is an ORIGINAL_VERSION copied from another location; this class inherits commit_audit and contribution from VERSION<T>, providing imported versions with their own audit trail and Contribution, distinct from those of the imported ORIGINAL_VERSION.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "IMPORTED_VERSION.item",
+      "short" : "Versions whose content is an ORIGINAL_VERSION copied from another location",
+      "definition" : "Versions whose content is an ORIGINAL_VERSION copied from another location; this class inherits commit_audit and contribution from VERSION<T>, providing imported versions with their own audit trail and Contribution, distinct from those of the imported ORIGINAL_VERSION.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL-VERSION",
+        "extension" : [{ 
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter",
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },{
+            "url" : "type",
+            "valueUri" : "T"
+          }]
+        }]
+      }]
+    }]
+  }
+}

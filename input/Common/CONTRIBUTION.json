@@ -1,0 +1,70 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CONTRIBUTION",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_contribution_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CONTRIBUTION",
+  "version" : "1.1.0",
+  "name" : "CONTRIBUTION",
+  "title" : "CONTRIBUTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2024-12-31T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Documents a Contribution (change set) of one or more versions added to a change-controlled repository.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CONTRIBUTION",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CONTRIBUTION",
+      "short" : "Documents a Contribution of one or more versions added to a change-controlled repository",
+      "definition" : "Documents a Contribution (change set) of one or more versions added to a change-controlled repository.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }, {
+      "path" : "CONTRIBUTION.uid",
+      "short" : "Unique identifier for this Contribution",
+      "definition" : "Unique identifier for this Contribution.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+      }]
+    }, {
+      "path" : "CONTRIBUTION.versions",
+      "short" : "Set of references to Versions causing changes to this EHR",
+      "definition" : "Set of references to Versions causing changes to this EHR. Each contribution contains a list of versions, which may include paths pointing to any number of versionable items, i.e. items of types such as COMPOSITION and FOLDER.",
+      "min" : 1,
+      "max" : "*",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+      }]
+    }, {
+      "path" : "CONTRIBUTION.audit",
+      "short" : "Audit trail corresponding to the committal of this Contribution",
+      "definition" : "Audit trail corresponding to the committal of this Contribution.",
+      "min" : 1,
+      "max" : "1",
+      "isModifier" : false,
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+      }]
+    }]
+  }
+}

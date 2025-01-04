@@ -1,0 +1,81 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TERM-MAPPING",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_term_mapping_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING",
+  "version" : "1.1.0",
+  "name" : "TERM_MAPPING",
+  "title" : "TERM_MAPPING",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Items which are truly boolean data, such as true/false or yes/no answers. For such data, it is important to devise the meanings (usually questions in subjective data) carefully, so that the only allowed results are in fact true or false.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/TERM_MAPPING",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "TERM_MAPPING",
+      "short" : "Items which are truly boolean data",
+      "definition" : "Items which are truly boolean data, such as true/false or yes/no answers. For such data, it is important to devise the meanings (usually questions in subjective data) carefully, so that the only allowed results are in fact true or false.",
+      "comment" : "Misuse: The TERM_MAPPING class should not be used as a replacement for naively modelled enumerated types such as male/female etc. Such values should be coded, and in any case the enumeration often has more than two values.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "TERM_MAPPING.match",
+      "short" : "> | = | < | ?: The relative match of the target term with respect to the mapped text item",
+      "definition" : "The relative match of the target term with respect to the mapped text item. Result meanings:\n\n* '>': the mapping is to a broader term e.g. orginal text = arbovirus infection , target = viral infection\n* '=': the mapping is to a (supposedly) equivalent to the original item\n* '<': the mapping is to a narrower term. e.g. original text = diabetes , mapping = diabetes mellitus.\n* '?': the kind of mapping is unknown.\n\nThe first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "constraint" : [{
+        "key" : "MatchValid",
+        "severity" : "error",
+        "human" : "match must be >, =, < or ?",
+        "expression" : "$this = '<' or $this = '=' or $this = '>' or $this = '?'"
+      }],
+      "isModifier" : false
+    },{
+      "path" : "TERM_MAPPING.purpose",
+      "short" : "Purpose of the mapping",
+      "definition" : "Purpose of the mapping e.g. 'automated data mining', 'billing', 'interoperability'.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term_mapping_purpose"
+      },
+      "isModifier" : false
+    },{
+      "path" : "TERM_MAPPING.target",
+      "short" : "The target term of the mapping",
+      "definition" : "The target term of the mapping.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}
