@@ -4,7 +4,9 @@
   <h3>Introduction</h3>
 	<p>
     This publication contains information to support FHIR tools working with openEHR content.
-    Specifically, it contains a FHIR representation of the openEHR reference model. 
+    Specifically, it contains a FHIR representation of the openEHR reference model.
+    In general, this IG is a technical internal artifact to the tools; it's not anticipated
+    that the implementers who use either openEHR or FHIR will need to look at this.
   </p>
 
 
