@@ -16,6 +16,7 @@
       <value value="https://specifications.openehr.org/releases/TERM/Release-3.1.0"/>
     </telecom>
   </contact>
+  <description value="Type of quantity being measured"/>
   <caseSensitive value="true"/>
   <content value="complete"/>
   <count value="86"/>
