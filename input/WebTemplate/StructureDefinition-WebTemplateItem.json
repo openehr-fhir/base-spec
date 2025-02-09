@@ -1,0 +1,252 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplateItem",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplateItem",
+  "version" : "1.1.0",
+  "name" : "WebTemplateItem",
+  "title" : "WebTemplateItem",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplateItem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplateItem",
+      "short" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list",
+      "definition" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplateItem.id",
+      "short" : "Node ID (this ID is needed when input data is converted to a composition)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.depth",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }]
+    },{
+      "path" : "WebTemplateItem.name",
+      "short" : "Default node name",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.localizedName",
+      "short" : "Node name in the default language",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.rmType",
+      "short" : "Reference Model class name for this node",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-item-rmtype"
+      }
+    },{
+      "path" : "WebTemplateItem.nodeId",
+      "short" : "Archetype node id as either a full openEHR-EHR-xxxxx archetype id or just an at-code",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.min",
+      "short" : "Minimal value of occurrences for this node (this node has to appear at least this many times)",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.max",
+      "short" : "Maximal value of occurrences for this node or -1 if unlimited. When converting to a composition this node should not appear more than this many times.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.dependsOn",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.localizedNames",
+      "short" : "Map with labels in additional languages",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/TranslatedString"
+      }]
+    },{
+      "path" : "WebTemplateItem.localizedDescriptions",
+      "short" : "Map with element descriptions",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/TranslatedString"
+      }]
+    },{
+      "path" : "WebTemplateItem.annotations",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/Annotations"
+      }]
+    },{
+      "path" : "WebTemplateItem.archetype_id",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.aqlPath",
+      "short" : "AQL (or RM) path to this node. Such paths can be used in AQLs",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.custodian_namespace",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.custodian_organisation",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.lifecycleState",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-item-lifecyclestate"
+      }
+    },{
+      "path" : "WebTemplateItem.original_namespace",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.original_publisher",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.proportionTypes",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code" 
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-item-proportiontype"
+      }
+    },{
+      "path" : "WebTemplateItem.revision",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateItem.inContext",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    },{
+      "path" : "WebTemplateItem.inputs",
+      "short" : "Used for creating input fields. the inputs are determined by the attributes for a particular datatype",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInput"
+      }]
+    },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-property-key",
+        "valueCode" : "code"
+      }],
+      "path" : "WebTemplateItem.termBindings",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateTermBinding"
+      }]
+    },{
+      "path" : "WebTemplateItem.children",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateItem"
+      }]
+    }]
+  }
+}

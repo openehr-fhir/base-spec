@@ -1,0 +1,23 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="item-proportiontype"/>
+  <url value="https://specifications.openehr.org/fhir/codesystem-item-proportiontype"/>
+  <version value="3.1.0"/>
+  <name value="ItemProportionTypeCS"/>
+  <title value="Item ProportionType CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+  </contact>
+  <description value="Item ProportionType CodeSystem"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  
+  <concept><code value="fraction"/><display value="fraction"/></concept>
+  <concept><code value="integer_fraction"/><display value="integer_fraction"/></concept>
+  <concept><code value="percent"/><display value="percent"/></concept>
+  <concept><code value="ratio"/><display value="ratio"/></concept>
+  <concept><code value="unitary"/><display value="unitary"/></concept>
+</CodeSystem>

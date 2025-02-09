@@ -76,7 +76,7 @@
           "valueCode" : "element-view-order"
         },{
           "url" : "value",
-          "valueInteger" : "8"
+          "valueInteger" : 8
         }]
       }],
       "path" : "OBSERVATION.state",

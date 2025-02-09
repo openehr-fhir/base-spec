@@ -71,7 +71,7 @@
           "valueCode" : "element-view-order"
         },{
           "url" : "value",
-          "valueInteger" : "8"
+          "valueInteger" : 8
         }]
       }],
       "path" : "EVENT.state",
@@ -100,7 +100,7 @@
           "valueCode" : "element-view-order"
         },{
           "url" : "value",
-          "valueInteger" : "10"
+          "valueInteger" : 10
         }]
       }],
       "path" : "EVENT.data",

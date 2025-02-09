@@ -1,0 +1,84 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplate",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplate",
+  "version" : "1.1.0",
+  "name" : "WebTemplate",
+  "title" : "WebTemplate",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplate",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplate",
+      "short" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list",
+      "definition" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplate.templateId",
+      "short" : "Operational template ID",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplate.version",
+      "short" : "Web template structure version",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplate.semver",
+      "short" : "The semantic version number of the openEHR template",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplate.defaultLanguage",
+      "short" : "Default labels for fields will be in this language",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplate.languages",
+      "short" : "Array of additional languages. Labels for fields and coded texts will also be available in these additional languages, provided that the operational template has them",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplate.tree",
+      "short" : "Hierarchical structure of nodes each one potentially having further children",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateItem"
+      }]
+    }]
+  }
+}

@@ -1,0 +1,108 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="item-rmtype"/>
+  <url value="https://specifications.openehr.org/fhir/codesystem-item-rmtype"/>
+  <version value="3.1.0"/>
+  <name value="ItemRMTypeCS"/>
+  <title value="Item rmType CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+  </contact>
+  <description value="Item rmType CodeSystem"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+
+  <concept><code value="ACCESS_CONTROL_SETTINGS"/><display value="ACCESS_CONTROL_SETTINGS"/></concept>
+  <concept><code value="ACTION"/><display value="ACTION"/></concept>
+  <concept><code value="ACTIVITY"/><display value="ACTIVITY"/></concept>
+  <concept><code value="ACTOR"/><display value="ACTOR"/></concept>
+  <concept><code value="ADDRESS"/><display value="ADDRESS"/></concept>
+  <concept><code value="ADMIN_ENTRY"/><display value="ADMIN_ENTRY"/></concept>
+  <concept><code value="AGENT"/><display value="AGENT"/></concept>
+  <concept><code value="ARCHETYPED"/><display value="ARCHETYPED"/></concept>
+  <concept><code value="ARCHETYPE_ID"/><display value="ARCHETYPE_ID"/></concept>
+  <concept><code value="ATTESTATION"/><display value="ATTESTATION"/></concept>
+  <concept><code value="AUDIT_DETAILS"/><display value="AUDIT_DETAILS"/></concept>
+  <concept><code value="AUTHORED_RESOURCE"/><display value="AUTHORED_RESOURCE"/></concept>
+  <concept><code value="CAPABILITY"/><display value="CAPABILITY"/></concept>
+  <concept><code value="CARE_ENTRY"/><display value="CARE_ENTRY"/></concept>
+  <concept><code value="CLUSTER"/><display value="CLUSTER"/></concept>
+  <concept><code value="CODE_PHRASE"/><display value="CODE_PHRASE"/></concept>
+  <concept><code value="COMPOSITION"/><display value="COMPOSITION"/></concept>
+  <concept><code value="CONTACT"/><display value="CONTACT"/></concept>
+  <concept><code value="CONTENT_ITEM"/><display value="CONTENT_ITEM"/></concept>
+  <concept><code value="CONTRIBUTION"/><display value="CONTRIBUTION"/></concept>
+  <concept><code value="DATA_STRUCTURE"/><display value="DATA_STRUCTURE"/></concept>
+  <concept><code value="DATA_VALUE"/><display value="DATA_VALUE"/></concept>
+  <concept><code value="DV_ABSOLUTE_QUANTITY"/><display value="DV_ABSOLUTE_QUANTITY"/></concept>
+  <concept><code value="DV_AMOUNT"/><display value="DV_AMOUNT"/></concept>
+  <concept><code value="DV_BOOLEAN"/><display value="DV_BOOLEAN"/></concept>
+  <concept><code value="DV_CODED_TEXT"/><display value="DV_CODED_TEXT"/></concept>
+  <concept><code value="DV_COUNT"/><display value="DV_COUNT"/></concept>
+  <concept><code value="DV_DATE"/><display value="DV_DATE"/></concept>
+  <concept><code value="DV_DATE_TIME"/><display value="DV_DATE_TIME"/></concept>
+  <concept><code value="DV_DURATION"/><display value="DV_DURATION"/></concept>
+  <concept><code value="DV_EHR_URI"/><display value="DV_EHR_URI"/></concept>
+  <concept><code value="DV_ENCAPSULATED"/><display value="DV_ENCAPSULATED"/></concept>
+  <concept><code value="DV_GENERAL_TIME_SPECIFICATION"/><display value="DV_GENERAL_TIME_SPECIFICATION"/></concept>
+  <concept><code value="DV_IDENTIFIER"/><display value="DV_IDENTIFIER"/></concept>
+  <concept><code value="DV_INTERVAL"/><display value="DV_INTERVAL"/></concept>
+  <concept><code value="DV_INTERVAL&lt;DV_DATE_TIME>"/><display value="DV_INTERVAL&lt;DV_DATE_TIME>"/></concept>
+  <concept><code value="DV_MULTIMEDIA"/><display value="DV_MULTIMEDIA"/></concept>
+  <concept><code value="DV_ORDERED"/><display value="DV_ORDERED"/></concept>
+  <concept><code value="DV_ORDINAL"/><display value="DV_ORDINAL"/></concept>
+  <concept><code value="DV_PARAGRAPH"/><display value="DV_PARAGRAPH"/></concept>
+  <concept><code value="DV_PARSABLE"/><display value="DV_PARSABLE"/></concept>
+  <concept><code value="DV_PERIODIC_TIME_SPECIFICATION"/><display value="DV_PERIODIC_TIME_SPECIFICATION"/></concept>
+  <concept><code value="DV_PROPORTION"/><display value="DV_PROPORTION"/></concept>
+  <concept><code value="DV_QUANTIFIED"/><display value="DV_QUANTIFIED"/></concept>
+  <concept><code value="DV_QUANTITY"/><display value="DV_QUANTITY"/></concept>
+  <concept><code value="DV_SCALE"/><display value="DV_SCALE"/></concept>
+  <concept><code value="DV_STATE"/><display value="DV_STATE"/></concept>
+  <concept><code value="DV_TEMPORAL"/><display value="DV_TEMPORAL"/></concept>
+  <concept><code value="DV_TEXT"/><display value="DV_TEXT"/></concept>
+  <concept><code value="DV_TIME"/><display value="DV_TIME"/></concept>
+  <concept><code value="DV_TIME_SPECIFICATION"/><display value="DV_TIME_SPECIFICATION"/></concept>
+  <concept><code value="DV_URI"/><display value="DV_URI"/></concept>
+  <concept><code value="ELEMENT"/><display value="ELEMENT"/></concept>
+  <concept><code value="EVALUATION"/><display value="EVALUATION"/></concept>
+  <concept><code value="EVENT"/><display value="EVENT"/></concept>
+  <concept><code value="EVENT_CONTEXT"/><display value="EVENT_CONTEXT"/></concept>
+  <concept><code value="FEEDER_AUDIT"/><display value="FEEDER_AUDIT"/></concept>
+  <concept><code value="FEEDER_AUDIT_DETAILS"/><display value="FEEDER_AUDIT_DETAILS"/></concept>
+  <concept><code value="GROUP"/><display value="GROUP"/></concept>
+  <concept><code value="HIER_OBJECT_ID"/><display value="HIER_OBJECT_ID"/></concept>
+  <concept><code value="HISTORY"/><display value="HISTORY"/></concept>
+  <concept><code value="IMPORTED_VERSION"/><display value="IMPORTED_VERSION"/></concept>
+  <concept><code value="INSTRUCTION"/><display value="INSTRUCTION"/></concept>
+  <concept><code value="INSTRUCTION_DETAILS"/><display value="INSTRUCTION_DETAILS"/></concept>
+  <concept><code value="INTERVAL_EVENT"/><display value="INTERVAL_EVENT"/></concept>
+  <concept><code value="ISM_TRANSITION"/><display value="ISM_TRANSITION"/></concept>
+  <concept><code value="OBSERVATION"/><display value="OBSERVATION"/></concept>
+  <concept><code value="ORGANISATION"/><display value="ORGANISATION"/></concept>
+  <concept><code value="ORIGINAL_VERSION"/><display value="ORIGINAL_VERSION"/></concept>
+  <concept><code value="PARTICIPATION"/><display value="PARTICIPATION"/></concept>
+  <concept><code value="PARTY"/><display value="PARTY"/></concept>
+  <concept><code value="PARTY_IDENTIFIED"/><display value="PARTY_IDENTIFIED"/></concept>
+  <concept><code value="PARTY_IDENTITY"/><display value="PARTY_IDENTITY"/></concept>
+  <concept><code value="PARTY_PROXY"/><display value="PARTY_PROXY"/></concept>
+  <concept><code value="PARTY_REF"/><display value="PARTY_REF"/></concept>
+  <concept><code value="PARTY_RELATED"/><display value="PARTY_RELATED"/></concept>
+  <concept><code value="PARTY_RELATIONSHIP"/><display value="PARTY_RELATIONSHIP"/></concept>
+  <concept><code value="PARTY_SELF"/><display value="PARTY_SELF"/></concept>
+  <concept><code value="PERSON"/><display value="PERSON"/></concept>
+  <concept><code value="POINT_EVENT"/><display value="POINT_EVENT"/></concept>
+  <concept><code value="REFERENCE_RANGE"/><display value="REFERENCE_RANGE"/></concept>
+  <concept><code value="RESOURCE_DESCRIPTION"/><display value="RESOURCE_DESCRIPTION"/></concept>
+  <concept><code value="RESOURCE_DESCRIPTION_ITEM"/><display value="RESOURCE_DESCRIPTION_ITEM"/></concept>
+  <concept><code value="REVISION_HISTORY"/><display value="REVISION_HISTORY"/></concept>
+  <concept><code value="REVISION_HISTORY_ITEM"/><display value="REVISION_HISTORY_ITEM"/></concept>
+  <concept><code value="ROLE"/><display value="ROLE"/></concept>
+  <concept><code value="SECTION"/><display value="SECTION"/></concept>
+  <concept><code value="STRING"/><display value="STRING"/></concept>
+  <concept><code value="TERM_MAPPING"/><display value="TERM_MAPPING"/></concept>
+  <concept><code value="TRANSLATION_DETAILS"/><display value="TRANSLATION_DETAILS"/></concept>
+</CodeSystem>

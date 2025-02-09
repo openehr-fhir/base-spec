@@ -1,0 +1,105 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplateInput",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInput",
+  "version" : "1.1.0",
+  "name" : "WebTemplateInput",
+  "title" : "WebTemplateInput",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInput",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplateInput",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplateInput.suffix",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateInput.type",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code" 
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-input-type"
+      }
+    },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-primitive-choice",
+        "valueBoolean" : true
+      }],
+      "path" : "WebTemplateInput.defaultValue",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      },{
+        "code" : "integer"
+      },{
+        "code" : "decimal"
+      },{
+        "code" : "boolean"
+      }]
+    },{
+      "path" : "WebTemplateInput.terminology",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },{
+      "path" : "WebTemplateInput.validation",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidation"
+      }]
+    },{
+      "path" : "WebTemplateInput.list",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputListItem"
+      }]
+    },{
+      "path" : "WebTemplateInput.listOpen",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }]
+    }]
+  }
+}

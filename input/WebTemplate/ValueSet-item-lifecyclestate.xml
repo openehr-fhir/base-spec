@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="item-lifecyclestate"/>
+  <url value="https://specifications.openehr.org/fhir/valueset-item-lifecyclestate"/>
+  <version value="3.1.0"/>
+  <name value="ItemLifecycleStateVS"/>
+  <title value="Item Lifecycle State ValueSet"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+  </contact>
+  <description value="Item Lifecycle State ValueSet"/>
+  <compose>
+    <include>
+      <system value="https://specifications.openehr.org/fhir/codesystem-item-lifecyclestate"/>
+    </include>
+  </compose>
+</ValueSet>

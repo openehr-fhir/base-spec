@@ -1,0 +1,26 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="input-type"/>
+  <url value="https://specifications.openehr.org/fhir/codesystem-input-type"/>
+  <version value="3.1.0"/>
+  <name value="InputTypeCS"/>
+  <title value="Input Type CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+  </contact>
+  <description value="Input Type CodeSystem"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  
+  <concept><code value="DATE"/><display value="DATE"/></concept>
+  <concept><code value="DATETIME"/><display value="DATETIME"/></concept>
+  <concept><code value="CODED_TEXT"/><display value="CODED_TEXT"/></concept>
+  <concept><code value="DECIMAL"/><display value="DECIMAL"/></concept>
+  <concept><code value="TEXT"/><display value="TEXT"/></concept>
+  <concept><code value="TIME"/><display value="TIME"/></concept>
+  <concept><code value="BOOLEAN"/><display value="BOOLEAN"/></concept>
+  <concept><code value="INTEGER"/><display value="INTEGER"/></concept>
+</CodeSystem>

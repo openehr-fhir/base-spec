@@ -1,0 +1,79 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Annotations",
+  "url" : "http://openehr.org/fhir/StructureDefinition/Annotations",
+  "version" : "1.1.0",
+  "name" : "Annotations",
+  "title" : "Annotations",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/Annotations",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "Annotations",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "Annotations.comment",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "Annotations.fhir_mapping",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "Annotations.vset_description",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "Annotations.hl7v2_mapping",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-name",
+        "valueString" : "view:VisibleInView"
+      }],
+      "path" : "Annotations.visibleInView",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

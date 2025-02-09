@@ -1,0 +1,52 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TranslatedString",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TranslatedString",
+  "version" : "1.1.0",
+  "name" : "TranslatedString",
+  "title" : "TranslatedString",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/TranslatedString",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "TranslatedString",
+      "short" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list",
+      "definition" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "TranslatedString.language",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },{
+      "path" : "TranslatedString.value",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

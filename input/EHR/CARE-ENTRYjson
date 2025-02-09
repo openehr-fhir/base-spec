@@ -52,7 +52,7 @@
           "valueCode" : "element-view-order"
         },{
           "url" : "value",
-          "valueInteger" : "4"
+          "valueInteger" : 4
         }]
       }],
       "path" : "CARE_ENTRY.protocol",

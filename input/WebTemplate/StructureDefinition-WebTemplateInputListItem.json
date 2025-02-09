@@ -1,0 +1,111 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplateInputListItem",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputListItem",
+  "version" : "1.1.0",
+  "name" : "WebTemplateInputListItem",
+  "title" : "WebTemplateInputListItem",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputListItem",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplateInputListItem",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplateInputListItem.value",
+      "short" : "at-code of the specified item",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.label",
+      "short" : "label of the item in the default language",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.ordinal",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.localizedLabels",
+      "short" : "labels in all specified languages",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/TranslatedString"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.localizedDescriptions",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/TranslatedString"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.currentStates",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.range",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "path" : "WebTemplateInputListItem.precision",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-property-key",
+        "valueCode" : "code"
+      }],
+      "path" : "WebTemplateInputListItem.termBindings",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateTermBinding"
+      }]
+    }]
+  }
+}

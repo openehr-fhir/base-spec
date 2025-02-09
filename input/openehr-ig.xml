@@ -80,6 +80,13 @@
       </code>
       <value value="true"/>
     </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-other"/>
+      </code>
+      <value value="/input/data"/>
+    </parameter>
 
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Terminology"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Foundation"/></parameter>
@@ -88,6 +95,7 @@
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Common"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Demographics"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/EHR"/></parameter>
+    <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/WebTemplate"/></parameter>
 
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-attestation_reason"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-audit_change_type"/></parameter>

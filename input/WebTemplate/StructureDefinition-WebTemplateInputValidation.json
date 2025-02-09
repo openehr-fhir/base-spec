@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplateInputValidation",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidation",
+  "version" : "1.1.0",
+  "name" : "WebTemplateInputValidation",
+  "title" : "WebTemplateInputValidation",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplateInputValidation",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplateInputValidation.range",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidationRange"
+      }]
+    },{
+      "path" : "WebTemplateInputValidation.precision",
+      "short" : "todo",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidationRange"
+      }]
+    }]
+  }
+}

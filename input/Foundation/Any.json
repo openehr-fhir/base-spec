@@ -4,6 +4,9 @@
   "extension" : [{ 
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/foundation_types.html#_any_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-replace-cardinality"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/Any",
   "version" : "1.1.0",

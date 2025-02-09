@@ -1,0 +1,76 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "WebTemplateInputValidationRange",
+  "url" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidationRange",
+  "version" : "1.1.0",
+  "name" : "WebTemplateInputValidationRange",
+  "title" : "WebTemplateInputValidationRange",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-02-08T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/WebTemplateInputValidationRange",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "WebTemplateInputValidationRange",
+      "short" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list",
+      "definition" : "The grouping variant of ITEM, which may contain further instances of ITEM, in an ordered list.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },{
+      "path" : "WebTemplateInputValidationRange.minOp",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code" 
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-range-minop"
+      }
+    },{
+      "path" : "WebTemplateInputValidationRange.min",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    },{
+      "path" : "WebTemplateInputValidationRange.maxOp",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code" 
+      }],
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-range-maxop"
+      }
+    },{
+      "path" : "WebTemplateInputValidationRange.max",
+      "short" : "todo",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }]
+    }]
+  }
+}

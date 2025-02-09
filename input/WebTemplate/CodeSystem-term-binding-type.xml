@@ -1,0 +1,22 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="term-binding-type"/>
+  <url value="https://specifications.openehr.org/fhir/codesystem-term-binding-type"/>
+  <version value="3.1.0"/>
+  <name value="TermBindingTypeCS"/>
+  <title value="Term Binding CodeSystem"/>
+  <status value="active"/>
+  <experimental value="false"/>
+  <date value="2024-08-22"/>
+  <publisher value="openEHR International"/>
+  <contact>
+    <name value="openEHR TERM specifications"/>
+  </contact>
+  <description value="Term Binding CodeSystem"/>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  
+  <concept><code value="openehr"/><display value="openehr"/></concept>
+  <concept><code value="LOINC"/><display value="LOINC"/></concept>
+  <concept><code value="SNOMED-CT"/><display value="SNOMED-CT"/></concept>
+  <concept><code value="LNC205"/><display value="LNC205"/></concept>
+</CodeSystem>
