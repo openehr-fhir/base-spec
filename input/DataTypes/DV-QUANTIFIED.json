@@ -53,7 +53,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "Any"
+        "code" : "Base"
       }],
       "isModifier" : false
     }]
