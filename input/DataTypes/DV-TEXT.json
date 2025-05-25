@@ -74,7 +74,7 @@
       "path" : "DV_TEXT.mappings",
       "short" : "Terms from other terminologies most closely matching this term",
       "definition" : "Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).",
-      "min" : 1,
+      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING"
