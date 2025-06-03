@@ -1,6 +1,6 @@
 # OpenEHR Base IG
 
-This provides a FHIR based representation of the base OpenEHR reference model.
+This provides a FHIR based representation of the base openEHR reference model.
 This is a technical artifact - it's not something intended for either FHIR or 
 openEHR developer consumption.
 
