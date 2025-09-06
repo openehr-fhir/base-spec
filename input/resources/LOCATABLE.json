@@ -1,0 +1,170 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "LOCATABLE",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "concept",
+    "name" : "concept",
+    "title" : "concept",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node) ",
+    "code" : "concept",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "is_archetype_root",
+    "name" : "is_archetype_root",
+    "title" : "is_archetype_root",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if this node is the root of an archetyped structure.",
+    "code" : "is_archetype_root",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_locatable_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#concept"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_archetype_root"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "version" : "1.2.0",
+  "name" : "LOCATABLE",
+  "title" : "LOCATABLE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "LOCATABLE",
+      "short" : "Root class of all information model classes that can be archetyped.",
+      "definition" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Links_valid",
+        "severity" : "error",
+        "human" : "Links valid must be present",
+        "expression" : "links.exists() implies links.empty().not()"
+      },
+      {
+        "key" : "Archetyped_valid",
+        "severity" : "error",
+        "human" : "Archetyped valid must satisfy exclusive conditions",
+        "expression" : "is_archetype_root() xor archetype_details .empty()"
+      },
+      {
+        "key" : "Archetype_node_id_valid",
+        "severity" : "error",
+        "human" : "Archetype node id valid must not be empty",
+        "expression" : "archetype_node_id.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.name",
+      "short" : "Runtime name of this fragment, used to build runtime paths.",
+      "definition" : "Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users. \n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.archetype_node_id",
+      "short" : "Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths.",
+      "definition" : "Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  `at0005`. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology. \n\nAt an archetype root point, the value of this attribute is always the stringified form of the `_archetype_id_` found in the `_archetype_details_` object. \n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.uid",
+      "short" : "Optional globally unique object identifier for root points of archetyped structures.",
+      "definition" : "Optional globally unique object identifier for root points of archetyped structures. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.links",
+      "short" : "Links to other archetyped structures (data whose root object inherits from `ARCHETYPED`, such as `ENTRY`, `SECTION` and so on).",
+      "definition" : "Links to other archetyped structures (data whose root object inherits from `ARCHETYPED`, such as `ENTRY`, `SECTION` and so on). Links may be to structures in other compositions. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/LINK"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.archetype_details",
+      "short" : "Details of archetyping used on this node.",
+      "definition" : "Details of archetyping used on this node.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ARCHETYPED"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "LOCATABLE.feeder_audit",
+      "short" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.",
+      "definition" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

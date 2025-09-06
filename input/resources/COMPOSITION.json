@@ -1,0 +1,183 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "COMPOSITION",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "is_persistent",
+    "name" : "is_persistent",
+    "title" : "is_persistent",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if category is `431|persistent|`, False otherwise. Useful for finding Compositions in an EHR which are guaranteed to be of interest to most users. ",
+    "code" : "is_persistent",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_composition_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_persistent"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/COMPOSITION",
+  "version" : "1.2.0",
+  "name" : "COMPOSITION",
+  "title" : "COMPOSITION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Content of one version in a `VERSIONED_COMPOSITION`. A Composition is considered the unit of modification of the record, the unit of transmission in record Extracts, and the unit of attestation by authorising clinicians. In this latter sense, it may be considered equivalent to a signed document.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in Compositions, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2` would be copied to the `_uid_` field of the Composition.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/COMPOSITION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "COMPOSITION",
+      "short" : "Content of one version in a `VERSIONED_COMPOSITION`.",
+      "definition" : "Content of one version in a `VERSIONED_COMPOSITION`. A Composition is considered the unit of modification of the record, the unit of transmission in record Extracts, and the unit of attestation by authorising clinicians. In this latter sense, it may be considered equivalent to a signed document.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in Compositions, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2` would be copied to the `_uid_` field of the Composition.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Setting_valid",
+        "severity" : "error",
+        "human" : "Setting valid",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "unnamed2",
+        "severity" : "error",
+        "human" : "unnamed2",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "unnamed3",
+        "severity" : "error",
+        "human" : "unnamed3",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Category_validity",
+        "severity" : "error",
+        "human" : "Category validity",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Is_persistent_validity",
+        "severity" : "error",
+        "human" : "Is persistent validity must satisfy conditional constraints",
+        "expression" : "is_persistent() implies context .empty()"
+      },
+      {
+        "key" : "Territory_valid",
+        "severity" : "error",
+        "human" : "Territory valid",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Language_valid",
+        "severity" : "error",
+        "human" : "Language valid",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Content_valid",
+        "severity" : "error",
+        "human" : "Content valid must be present",
+        "expression" : "content.exists() implies content.empty().not()"
+      },
+      {
+        "key" : "Is_archetype_root",
+        "severity" : "error",
+        "human" : "Is archetype root",
+        "expression" : "is_archetype_root()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.language",
+      "short" : "Mandatory indicator of the localised language in which this Composition is written.",
+      "definition" : "Mandatory indicator of the localised language in which this Composition is written. Coded from openEHR Code Set  `languages`. The language of an Entry if different from the Composition is indicated in `ENTRY._language_`. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.territory",
+      "short" : "Name of territory in which this Composition was written.",
+      "definition" : "Name of territory in which this Composition was written. Coded from openEHR  countries  code set, which is an expression of the ISO 3166 standard.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.category",
+      "short" : "Temporal category of this Composition, i.",
+      "definition" : "Temporal category of this Composition, i.e. \n\n* `431|persistent|` - of potential life-time validity;\n* `451|episodic|` - valid over the life of a care episode;\n* `433|event|` - valid at the time of recording (long-term validity requires subsequent clinical assessment).\n\nor any other code defined in the openEHR terminology group 'category'.\n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.context",
+      "short" : "The clinical session context of this Composition, i.",
+      "definition" : "The clinical session context of this Composition, i.e. the contextual attributes of the clinical session. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EVENT_CONTEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.composer",
+      "short" : "The person primarily responsible for the content of the Composition (but not necessarily its committal into the EHR system).",
+      "definition" : "The person primarily responsible for the content of the Composition (but not necessarily its committal into the EHR system). This is the identifier which should appear on the screen. It may or may not be the person who entered the data. When it is the patient, the special self  instance of `PARTY_PROXY` will be used.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "COMPOSITION.content",
+      "short" : "The content of this Composition.",
+      "definition" : "The content of this Composition. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

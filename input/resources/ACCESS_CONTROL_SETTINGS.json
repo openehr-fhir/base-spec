@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACCESS_CONTROL_SETTINGS",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_access_control_settings_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACCESS_CONTROL_SETTINGS",
+  "version" : "1.2.0",
+  "name" : "ACCESS_CONTROL_SETTINGS",
+  "title" : "ACCESS_CONTROL_SETTINGS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACCESS_CONTROL_SETTINGS",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACCESS_CONTROL_SETTINGS",
+      "short" : "Access Control Settings for the EHR and components.",
+      "definition" : "Access Control Settings for the EHR and components. Intended to support multiple access control schemes. Currently implementation dependent.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

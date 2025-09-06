@@ -1,0 +1,73 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CAPABILITY",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_capability_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CAPABILITY",
+  "version" : "1.2.0",
+  "name" : "CAPABILITY",
+  "title" : "CAPABILITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Capability of a role, such as  ehr modifier,  health care provider. Capability should be backed up by credentials.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CAPABILITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CAPABILITY",
+      "short" : "Capability of a role, such as  ehr modifier,  health care provider.",
+      "definition" : "Capability of a role, such as  ehr modifier,  health care provider. Capability should be backed up by credentials.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "CAPABILITY.credentials",
+      "short" : "The qualifications of the performer of the role for this capability.",
+      "definition" : "The qualifications of the performer of the role for this capability. This might include professional qualifications and official identifications such as provider numbers etc.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CAPABILITY.time_validity",
+      "short" : "Valid time interval for the credentials of this capability.",
+      "definition" : "Valid time interval for the credentials of this capability.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

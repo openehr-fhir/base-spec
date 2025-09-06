@@ -1,0 +1,134 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM_TREE",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "has_element_path",
+    "name" : "has_element_path",
+    "title" : "has_element_path",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if path  a_path' is a valid leaf path.\n",
+    "code" : "has_element_path",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "element_at_path",
+    "name" : "element_at_path",
+    "title" : "element_at_path",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return the leaf element at the path  a_path'.",
+    "code" : "element_at_path",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
+    "title" : "as_hierarchy",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Generate a CEN EN13606-compatible hierarchy, which is the same as the tree's physical representation.",
+    "code" : "as_hierarchy",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_item_tree_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#has_element_path"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#element_at_path"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#as_hierarchy"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
+  "version" : "1.2.0",
+  "name" : "ITEM_TREE",
+  "title" : "ITEM_TREE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Logical tree data structure. The tree may be empty. Used for representing data which are logically a tree such as audiology results, microbiology results, biochemistry results.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM_TREE",
+      "short" : "Logical tree data structure.",
+      "definition" : "Logical tree data structure. The tree may be empty. Used for representing data which are logically a tree such as audiology results, microbiology results, biochemistry results.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TREE.items",
+      "short" : "The items comprising the `ITEM_TREE`.",
+      "definition" : "The items comprising the `ITEM_TREE`. Can include 0 or more `CLUSTERs` and/or 0 or more individual `ELEMENTs`.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

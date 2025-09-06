@@ -1,0 +1,202 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "TERMINOLOGY_ACCESS",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "id",
+    "name" : "id",
+    "title" : "id",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Identification of this Terminology.",
+    "code" : "id",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "all_codes",
+    "name" : "all_codes",
+    "title" : "all_codes",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return all codes known in this terminology.",
+    "code" : "all_codes",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Coding"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "codes_for_group_id",
+    "name" : "codes_for_group_id",
+    "title" : "codes_for_group_id",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return all codes under grouper 'a_group_id' from this terminology.",
+    "code" : "codes_for_group_id",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_group_id",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Coding"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "codes_for_group_name",
+    "name" : "codes_for_group_name",
+    "title" : "codes_for_group_name",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return all codes under grouper whose name in 'a_lang' is 'a_name' from this terminology.",
+    "code" : "codes_for_group_name",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_lang",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "a_name",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Coding"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "has_code_for_group_id",
+    "name" : "has_code_for_group_id",
+    "title" : "has_code_for_group_id",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if  a_code' is known in group  group_id' in the openEHR terminology.",
+    "code" : "has_code_for_group_id",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "rubric_for_code",
+    "name" : "rubric_for_code",
+    "title" : "rubric_for_code",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return all rubric of code  code' in language  lang'.",
+    "code" : "rubric_for_code",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_code",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#id"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#all_codes"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#codes_for_group_id"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#codes_for_group_name"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#has_code_for_group_id"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#rubric_for_code"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
+  "version" : "1.2.0",
+  "name" : "TERMINOLOGY_ACCESS",
+  "title" : "TERMINOLOGY_ACCESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines an object providing proxy access to a terminology. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "TERMINOLOGY_ACCESS",
+      "short" : "Defines an object providing proxy access to a terminology.",
+      "definition" : "Defines an object providing proxy access to a terminology. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

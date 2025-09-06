@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_FOLDER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_FOLDER",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_FOLDER",
+  "title" : "EXTRACT_FOLDER",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Folder in local Folder structure in an Extract. Empty Folders are allowed.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_FOLDER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_FOLDER",
+      "short" : "Folder in local Folder structure in an Extract.",
+      "definition" : "Folder in local Folder structure in an Extract. Empty Folders are allowed.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_FOLDER.items",
+      "short" : "List of Folders and content items in this Folder.",
+      "definition" : "List of Folders and content items in this Folder.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

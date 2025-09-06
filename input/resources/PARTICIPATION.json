@@ -1,0 +1,107 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTICIPATION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_participation_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION",
+  "version" : "1.2.0",
+  "name" : "PARTICIPATION",
+  "title" : "PARTICIPATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations. \n\nShould not be used in place of more permanent relationships between demographic entities. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTICIPATION",
+      "short" : "Model of a participation of a Party (any Actor or Role) in an activity.",
+      "definition" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations. \n\nShould not be used in place of more permanent relationships between demographic entities. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Function_valid",
+        "severity" : "error",
+        "human" : "Function valid must satisfy conditional constraints",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Mode_valid",
+        "severity" : "error",
+        "human" : "Mode valid must be present",
+        "expression" : "mode.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "PARTICIPATION.function",
+      "short" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity).",
+      "definition" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "PARTICIPATION.mode",
+      "short" : "Optional field for recording the 'mode' of the performer / activity interaction, e.",
+      "definition" : "Optional field for recording the 'mode' of the performer / activity interaction, e.g. present, by telephone, by email etc. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "PARTICIPATION.performer",
+      "short" : "The id and possibly demographic system link of the party participating in the activity.",
+      "definition" : "The id and possibly demographic system link of the party participating in the activity. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "PARTICIPATION.time",
+      "short" : "The time interval during which the participation took place, if it is used in an observational context (i.",
+      "definition" : "The time interval during which the participation took place, if it is used in an observational context (i.e. recording facts about the past); or the intended time interval of the participation when used in future contexts, such as EHR Instructions. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

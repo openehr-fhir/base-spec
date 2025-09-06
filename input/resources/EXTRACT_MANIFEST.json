@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_MANIFEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_MANIFEST",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_MANIFEST",
+  "title" : "EXTRACT_MANIFEST",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Specification of the candidate entities and optionally top-level items (e.g. Compositions) to be included in the Extract.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_MANIFEST",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_MANIFEST",
+      "short" : "Specification of the candidate entities and optionally top-level items (e.",
+      "definition" : "Specification of the candidate entities and optionally top-level items (e.g. Compositions) to be included in the Extract.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_MANIFEST.entities",
+      "short" : "List of entity manifests uids of items included in the Extract; for openEHR data, these are uids identifying the version containers.",
+      "definition" : "List of entity manifests uids of items included in the Extract; for openEHR data, these are uids identifying the version containers.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_MANIFEST"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

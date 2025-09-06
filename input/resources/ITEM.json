@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_item_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM",
+  "version" : "1.2.0",
+  "name" : "ITEM",
+  "title" : "ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM",
+      "short" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes.",
+      "definition" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

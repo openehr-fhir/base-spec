@@ -1,0 +1,46 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV_EHR_URI",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_ehr_uri_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI",
+  "version" : "1.2.0",
+  "name" : "DV_EHR_URI",
+  "title" : "DV_EHR_URI",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A `DV_EHR_URI` is a `DV_URI` which has the scheme name 'ehr', and which can only reference items in EHRs. \n\nUsed to reference items in an EHR, which may be the same as the current EHR (containing this link), or another.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_URI",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_EHR_URI",
+      "short" : "A `DV_EHR_URI` is a `DV_URI` which has the scheme name 'ehr', and which can only reference items in EHRs.",
+      "definition" : "A `DV_EHR_URI` is a `DV_URI` which has the scheme name 'ehr', and which can only reference items in EHRs. \n\nUsed to reference items in an EHR, which may be the same as the current EHR (containing this link), or another.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Scheme_valid",
+        "severity" : "error",
+        "human" : "Scheme valid",
+        "expression" : "scheme().is_equal (Ehr_scheme)"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

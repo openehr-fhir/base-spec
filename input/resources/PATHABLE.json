@@ -1,0 +1,213 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PATHABLE",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "parent",
+    "name" : "parent",
+    "title" : "parent",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Parent of this node in a compositional hierarchy. \n",
+    "code" : "parent",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "item_at_path",
+    "name" : "item_at_path",
+    "title" : "item_at_path",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item. ",
+    "code" : "item_at_path",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Element"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "items_at_path",
+    "name" : "items_at_path",
+    "title" : "items_at_path",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "List of items corresponding to a non-unique path.",
+    "code" : "items_at_path",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Element"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "path_exists",
+    "name" : "path_exists",
+    "title" : "path_exists",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if the path exists in the data with respect to the current item. ",
+    "code" : "path_exists",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "path_unique",
+    "name" : "path_unique",
+    "title" : "path_unique",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if the path corresponds to a single item in the data. ",
+    "code" : "path_unique",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_path",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "path_of_item",
+    "name" : "path_of_item",
+    "title" : "path_of_item",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "The path to an item relative to the root of this archetyped structure.",
+    "code" : "path_of_item",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_loc",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_pathable_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#parent"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#item_at_path"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#items_at_path"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#path_exists"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#path_unique"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#path_of_item"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
+  "version" : "1.2.0",
+  "name" : "PATHABLE",
+  "title" : "PATHABLE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The `PATHABLE` class defines the pathing capabilities used by nearly all classes in the openEHR reference model, mostly via inheritance of `LOCATABLE`. The defining characteristics of `PATHABLE` objects are that they can locate child objects using paths, and they know their parent object in a compositional hierarchy. The parent feature is defined as abstract in the model, and may be implemented in any way convenient.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PATHABLE",
+      "short" : "The `PATHABLE` class defines the pathing capabilities used by nearly all classes in the openEHR reference model, mostly via inheritance of `LOCATABLE`.",
+      "definition" : "The `PATHABLE` class defines the pathing capabilities used by nearly all classes in the openEHR reference model, mostly via inheritance of `LOCATABLE`. The defining characteristics of `PATHABLE` objects are that they can locate child objects using paths, and they know their parent object in a compositional hierarchy. The parent feature is defined as abstract in the model, and may be implemented in any way convenient.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

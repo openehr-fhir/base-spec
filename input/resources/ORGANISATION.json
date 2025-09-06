@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ORGANISATION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_organisation_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ORGANISATION",
+  "version" : "1.2.0",
+  "name" : "ORGANISATION",
+  "title" : "ORGANISATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic description of organisations. An organisation is a legally constituted body whose existence (in general) outlives the existence of parties considered to be part of it.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ORGANISATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ORGANISATION",
+      "short" : "Generic description of organisations.",
+      "definition" : "Generic description of organisations. An organisation is a legally constituted body whose existence (in general) outlives the existence of parties considered to be part of it.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

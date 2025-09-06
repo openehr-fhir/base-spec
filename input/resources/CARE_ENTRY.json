@@ -1,0 +1,62 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CARE_ENTRY",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_care_entry_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
+  "version" : "1.2.0",
+  "name" : "CARE_ENTRY",
+  "title" : "CARE_ENTRY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CARE_ENTRY",
+      "short" : "The abstract parent of all clinical `ENTRY` subtypes.",
+      "definition" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "CARE_ENTRY.protocol",
+      "short" : "Description of the method (i.",
+      "definition" : "Description of the method (i.e. how) the information in this entry was arrived at. For `OBSERVATIONs`, this is a description of the method or instrument used. For `EVALUATIONs`, how the evaluation was arrived at. For `INSTRUCTIONs`, how to execute the Instruction. This may take the form of references to guidelines, including manually followed and executable; knowledge references such as a paper in Medline; clinical reasons within a larger care process. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CARE_ENTRY.guideline_id",
+      "short" : "Optional external identifier of guideline creating this Entry if relevant.",
+      "definition" : "Optional external identifier of guideline creating this Entry if relevant.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

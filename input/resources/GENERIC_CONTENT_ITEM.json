@@ -1,0 +1,190 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "GENERIC_CONTENT_ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/GENERIC_CONTENT_ITEM",
+  "version" : "1.2.0",
+  "name" : "GENERIC_CONTENT_ITEM",
+  "title" : "GENERIC_CONTENT_ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Single item in generic extract, designed for 13606 and CDA data.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/GENERIC_CONTENT_ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "GENERIC_CONTENT_ITEM",
+      "short" : "Single item in generic extract, designed for 13606 and CDA data.",
+      "definition" : "Single item in generic extract, designed for 13606 and CDA data.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.item_type",
+      "short" : "Identifier of model or schema used to create the content.",
+      "definition" : "Identifier of model or schema used to create the content.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.item_type_version",
+      "short" : "Version of model or schema used to create the content item.",
+      "definition" : "Version of model or schema used to create the content item.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.author",
+      "short" : "Reference to a demographic entity elsewhere in this Extract representing the author of the item version.",
+      "definition" : "Reference to a demographic entity elsewhere in this Extract representing the author of the item version. The reference should be a UID corresponding to the UID of a `GENERIC_CONTENT_ITEM` containing the demographic information.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.creation_time",
+      "short" : "Time of creation of this item version on the original system.",
+      "definition" : "Time of creation of this item version on the original system. This may be an earlier commit time, or it may be the time at which the item was created during the Extract generation process.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/Iso8601_date_time"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.authoriser",
+      "short" : "Reference to a demographic entity elsewhere in this Extract representing an authoriser of the item version, if relevant.",
+      "definition" : "Reference to a demographic entity elsewhere in this Extract representing an authoriser of the item version, if relevant. The reference should be a UID corresponding to the UID of a `GENERIC_CONTENT_ITEM` containing the demographic information.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.authorisation_time",
+      "short" : "Time of authorisation of this item version on the original system where relevant.",
+      "definition" : "Time of authorisation of this item version on the original system where relevant.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/Iso8601_date_time"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.item_status",
+      "short" : "Coded lifecycle status of the item.",
+      "definition" : "Coded lifecycle status of the item.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.version_id",
+      "short" : "Version id of this item in original system.",
+      "definition" : "Version id of this item in original system.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.version_set_id",
+      "short" : "Version set id of this item in original system, where applicable.",
+      "definition" : "Version set id of this item in original system, where applicable.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.system_id",
+      "short" : "Identifier of EMR or other system from which the item was created / extracted.",
+      "definition" : "Identifier of EMR or other system from which the item was created / extracted. Typically in the form of a domain name.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.other_details",
+      "short" : "Other details about the content item.",
+      "definition" : "Other details about the content item.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        },
+        {
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "U"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/Hash"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_CONTENT_ITEM.item",
+      "short" : "Content object.",
+      "definition" : "Content object.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

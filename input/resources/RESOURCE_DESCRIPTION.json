@@ -1,0 +1,213 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "RESOURCE_DESCRIPTION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_resource_description_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/RESOURCE_DESCRIPTION",
+  "version" : "1.2.0",
+  "name" : "RESOURCE_DESCRIPTION",
+  "title" : "RESOURCE_DESCRIPTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines the descriptive meta-data of a resource.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/RESOURCE_DESCRIPTION",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "RESOURCE_DESCRIPTION",
+      "short" : "Defines the descriptive meta-data of a resource.",
+      "definition" : "Defines the descriptive meta-data of a resource.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Original_author_valid",
+        "severity" : "error",
+        "human" : "Original author valid must not be empty",
+        "expression" : "original_author.empty().not()"
+      },
+      {
+        "key" : "Lifecycle_state_valid",
+        "severity" : "error",
+        "human" : "Lifecycle state valid must not be empty",
+        "expression" : "lifecycle_state.empty().not()"
+      },
+      {
+        "key" : "Details_valid",
+        "severity" : "error",
+        "human" : "Details valid must not be empty",
+        "expression" : "details.empty().not()"
+      },
+      {
+        "key" : "Language_valid",
+        "severity" : "error",
+        "human" : "Language valid must be present",
+        "expression" : "parent_resource.exists() implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))"
+      },
+      {
+        "key" : "Parent_resource_valid",
+        "severity" : "error",
+        "human" : "Parent resource valid must be present",
+        "expression" : "parent_resource.exists() implies parent_resource.description = self"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.original_author",
+      "short" : "Original author of this resource, with all relevant details, including organisation.",
+      "definition" : "Original author of this resource, with all relevant details, including organisation.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        },
+        {
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "U"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/Hash"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.other_contributors",
+      "short" : "Other contributors to the resource, probably listed in  `'name <email>'`  form.",
+      "definition" : "Other contributors to the resource, probably listed in  `'name <email>'`  form. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.lifecycle_state",
+      "short" : "Lifecycle state of the resource, typically including states such as: `initial | submitted | experimental | awaiting_approval | approved | superseded | obsolete`.",
+      "definition" : "Lifecycle state of the resource, typically including states such as: `initial | submitted | experimental | awaiting_approval | approved | superseded | obsolete`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.resource_package_uri",
+      "short" : "URI of package to which this resource belongs.",
+      "definition" : "URI of package to which this resource belongs.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.other_details",
+      "short" : "Additional non language-senstive resource meta-data, as a list of name/value pairs.",
+      "definition" : "Additional non language-senstive resource meta-data, as a list of name/value pairs. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        },
+        {
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "U"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/Hash"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.parent_resource",
+      "short" : "Reference to owning resource.",
+      "definition" : "Reference to owning resource. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUTHORED_RESOURCE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "RESOURCE_DESCRIPTION.details",
+      "short" : "Details of all parts of resource description that are natural language-dependent, keyed by language code.",
+      "definition" : "Details of all parts of resource description that are natural language-dependent, keyed by language code. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "string"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        },
+        {
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "U"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/RESOURCE_DESCRIPTION_ITEM"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/Hash"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

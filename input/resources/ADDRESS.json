@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ADDRESS",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "type",
+    "name" : "type",
+    "title" : "type",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Type of address, e.g. electronic,  locality. Taken from value of inherited `_name_` attribute.",
+    "code" : "type",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_address_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#type"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESS",
+  "version" : "1.2.0",
+  "name" : "ADDRESS",
+  "title" : "ADDRESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Address of contact, which may be electronic or geographic.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ADDRESS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ADDRESS",
+      "short" : "Address of contact, which may be electronic or geographic.",
+      "definition" : "Address of contact, which may be electronic or geographic.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Type_valid",
+        "severity" : "error",
+        "human" : "Type valid",
+        "expression" : "type() = name"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ADDRESS.details",
+      "short" : "Archetypable structured address.",
+      "definition" : "Archetypable structured address.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

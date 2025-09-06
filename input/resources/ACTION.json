@@ -1,0 +1,84 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACTION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_action_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACTION",
+  "version" : "1.2.0",
+  "name" : "ACTION",
+  "title" : "ACTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACTION",
+      "short" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow.",
+      "definition" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTION.time",
+      "short" : "Point in time at which this action completed.",
+      "definition" : "Point in time at which this action completed. To indicate an unknown time, use a `DV_DATE_TIME` instance with `_value_` set to the time of creation (or some other known time before which the Action is known to have occurred, e.g. data accession timestamp from integration engine), and `_magnitude_status_` set to `<`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTION.ism_transition",
+      "short" : "Details of transition in the Instruction state machine caused by this Action.",
+      "definition" : "Details of transition in the Instruction state machine caused by this Action.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ISM_TRANSITION"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTION.instruction_details",
+      "short" : "Details of the Instruction that caused this Action to be performed, if there was one.",
+      "definition" : "Details of the Instruction that caused this Action to be performed, if there was one.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION_DETAILS"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTION.description",
+      "short" : "Description of the action that has been performed, in the form of an archetyped structure.",
+      "definition" : "Description of the action that has been performed, in the form of an archetyped structure.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

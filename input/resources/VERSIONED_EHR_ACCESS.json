@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSIONED_EHR_ACCESS",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_versioned_ehr_access_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_ACCESS",
+  "version" : "1.2.0",
+  "name" : "VERSIONED_EHR_ACCESS",
+  "title" : "VERSIONED_EHR_ACCESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Version container for `EHR_ACCESS` instance.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_ACCESS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "VERSIONED_EHR_ACCESS",
+      "short" : "Version container for `EHR_ACCESS` instance.",
+      "definition" : "Version container for `EHR_ACCESS` instance.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

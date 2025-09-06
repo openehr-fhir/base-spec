@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "SYNC_EXTRACT_REQUEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT_REQUEST",
+  "version" : "1.2.0",
+  "name" : "SYNC_EXTRACT_REQUEST",
+  "title" : "SYNC_EXTRACT_REQUEST",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Type of request designed for synchronisation of Contributions between openEHR servers.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT_REQUEST",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/MESSAGE_CONTENT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "SYNC_EXTRACT_REQUEST",
+      "short" : "Type of request designed for synchronisation of Contributions between openEHR servers.",
+      "definition" : "Type of request designed for synchronisation of Contributions between openEHR servers.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT_REQUEST.specification",
+      "short" : "Details of specification of synchronisation request.",
+      "definition" : "Details of specification of synchronisation request.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT_SPEC"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

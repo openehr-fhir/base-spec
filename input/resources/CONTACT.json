@@ -1,0 +1,102 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CONTACT",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "purpose",
+    "name" : "purpose",
+    "title" : "purpose",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Purpose for which this contact is used, e.g. mail,  daytime phone, etc. Taken from value of inherited `_name_` attribute.",
+    "code" : "purpose",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_contact_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#purpose"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CONTACT",
+  "version" : "1.2.0",
+  "name" : "CONTACT",
+  "title" : "CONTACT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Description of a means of contact of a Party. Actual structure is archetyped.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CONTACT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CONTACT",
+      "short" : "Description of a means of contact of a Party.",
+      "definition" : "Description of a means of contact of a Party. Actual structure is archetyped.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Purpose_valid",
+        "severity" : "error",
+        "human" : "Purpose valid",
+        "expression" : "purpose() = name"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CONTACT.addresses",
+      "short" : "A set of address alternatives for this contact purpose and time validity combination.",
+      "definition" : "A set of address alternatives for this contact purpose and time validity combination.",
+      "min" : 1,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ADDRESS"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CONTACT.time_validity",
+      "short" : "Valid time interval for this contact descriptor.",
+      "definition" : "Valid time interval for this contact descriptor.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

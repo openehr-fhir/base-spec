@@ -1,0 +1,941 @@
+# openEHR BMM Invariants -> FHIR Constraints Mapping
+# Generated automatically - manual refinement needed
+# Format:
+#   className:
+#     invariantName:
+#       original: "original BMM expression"
+#       human: "human readable description"
+#       fhirpath: "FHIRPath expression" # null if needs manual work
+#       error: "FHIRPath validation error" # present if fhirpath is invalid
+
+LOCATABLE:
+  Links_valid:
+    original: "links /= Void implies not links.is_empty"
+    human: "Links valid must be present"
+    fhirpath: "links.exists() implies links.empty().not()"
+
+  Archetyped_valid:
+    original: "is_archetype_root xor archetype_details = Void"
+    human: "Archetyped valid must satisfy exclusive conditions"
+    fhirpath: "is_archetype_root() xor archetype_details .empty()"
+
+  Archetype_node_id_valid:
+    original: "not archetype_node_id.is_empty"
+    human: "Archetype node id valid must not be empty"
+    fhirpath: "archetype_node_id.empty().not()"
+
+ARCHETYPED:
+  rm_version_valid:
+    original: "not rm_version.is_empty"
+    human: "rm version valid must not be empty"
+    fhirpath: "rm_version.empty().not()"
+
+  Rm_version_valid:
+    original: "not rm_version.is_empty"
+    human: "Rm version valid must not be empty"
+    fhirpath: "rm_version.empty().not()"
+
+FEEDER_AUDIT_DETAILS:
+  System_id_valid:
+    original: "not system_id.is_empty"
+    human: "System id valid must not be empty"
+    fhirpath: "system_id.empty().not()"
+
+VERSIONED_OBJECT:
+  Version_count_valid:
+    original: "version_count >= 0"
+    human: "Version count valid must satisfy range constraints"
+    fhirpath: "version_count() >= 0"
+
+  All_version_ids_valid:
+    original: "all_version_ids.count = version_count"
+    human: "All version ids valid"
+    fhirpath: "all_version_ids().count() = version_count()"
+
+  All_versions_valid:
+    original: "all_versions.count = version_count"
+    human: "All versions valid"
+    fhirpath: "all_versions().count() = version_count()"
+
+  Latest_version_valid:
+    original: "version_count > 0 implies latest_version /= Void"
+    human: "Latest version valid must be present"
+    fhirpath: "version_count() > 0 implies latest_version().exists()"
+
+  Uid_validity:
+    original: "extension.is_empty"
+    human: "Uid validity must not be empty"
+    fhirpath: "extension.empty()"
+
+VERSION:
+  Owner_id_valid:
+    original: "owner_id.value.is_equal (uid.object_id.value)"
+    human: "Owner id valid"
+    fhirpath: "owner_id().value().is_equal (uid().object_id.value())"
+
+  Preceding_version_uid_validity:
+    original: "uid.version_tree_id.is_first xor preceding_version_uid /= Void"
+    human: "Preceding version uid validity must be present"
+    fhirpath: "uid().version_tree_id.is_first xor preceding_version_uid().exists()"
+
+  Lifecycle_state_ valid:
+    original: "lifecycle_state /= Void and then terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state.defining_code)"
+    human: "Lifecycle state  valid must be present"
+    fhirpath: "lifecycle_state().exists() and then terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state().defining_code)"
+
+ORIGINAL_VERSION:
+  Attestations_valid:
+    original: "attestations /= Void implies not attestations.is_empty"
+    human: "Attestations valid must be present"
+    fhirpath: "attestations.exists() implies attestations.empty().not()"
+
+  Is_merged_validity:
+    original: "other_input_version_ids = Void xor is_merged"
+    human: "Is merged validity must satisfy exclusive conditions"
+    fhirpath: "other_input_version_ids .empty() xor is_merged()"
+
+  Other_input_version_uids_valid:
+    original: "other_input_version_uids /= Void implies not other_input_version_uids.is_empty"
+    human: "Other input version uids valid must be present"
+    fhirpath: "other_input_version_uids.exists() implies other_input_version_uids.empty().not()"
+
+REVISION_HISTORY_ITEM:
+  Audit_valid:
+    original: "not audits.is_empty"
+    human: "Audit valid must not be empty"
+    fhirpath: "audits.empty().not()"
+
+AUDIT_DETAILS:
+  System_id_valid:
+    original: "not system_id.is_empty"
+    human: "System id valid must not be empty"
+    fhirpath: "system_id.empty().not()"
+
+  Change_type_valid:
+    original: "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_audit_change_type, change_type.defining_code)"
+    human: "Change type valid"
+    fhirpath: null # TODO: manual translation needed
+
+ATTESTATION:
+  Items_valid:
+    original: "items /= Void implies not items.is_empty"
+    human: "Items valid must be present"
+    fhirpath: "items.exists() implies items.empty().not()"
+
+  Reason_valid:
+    original: "(reason.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_attestation_reason, reason.defining_code))"
+    human: "Reason valid must satisfy conditional constraints"
+    fhirpath: null # TODO: manual translation needed
+
+PARTICIPATION:
+  Function_valid:
+    original: "function.generating_type.is_equal (\"DV_CODED_TEXT\") implies\nterminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)"
+    human: "Function valid must satisfy conditional constraints"
+    fhirpath: null # TODO: manual translation needed
+
+  Mode_valid:
+    original: "mode /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+    human: "Mode valid must be present"
+    fhirpath: "mode.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+
+PARTY_IDENTIFIED:
+  Basic_validity:
+    original: "name /= Void or identifiers /= Void or external_ref /= Void"
+    human: "Basic validity must be present"
+    fhirpath: "name.exists() or identifiers.exists() or external_ref.exists()"
+
+  Name_valid:
+    original: "name /= Void implies not name.is_empty"
+    human: "Name valid must be present"
+    fhirpath: "name.exists() implies name.empty().not()"
+
+  Identifiers_valid:
+    original: "identifiers /= Void implies not identifiers.is_empty"
+    human: "Identifiers valid must be present"
+    fhirpath: "identifiers.exists() implies identifiers.empty().not()"
+
+PARTY_RELATED:
+  Relationship_valid:
+    original: "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_subject_relationship, relationship.defining_code)"
+    human: "Relationship valid"
+    fhirpath: null # TODO: manual translation needed
+
+FOLDER:
+  Folders_valid:
+    original: "not folders.is_empty"
+    human: "Folders valid must not be empty"
+    fhirpath: "folders.empty().not()"
+
+AUTHORED_RESOURCE:
+  Original_language_valid:
+    original: "code_set (Code_set_id_languages).has_code (original_language.as_string)"
+    human: "Original language valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Languages_available_valid:
+    original: "languages_available.has (original_language)"
+    human: "Languages available valid"
+    fhirpath: "languages_available().has (original_language)"
+
+  Revision_history_valid:
+    original: "is_controlled xor revision_history = Void"
+    human: "Revision history valid must satisfy exclusive conditions"
+    fhirpath: "is_controlled xor revision_history .empty()"
+
+  Current_revision_valid:
+    original: "(current_revision /= Void and not is_controlled) implies current_revision.is_equal (“(uncontrolled)”)"
+    human: "Current revision valid must be present"
+    fhirpath: "(current_revision().exists() and is_controlled.not()) implies current_revision().is_equal (“(uncontrolled)”)"
+
+  Translations_valid:
+    original: "translations /= Void implies (not translations.is_empty and not translations.has (orginal_language.code_string))"
+    human: "Translations valid must be present"
+    fhirpath: "translations.exists() implies (translations.empty().not() and translations.not().has (orginal_language.code_string))"
+
+  Description_valid:
+    original: "translations /= Void implies (description.details.for_all (d |\ntranslations.has_key (d.language.code_string)))"
+    human: "Description valid must be present"
+    fhirpath: "translations.exists() implies (description.details.for_all (d |\ntranslations.has_key (d.language.code_string)))"
+
+RESOURCE_DESCRIPTION:
+  Original_author_valid:
+    original: "not original_author.is_empty"
+    human: "Original author valid must not be empty"
+    fhirpath: "original_author.empty().not()"
+
+  Lifecycle_state_valid:
+    original: "not lifecycle_state.is_empty"
+    human: "Lifecycle state valid must not be empty"
+    fhirpath: "lifecycle_state.empty().not()"
+
+  Details_valid:
+    original: "not details.is_empty"
+    human: "Details valid must not be empty"
+    fhirpath: "details.empty().not()"
+
+  Language_valid:
+    original: "parent_resource /= Void implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))"
+    human: "Language valid must be present"
+    fhirpath: "parent_resource.exists() implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))"
+
+  Parent_resource_valid:
+    original: "parent_resource /= Void implies parent_resource.description = self"
+    human: "Parent resource valid must be present"
+    fhirpath: "parent_resource.exists() implies parent_resource.description = self"
+
+TRANSLATION_DETAILS:
+  Language_valid:
+    original: "code_set (Code_set_id_languages).has_code (language)"
+    human: "Language valid"
+    fhirpath: null # TODO: manual translation needed
+
+RESOURCE_DESCRIPTION_ITEM:
+  Language_valid:
+    original: "code_set (Code_set_id_languages).has_code (language)"
+    human: "Language valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Purpose_valid:
+    original: "not purpose.is_empty"
+    human: "Purpose valid must not be empty"
+    fhirpath: "purpose.empty().not()"
+
+  Use_valid:
+    original: "use /= Void implies not use.is_empty"
+    human: "Use valid must be present"
+    fhirpath: "use.exists() implies use.empty().not()"
+
+  misuse_valid:
+    original: "misuse /= Void implies not misuse.is_empty"
+    human: "misuse valid must be present"
+    fhirpath: "misuse.exists() implies misuse.empty().not()"
+
+  copyright_valid:
+    original: "copyright /= Void implies not copyright.is_empty"
+    human: "copyright valid must be present"
+    fhirpath: "copyright.exists() implies copyright.empty().not()"
+
+ITEM_TAG:
+  Inv_key_valid:
+    original: "not key.is_empty and key.is_justified"
+    human: "Inv key valid must not be empty"
+    fhirpath: "key.empty().not() and key.is_justified"
+
+  Inv_value_valid:
+    original: "value /= Void implies not value.is_empty"
+    human: "Inv value valid must be present"
+    fhirpath: "value.exists() implies value.empty().not()"
+
+ITEM_TABLE:
+  Valid_structure:
+    original: "rows.for_all (items.for_all (instance_of (\"ELEMENT\")))"
+    human: "Valid structure"
+    fhirpath: null # TODO: manual translation needed
+
+ITEM_LIST:
+  Valid_structure:
+    original: " items.forall (i:ITEM | i.type = \"ELEMENT\")"
+    human: "Valid structure"
+    fhirpath: " items.forall (i:ITEM | i.type() = \"ELEMENT\")"
+
+EVENT:
+  Offset_validity:
+    original: ""
+    human: "Offset validity"
+    fhirpath: null # TODO: manual translation needed
+
+  Offset_validity1:
+    original: "offset /= Void and then offset = time.diff (parent.origin)"
+    human: "Offset validity1 must be present"
+    fhirpath: "offset().exists() and then offset() = time.diff (parent().origin)"
+
+INTERVAL_EVENT:
+  Math_function_validity:
+    original: "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_event_math_function, math_function.defining_code)"
+    human: "Math function validity"
+    fhirpath: null # TODO: manual translation needed
+
+  Interval_start_time_valid:
+    original: "interval_start_time = time - width"
+    human: "Interval start time valid"
+    fhirpath: "interval_start_time() = time - width"
+
+HISTORY:
+  Events_valid:
+    original: "(events /= Void and then not events.is_empty) or summary /= Void"
+    human: "Events valid must be present"
+    fhirpath: "(events.exists() and then events.empty().not()) or summary.exists()"
+    error: "Error @1, 34: Found events expecting a \")\""
+
+  Periodic_validity:
+    original: "is_periodic xor period = Void"
+    human: "Periodic validity must satisfy exclusive conditions"
+    fhirpath: "is_periodic() xor period .empty()"
+
+  Period_consistency:
+    original: "is_periodic implies events.for_all (e: EVENT | e.offset. to_seconds.mod(period.to_seconds) = 0)"
+    human: "Period consistency must satisfy conditional constraints"
+    fhirpath: "is_periodic() implies events.for_all (e: EVENT | e.offset. to_seconds.mod(period.to_seconds) = 0)"
+
+ELEMENT:
+  Inv_is_null_valid:
+    original: "is_null() = (value = Void)"
+    human: "Inv is null valid"
+    fhirpath: "is_null() = (value .empty())"
+
+  Inv_null_flavour_indicated:
+    original: "is_null() xor null_flavour = Void"
+    human: "Inv null flavour indicated must satisfy exclusive conditions"
+    fhirpath: "is_null() xor null_flavour .empty()"
+
+  Inv_null_flavour_valid:
+    original: "is_null implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)"
+    human: "Inv null flavour valid must satisfy conditional constraints"
+    fhirpath: "is_null() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)"
+
+  Inv_null_reason_valid:
+    original: "null_reason /= Void implies is_null()"
+    human: "Inv null reason valid must be present"
+    fhirpath: "null_reason.exists() implies is_null()"
+
+DV_IDENTIFIER:
+  Issuer_valid:
+    original: "not issuer.is_empty"
+    human: "Issuer valid must not be empty"
+    fhirpath: "issuer.empty().not()"
+
+  Assigner_valid:
+    original: "not assigner.is_empty"
+    human: "Assigner valid must not be empty"
+    fhirpath: "assigner.empty().not()"
+
+  Id_valid:
+    original: "not id.is_empty"
+    human: "Id valid must not be empty"
+    fhirpath: "id.empty().not()"
+
+  Type_valid:
+    original: "not type.is_empty"
+    human: "Type valid must not be empty"
+    fhirpath: "type.empty().not()"
+
+DV_ENCAPSULATED:
+  Size_valid:
+    original: "size >= 0"
+    human: "Size valid must satisfy range constraints"
+    fhirpath: "size() >= 0"
+
+  Language_valid:
+    original: "language /= Void implies code_set (Code_set_id_languages).has_code (language)"
+    human: "Language valid must be present"
+    fhirpath: "language.exists() implies code_set (Code_set_id_languages).has_code (language)"
+
+  Charset_valid:
+    original: "charset /= Void implies code_set (Code_set_id_character_sets).has_code (charset)"
+    human: "Charset valid must be present"
+    fhirpath: "charset.exists() implies code_set (Code_set_id_character_sets).has_code (charset)"
+
+DV_MULTIMEDIA:
+  Not_empty:
+    original: "is_inline or is_external"
+    human: "Not empty"
+    fhirpath: "is_inline() or is_external()"
+
+  Media_type_valid:
+    original: "media_type /= Void and then code_set (Code_set_id_media_types).has_code (media_type)"
+    human: "Media type valid must be present"
+    fhirpath: "media_type.exists() and then code_set (Code_set_id_media_types).has_code (media_type)"
+    error: "Error @1, 39: Premature ExpressionNode termination at unexpected token \"code_set\""
+
+  Compression_algorithm_validity:
+    original: "compression_algorithm /= Void implies code_set (Code_set_id_compression_algorithms).has_code (compression_algorithm)"
+    human: "Compression algorithm validity must be present"
+    fhirpath: "compression_algorithm.exists() implies code_set (Code_set_id_compression_algorithms).has_code (compression_algorithm)"
+
+  Integrity_check_validity:
+    original: "integrity_check /= Void implies integrity_check_algorithm /= Void"
+    human: "Integrity check validity must be present"
+    fhirpath: "integrity_check.exists() implies integrity_check_algorithm.exists()"
+
+  Integrity_check_algorithm_validity:
+    original: "integrity_check_algorithm /= Void implies code_set (Code_set_id_integrity_check_algorithms).has_code (integrity_check_algorithm)"
+    human: "Integrity check algorithm validity must be present"
+    fhirpath: "integrity_check_algorithm.exists() implies code_set (Code_set_id_integrity_check_algorithms).has_code (integrity_check_algorithm)"
+
+  Size_valid:
+    original: "size >= 0"
+    human: "Size valid must satisfy range constraints"
+    fhirpath: null # TODO: manual translation needed
+
+DV_PARSABLE:
+  Formalism_valid:
+    original: "not formalism.is_empty"
+    human: "Formalism valid must not be empty"
+    fhirpath: "formalism.empty().not()"
+
+  Size_valid:
+    original: "size >= 0"
+    human: "Size valid must satisfy range constraints"
+    fhirpath: "size() >= 0"
+
+DV_PARAGRAPH:
+  Items_valid:
+    original: "not items.is_empty"
+    human: "Items valid must not be empty"
+    fhirpath: "items.empty().not()"
+
+DV_TEXT:
+  Valid_value:
+    original: "not value.is_empty"
+    human: "Valid value must not be empty"
+    fhirpath: "value.empty().not()"
+
+  Language_valid:
+    original: "language /= Void implies code_set (Code_set_id_languages).has_code (language)"
+    human: "Language valid must be present"
+    fhirpath: "language.exists() implies code_set (Code_set_id_languages).has_code (language)"
+
+  Encoding_valid:
+    original: "encoding /= Void implies code_set (Code_set_id_character_sets).has_code (encoding)"
+    human: "Encoding valid must be present"
+    fhirpath: "encoding.exists() implies code_set (Code_set_id_character_sets).has_code (encoding)"
+
+  Mappings_valid:
+    original: "mappings /= void implies not mappings.is_empty"
+    human: "Mappings valid must not be empty"
+    fhirpath: "mappings /= void implies mappings.empty().not()"
+    error: "Error @1, 12: Found = expecting a token name"
+
+  Formatting_valid:
+    original: "formatting /= void implies not formatting.is_empty"
+    human: "Formatting valid must not be empty"
+    fhirpath: "formatting /= void implies formatting.empty().not()"
+    error: "Error @1, 14: Found = expecting a token name"
+
+TERM_MAPPING:
+  Purpose_valid:
+    original: "purpose /= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)"
+    human: "Purpose valid must be present"
+    fhirpath: "purpose.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)"
+
+  Match_valid:
+    original: "is_valid_match_code (match)"
+    human: "Match valid"
+    fhirpath: "is_valid_match_code() (match)"
+
+CODE_PHRASE:
+  Code_string_valid:
+    original: "not code_string.is_empty"
+    human: "Code string valid must not be empty"
+    fhirpath: "code_string.empty().not()"
+
+DV_ORDERED:
+  Other_reference_ranges_validity:
+    original: "other_reference_ranges /= Void implies not other_reference_ranges.is_empty"
+    human: "Other reference ranges validity must be present"
+    fhirpath: "other_reference_ranges.exists() implies other_reference_ranges.empty().not()"
+
+  Is_simple_validity:
+    original: "(normal_range = Void and other_reference_ranges = Void) implies is_simple"
+    human: "Is simple validity must satisfy conditional constraints"
+    fhirpath: "(normal_range .empty() and other_reference_ranges .empty()) implies is_simple()"
+
+  Normal_status_validity:
+    original: "normal_status /= Void implies code_set (Code_set_id_normal_statuses).has_code (normal_status)"
+    human: "Normal status validity must be present"
+    fhirpath: "normal_status.exists() implies code_set (Code_set_id_normal_statuses).has_code (normal_status)"
+
+  Normal_range_and_status_consistency:
+    original: "(normal_range /= Void and normal_status /= Void) implies (normal_status.code_string.is_equal (“N”) xor not normal_range.has (self))"
+    human: "Normal range and status consistency must be present"
+    fhirpath: "(normal_range.exists() and normal_status.exists()) implies (normal_status.code_string.is_equal (“N”) xor normal_range.not().has (self))"
+
+DV_INTERVAL:
+  Limits_consistent:
+    original: "(not upper_unbounded and not lower_unbounded) implies (lower.is_strictly_comparable_to(upper) and lower <= upper)"
+    human: "Limits consistent must satisfy range constraints"
+    fhirpath: "(upper_unbounde.not()d and lower_unbounded.not()) implies (lower.is_strictly_comparable_to(upper) and lower <= upper)"
+    error: "Error @1, 23: Found d expecting a \")\""
+
+REFERENCE_RANGE:
+  Range_is_simple:
+    original: "(range.lower_unbounded or else range.lower.is_simple) and (range.upper_unbounded or else range.upper.is_simple)"
+    human: "Range is simple"
+    fhirpath: null # TODO: manual translation needed
+
+DV_QUANTIFIED:
+  Magnitude_status_valid:
+    original: "magnitude_status /= Void implies valid_magnitude_status (magnitude_status)"
+    human: "Magnitude status valid must be present"
+    fhirpath: "magnitude_status.exists() implies valid_magnitude_status() (magnitude_status)"
+
+DV_PROPORTION:
+  Type_validity:
+    original: "valid_proportion_kind (type)"
+    human: "Type validity"
+    fhirpath: null # TODO: manual translation needed
+
+  Precision_validity:
+    original: "precision = 0 implies is_integral"
+    human: "Precision validity must satisfy conditional constraints"
+    fhirpath: "precision = 0 implies is_integral()"
+
+  Is_integral_validity:
+    original: "is_integral implies (numerator.floor = numerator and denominator.floor = denominator)"
+    human: "Is integral validity must satisfy conditional constraints"
+    fhirpath: "is_integral() implies (numerator.floor = numerator and denominator.floor = denominator)"
+
+  Fraction_validity:
+    original: "(type = pk_fraction or type = pk_integer_fraction) implies is_integral"
+    human: "Fraction validity must satisfy conditional constraints"
+    fhirpath: "(type = pk_fraction or type = pk_integer_fraction) implies is_integral()"
+
+  Unitary_validity:
+    original: "type = pk_unitary implies denominator = 1"
+    human: "Unitary validity must satisfy conditional constraints"
+    fhirpath: null # TODO: manual translation needed
+
+  Percent_validity:
+    original: "type = pk_percent implies denominator = 100"
+    human: "Percent validity must satisfy conditional constraints"
+    fhirpath: null # TODO: manual translation needed
+
+  Valid_denominator:
+    original: "denominator /= 0.0"
+    human: "Valid denominator"
+    fhirpath: null # TODO: manual translation needed
+
+DV_AMOUNT:
+  Accuracy_is_percent_validity:
+    original: "accuracy = 0 implies not accuracy_is_percent"
+    human: "Accuracy is percent validity must satisfy conditional constraints"
+    fhirpath: "accuracy = 0 implies accuracy_is_percent.not()"
+
+  Accuracy_validity:
+    original: "accuracy_is_percent implies valid_percentage (accuracy)"
+    human: "Accuracy validity must satisfy conditional constraints"
+    fhirpath: "accuracy_is_percent implies valid_percentage() (accuracy)"
+
+DV_ORDINAL:
+  Limits_valid:
+    original: "limits.meaning.is_equal (“limits”)"
+    human: "Limits valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Reference_range_valid:
+    original: "other_reference_ranges.has (limits)"
+    human: "Reference range valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_DURATION:
+  Value_valid:
+    original: "valid_iso8601_duration (value)"
+    human: "Value valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_DATE:
+  Value_valid:
+    original: "valid_iso8601_date(value)"
+    human: "Value valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_TIME:
+  Value_valid:
+    original: "valid_iso8601_time (value)"
+    human: "Value valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_DATE_TIME:
+  Value_valid:
+    original: "valid_iso8601_date_time (value)"
+    human: "Value valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_PERIODIC_TIME_SPECIFICATION:
+  Value_valid:
+    original: "value.formalism.is_equal (“HL7:PIVL”) or value.formalism. is_equal (“HL7:EIVL”)"
+    human: "Value valid"
+    fhirpath: null # TODO: manual translation needed
+
+DV_URI:
+  Value_valid:
+    original: "not value.is_empty"
+    human: "Value valid must not be empty"
+    fhirpath: "value.empty().not()"
+
+DV_EHR_URI:
+  Scheme_valid:
+    original: "scheme.is_equal (Ehr_scheme)"
+    human: "Scheme valid"
+    fhirpath: "scheme().is_equal (Ehr_scheme)"
+
+EHR:
+  Contributions_valid:
+    original: "for_all c in contributions | c.type.is_equal(\"CONTRIBUTION\")"
+    human: "Contributions valid"
+    fhirpath: "for_all c in contributions | c.type().is_equal(\"CONTRIBUTION\")"
+    error: "Error @1, 10: Premature ExpressionNode termination at unexpected token \"c\""
+
+  Ehr_access_valid:
+    original: "ehr_access.type.is_equal (\"VERSIONED_EHR_ACCESS\")"
+    human: "Ehr access valid"
+    fhirpath: "ehr_access.type().is_equal (\"VERSIONED_EHR_ACCESS\")"
+
+  Ehr_status_valid:
+    original: "ehr_status.type.is_equal(\"VERSIONED_EHR_STATUS\")"
+    human: "Ehr status valid"
+    fhirpath: "ehr_status.type().is_equal(\"VERSIONED_EHR_STATUS\")"
+
+  Compositions_valid:
+    original: "for_all c in compositions | c.type.is_equal (\"VERSIONED_COMPOSITION\")"
+    human: "Compositions valid"
+    fhirpath: "for_all c in compositions | c.type().is_equal (\"VERSIONED_COMPOSITION\")"
+    error: "Error @1, 10: Premature ExpressionNode termination at unexpected token \"c\""
+
+  Directory_valid:
+    original: "directory /= Void implies directory.type.is_equal (\"VERSIONED_FOLDER\")"
+    human: "Directory valid must be present"
+    fhirpath: "directory.exists() implies directory.type().is_equal (\"VERSIONED_FOLDER\")"
+
+  Folders_valid:
+    original: "folders /= Void implies for_all f in folders | f.type.is_equal(\"VERSIONED_FOLDER\")"
+    human: "Folders valid must be present"
+    fhirpath: "folders.exists() implies for_all f in folders | f.type().is_equal(\"VERSIONED_FOLDER\")"
+    error: "Error @1, 36: Premature ExpressionNode termination at unexpected token \"f\""
+
+  Directory_in_folders:
+    original: "folders /= Void implies folders.item(1) = directory"
+    human: "Directory in folders must be present"
+    fhirpath: "folders.exists() implies folders.item(1) = directory"
+
+VERSIONED_COMPOSITION:
+  Archetype_node_id_valid:
+    original: "for_all v in all_versions | v.archetype_node_id.is_equal (all_versions.first.archetype_node_id)"
+    human: "Archetype node id valid"
+    fhirpath: "for_all v in all_versions() | v.archetype_node_id.is_equal (all_versions().first().archetype_node_id)"
+    error: "Error @1, 10: Premature ExpressionNode termination at unexpected token \"v\""
+
+  Persistent_validity:
+    original: "for_all v in all_versions | v.is_persistent = all_versions.first.data.is_persistent"
+    human: "Persistent validity"
+    fhirpath: "for_all v in all_versions() | v.is_persistent() = all_versions().first().data.is_persistent()"
+    error: "Error @1, 10: Premature ExpressionNode termination at unexpected token \"v\""
+
+EHR_ACCESS:
+  Scheme_valid:
+    original: "not scheme.is_empty"
+    human: "Scheme valid must not be empty"
+    fhirpath: "scheme().not().empty()"
+
+  Is_archetype_root:
+    original: "is_archetype_root"
+    human: "Is archetype root"
+    fhirpath: "is_archetype_root()"
+
+EHR_STATUS:
+  Is_archetype_root:
+    original: "is_archetype_root"
+    human: "Is archetype root"
+    fhirpath: "is_archetype_root()"
+
+EXTRACT:
+  Sequence_nr_valid:
+    original: "sequence_nr >= 1"
+    human: "Sequence nr valid must satisfy range constraints"
+    fhirpath: null # TODO: manual translation needed
+
+EXTRACT_CONTENT_ITEM:
+  Item_validity:
+    original: "is_masked xor item /= Void"
+    human: "Item validity must be present"
+    fhirpath: "is_masked xor item.exists()"
+
+EXTRACT_PARTICIPATION:
+  Function_valid:
+    original: "function /= Void and then function.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)"
+    human: "Function valid must be present"
+    fhirpath: "function.exists() and then function.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)"
+    error: "Error @1, 37: Premature ExpressionNode termination at unexpected token \"function\""
+
+  Mode_valid:
+    original: "mode /= Void and terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+    human: "Mode valid must be present"
+    fhirpath: "mode.exists() and terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+
+EXTRACT_UPDATE_SPEC:
+  Overall_validity:
+    original: "repeat_period /= Void or trigger_events /= Void"
+    human: "Overall validity must be present"
+    fhirpath: "repeat_period.exists() or trigger_events.exists()"
+
+  Trigger_events_validity:
+    original: "trigger_events /= Void implies not trigger_events.is_empty"
+    human: "Trigger events validity must be present"
+    fhirpath: "trigger_events.exists() implies trigger_events.empty().not()"
+
+  Send_changes_only_validity:
+    original: "send_changes_only implies persist_in_server"
+    human: "Send changes only validity must satisfy conditional constraints"
+    fhirpath: null # TODO: manual translation needed
+
+EXTRACT_VERSION_SPEC:
+  Includes_revision_history_valid:
+    original: "not include_data implies include_revision_history"
+    human: "Includes revision history valid must satisfy conditional constraints"
+    fhirpath: "include_dat.not()a implies include_revision_history"
+    error: "Error @1, 19: Premature ExpressionNode termination at unexpected token \"a\""
+
+PARTY:
+  Type_valid:
+    original: "type = name"
+    human: "Type valid"
+    fhirpath: "type() = name"
+
+  Identities_valid:
+    original: "not identities.is_empty"
+    human: "Identities valid must not be empty"
+    fhirpath: "identities.empty().not()"
+
+  Contacts_valid:
+    original: "contacts /= Void implies not contacts.is_empty"
+    human: "Contacts valid must be present"
+    fhirpath: "contacts.exists() implies contacts.empty().not()"
+
+  Relationships_validity:
+    original: "relationships /= Void implies (not relationships.is_empty and then relationships.for_all (r | r.source = self)"
+    human: "Relationships validity must be present"
+    fhirpath: "relationships.exists() implies (relationships.empty().not() and then relationships.for_all (r | r.source = self)"
+    error: "Error @1, 84: Found relationships expecting a \")\""
+
+  Reverse_relationships_validity:
+    original: "reverse_relationships /= Void implies (not reverse_relationships.empty and then reverse_relationships.for_all (item | repository (\"demographics\").all_party_relationships.has_object (item) and then repository(\"demographics\").all_party_relationships.object (item).target = self))"
+    human: "Reverse relationships validity must be present"
+    fhirpath: "reverse_relationships.exists() implies (reverse_relationships.empty().not() and then reverse_relationships.for_all (item | repository (\"demographics\").all_party_relationships.has_object (item) and then repository(\"demographics\").all_party_relationships.object (item).target = self))"
+    error: "Error @1, 108: Found reverse_relationships expecting a \")\""
+
+  Is_archetype_root:
+    original: "is_archetype_root"
+    human: "Is archetype root"
+    fhirpath: "is_archetype_root()"
+
+  Uid_mandatory:
+    original: "uid /= Void"
+    human: "Uid mandatory must be present"
+    fhirpath: "uid.exists()"
+
+CONTACT:
+  Purpose_valid:
+    original: "purpose = name"
+    human: "Purpose valid"
+    fhirpath: "purpose() = name"
+
+ADDRESS:
+  Type_valid:
+    original: "type = name"
+    human: "Type valid"
+    fhirpath: "type() = name"
+
+PARTY_IDENTITY:
+  Purpose_valid:
+    original: "purpose = name"
+    human: "Purpose valid"
+    fhirpath: "purpose() = name"
+
+ROLE:
+  Capabilities_valid:
+    original: "capabilities /= Void implies not capabilities.empty"
+    human: "Capabilities valid must be present"
+    fhirpath: "capabilities.exists() implies capabilities.empty().not()"
+
+ACTOR:
+  Roles_valid:
+    original: "roles /= Void implies not roles.is_empty"
+    human: "Roles valid must be present"
+    fhirpath: "roles.exists() implies roles.empty().not()"
+
+  Legal_identity_exists:
+    original: "has_legal_identity"
+    human: "Legal identity exists"
+    fhirpath: null # TODO: manual translation needed
+
+PARTY_RELATIONSHIP:
+  Source_valid:
+    original: "source /= Void and then source.relationships.has (self)"
+    human: "Source valid must be present"
+    fhirpath: "source.exists() and then source.relationships.has (self)"
+    error: "Error @1, 33: Premature ExpressionNode termination at unexpected token \"source\""
+
+  Target_valid:
+    original: "target /= Void and then not target.reverse_relationships.has (self)"
+    human: "Target valid must be present"
+    fhirpath: "target.exists() and then target.not().reverse_relationships.has (self)"
+    error: "Error @1, 33: Premature ExpressionNode termination at unexpected token \"target\""
+
+  Type_validity:
+    original: "type = name"
+    human: "Type validity"
+    fhirpath: "type() = name"
+
+COMPOSITION:
+  Setting_valid:
+    original: ""
+    human: "Setting valid"
+    fhirpath: null # TODO: manual translation needed
+
+  unnamed2:
+    original: ""
+    human: "unnamed2"
+    fhirpath: null # TODO: manual translation needed
+
+  unnamed3:
+    original: "Terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_setting, setting.defining_code)"
+    human: "unnamed3"
+    fhirpath: null # TODO: manual translation needed
+
+  Category_validity:
+    original: "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_composition_category, category.defining_code)"
+    human: "Category validity"
+    fhirpath: null # TODO: manual translation needed
+
+  Is_persistent_validity:
+    original: "is_persistent implies context = Void"
+    human: "Is persistent validity must satisfy conditional constraints"
+    fhirpath: "is_persistent() implies context .empty()"
+
+  Territory_valid:
+    original: "code_set(Code_set_id_countries).has_code(territory)"
+    human: "Territory valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Language_valid:
+    original: "code_set(Code_set_id_languages).has_code(language)"
+    human: "Language valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Content_valid:
+    original: "content /= Void implies not content.is_empty"
+    human: "Content valid must be present"
+    fhirpath: "content.exists() implies content.empty().not()"
+
+  Is_archetype_root:
+    original: "is_archetype_root"
+    human: "Is archetype root"
+    fhirpath: "is_archetype_root()"
+
+EVENT_CONTEXT:
+  Setting_valid:
+    original: "Terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_setting, setting.defining_code)"
+    human: "Setting valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Participations_validity:
+    original: "participations /= Void implies not participations.is_empty"
+    human: "Participations validity must be present"
+    fhirpath: "participations.exists() implies participations.empty().not()"
+
+  location_valid:
+    original: "location /= Void implies not location.is_empty"
+    human: "location valid must be present"
+    fhirpath: "location.exists() implies location.empty().not()"
+
+SECTION:
+  Items_valid:
+    original: "items /= Void implies not items.is_empty"
+    human: "Items valid must be present"
+    fhirpath: "items.exists() implies items.empty().not()"
+
+ACTIVITY:
+  Action_archetype_id_valid:
+    original: "not action_archetype_id.is_empty"
+    human: "Action archetype id valid must not be empty"
+    fhirpath: "action_archetype_id.empty().not()"
+
+ISM_TRANSITION:
+  Current_state_valid:
+    original: "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_instruction_states, current_state.defining_code)"
+    human: "Current state valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Transition_valid:
+    original: "transition /= Void implies terminology (Terminology_id_openehr).\nhas_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
+    human: "Transition valid must be present"
+    fhirpath: "transition.exists() implies terminology (Terminology_id_openehr).\nhas_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
+
+INSTRUCTION_DETAILS:
+  Activity_path_valid:
+    original: "not activity_id.is_empty"
+    human: "Activity path valid must not be empty"
+    fhirpath: "activity_id.empty().not()"
+
+ENTRY:
+  Language_valid:
+    original: "code_set (Code_set_id_languages).has_code (language)"
+    human: "Language valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Encoding_valid:
+    original: "code_set (Code_set_id_character_sets).has_code (encoding)"
+    human: "Encoding valid"
+    fhirpath: null # TODO: manual translation needed
+
+  Subject_validity:
+    original: "subject_is_self implies subject.generating_type = “PARTY_SELF”"
+    human: "Subject validity must satisfy conditional constraints"
+    fhirpath: "subject_is_self() implies subject.generating_type = “PARTY_SELF”"
+
+  Other_participations_valid:
+    original: "other_participations /= Void implies not other_participations.is_empty"
+    human: "Other participations valid must be present"
+    fhirpath: "other_participations.exists() implies other_participations.empty().not()"
+
+  Is_archetype_root:
+    original: "is_archetype_root"
+    human: "Is archetype root"
+    fhirpath: "is_archetype_root()"
+
+INSTRUCTION:
+  Activities_valid:
+    original: "activities /= Void implies not activities.is_empty"
+    human: "Activities valid must be present"
+    fhirpath: "activities.exists() implies activities.empty().not()"
+

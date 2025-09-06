@@ -1,0 +1,91 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_ENTITY_MANIFEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_MANIFEST",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_ENTITY_MANIFEST",
+  "title" : "EXTRACT_ENTITY_MANIFEST",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The manifest for one entity (e.g. EHR subject), identifying the entity and optionally specifying top-level items to be included in the Extract. The list actually included may be modified by the `_version_spec_` part of the specification, and also by the link_depth attribute. In repeat (standing order) requests, the final inclusion may be modified by the send_changes_only value for `EXTRACT_UPDATE_SPEC._update_method_`.\n\nVarious identifiers may be provided for the entity; these are to be used by the receiver system to locate the entity. The `_extract_id_key_` attribute is used to record the identifier that will be used throughout the Extract for this entity, including in instances of `EXTRACT_ENTITY_IDENTIFIER`.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_MANIFEST",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_ENTITY_MANIFEST",
+      "short" : "The manifest for one entity (e.",
+      "definition" : "The manifest for one entity (e.g. EHR subject), identifying the entity and optionally specifying top-level items to be included in the Extract. The list actually included may be modified by the `_version_spec_` part of the specification, and also by the link_depth attribute. In repeat (standing order) requests, the final inclusion may be modified by the send_changes_only value for `EXTRACT_UPDATE_SPEC._update_method_`.\n\nVarious identifiers may be provided for the entity; these are to be used by the receiver system to locate the entity. The `_extract_id_key_` attribute is used to record the identifier that will be used throughout the Extract for this entity, including in instances of `EXTRACT_ENTITY_IDENTIFIER`.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ENTITY_MANIFEST.extract_id_key",
+      "short" : "Identifier by which this entity is known in the Extract.",
+      "definition" : "Identifier by which this entity is known in the Extract. May be one of the other identifiers, e.g. ehr_id or subject_id, or it may be something else, including a simple integer.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ENTITY_MANIFEST.ehr_id",
+      "short" : "EHR / EMR identifier for the entity at the target system.",
+      "definition" : "EHR / EMR identifier for the entity at the target system.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ENTITY_MANIFEST.subject_id",
+      "short" : "Subject (i.",
+      "definition" : "Subject (i.e. patient or similar) identifier for the entity at the target system.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ENTITY_MANIFEST.other_ids",
+      "short" : "Other identifiers that may be used to find the entity at the target system, keyed by type.",
+      "definition" : "Other identifiers that may be used to find the entity at the target system, keyed by type. May include medicare numbers, drivers license number, tax number etc.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ENTITY_MANIFEST.item_list",
+      "short" : "List of Uids of items to be included in the Extract, in cases where individual items are being requested by id.",
+      "definition" : "List of Uids of items to be included in the Extract, in cases where individual items are being requested by id. More typically, this attribute is not used, and the `EXTRACT_SPEC._criteria query_` defines the Extract contents. If set, for openEHR data, these are Uids identifying the version containers.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

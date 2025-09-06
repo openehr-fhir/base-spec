@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_CHAPTER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CHAPTER",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_CHAPTER",
+  "title" : "EXTRACT_CHAPTER",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "One content chapter of an Extract; contains information relating to only one entity.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CHAPTER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_CHAPTER",
+      "short" : "One content chapter of an Extract; contains information relating to only one entity.",
+      "definition" : "One content chapter of an Extract; contains information relating to only one entity.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_CHAPTER.items",
+      "short" : "The information content of this chapter.",
+      "definition" : "The information content of this chapter.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

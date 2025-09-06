@@ -1,0 +1,86 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_CONTENT_ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_CONTENT_ITEM",
+  "title" : "EXTRACT_CONTENT_ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract model of a wrapper for one content item in an Extract, containing various meta-data. Indicates whether it was part of the primary set and what its original path was. Intended to be subtyped for wrappers of specific types of content.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_CONTENT_ITEM",
+      "short" : "Abstract model of a wrapper for one content item in an Extract, containing various meta-data.",
+      "definition" : "Abstract model of a wrapper for one content item in an Extract, containing various meta-data. Indicates whether it was part of the primary set and what its original path was. Intended to be subtyped for wrappers of specific types of content.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Item_validity",
+        "severity" : "error",
+        "human" : "Item validity must be present",
+        "expression" : "is_masked xor item.exists()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_CONTENT_ITEM.is_primary",
+      "short" : "True if the content item carried in this container was part of the primary set for the Extract, i.",
+      "definition" : "True if the content item carried in this container was part of the primary set for the Extract, i.e. not added due to link-following.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_CONTENT_ITEM.is_changed",
+      "short" : "True if the content item carried in this container is any kind of change since last send, in repeat sending situations.",
+      "definition" : "True if the content item carried in this container is any kind of change since last send, in repeat sending situations.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_CONTENT_ITEM.is_masked",
+      "short" : "True if the content of this item has not been included due to insufficient access rights of requestor.",
+      "definition" : "True if the content of this item has not been included due to insufficient access rights of requestor.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_CONTENT_ITEM.item",
+      "short" : "Content object.",
+      "definition" : "Content object.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Element"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

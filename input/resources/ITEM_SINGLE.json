@@ -1,0 +1,72 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM_SINGLE",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
+    "title" : "as_hierarchy",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `ELEMENT`.",
+    "code" : "as_hierarchy",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_item_single_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#as_hierarchy"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_SINGLE",
+  "version" : "1.2.0",
+  "name" : "ITEM_SINGLE",
+  "title" : "ITEM_SINGLE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Logical single value data structure. Used to represent any data which is logically a single value, such as a person's height or weight.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_SINGLE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM_SINGLE",
+      "short" : "Logical single value data structure.",
+      "definition" : "Logical single value data structure. Used to represent any data which is logically a single value, such as a person's height or weight.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_SINGLE.item",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ELEMENT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

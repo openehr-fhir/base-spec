@@ -1,0 +1,396 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV_PROPORTION",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "magnitude",
+    "name" : "magnitude",
+    "title" : "magnitude",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Effective magnitude represented by ratio.",
+    "code" : "magnitude",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "is_integral",
+    "name" : "is_integral",
+    "title" : "is_integral",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if the `_numerator_` and `_denominator_` values are integers, i.e. if `_precision_` is 0.",
+    "code" : "is_integral",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "add",
+    "name" : "add",
+    "title" : "add",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Sum of two strictly comparable proportions.",
+    "code" : "add",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "subtract",
+    "name" : "subtract",
+    "title" : "subtract",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Difference between two strictly comparable proportions.",
+    "code" : "subtract",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "is_equal",
+    "name" : "is_equal",
+    "title" : "is_equal",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return True if this `DV_AMOUNT` is considered equal to `_other_`.",
+    "code" : "is_equal",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "multiply",
+    "name" : "multiply",
+    "title" : "multiply",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Product of this Proportion and `_factor_`.",
+    "code" : "multiply",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "factor",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "less_than",
+    "name" : "less_than",
+    "title" : "less_than",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if this Proportion is less than  `_other_`. Only valid if `_is_strictly_comparable_to()_` is True.",
+    "code" : "less_than",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "decimal"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "is_strictly_comparable_to",
+    "name" : "is_strictly_comparable_to",
+    "title" : "is_strictly_comparable_to",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Return True if the `_type_` of this proportion is the same as the `_type_` of `_other_`.",
+    "code" : "is_strictly_comparable_to",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_proportion_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#magnitude"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_integral"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#add"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#subtract"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_equal"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#multiply"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#less_than"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_strictly_comparable_to"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION",
+  "version" : "1.2.0",
+  "name" : "DV_PROPORTION",
+  "title" : "DV_PROPORTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The `_valid_proportion_kind_` property of the `PROPORTION_KIND` class is used to control the type attribute to be one of a defined set.\n\nUsed for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW). \n \nMisuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) \"6/24\" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PROPORTION_KIND",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_PROPORTION",
+      "short" : "Models a ratio of values, i.",
+      "definition" : "Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The `_valid_proportion_kind_` property of the `PROPORTION_KIND` class is used to control the type attribute to be one of a defined set.\n\nUsed for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW). \n \nMisuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) \"6/24\" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Type_validity",
+        "severity" : "error",
+        "human" : "Type validity",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Precision_validity",
+        "severity" : "error",
+        "human" : "Precision validity must satisfy conditional constraints",
+        "expression" : "precision = 0 implies is_integral()"
+      },
+      {
+        "key" : "Is_integral_validity",
+        "severity" : "error",
+        "human" : "Is integral validity must satisfy conditional constraints",
+        "expression" : "is_integral() implies (numerator.floor = numerator and denominator.floor = denominator)"
+      },
+      {
+        "key" : "Fraction_validity",
+        "severity" : "error",
+        "human" : "Fraction validity must satisfy conditional constraints",
+        "expression" : "(type = pk_fraction or type = pk_integer_fraction) implies is_integral()"
+      },
+      {
+        "key" : "Unitary_validity",
+        "severity" : "error",
+        "human" : "Unitary validity must satisfy conditional constraints",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Percent_validity",
+        "severity" : "error",
+        "human" : "Percent validity must satisfy conditional constraints",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Valid_denominator",
+        "severity" : "error",
+        "human" : "Valid denominator",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.numerator",
+      "short" : "Numerator of ratio",
+      "definition" : "Numerator of ratio",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.denominator",
+      "short" : "Denominator of ratio.",
+      "definition" : "Denominator of ratio.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "decimal"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.type",
+      "short" : "Indicates semantic type of proportion, including percent, unitary etc.",
+      "definition" : "Indicates semantic type of proportion, including percent, unitary etc.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.precision",
+      "short" : "Precision  to  which  the  `_numerator_` and `_denominator_` values of  the  proportion are expressed, in terms of number  of decimal places.",
+      "definition" : "Precision  to  which  the  `_numerator_` and `_denominator_` values of  the  proportion are expressed, in terms of number  of decimal places. The value 0 implies an integral quantity. The value -1 implies no limit, i.e. any number of decimal places. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.normal_range",
+      "short" : "Optional normal range.",
+      "definition" : "Optional normal range. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_PROPORTION.other_reference_ranges",
+      "short" : "Optional tagged other reference ranges for this value in its particular measurement context.",
+      "definition" : "Optional tagged other reference ranges for this value in its particular measurement context.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

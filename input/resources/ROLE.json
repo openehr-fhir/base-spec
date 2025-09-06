@@ -1,0 +1,90 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ROLE",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_role_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ROLE",
+  "version" : "1.2.0",
+  "name" : "ROLE",
+  "title" : "ROLE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ROLE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ROLE",
+      "short" : "Generic description of a role performed by an Actor.",
+      "definition" : "Generic description of a role performed by an Actor. The role corresponds to a competency of the Party. Roles are used to define the responsibilities undertaken by a Party for a purpose. Roles should have credentials qualifying the performer to perform the role.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Capabilities_valid",
+        "severity" : "error",
+        "human" : "Capabilities valid must be present",
+        "expression" : "capabilities.exists() implies capabilities.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ROLE.time_validity",
+      "short" : "Valid time interval for this role.",
+      "definition" : "Valid time interval for this role.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ROLE.performer",
+      "short" : "Reference to Version container of Actor playing the role.",
+      "definition" : "Reference to Version container of Actor playing the role.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ROLE.capabilities",
+      "short" : "The capabilities of this role.",
+      "definition" : "The capabilities of this role.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CAPABILITY"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

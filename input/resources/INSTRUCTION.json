@@ -1,0 +1,90 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "INSTRUCTION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_instruction_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION",
+  "version" : "1.2.0",
+  "name" : "INSTRUCTION",
+  "title" : "INSTRUCTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Used to specify actions in the future. Enables simple and complex specifications to be expressed, including in a fully-computable workflow form. Used for any actionable statement such as medication and therapeutic orders, monitoring, recall and review. Enough details must be provided for the specification to be directly executed by an actor, either human or machine. \n\nNot to be used for plan items which are only specified in general terms. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "INSTRUCTION",
+      "short" : "Used to specify actions in the future.",
+      "definition" : "Used to specify actions in the future. Enables simple and complex specifications to be expressed, including in a fully-computable workflow form. Used for any actionable statement such as medication and therapeutic orders, monitoring, recall and review. Enough details must be provided for the specification to be directly executed by an actor, either human or machine. \n\nNot to be used for plan items which are only specified in general terms. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Activities_valid",
+        "severity" : "error",
+        "human" : "Activities valid must be present",
+        "expression" : "activities.exists() implies activities.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "INSTRUCTION.narrative",
+      "short" : "Mandatory human-readable version of what the Instruction is about.",
+      "definition" : "Mandatory human-readable version of what the Instruction is about. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "INSTRUCTION.expiry_time",
+      "short" : "Optional expiry date/time to assist determination of when an Instruction can be assumed to have expired.",
+      "definition" : "Optional expiry date/time to assist determination of when an Instruction can be assumed to have expired. This helps prevent false listing of Instructions as Active when they clearly must have been terminated in some way or other. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "INSTRUCTION.wf_definition",
+      "short" : "Optional workflow engine executable expression of the Instruction.",
+      "definition" : "Optional workflow engine executable expression of the Instruction. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "INSTRUCTION.activities",
+      "short" : "List of all activities in Instruction.",
+      "definition" : "List of all activities in Instruction. \n",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

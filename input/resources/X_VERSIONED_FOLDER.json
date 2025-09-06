@@ -1,0 +1,36 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "X_VERSIONED_FOLDER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/X_VERSIONED_FOLDER",
+  "version" : "1.2.0",
+  "name" : "X_VERSIONED_FOLDER",
+  "title" : "X_VERSIONED_FOLDER",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Form of `X_VERSIONED_OBJECT` for `FOLDER` EHR object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/X_VERSIONED_FOLDER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/X_VERSIONED_OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "X_VERSIONED_FOLDER",
+      "short" : "Form of `X_VERSIONED_OBJECT` for `FOLDER` EHR object.",
+      "definition" : "Form of `X_VERSIONED_OBJECT` for `FOLDER` EHR object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

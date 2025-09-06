@@ -1,0 +1,40 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM_STRUCTURE",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_item_structure_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
+  "version" : "1.2.0",
+  "name" : "ITEM_STRUCTURE",
+  "title" : "ITEM_STRUCTURE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract parent class of all spatial data types. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_STRUCTURE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM_STRUCTURE",
+      "short" : "Abstract parent class of all spatial data types.",
+      "definition" : "Abstract parent class of all spatial data types. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

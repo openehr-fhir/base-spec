@@ -1,0 +1,97 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_VERSION_SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_VERSION_SPEC",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_VERSION_SPEC",
+  "title" : "EXTRACT_VERSION_SPEC",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Specification of what versions should be included in an Extract. By default, only latest versions are included in the Extract, in which case this part of the Extract specification is not needed at all. The attributes `_include_all_versions_` and `_commit_time_interval_` are used to modify this; the former forces all versions to be included; the latter limits the versions to be those latest versions committed in the time interval, or if `_include_all_versions_` is `True`, all versions committed in the time interval.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_VERSION_SPEC",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_VERSION_SPEC",
+      "short" : "Specification of what versions should be included in an Extract.",
+      "definition" : "Specification of what versions should be included in an Extract. By default, only latest versions are included in the Extract, in which case this part of the Extract specification is not needed at all. The attributes `_include_all_versions_` and `_commit_time_interval_` are used to modify this; the former forces all versions to be included; the latter limits the versions to be those latest versions committed in the time interval, or if `_include_all_versions_` is `True`, all versions committed in the time interval.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Includes_revision_history_valid",
+        "severity" : "error",
+        "human" : "Includes revision history valid must satisfy conditional constraints",
+        "expression" : "include_dat.not()a implies include_revision_history"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_VERSION_SPEC.include_all_versions",
+      "short" : "True if all versions of each item in the Extract are included.",
+      "definition" : "True if all versions of each item in the Extract are included.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_VERSION_SPEC.commit_time_interval",
+      "short" : "Specifies commit time interval of items to source repository to include in Extract.",
+      "definition" : "Specifies commit time interval of items to source repository to include in Extract. By default, only latest versions whose commit times fall in the range are included. If include_all_versions is True, then the range includes all versions committed within the interval.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_VERSION_SPEC.include_revision_history",
+      "short" : "True if revision histories of the items in the Extract are included.",
+      "definition" : "True if revision histories of the items in the Extract are included. If included, it is always the full revision history.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_VERSION_SPEC.include_data",
+      "short" : "`True` if the data of items matched by the content spec should be included.",
+      "definition" : "`True` if the data of items matched by the content spec should be included. This is the default. If `False`, only revision history is included in serialised versions. Turning this option on in openEHR systems causes `X_VERSIONED_OBJECTs` to have `_revision_history_` set, but versions Void. Useful for interrogating a server without having to look at any content data. In other systems it may or may not have a sensible meaning.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

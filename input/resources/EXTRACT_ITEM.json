@@ -1,0 +1,36 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_ITEM",
+  "title" : "EXTRACT_ITEM",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Abstract parent of Extract Folder and Content types.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_ITEM",
+      "short" : "Abstract parent of Extract Folder and Content types.",
+      "definition" : "Abstract parent of Extract Folder and Content types.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

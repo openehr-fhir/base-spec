@@ -1,0 +1,36 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PROPORTION_KIND",
+  "url" : "http://openehr.org/fhir/StructureDefinition/PROPORTION_KIND",
+  "version" : "1.2.0",
+  "name" : "PROPORTION_KIND",
+  "title" : "PROPORTION_KIND",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PROPORTION_KIND",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Integer",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PROPORTION_KIND",
+      "short" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class.",
+      "definition" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

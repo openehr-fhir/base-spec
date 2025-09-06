@@ -1,0 +1,74 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACTOR",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_actor_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "version" : "1.2.0",
+  "name" : "ACTOR",
+  "title" : "ACTOR",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACTOR",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACTOR",
+      "short" : "Ancestor of all real-world types, including people and organisations.",
+      "definition" : "Ancestor of all real-world types, including people and organisations. An actor is any real-world entity capable of taking on a role.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Roles_valid",
+        "severity" : "error",
+        "human" : "Roles valid must be present",
+        "expression" : "roles.exists() implies roles.empty().not()"
+      },
+      {
+        "key" : "Legal_identity_exists",
+        "severity" : "error",
+        "human" : "Legal identity exists",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTOR.languages",
+      "short" : "Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant).",
+      "definition" : "Languages which can be used to communicate with this actor, in preferred order of use (if known, else order irrelevant).",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTOR.roles",
+      "short" : "Identifiers of the Version container for each Role played by this Party.",
+      "definition" : "Identifiers of the Version container for each Role played by this Party.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

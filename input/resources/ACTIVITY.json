@@ -1,0 +1,79 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ACTIVITY",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_activity_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY",
+  "version" : "1.2.0",
+  "name" : "ACTIVITY",
+  "title" : "ACTIVITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines a single activity within an Instruction, such as a medication administration. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ACTIVITY",
+      "short" : "Defines a single activity within an Instruction, such as a medication administration.",
+      "definition" : "Defines a single activity within an Instruction, such as a medication administration. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Action_archetype_id_valid",
+        "severity" : "error",
+        "human" : "Action archetype id valid must not be empty",
+        "expression" : "action_archetype_id.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTIVITY.timing",
+      "short" : "Timing of the activity, in the form of a parsable string.",
+      "definition" : "Timing of the activity, in the form of a parsable string. If used, the preferred syntax is ISO8601 'R' format, but other formats may be used including HL7 GTS.\n\nMay be omitted if:\n\n* timing is represented structurally in the `_description_` attribute (e.g. via archetyped elements), or\n* unavailable, e.g. imported legacy data; in such cases, the `INSTRUCTION._narrative_` should carry text that indicates the timing of its `_activities_`.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTIVITY.action_archetype_id",
+      "short" : "Perl-compliant regular expression pattern, enclosed in  '//' delimiters, indicating the valid identifiers of archetypes for Actions corresponding to this Activity specification.",
+      "definition" : "Perl-compliant regular expression pattern, enclosed in  '//' delimiters, indicating the valid identifiers of archetypes for Actions corresponding to this Activity specification. \n\nDefaults to  `/.*/`, meaning any archetype.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ACTIVITY.description",
+      "short" : "Description of the activity, in the form of an archetyped structure.",
+      "definition" : "Description of the activity, in the form of an archetyped structure.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

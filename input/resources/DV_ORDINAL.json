@@ -1,0 +1,134 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "DV_ORDINAL",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "less_than",
+    "name" : "less_than",
+    "title" : "less_than",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if this Ordinal value is less than `_other_`.",
+    "code" : "less_than",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "integer"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "is_strictly_comparable_to",
+    "name" : "is_strictly_comparable_to",
+    "title" : "is_strictly_comparable_to",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Test if this Ordinal is strictly comparable to `_other_`.",
+    "code" : "is_strictly_comparable_to",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "other",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "integer"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_ordinal_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#less_than"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_strictly_comparable_to"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_ORDINAL",
+  "version" : "1.2.0",
+  "name" : "DV_ORDINAL",
+  "title" : "DV_ORDINAL",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A data type that represents integral score values, e.g. pain, Apgar values, etc, where there is:\n\na) implied ordering, \nb) no implication that the distance between each value is constant, and \nc) the total number of values is finite;\nd) integer values only.\n\nNote that although the term 'ordinal' in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point. Examples of sets of ordinal values: \n\n*   -3, -2, -1, 0, 1, 2, 3  -- reflex response values \n*    0, 1, 2                  -- Apgar values \n\nThis class is used for recording any clinical datum which is customarily recorded using symbolic values. Example: the results on a urinalysis strip, e.g. `{neg, trace, +, ++, +++}` are used for leucocytes, protein, nitrites etc; for non-haemolysed blood `{neg, trace, moderate}`; for haemolysed blood `{small, moderate, large}`.\n\nFor scores or scales that include Real numbers (or might in the future, i.e. not fixed for all time, such as Apgar), use `DV_SCALE`. `DV_SCALE` may also be used in future for representing purely Integer-based scales, however, the `DV_ORDINAL` type should continue to be supported in software implementations in order to accommodate existing data that are instances of this type.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/DV_ORDINAL",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "DV_ORDINAL",
+      "short" : "A data type that represents integral score values, e.",
+      "definition" : "A data type that represents integral score values, e.g. pain, Apgar values, etc, where there is:\n\na) implied ordering, \nb) no implication that the distance between each value is constant, and \nc) the total number of values is finite;\nd) integer values only.\n\nNote that although the term 'ordinal' in mathematics means natural numbers only, here any integer is allowed, since negative and zero values are often used by medical professionals for values around a neutral point. Examples of sets of ordinal values: \n\n*   -3, -2, -1, 0, 1, 2, 3  -- reflex response values \n*    0, 1, 2                  -- Apgar values \n\nThis class is used for recording any clinical datum which is customarily recorded using symbolic values. Example: the results on a urinalysis strip, e.g. `{neg, trace, +, ++, +++}` are used for leucocytes, protein, nitrites etc; for non-haemolysed blood `{neg, trace, moderate}`; for haemolysed blood `{small, moderate, large}`.\n\nFor scores or scales that include Real numbers (or might in the future, i.e. not fixed for all time, such as Apgar), use `DV_SCALE`. `DV_SCALE` may also be used in future for representing purely Integer-based scales, however, the `DV_ORDINAL` type should continue to be supported in software implementations in order to accommodate existing data that are instances of this type.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Limits_valid",
+        "severity" : "error",
+        "human" : "Limits valid",
+        "expression" : "null # TODO: manual translation needed"
+      },
+      {
+        "key" : "Reference_range_valid",
+        "severity" : "error",
+        "human" : "Reference range valid",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_ORDINAL.symbol",
+      "short" : "Coded textual representation of this value in the enumeration, which may be strings made from  +  symbols, or other enumerations of terms such as  `mild`, `moderate`, `severe`, or even the same number series as the values, e.",
+      "definition" : "Coded textual representation of this value in the enumeration, which may be strings made from  +  symbols, or other enumerations of terms such as  `mild`, `moderate`, `severe`, or even the same number series as the values, e.g. 1, 2, 3.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_ORDINAL.value",
+      "short" : "Value in ordered enumeration of values.",
+      "definition" : "Value in ordered enumeration of values. Any integer value can be used. \n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

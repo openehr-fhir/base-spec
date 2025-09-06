@@ -1,0 +1,107 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ATTESTATION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_attestation_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ATTESTATION",
+  "version" : "1.2.0",
+  "name" : "ATTESTATION",
+  "title" : "ATTESTATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Record an attestation of a party (the committer) to item(s) of record content. An attestation is an explicit signing by one healthcare agent of particular content for various particular purposes, including:\n\n* for authorisation of a controlled substance or procedure (e.g. sectioning of patient under mental health act); \n* witnessing of content by senior clinical professional; \n* indicating acknowledgement of content by intended recipient, e.g. GP who ordered a test result. \n",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ATTESTATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ATTESTATION",
+      "short" : "Record an attestation of a party (the committer) to item(s) of record content.",
+      "definition" : "Record an attestation of a party (the committer) to item(s) of record content. An attestation is an explicit signing by one healthcare agent of particular content for various particular purposes, including:\n\n* for authorisation of a controlled substance or procedure (e.g. sectioning of patient under mental health act); \n* witnessing of content by senior clinical professional; \n* indicating acknowledgement of content by intended recipient, e.g. GP who ordered a test result. \n",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Items_valid",
+        "severity" : "error",
+        "human" : "Items valid must be present",
+        "expression" : "items.exists() implies items.empty().not()"
+      },
+      {
+        "key" : "Reason_valid",
+        "severity" : "error",
+        "human" : "Reason valid must satisfy conditional constraints",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ATTESTATION.attested_view",
+      "short" : "Optional visual representation of content attested e.",
+      "definition" : "Optional visual representation of content attested e.g. screen image. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ATTESTATION.proof",
+      "short" : "Proof of attestation.",
+      "definition" : "Proof of attestation. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ATTESTATION.items",
+      "short" : "Items attested, expressed as fully qualified runtime paths to the items in question.",
+      "definition" : "Items attested, expressed as fully qualified runtime paths to the items in question. Although not recommended, these may include fine-grained items which have been attested in some other system. Otherwise it is assumed to be for the entire VERSION with which it is associated. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ATTESTATION.reason",
+      "short" : "Reason of this attestation.",
+      "definition" : "Reason of this attestation. Optionally coded by the openEHR Terminology group  attestation reason ; includes values like  authorisation ,  witness  etc. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ATTESTATION.is_pending",
+      "short" : "True if this attestation is outstanding; False means it has been completed.",
+      "definition" : "True if this attestation is outstanding; False means it has been completed.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

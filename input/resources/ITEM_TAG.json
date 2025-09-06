@@ -1,0 +1,107 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM_TAG",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_item_tag_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TAG",
+  "version" : "1.2.0",
+  "name" : "ITEM_TAG",
+  "title" : "ITEM_TAG",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A tag with optional value that is associated with a target information entity identified by a UID.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TAG",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM_TAG",
+      "short" : "A tag with optional value that is associated with a target information entity identified by a UID.",
+      "definition" : "A tag with optional value that is associated with a target information entity identified by a UID.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Inv_key_valid",
+        "severity" : "error",
+        "human" : "Inv key valid must not be empty",
+        "expression" : "key.empty().not() and key.is_justified"
+      },
+      {
+        "key" : "Inv_value_valid",
+        "severity" : "error",
+        "human" : "Inv value valid must be present",
+        "expression" : "value.exists() implies value.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TAG.key",
+      "short" : "The tag key.",
+      "definition" : "The tag key. May not be empty or contain leading or trailing whitespace.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TAG.value",
+      "short" : "The value.",
+      "definition" : "The value. If set, may not be empty.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TAG.target",
+      "short" : "Identifier of target, which may be a `VERSIONED_OBJECT<T>` or a `VERSION<T>`.",
+      "definition" : "Identifier of target, which may be a `VERSIONED_OBJECT<T>` or a `VERSION<T>`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TAG.target_path",
+      "short" : "Optional archetype (i.",
+      "definition" : "Optional archetype (i.e. AQL) or RM path within `_target_`, used to tag a fine-grained element.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_TAG.owner_id",
+      "short" : "Identifier of owner object, such as EHR.",
+      "definition" : "Identifier of owner object, such as EHR.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

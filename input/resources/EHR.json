@@ -1,0 +1,192 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EHR",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/EHR",
+  "version" : "1.2.0",
+  "name" : "EHR",
+  "title" : "EHR",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EHR",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EHR",
+      "short" : "The EHR object is the root object and access point of an EHR for a subject of care.",
+      "definition" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Contributions_valid",
+        "severity" : "error",
+        "human" : "Contributions valid",
+        "expression" : "for_all c in contributions | c.type().is_equal(\\\"CONTRIBUTION\\\")"
+      },
+      {
+        "key" : "Ehr_access_valid",
+        "severity" : "error",
+        "human" : "Ehr access valid",
+        "expression" : "ehr_access.type().is_equal (\\\"VERSIONED_EHR_ACCESS\\\")"
+      },
+      {
+        "key" : "Ehr_status_valid",
+        "severity" : "error",
+        "human" : "Ehr status valid",
+        "expression" : "ehr_status.type().is_equal(\\\"VERSIONED_EHR_STATUS\\\")"
+      },
+      {
+        "key" : "Compositions_valid",
+        "severity" : "error",
+        "human" : "Compositions valid",
+        "expression" : "for_all c in compositions | c.type().is_equal (\\\"VERSIONED_COMPOSITION\\\")"
+      },
+      {
+        "key" : "Directory_valid",
+        "severity" : "error",
+        "human" : "Directory valid must be present",
+        "expression" : "directory.exists() implies directory.type().is_equal (\\\"VERSIONED_FOLDER\\\")"
+      },
+      {
+        "key" : "Folders_valid",
+        "severity" : "error",
+        "human" : "Folders valid must be present",
+        "expression" : "folders.exists() implies for_all f in folders | f.type().is_equal(\\\"VERSIONED_FOLDER\\\")"
+      },
+      {
+        "key" : "Directory_in_folders",
+        "severity" : "error",
+        "human" : "Directory in folders must be present",
+        "expression" : "folders.exists() implies folders.item(1) = directory"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.system_id",
+      "short" : "The identifier of the logical EHR management system in which this EHR was created.",
+      "definition" : "The identifier of the logical EHR management system in which this EHR was created. \n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.ehr_id",
+      "short" : "The unique identifier of this EHR.",
+      "definition" : "The unique identifier of this EHR.\n\nNOTE: is is strongly recommended that a UUID always be used for this field.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.contributions",
+      "short" : "List of contributions causing changes to this EHR.",
+      "definition" : "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.ehr_status",
+      "short" : "Reference to `EHR_STATUS` object for this EHR.",
+      "definition" : "Reference to `EHR_STATUS` object for this EHR.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.ehr_access",
+      "short" : "Reference to `EHR_ACCESS` object for this EHR.",
+      "definition" : "Reference to `EHR_ACCESS` object for this EHR.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.compositions",
+      "short" : "Master list of all Versioned Composition references in this EHR.",
+      "definition" : "Master list of all Versioned Composition references in this EHR.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.directory",
+      "short" : "Optional directory structure for this EHR.",
+      "definition" : "Optional directory structure for this EHR. If present, this is a reference to the first member of `_folders_`.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.time_created",
+      "short" : "Time of creation of the EHR.",
+      "definition" : "Time of creation of the EHR.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.folders",
+      "short" : "Optional additional Folder structures for this EHR.",
+      "definition" : "Optional additional Folder structures for this EHR. If set, the `_directory_` attribute refers to the first member.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR.tags",
+      "short" : "Optional list of tags associated with this EHR.",
+      "definition" : "Optional list of tags associated with this EHR. Tag `_target_` values can only be within the same EHR.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

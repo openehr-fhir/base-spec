@@ -1,0 +1,154 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "IMPORTED_VERSION",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "uid",
+    "name" : "uid",
+    "title" : "uid",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Computed version of inheritance precursor, derived as `_item.uid_`. ",
+    "code" : "uid",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "preceding_version_uid",
+    "name" : "preceding_version_uid",
+    "title" : "preceding_version_uid",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Computed version of inheritance precursor, derived as `_item.preceding_version_uid_`. ",
+    "code" : "preceding_version_uid",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "lifecycle_state",
+    "name" : "lifecycle_state",
+    "title" : "lifecycle_state",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Lifecycle state of the content item in wrapped `ORIGINAL_VERSION`, derived as `_item.lifecycle_state_`; coded by openEHR vocabulary `version lifecycle state`.",
+    "code" : "lifecycle_state",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "data",
+    "name" : "data",
+    "title" : "data",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Original content of this Version. \n",
+    "code" : "data",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_imported_version_class"
+  },
+  {
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },
+    {
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }],
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#uid"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#preceding_version_uid"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#lifecycle_state"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#data"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/IMPORTED_VERSION",
+  "version" : "1.2.0",
+  "name" : "IMPORTED_VERSION",
+  "title" : "IMPORTED_VERSION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Versions whose content is an `ORIGINAL_VERSION` copied from another location; this class inherits `_commit_audit_` and `_contribution_` from `VERSION<T>`, providing imported versions with their own audit trail and Contribution, distinct from those of the imported `ORIGINAL_VERSION`. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/IMPORTED_VERSION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSION",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "IMPORTED_VERSION",
+      "short" : "Versions whose content is an `ORIGINAL_VERSION` copied from another location; this class inherits `_commit_audit_` and `_contribution_` from `VERSION<T>`, providing imported versions with their own audit trail and Contribution, distinct from those of the imported `ORIGINAL_VERSION`.",
+      "definition" : "Versions whose content is an `ORIGINAL_VERSION` copied from another location; this class inherits `_commit_audit_` and `_contribution_` from `VERSION<T>`, providing imported versions with their own audit trail and Contribution, distinct from those of the imported `ORIGINAL_VERSION`. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "IMPORTED_VERSION.item",
+      "short" : "The `ORIGINAL_VERSION` object that was imported.",
+      "definition" : "The `ORIGINAL_VERSION` object that was imported. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL_VERSION"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ADMIN_ENTRY",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_admin_entry_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ADMIN_ENTRY",
+  "version" : "1.2.0",
+  "name" : "ADMIN_ENTRY",
+  "title" : "ADMIN_ENTRY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Entry subtype for administrative information, i.e. information about setting up the clinical process, but not itself clinically relevant. Archetypes will define contained information.\n\nUsed for administrative details of admission, episode, ward location, discharge, appointment (if not stored in a practice management or appointments system). \n\nNot to be used for any clinically significant information.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ADMIN_ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ADMIN_ENTRY",
+      "short" : "Entry subtype for administrative information, i.",
+      "definition" : "Entry subtype for administrative information, i.e. information about setting up the clinical process, but not itself clinically relevant. Archetypes will define contained information.\n\nUsed for administrative details of admission, episode, ward location, discharge, appointment (if not stored in a practice management or appointments system). \n\nNot to be used for any clinically significant information.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "ADMIN_ENTRY.data",
+      "short" : "Content of the Admin Entry.",
+      "definition" : "Content of the Admin Entry.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "OBSERVATION",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_observation_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/OBSERVATION",
+  "version" : "1.2.0",
+  "name" : "OBSERVATION",
+  "title" : "OBSERVATION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Entry subtype for all clinical data in the past or present, i.e. which (by the time it is recorded) has already occurred. `OBSERVATION` data is expressed using the class `HISTORY<T>`, which guarantees that it is situated in time. `OBSERVATION` is used for all notionally objective (i.e. measured in some way) observations of phenomena, and patient-reported phenomena, e.g. pain. \n\nNot to be used for recording opinion or future statements of any kind, including instructions, intentions, plans etc.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/OBSERVATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "OBSERVATION",
+      "short" : "Entry subtype for all clinical data in the past or present, i.",
+      "definition" : "Entry subtype for all clinical data in the past or present, i.e. which (by the time it is recorded) has already occurred. `OBSERVATION` data is expressed using the class `HISTORY<T>`, which guarantees that it is situated in time. `OBSERVATION` is used for all notionally objective (i.e. measured in some way) observations of phenomena, and patient-reported phenomena, e.g. pain. \n\nNot to be used for recording opinion or future statements of any kind, including instructions, intentions, plans etc.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "OBSERVATION.data",
+      "short" : "The data of this observation, in the form of a history of values which may be of any complexity.",
+      "definition" : "The data of this observation, in the form of a history of values which may be of any complexity.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/HISTORY"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "OBSERVATION.state",
+      "short" : "Optional recording of the state of subject of this observation during the observation process, in the form of a separate history of values which may be of any complexity.",
+      "definition" : "Optional recording of the state of subject of this observation during the observation process, in the form of a separate history of values which may be of any complexity. State may also be recorded within the History of the data attribute. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/HISTORY"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

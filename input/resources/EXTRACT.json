@@ -1,0 +1,119 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT",
+  "version" : "1.2.0",
+  "name" : "EXTRACT",
+  "title" : "EXTRACT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic model of an Extract of some information from a repository.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT",
+      "short" : "Generic model of an Extract of some information from a repository.",
+      "definition" : "Generic model of an Extract of some information from a repository.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Sequence_nr_valid",
+        "severity" : "error",
+        "human" : "Sequence nr valid must satisfy range constraints",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.chapters",
+      "short" : "The content extracted and serialised from the source repository for this Extract.",
+      "definition" : "The content extracted and serialised from the source repository for this Extract.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CHAPTER"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.specification",
+      "short" : "The specification that this Extract actually conforms to; might not be identical with the specification of the corresponding request.",
+      "definition" : "The specification that this Extract actually conforms to; might not be identical with the specification of the corresponding request.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_SPEC"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.request_id",
+      "short" : "Reference to causing Request, if any.",
+      "definition" : "Reference to causing Request, if any.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.time_created",
+      "short" : "Creation time of this Extract",
+      "definition" : "Creation time of this Extract",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.system_id",
+      "short" : "Identifier of creating system.",
+      "definition" : "Identifier of creating system.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.sequence_nr",
+      "short" : "Number of this Extract response in sequence of responses to Extract request identified by `_request_id_`.",
+      "definition" : "Number of this Extract response in sequence of responses to Extract request identified by `_request_id_`. If this is the sole response, or there was no request, value is 1.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT.participations",
+      "short" : "Participations relevant to the creation of this Extract.",
+      "definition" : "Participations relevant to the creation of this Extract.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_PARTICIPATION"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

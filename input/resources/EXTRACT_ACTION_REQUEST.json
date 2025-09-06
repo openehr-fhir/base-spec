@@ -1,0 +1,67 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT_ACTION_REQUEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ACTION_REQUEST",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_ACTION_REQUEST",
+  "title" : "EXTRACT_ACTION_REQUEST",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Generic model of a Request for an Extract, containing an Extract specification.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ACTION_REQUEST",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_ACTION_REQUEST",
+      "short" : "Generic model of a Request for an Extract, containing an Extract specification.",
+      "definition" : "Generic model of a Request for an Extract, containing an Extract specification.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ACTION_REQUEST.request_id",
+      "short" : "Identifier of previous `EXTRACT_REQUEST`.",
+      "definition" : "Identifier of previous `EXTRACT_REQUEST`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ACTION_REQUEST.uid",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ACTION_REQUEST.action",
+      "short" : "Requested action: `cancel | resend | send new`.",
+      "definition" : "Requested action: `cancel | resend | send new`. Coded by openEHR Terminology group `'extract action type'`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EHR_ACCESS",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "scheme",
+    "name" : "scheme",
+    "title" : "scheme",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute. ",
+    "code" : "scheme",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_access_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#scheme"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/EHR_ACCESS",
+  "version" : "1.2.0",
+  "name" : "EHR_ACCESS",
+  "title" : "EHR_ACCESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T14:39:31+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in `EHR_ACCESS` objects, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2` would be copied to the `_uid_` field of the `EHR_ACCESS` object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EHR_ACCESS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EHR_ACCESS",
+      "short" : "EHR-wide access control object.",
+      "definition" : "EHR-wide access control object. All access decisions to data in the EHR must be made in accordance with the policies and rules in this object.\n\nNOTE: It is strongly recommended that the inherited attribute `_uid_` be populated in `EHR_ACCESS` objects, using the UID copied from the `_object_id()_` of the `_uid_` field of the enclosing `VERSION` object. +\nFor example, the `ORIGINAL_VERSION.uid` `87284370-2D4B-4e3d-A3F3-F303D2F4F34B::uk.nhs.ehr1::2` would be copied to the `_uid_` field of the `EHR_ACCESS` object.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Scheme_valid",
+        "severity" : "error",
+        "human" : "Scheme valid must not be empty",
+        "expression" : "scheme().not().empty()"
+      },
+      {
+        "key" : "Is_archetype_root",
+        "severity" : "error",
+        "human" : "Is archetype root",
+        "expression" : "is_archetype_root()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EHR_ACCESS.settings",
+      "short" : "Access control settings for the EHR.",
+      "definition" : "Access control settings for the EHR. Instance is a subtype of the type `ACCESS_CONTROL_SETTINGS`, allowing for the use of different access control schemes. ",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ACCESS_CONTROL_SETTINGS"
+      }],
+      "isModifier" : false
+    }]
+  }
+}
