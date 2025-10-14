@@ -4,6 +4,12 @@
   "extension" : [{
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_data_value_class"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-as-leaf"
+  },{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-defns-parent"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
   "version" : "1.2.0",

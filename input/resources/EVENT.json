@@ -94,6 +94,25 @@
       "isModifier" : false
     },
     {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-group"
+        },{
+          "url" : "value",
+          "valueString" : "State"
+        }]
+      },{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-order"
+        },{
+          "url" : "value",
+          "valueInteger" : 8
+        }]
+      }],
       "path" : "EVENT.state",
       "short" : "Optional state data for this event.",
       "definition" : "Optional state data for this event.",
@@ -105,6 +124,25 @@
       "isModifier" : false
     },
     {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-group"
+        },{
+          "url" : "value",
+          "valueString" : "Event Data"
+        }]
+      },{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-order"
+        },{
+          "url" : "value",
+          "valueInteger" : 10
+        }]
+      }],
       "path" : "EVENT.data",
       "short" : "The data of this event.",
       "definition" : "The data of this event.",
