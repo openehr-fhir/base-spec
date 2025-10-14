@@ -11,7 +11,7 @@
   "title" : "EHR",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-09-06T14:39:31+10:00",
+  "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
   "contact" : [{
     "name" : "openEHR",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EHR",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -85,7 +85,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
       }],
       "isModifier" : false
     },
@@ -96,7 +96,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
       }],
       "isModifier" : false
     },
@@ -107,7 +107,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -118,7 +118,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -129,7 +129,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -140,7 +140,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -151,7 +151,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -162,7 +162,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
       }],
       "isModifier" : false
     },
@@ -173,7 +173,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -184,7 +184,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     }]

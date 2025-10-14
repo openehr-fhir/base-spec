@@ -34,7 +34,7 @@
   "title" : "CONTACT",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-09-06T14:39:31+10:00",
+  "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
   "contact" : [{
     "name" : "openEHR",
@@ -90,11 +90,11 @@
           },
           {
             "url" : "type",
-            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV_DATE"
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/DV-DATE"
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
       }],
       "isModifier" : false
     }]

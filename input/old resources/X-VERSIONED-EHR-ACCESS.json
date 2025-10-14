@@ -1,0 +1,36 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "X-VERSIONED-EHR-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/X-VERSIONED-EHR-ACCESS",
+  "version" : "1.2.0",
+  "name" : "X_VERSIONED_EHR_ACCESS",
+  "title" : "X_VERSIONED_EHR_ACCESS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Form of `X_VERSIONED_OBJECT` for `EHR_ACCESS` EHR object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/X_VERSIONED_EHR_ACCESS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/X-VERSIONED-OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "X_VERSIONED_EHR_ACCESS",
+      "short" : "Form of `X_VERSIONED_OBJECT` for `EHR_ACCESS` EHR object.",
+      "definition" : "Form of `X_VERSIONED_OBJECT` for `EHR_ACCESS` EHR object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

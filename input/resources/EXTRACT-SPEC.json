@@ -1,0 +1,124 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-SPEC",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_SPEC",
+  "title" : "EXTRACT_SPEC",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Specification of an Extract's contents. Subtypes can be used to add details specific to the type of Extract. The specification consists of attributes specifying the directory, and two further groups of attributes in their own classes, namely a version specfication (which versions of information items are to be included) and a manifest (which entities are to be included in the extract).\n\nUse: Used in a request to specify an Extract, as well as to describe what is contained in an Extract.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_SPEC",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_SPEC",
+      "short" : "Specification of an Extract's contents.",
+      "definition" : "Specification of an Extract's contents. Subtypes can be used to add details specific to the type of Extract. The specification consists of attributes specifying the directory, and two further groups of attributes in their own classes, namely a version specfication (which versions of information items are to be included) and a manifest (which entities are to be included in the extract).\n\nUse: Used in a request to specify an Extract, as well as to describe what is contained in an Extract.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.version_spec",
+      "short" : "Specification of which versions of information items to include in the Extract.",
+      "definition" : "Specification of which versions of information items to include in the Extract. If Void, the default is latest versions only (which is reasonable for non-versioning systems as well).",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-VERSION-SPEC"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.manifest",
+      "short" : "Specification of entities (e.",
+      "definition" : "Specification of entities (e.g. records) to include in the Extract.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-MANIFEST"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.extract_type",
+      "short" : "Coded term indicating the type of content required, e.",
+      "definition" : "Coded term indicating the type of content required, e.g.\n\n* `|openehr-ehr|`\n* `|openehr-demographic|`\n* `|generic-emr|`\n* `|other|`\n\nCoded by openEHR Terminology group `'extract content type'`.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.include_multimedia",
+      "short" : "Indicates whether in-line instances of `DV_MULTIMEDIA` in the source data are included or not.",
+      "definition" : "Indicates whether in-line instances of `DV_MULTIMEDIA` in the source data are included or not.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.priority",
+      "short" : "Requested priority of this request to be handled by server.",
+      "definition" : "Requested priority of this request to be handled by server. Priority schemes are likely to be local, and use values agreed by both ends.\n\nTBD: alternative is standard coded terms",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.link_depth",
+      "short" : "Degree of links to follow emanating from content items specified for inclusion.",
+      "definition" : "Degree of links to follow emanating from content items specified for inclusion. The kind of links to follow is dependent on the type of Extract.\n\nAll items at the target end of followed links at the given depth are also included in the extract; `EXTRACT_CONTENT_ITEM._is_primary_` is used to differentiate.\n\n* 0 = don't follow;\n* 1 = follow first degree links;\n* 2 = follow 2nd degree links;\n* ....\n* n = follow nth degree links\n",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "integer"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.criteria",
+      "short" : "Queries specifying the contents of this Extract.",
+      "definition" : "Queries specifying the contents of this Extract.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_SPEC.other_details",
+      "short" : "Other specification items.",
+      "definition" : "Other specification items. Archetypable.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

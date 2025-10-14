@@ -34,7 +34,7 @@
   "title" : "ENTRY",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-09-06T14:39:31+10:00",
+  "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
   "contact" : [{
     "name" : "openEHR",
@@ -48,7 +48,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -58,18 +58,6 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Language_valid",
-        "severity" : "error",
-        "human" : "Language valid",
-        "expression" : "null # TODO: manual translation needed"
-      },
-      {
-        "key" : "Encoding_valid",
-        "severity" : "error",
-        "human" : "Encoding valid",
-        "expression" : "null # TODO: manual translation needed"
-      },
-      {
         "key" : "Subject_validity",
         "severity" : "error",
         "human" : "Subject validity must satisfy conditional constraints",
@@ -87,7 +75,11 @@
         "human" : "Is archetype root",
         "expression" : "is_archetype_root()"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-character_sets"
+      }
     },
     {
       "path" : "ENTRY.language",
@@ -96,7 +88,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
       }],
       "isModifier" : false
     },
@@ -107,7 +99,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
       }],
       "isModifier" : false
     },
@@ -129,7 +121,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
       }],
       "isModifier" : false
     },
@@ -140,7 +132,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
       }],
       "isModifier" : false
     },
@@ -151,7 +143,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
       }],
       "isModifier" : false
     }]

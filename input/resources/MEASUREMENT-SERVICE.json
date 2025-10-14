@@ -1,0 +1,103 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "MEASUREMENT-SERVICE",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "is_valid_units_string",
+    "name" : "is_valid_units_string",
+    "title" : "is_valid_units_string",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if the units string  units' is a valid string according to the HL7 UCUM specification.",
+    "code" : "is_valid_units_string",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "units",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "units_equivalent",
+    "name" : "units_equivalent",
+    "title" : "units_equivalent",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "True if two units strings correspond to the same measured property.",
+    "code" : "units_equivalent",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "units1",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "units2",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_valid_units_string"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#units_equivalent"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/MEASUREMENT-SERVICE",
+  "version" : "1.2.0",
+  "name" : "MEASUREMENT_SERVICE",
+  "title" : "MEASUREMENT_SERVICE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Defines an object providing proxy access to a measurement information service.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/MEASUREMENT_SERVICE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "MEASUREMENT_SERVICE",
+      "short" : "Defines an object providing proxy access to a measurement information service.",
+      "definition" : "Defines an object providing proxy access to a measurement information service.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

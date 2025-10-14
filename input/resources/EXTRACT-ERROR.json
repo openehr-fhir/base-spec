@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "EXTRACT-ERROR",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ERROR",
+  "version" : "1.2.0",
+  "name" : "EXTRACT_ERROR",
+  "title" : "EXTRACT_ERROR",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ERROR",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "EXTRACT_ERROR",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ERROR.request_id",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "EXTRACT_ERROR.reason",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

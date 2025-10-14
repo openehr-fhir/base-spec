@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "PARTY-IDENTITY",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "purpose",
+    "name" : "purpose",
+    "title" : "purpose",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Purpose of identity, e.g. legal ,  stagename,  nickname,  tribal name,  trading name. Taken from value of inherited `_name_` attribute.",
+    "code" : "purpose",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_party_identity_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#purpose"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTITY",
+  "version" : "1.2.0",
+  "name" : "PARTY_IDENTITY",
+  "title" : "PARTY_IDENTITY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "An identity  owned  by a Party, such as a person name or company name, and which is used by the Party to identify itself. Actual structure is archetyped.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "PARTY_IDENTITY",
+      "short" : "An identity  owned  by a Party, such as a person name or company name, and which is used by the Party to identify itself.",
+      "definition" : "An identity  owned  by a Party, such as a person name or company name, and which is used by the Party to identify itself. Actual structure is archetyped.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Purpose_valid",
+        "severity" : "error",
+        "human" : "Purpose valid",
+        "expression" : "purpose() = name"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "PARTY_IDENTITY.details",
+      "short" : "The value of the identity.",
+      "definition" : "The value of the identity. This will often taken the form of a parseable string or a small structure of strings.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

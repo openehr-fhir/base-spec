@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "SYNC-EXTRACT-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/SYNC-EXTRACT-SPEC",
+  "version" : "1.2.0",
+  "name" : "SYNC_EXTRACT_SPEC",
+  "title" : "SYNC_EXTRACT_SPEC",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Details of specification of Extract, used in a request to specify an Extract, or in a response, to describe what is actually in the Extract.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT_SPEC",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "SYNC_EXTRACT_SPEC",
+      "short" : "Details of specification of Extract, used in a request to specify an Extract, or in a response, to describe what is actually in the Extract.",
+      "definition" : "Details of specification of Extract, used in a request to specify an Extract, or in a response, to describe what is actually in the Extract.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT_SPEC.includes_versions",
+      "short" : "True if the Versions from the Contribution are included; False if just the Contribution and its Audit are included.",
+      "definition" : "True if the Versions from the Contribution are included; False if just the Contribution and its Audit are included.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT_SPEC.contribution_list",
+      "short" : "List of Contributions to include / that are included in the Extract.",
+      "definition" : "List of Contributions to include / that are included in the Extract.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT_SPEC.contributions_since",
+      "short" : "Specify Contributions included in Extract by threshold date.",
+      "definition" : "Specify Contributions included in Extract by threshold date.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT_SPEC.all_contributions",
+      "short" : "True if all Contributions in the record are included.",
+      "definition" : "True if all Contributions in the record are included.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

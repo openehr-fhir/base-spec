@@ -1,0 +1,86 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSIONED-COMPOSITION",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "is_persistent",
+    "name" : "is_persistent",
+    "title" : "is_persistent",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Indicates whether this composition set is persistent; derived from first version.",
+    "code" : "is_persistent",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "boolean"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_versioned_composition_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#is_persistent"
+  },
+  {
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },
+    {
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }],
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-COMPOSITION",
+  "version" : "1.2.0",
+  "name" : "VERSIONED_COMPOSITION",
+  "title" : "VERSIONED_COMPOSITION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_COMPOSITION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "VERSIONED_COMPOSITION",
+      "short" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`.",
+      "definition" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Archetype_node_id_valid",
+        "severity" : "error",
+        "human" : "Archetype node id valid",
+        "expression" : "for_all v in all_versions() | v.archetype_node_id.is_equal (all_versions().first().archetype_node_id)"
+      },
+      {
+        "key" : "Persistent_validity",
+        "severity" : "error",
+        "human" : "Persistent validity",
+        "expression" : "for_all v in all_versions() | v.is_persistent() = all_versions().first().data.is_persistent()"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "VERSIONED-PARTY",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_versioned_party_class"
+  },
+  {
+    "extension" : [{
+      "url" : "name",
+      "valueCode" : "T"
+    },
+    {
+      "url" : "type",
+      "valueUri" : "http://openehr.org/fhir/StructureDefinition/Any"
+    }],
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-PARTY",
+  "version" : "1.2.0",
+  "name" : "VERSIONED_PARTY",
+  "title" : "VERSIONED_PARTY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_PARTY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "VERSIONED_PARTY",
+      "short" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`.",
+      "definition" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`. ",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

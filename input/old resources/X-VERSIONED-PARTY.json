@@ -1,0 +1,36 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "X-VERSIONED-PARTY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/X-VERSIONED-PARTY",
+  "version" : "1.2.0",
+  "name" : "X_VERSIONED_PARTY",
+  "title" : "X_VERSIONED_PARTY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Form of `X_VERSIONED_OBJECT` for `PARTY` demographic object.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/X_VERSIONED_PARTY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/X-VERSIONED-OBJECT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "X_VERSIONED_PARTY",
+      "short" : "Form of `X_VERSIONED_OBJECT` for `PARTY` demographic object.",
+      "definition" : "Form of `X_VERSIONED_OBJECT` for `PARTY` demographic object.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    }]
+  }
+}

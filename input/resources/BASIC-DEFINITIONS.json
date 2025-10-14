@@ -1,0 +1,60 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "BASIC-DEFINITIONS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/BASIC-DEFINITIONS",
+  "version" : "1.2.0",
+  "name" : "BASIC_DEFINITIONS",
+  "title" : "BASIC_DEFINITIONS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Inheritance class to provide access to constants defined in other packages.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/BASIC_DEFINITIONS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "BASIC_DEFINITIONS",
+      "short" : "Inheritance class to provide access to constants defined in other packages",
+      "definition" : "Inheritance class to provide access to constants defined in other packages.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "BASIC_DEFINITIONS.CR",
+      "short" : "Carriage return character.",
+      "definition" : "Carriage return character.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "fixedString" : "\r",
+      "isModifier" : false
+    },
+    {
+      "path" : "BASIC_DEFINITIONS.LF",
+      "short" : "Line feed character.",
+      "definition" : "Line feed character.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "fixedString" : "\n",
+      "isModifier" : false
+    }]
+  }
+}

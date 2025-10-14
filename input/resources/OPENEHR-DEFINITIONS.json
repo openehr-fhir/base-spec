@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "OPENEHR-DEFINITIONS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-DEFINITIONS",
+  "version" : "1.2.0",
+  "name" : "OPENEHR_DEFINITIONS",
+  "title" : "OPENEHR_DEFINITIONS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Inheritance class to provide access to constants defined in other packages.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : true,
+  "type" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_DEFINITIONS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/BASIC-DEFINITIONS",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "OPENEHR_DEFINITIONS",
+      "short" : "Inheritance class to provide access to constants defined in other packages",
+      "definition" : "Inheritance class to provide access to constants defined in other packages.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "OPENEHR_DEFINITIONS.Local_terminology_id",
+      "short" : "Predefined terminology identifier",
+      "definition" : "Predefined terminology identifier to indicate it is local to the knowledge resource in which it occurs, e.g. an archetype",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

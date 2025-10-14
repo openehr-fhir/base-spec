@@ -1,0 +1,80 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "X-CONTRIBUTION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/X-CONTRIBUTION",
+  "version" : "1.2.0",
+  "name" : "X_CONTRIBUTION",
+  "title" : "X_CONTRIBUTION",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Serialised form of Contribution for an Extract.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/X_CONTRIBUTION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "X_CONTRIBUTION",
+      "short" : "Serialised form of Contribution for an Extract.",
+      "definition" : "Serialised form of Contribution for an Extract.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "X_CONTRIBUTION.uid",
+      "short" : "Uid of Contribution in source system.",
+      "definition" : "Uid of Contribution in source system.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "X_CONTRIBUTION.audit",
+      "short" : "Audit of Contribution in source system.",
+      "definition" : "Audit of Contribution in source system.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "X_CONTRIBUTION.versions",
+      "short" : "Serialised Versions from Contribution in source system.",
+      "definition" : "Serialised Versions from Contribution in source system.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "extension" : [{
+          "extension" : [{
+            "url" : "name",
+            "valueCode" : "T"
+          },
+          {
+            "url" : "type",
+            "valueUri" : "http://openehr.org/fhir/StructureDefinition/X-CONTRIBUTION"
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
+        }],
+        "code" : "http://openehr.org/fhir/StructureDefinition/VERSION"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

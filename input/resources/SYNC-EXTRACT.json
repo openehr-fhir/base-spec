@@ -1,0 +1,55 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "SYNC-EXTRACT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/SYNC-EXTRACT",
+  "version" : "1.2.0",
+  "name" : "SYNC_EXTRACT",
+  "title" : "SYNC_EXTRACT",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/MESSAGE-CONTENT",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "SYNC_EXTRACT",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT.specification",
+      "short" : "Details of specification of this Extract.",
+      "definition" : "Details of specification of this Extract.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/SYNC-EXTRACT-SPEC"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "SYNC_EXTRACT.items",
+      "short" : "Content, in the form of a serialised Contributions.",
+      "definition" : "Content, in the form of a serialised Contributions.",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTRIBUTION"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

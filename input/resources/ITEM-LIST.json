@@ -1,0 +1,186 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "ITEM-LIST",
+  "contained" : [{
+    "resourceType" : "OperationDefinition",
+    "id" : "item_count",
+    "name" : "item_count",
+    "title" : "item_count",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Count of all items.",
+    "code" : "item_count",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "integer"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "names",
+    "name" : "names",
+    "title" : "names",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Retrieve the names of all items.",
+    "code" : "names",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "named_item",
+    "name" : "named_item",
+    "title" : "named_item",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Retrieve the item with name ‘a_name’.",
+    "code" : "named_item",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "a_name",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "string"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "ith_item",
+    "name" : "ith_item",
+    "title" : "ith_item",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Retrieve the i-th item with name.",
+    "code" : "ith_item",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "i",
+      "use" : "in",
+      "min" : 1,
+      "max" : "1",
+      "type" : "integer"
+    },
+    {
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  },
+  {
+    "resourceType" : "OperationDefinition",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
+    "title" : "as_hierarchy",
+    "status" : "active",
+    "kind" : "operation",
+    "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `CLUSTER` containing the `ELEMENTs` of this list.",
+    "code" : "as_hierarchy",
+    "system" : false,
+    "instance" : true,
+    "parameter" : [{
+      "name" : "return",
+      "use" : "out",
+      "min" : 1,
+      "max" : "1",
+      "type" : "Parameters"
+    }]
+  }],
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_item_list_class"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#item_count"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#names"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#named_item"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#ith_item"
+  },
+  {
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
+    "valueCanonical" : "#as_hierarchy"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-LIST",
+  "version" : "1.2.0",
+  "name" : "ITEM_LIST",
+  "title" : "ITEM_LIST",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Logical list data structure, where each item has a value and can be referred to by a name and a positional index in the list. The list may be empty. \n\n`ITEM_LIST` is used to represent any data which is logically a list of values, such as blood pressure, most protocols, many blood tests etc. \n\nNot to be used for time-based lists, which should be represented with the proper temporal class, i.e. `HISTORY`.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_LIST",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "ITEM_LIST",
+      "short" : "Logical list data structure, where each item has a value and can be referred to by a name and a positional index in the list.",
+      "definition" : "Logical list data structure, where each item has a value and can be referred to by a name and a positional index in the list. The list may be empty. \n\n`ITEM_LIST` is used to represent any data which is logically a list of values, such as blood pressure, most protocols, many blood tests etc. \n\nNot to be used for time-based lists, which should be represented with the proper temporal class, i.e. `HISTORY`.",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Valid_structure",
+        "severity" : "error",
+        "human" : "Valid structure",
+        "expression" : " items.forall (i:ITEM | i.type() = \\\"ELEMENT\\\")"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "ITEM_LIST.items",
+      "short" : "Physical representation of the list.",
+      "definition" : "Physical representation of the list. ",
+      "min" : 0,
+      "max" : "*",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ELEMENT"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

@@ -34,7 +34,7 @@
   "title" : "PARTY",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-09-06T14:39:31+10:00",
+  "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
   "contact" : [{
     "name" : "openEHR",
@@ -108,7 +108,7 @@
       "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTITY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTITY"
       }],
       "isModifier" : false
     },
@@ -130,7 +130,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
       }],
       "isModifier" : false
     },
@@ -141,7 +141,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE_REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE-REF"
       }],
       "isModifier" : false
     },
@@ -152,7 +152,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATIONSHIP"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP"
       }],
       "isModifier" : false
     }]

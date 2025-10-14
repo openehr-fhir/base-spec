@@ -43,7 +43,7 @@
       "use" : "out",
       "min" : 1,
       "max" : "1",
-      "type" : "Element"
+      "type" : "Base"
     }]
   },
   {
@@ -69,7 +69,7 @@
       "use" : "out",
       "min" : 1,
       "max" : "1",
-      "type" : "Element"
+      "type" : "Base"
     }]
   },
   {
@@ -184,7 +184,7 @@
   "title" : "PATHABLE",
   "status" : "active",
   "experimental" : false,
-  "date" : "2025-09-06T14:39:31+10:00",
+  "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
   "contact" : [{
     "name" : "openEHR",
@@ -198,7 +198,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

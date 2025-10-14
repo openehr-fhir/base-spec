@@ -1,0 +1,107 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "AUDIT-DETAILS",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_audit_details_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS",
+  "version" : "1.2.0",
+  "name" : "AUDIT_DETAILS",
+  "title" : "AUDIT_DETAILS",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "The set of attributes required to document the committal of an information item to a repository. ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "AUDIT_DETAILS",
+      "short" : "The set of attributes required to document the committal of an information item to a repository.",
+      "definition" : "The set of attributes required to document the committal of an information item to a repository. ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "System_id_valid",
+        "severity" : "error",
+        "human" : "System id valid must not be empty",
+        "expression" : "system_id.empty().not()"
+      },
+      {
+        "key" : "Change_type_valid",
+        "severity" : "error",
+        "human" : "Change type valid",
+        "expression" : "null # TODO: manual translation needed"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "AUDIT_DETAILS.system_id",
+      "short" : "Identifier of the logical EHR system where the change was committed.",
+      "definition" : "Identifier of the logical EHR system where the change was committed. This is almost always owned by the organisation legally responsible for the EHR, and is distinct from any application, or any hosting infrastructure.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "AUDIT_DETAILS.time_committed",
+      "short" : "Time of committal of the item.",
+      "definition" : "Time of committal of the item. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "AUDIT_DETAILS.change_type",
+      "short" : "Type of change.",
+      "definition" : "Type of change. Coded using the openEHR Terminology  audit change type  group.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "AUDIT_DETAILS.description",
+      "short" : "Reason for committal.",
+      "definition" : "Reason for committal. This may be used to qualify the value in the `_change_type_` field. For example, if the change affects only the EHR directory, this field might be used to indicate 'Folder \"episode 2018-02-16\" added' or similar.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "AUDIT_DETAILS.committer",
+      "short" : "Identity and optional reference into identity management service, of user who committed the item.",
+      "definition" : "Identity and optional reference into identity management service, of user who committed the item. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

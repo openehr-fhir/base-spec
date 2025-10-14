@@ -1,0 +1,79 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "CODE-PHRASE",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_code_phrase_class"
+  }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE",
+  "version" : "1.2.0",
+  "name" : "CODE_PHRASE",
+  "title" : "CODE_PHRASE",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology). ",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/Any",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "CODE_PHRASE",
+      "short" : "A fully coordinated (i.",
+      "definition" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology). ",
+      "min" : 0,
+      "max" : "*",
+      "constraint" : [{
+        "key" : "Code_string_valid",
+        "severity" : "error",
+        "human" : "Code string valid must not be empty",
+        "expression" : "code_string.empty().not()"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CODE_PHRASE.terminology_id",
+      "short" : "Identifier of the distinct terminology from which the code_string (or its elements) was extracted.",
+      "definition" : "Identifier of the distinct terminology from which the code_string (or its elements) was extracted.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ID"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CODE_PHRASE.code_string",
+      "short" : "The key used by the terminology service to identify a concept or coordination of concepts.",
+      "definition" : "The key used by the terminology service to identify a concept or coordination of concepts. This string is most likely parsable inside the terminology service, but nothing can be assumed about its syntax outside that context. ",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "CODE_PHRASE.preferred_term",
+      "short" : "Optional attribute to carry preferred term corresponding to the code or expression in `_code_string_`.",
+      "definition" : "Optional attribute to carry preferred term corresponding to the code or expression in `_code_string_`. Typical use in integration situations which create mappings, and representing data for which both a (non-preferred) actual term and a preferred term are both required.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "isModifier" : false
+    }]
+  }
+}

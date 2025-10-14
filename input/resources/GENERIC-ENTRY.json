@@ -1,0 +1,47 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "GENERIC-ENTRY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/GENERIC-ENTRY",
+  "version" : "1.2.0",
+  "name" : "GENERIC_ENTRY",
+  "title" : "GENERIC_ENTRY",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2025-09-06T15:35:39+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "This class is used to create intermediate representations of data from sources not otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.",
+  "fhirVersion" : "5.0.0",
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "http://openehr.org/fhir/StructureDefinition/GENERIC_ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "derivation" : "specialization",
+  "differential" : {
+    "element" : [{
+      "path" : "GENERIC_ENTRY",
+      "short" : "This class is used to create intermediate representations of data from sources not otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.",
+      "definition" : "This class is used to create intermediate representations of data from sources not otherwise conforming to openEHR classes, such as HL7 messages, relational databases and so on.",
+      "min" : 0,
+      "max" : "*",
+      "isModifier" : false
+    },
+    {
+      "path" : "GENERIC_ENTRY.data",
+      "short" : "The data from the source message or record.",
+      "definition" : "The data from the source message or record. May be recorded in any structural openEHR representation.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM"
+      }],
+      "isModifier" : false
+    }]
+  }
+}
