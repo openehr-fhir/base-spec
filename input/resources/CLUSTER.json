@@ -4,6 +4,9 @@
   "extension" : [{
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_cluster_class"
+  }{ 
+    "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+    "valueCode" : "element-view-ready"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/CLUSTER",
   "version" : "1.2.0",
@@ -37,6 +40,25 @@
       "isModifier" : false
     },
     {
+      "extension" : [{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-group"
+        },{
+          "url" : "value",
+          "valueString" : "Items"
+        }]
+      },{ 
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
+        "extension" : [{
+          "url" : "name",
+          "valueCode" : "element-view-order"
+        },{
+          "url" : "value",
+          "valueInteger" : 8
+        }]
+      }],
       "path" : "CLUSTER.items",
       "short" : "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`.",
       "definition" : "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`. ",
