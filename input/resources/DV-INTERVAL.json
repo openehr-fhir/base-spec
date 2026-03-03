@@ -52,6 +52,72 @@
         "expression" : "(upper_unbounde.not()d and lower_unbounded.not()) implies (lower.is_strictly_comparable_to(upper) and lower <= upper)"
       }],
       "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower",
+      "short" : "Lower bound of the interval.",
+      "definition" : "Lower bound of the interval. Void if the interval is lower-unbounded.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper",
+      "short" : "Upper bound of the interval.",
+      "definition" : "Upper bound of the interval. Void if the interval is upper-unbounded.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower_unbounded",
+      "short" : "True if the interval has no lower bound.",
+      "definition" : "True if the interval has no lower bound. If True, lower is Void.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper_unbounded",
+      "short" : "True if the interval has no upper bound.",
+      "definition" : "True if the interval has no upper bound. If True, upper is Void.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower_included",
+      "short" : "True if the lower bound is included in the interval.",
+      "definition" : "True if the lower bound is included in the interval. Only meaningful if lower_unbounded is False.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper_included",
+      "short" : "True if the upper bound is included in the interval.",
+      "definition" : "True if the upper bound is included in the interval. Only meaningful if upper_unbounded is False.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
     }]
   }
 }
