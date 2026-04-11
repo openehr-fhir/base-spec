@@ -94,6 +94,9 @@
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#diff"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "is-continous"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
   "version" : "1.2.0",

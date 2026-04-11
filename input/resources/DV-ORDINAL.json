@@ -64,6 +64,9 @@
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is_strictly_comparable_to"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-bind"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-ORDINAL",
   "version" : "1.2.0",

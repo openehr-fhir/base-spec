@@ -177,6 +177,12 @@
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is_strictly_comparable_to"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "is-continuous"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "has-units"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTITY",
   "version" : "1.2.0",

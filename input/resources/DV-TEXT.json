@@ -4,6 +4,9 @@
   "extension" : [{
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_text_class"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-bind"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT",
   "version" : "1.2.0",
