@@ -42,3 +42,5 @@ _genonce.sh
 /FHIR-tools.xml
 
 translations/
+
+Requirements-fromNarrative.json

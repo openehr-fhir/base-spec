@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="setting"/>
   <url value="https://specifications.openehr.org/fhir/valueset-setting"/>
   <version value="3.1.0"/>
-  <name value="setting"/>
+  <name value="Setting"/>
   <title value="Setting"/>
   <status value="active"/>
   <experimental value="false"/>

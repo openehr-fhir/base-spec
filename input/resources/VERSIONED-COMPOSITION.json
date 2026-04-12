@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_versioned_composition_class"
   },
   {
@@ -72,13 +72,13 @@
         "key" : "Archetype_node_id_valid",
         "severity" : "error",
         "human" : "Archetype node id valid",
-        "expression" : "for_all v in all_versions() | v.archetype_node_id.is_equal (all_versions().first().archetype_node_id)"
+        "expression" : "all_versions().all(archetype_node_id.is_equal (all_versions().first().archetype_node_id))"
       },
       {
         "key" : "Persistent_validity",
         "severity" : "error",
         "human" : "Persistent validity",
-        "expression" : "for_all v in all_versions() | v.is_persistent() = all_versions().first().data.is_persistent()"
+        "expression" : "all_versions().all(is_persistent() = all_versions().first().data.is_persistent())"
       }],
       "isModifier" : false
     }]

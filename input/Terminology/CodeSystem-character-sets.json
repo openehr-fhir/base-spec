@@ -3,7 +3,7 @@
   "id" : "character-sets",
   "url" : "https://specifications.openehr.org/fhir/codesystem-character_sets",
   "version" : "3.1.0",
-  "name" : "character_sets",
+  "name" : "Character_sets",
   "title" : "Character Set",
   "description" : "Character Set",
   "status" : "active",
@@ -11,7 +11,7 @@
   "date" : "2024-04-11",
   "publisher" : "http://openehr.org/",
   "caseSensitive" : true,
-  "valueSet" : "https://specifications.openehr.org/fhir/valueset-character-sets",
+  "valueSet" : "https://specifications.openehr.org/fhir/valueset-character_sets",
   "content" : "complete",
   "concept" : [
     { "code" : "ISO-10646-UTF-1" },

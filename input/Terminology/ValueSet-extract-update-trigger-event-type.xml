@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="extract-update-trigger-event-type"/>
   <url value="https://specifications.openehr.org/fhir/valueset-extract_update_trigger_event_type"/>
   <version value="3.1.0"/>
-  <name value="extract_update_trigger_event_type"/>
+  <name value="Extract_update_trigger_event_type"/>
   <title value="Extract Update Trigger Event Type"/>
   <status value="active"/>
   <experimental value="false"/>

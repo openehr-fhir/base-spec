@@ -39,6 +39,11 @@
     <packageId value="hl7.fhir.uv.tools"/>
     <version value="dev"/>
   </dependsOn>
+  <dependsOn id="extensions">
+    <uri value="http://hl7.org/fhir/uv/hl7.fhir.uv.tools/ImplementationGuide/hl7.fhir.uv.tools"/>
+    <packageId value="hl7.fhir.uv.extensions"/>
+    <version value="current"/>
+  </dependsOn>
   <definition>
     <page>
       <sourceUrl value="index.html"/>

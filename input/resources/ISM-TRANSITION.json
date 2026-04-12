@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "ISM-TRANSITION",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ism_transition_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ISM-TRANSITION",
@@ -38,13 +38,13 @@
         "key" : "Current_state_valid",
         "severity" : "error",
         "human" : "Current state valid",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Transition_valid",
         "severity" : "error",
         "human" : "Transition valid must be present",
-        "expression" : "transition.exists() implies terminology (Terminology_id_openehr).\\nhas_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
+        "expression" : "transition.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
       }],
       "isModifier" : false
     },

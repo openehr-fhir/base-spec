@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_entry_class"
   },
   {
@@ -61,7 +61,7 @@
         "key" : "Subject_validity",
         "severity" : "error",
         "human" : "Subject validity must satisfy conditional constraints",
-        "expression" : "subject_is_self() implies subject.generating_type = “PARTY_SELF”"
+        "expression" : "subject_is_self() implies subject.generating_type = 'PARTY_SELF'"
       },
       {
         "key" : "Other_participations_valid",

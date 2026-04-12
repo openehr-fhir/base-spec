@@ -528,7 +528,7 @@
                 }
             },
             "invariants": {
-                "Links_valid": "links \/= Void implies not links.is_empty",
+                "Links_valid": "links \.exists() implies not links.is_empty",
                 "Archetyped_valid": "is_archetype_root xor archetype_details = Void",
                 "Archetype_node_id_valid": "not archetype_node_id.is_empty"
             }
@@ -960,7 +960,7 @@
                 "Version_count_valid": "version_count >= 0",
                 "All_version_ids_valid": "all_version_ids.count = version_count",
                 "All_versions_valid": "all_versions.count = version_count",
-                "Latest_version_valid": "version_count > 0 implies latest_version \/= Void",
+                "Latest_version_valid": "version_count > 0 implies latest_version \.exists()",
                 "Uid_validity": "extension.is_empty"
             }
         },
@@ -1084,8 +1084,8 @@
             },
             "invariants": {
                 "Owner_id_valid": "owner_id.value.is_equal (uid.object_id.value)",
-                "Preceding_version_uid_validity": "uid.version_tree_id.is_first xor preceding_version_uid \/= Void",
-                "Lifecycle_state_ valid": "lifecycle_state \/= Void and then terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state.defining_code)"
+                "Preceding_version_uid_validity": "uid.version_tree_id.is_first xor preceding_version_uid \.exists()",
+                "Lifecycle_state_ valid": "lifecycle_state \.exists() and then terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state.defining_code)"
             }
         },
         "IMPORTED_VERSION": {
@@ -1215,9 +1215,9 @@
                 }
             },
             "invariants": {
-                "Attestations_valid": "attestations \/= Void implies not attestations.is_empty",
+                "Attestations_valid": "attestations \.exists() implies not attestations.is_empty",
                 "Is_merged_validity": "other_input_version_ids = Void xor is_merged",
-                "Other_input_version_uids_valid": "other_input_version_uids \/= Void implies not other_input_version_uids.is_empty"
+                "Other_input_version_uids_valid": "other_input_version_uids \.exists() implies not other_input_version_uids.is_empty"
             }
         },
         "REVISION_HISTORY_ITEM": {
@@ -1332,7 +1332,7 @@
                 }
             },
             "invariants": {
-                "Items_valid": "items \/= Void implies not items.is_empty",
+                "Items_valid": "items \.exists() implies not items.is_empty",
                 "Reason_valid": "(reason.generating_type.is_equal (\u201cDV_CODED_TEXT\u201d) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_attestation_reason, reason.defining_code))"
             }
         },
@@ -1371,7 +1371,7 @@
             },
             "invariants": {
                 "Function_valid": "function.generating_type.is_equal (\"DV_CODED_TEXT\") implies\nterminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)",
-                "Mode_valid": "mode \/= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+                "Mode_valid": "mode \.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
             }
         },
         "PARTY_PROXY": {
@@ -1413,9 +1413,9 @@
                 }
             },
             "invariants": {
-                "Basic_validity": "name \/= Void or identifiers \/= Void or external_ref \/= Void",
-                "Name_valid": "name \/= Void implies not name.is_empty",
-                "Identifiers_valid": "identifiers \/= Void implies not identifiers.is_empty"
+                "Basic_validity": "name \.exists() or identifiers \.exists() or external_ref \.exists()",
+                "Name_valid": "name \.exists() implies not name.is_empty",
+                "Identifiers_valid": "identifiers \.exists() implies not identifiers.is_empty"
             }
         },
         "PARTY_SELF": {
@@ -1599,9 +1599,9 @@
                 "Original_language_valid": "code_set (Code_set_id_languages).has_code (original_language.as_string)",
                 "Languages_available_valid": "languages_available.has (original_language)",
                 "Revision_history_valid": "is_controlled xor revision_history = Void",
-                "Current_revision_valid": "(current_revision \/= Void and not is_controlled) implies current_revision.is_equal (\u201c(uncontrolled)\u201d)",
-                "Translations_valid": "translations \/= Void implies (not translations.is_empty and not translations.has (orginal_language.code_string))",
-                "Description_valid": "translations \/= Void implies (description.details.for_all (d |\ntranslations.has_key (d.language.code_string)))"
+                "Current_revision_valid": "(current_revision \.exists() and not is_controlled) implies current_revision.is_equal (\u201c(uncontrolled)\u201d)",
+                "Translations_valid": "translations \.exists() implies (not translations.is_empty and not translations.has (orginal_language.code_string))",
+                "Description_valid": "translations \.exists() implies (description.details.for_all (d |\ntranslations.has_key (d.language.code_string)))"
             }
         },
         "RESOURCE_DESCRIPTION": {
@@ -1681,8 +1681,8 @@
                 "Original_author_valid": "not original_author.is_empty",
                 "Lifecycle_state_valid": "not lifecycle_state.is_empty",
                 "Details_valid": "not details.is_empty",
-                "Language_valid": "parent_resource \/= Void implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))",
-                "Parent_resource_valid": "parent_resource \/= Void implies parent_resource.description = self"
+                "Language_valid": "parent_resource \.exists() implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))",
+                "Parent_resource_valid": "parent_resource \.exists() implies parent_resource.description = self"
             }
         },
         "TRANSLATION_DETAILS": {
@@ -1802,9 +1802,9 @@
             "invariants": {
                 "Language_valid": "code_set (Code_set_id_languages).has_code (language)",
                 "Purpose_valid": "not purpose.is_empty",
-                "Use_valid": "use \/= Void implies not use.is_empty",
-                "misuse_valid": "misuse \/= Void implies not misuse.is_empty",
-                "copyright_valid": "copyright \/= Void implies not copyright.is_empty"
+                "Use_valid": "use \.exists() implies not use.is_empty",
+                "misuse_valid": "misuse \.exists() implies not misuse.is_empty",
+                "copyright_valid": "copyright \.exists() implies not copyright.is_empty"
             }
         },
         "ITEM_TAG": {
@@ -1842,7 +1842,7 @@
             },
             "invariants": {
                 "Inv_key_valid": "not key.is_empty and key.is_justified",
-                "Inv_value_valid": "value \/= Void implies not value.is_empty"
+                "Inv_value_valid": "value \.exists() implies not value.is_empty"
             }
         },
         "DATA_STRUCTURE": {
@@ -2255,7 +2255,7 @@
             },
             "invariants": {
                 "Offset_validity": "",
-                "Offset_validity1": "offset \/= Void and then offset = time.diff (parent.origin)"
+                "Offset_validity1": "offset \.exists() and then offset = time.diff (parent.origin)"
             }
         },
         "POINT_EVENT": {
@@ -2378,7 +2378,7 @@
                 }
             },
             "invariants": {
-                "Events_valid": "(events \/= Void and then not events.is_empty) or summary \/= Void",
+                "Events_valid": "(events \.exists() and then not events.is_empty) or summary \.exists()",
                 "Periodic_validity": "is_periodic xor period = Void",
                 "Period_consistency": "is_periodic implies events.for_all (e: EVENT | e.offset. to_seconds.mod(period.to_seconds) = 0)"
             }
@@ -2450,7 +2450,7 @@
                 "Inv_is_null_valid": "is_null() = (value = Void)",
                 "Inv_null_flavour_indicated": "is_null() xor null_flavour = Void",
                 "Inv_null_flavour_valid": "is_null implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)",
-                "Inv_null_reason_valid": "null_reason \/= Void implies is_null()"
+                "Inv_null_reason_valid": "null_reason \.exists() implies is_null()"
             }
         },
         "DATA_VALUE": {
@@ -2554,8 +2554,8 @@
             },
             "invariants": {
                 "Size_valid": "size >= 0",
-                "Language_valid": "language \/= Void implies code_set (Code_set_id_languages).has_code (language)",
-                "Charset_valid": "charset \/= Void implies code_set (Code_set_id_character_sets).has_code (charset)"
+                "Language_valid": "language \.exists() implies code_set (Code_set_id_languages).has_code (language)",
+                "Charset_valid": "charset \.exists() implies code_set (Code_set_id_character_sets).has_code (charset)"
             }
         },
         "DV_MULTIMEDIA": {
@@ -2661,10 +2661,10 @@
             },
             "invariants": {
                 "Not_empty": "is_inline or is_external",
-                "Media_type_valid": "media_type \/= Void and then code_set (Code_set_id_media_types).has_code (media_type)",
-                "Compression_algorithm_validity": "compression_algorithm \/= Void implies code_set (Code_set_id_compression_algorithms).has_code (compression_algorithm)",
-                "Integrity_check_validity": "integrity_check \/= Void implies integrity_check_algorithm \/= Void",
-                "Integrity_check_algorithm_validity": "integrity_check_algorithm \/= Void implies code_set (Code_set_id_integrity_check_algorithms).has_code (integrity_check_algorithm)",
+                "Media_type_valid": "media_type \.exists() and then code_set (Code_set_id_media_types).has_code (media_type)",
+                "Compression_algorithm_validity": "compression_algorithm \.exists() implies code_set (Code_set_id_compression_algorithms).has_code (compression_algorithm)",
+                "Integrity_check_validity": "integrity_check \.exists() implies integrity_check_algorithm \.exists()",
+                "Integrity_check_algorithm_validity": "integrity_check_algorithm \.exists() implies code_set (Code_set_id_integrity_check_algorithms).has_code (integrity_check_algorithm)",
                 "Size_valid": "size >= 0"
             }
         },
@@ -2777,10 +2777,10 @@
             },
             "invariants": {
                 "Valid_value": "not value.is_empty",
-                "Language_valid": "language \/= Void implies code_set (Code_set_id_languages).has_code (language)",
-                "Encoding_valid": "encoding \/= Void implies code_set (Code_set_id_character_sets).has_code (encoding)",
-                "Mappings_valid": "mappings \/= void implies not mappings.is_empty",
-                "Formatting_valid": "formatting \/= void implies not formatting.is_empty"
+                "Language_valid": "language \.exists() implies code_set (Code_set_id_languages).has_code (language)",
+                "Encoding_valid": "encoding \.exists() implies code_set (Code_set_id_character_sets).has_code (encoding)",
+                "Mappings_valid": "mappings \.exists() implies not mappings.is_empty",
+                "Formatting_valid": "formatting \.exists() implies not formatting.is_empty"
             }
         },
         "DV_CODED_TEXT": {
@@ -2876,7 +2876,7 @@
                 }
             },
             "invariants": {
-                "Purpose_valid": "purpose \/= Void implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)",
+                "Purpose_valid": "purpose \.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)",
                 "Match_valid": "is_valid_match_code (match)"
             }
         },
@@ -2971,11 +2971,11 @@
                     "name": "is_normal",
                     "documentation": "Value is in the normal range, determined by comparison of the value to `_normal_range_` if present, or by the `_normal_status_` marker if present. \n",
                     "pre_conditions": {
-                        "Pre": "normal_range \/= Void or normal_status \/= Void"
+                        "Pre": "normal_range \.exists() or normal_status \.exists()"
                     },
                     "post_conditions": {
-                        "Post_range": "normal_range \/= Void implies Result = normal_range.has (self)",
-                        "Post_status": "normal_status \/= Void implies normal_status.code_string.is_equal (\u201cN\u201d)"
+                        "Post_range": "normal_range \.exists() implies Result = normal_range.has (self)",
+                        "Post_status": "normal_status \.exists() implies normal_status.code_string.is_equal (\u201cN\u201d)"
                     },
                     "result": {
                         "type": "Boolean"
@@ -2997,10 +2997,10 @@
                 }
             },
             "invariants": {
-                "Other_reference_ranges_validity": "other_reference_ranges \/= Void implies not other_reference_ranges.is_empty",
+                "Other_reference_ranges_validity": "other_reference_ranges \.exists() implies not other_reference_ranges.is_empty",
                 "Is_simple_validity": "(normal_range = Void and other_reference_ranges = Void) implies is_simple",
-                "Normal_status_validity": "normal_status \/= Void implies code_set (Code_set_id_normal_statuses).has_code (normal_status)",
-                "Normal_range_and_status_consistency": "(normal_range \/= Void and normal_status \/= Void) implies (normal_status.code_string.is_equal (\u201cN\u201d) xor not normal_range.has (self))"
+                "Normal_status_validity": "normal_status \.exists() implies code_set (Code_set_id_normal_statuses).has_code (normal_status)",
+                "Normal_range_and_status_consistency": "(normal_range \.exists() and normal_status \.exists()) implies (normal_status.code_string.is_equal (\u201cN\u201d) xor not normal_range.has (self))"
             }
         },
         "DV_INTERVAL": {
@@ -3141,7 +3141,7 @@
                 }
             },
             "invariants": {
-                "Magnitude_status_valid": "magnitude_status \/= Void implies valid_magnitude_status (magnitude_status)"
+                "Magnitude_status_valid": "magnitude_status \.exists() implies valid_magnitude_status (magnitude_status)"
             }
         },
         "DV_PROPORTION": {
@@ -5067,9 +5067,9 @@
                 "Ehr_access_valid": "ehr_access.type.is_equal (\"VERSIONED_EHR_ACCESS\")",
                 "Ehr_status_valid": "ehr_status.type.is_equal(\"VERSIONED_EHR_STATUS\")",
                 "Compositions_valid": "for_all c in compositions | c.type.is_equal (\"VERSIONED_COMPOSITION\")",
-                "Directory_valid": "directory \/= Void implies directory.type.is_equal (\"VERSIONED_FOLDER\")",
-                "Folders_valid": "folders \/= Void implies for_all f in folders | f.type.is_equal(\"VERSIONED_FOLDER\")",
-                "Directory_in_folders": "folders \/= Void implies folders.item(1) = directory"
+                "Directory_valid": "directory \.exists() implies directory.type.is_equal (\"VERSIONED_FOLDER\")",
+                "Folders_valid": "folders \.exists() implies for_all f in folders | f.type.is_equal(\"VERSIONED_FOLDER\")",
+                "Directory_in_folders": "folders \.exists() implies folders.item(1) = directory"
             }
         },
         "VERSIONED_EHR_ACCESS": {
@@ -5318,7 +5318,7 @@
                 }
             },
             "invariants": {
-                "Item_validity": "is_masked xor item \/= Void"
+                "Item_validity": "is_masked xor item \.exists()"
             }
         },
         "EXTRACT_ENTITY_CHAPTER": {
@@ -5482,8 +5482,8 @@
                 }
             },
             "invariants": {
-                "Function_valid": "function \/= Void and then function.generating_type.is_equal (\u201cDV_CODED_TEXT\u201d) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)",
-                "Mode_valid": "mode \/= Void and terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
+                "Function_valid": "function \.exists() and then function.generating_type.is_equal (\u201cDV_CODED_TEXT\u201d) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)",
+                "Mode_valid": "mode \.exists() and terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_mode, mode.defining_code)"
             }
         },
         "EXTRACT_REQUEST": {
@@ -5607,8 +5607,8 @@
                 }
             },
             "invariants": {
-                "Overall_validity": "repeat_period \/= Void or trigger_events \/= Void",
-                "Trigger_events_validity": "trigger_events \/= Void implies not trigger_events.is_empty",
+                "Overall_validity": "repeat_period \.exists() or trigger_events \.exists()",
+                "Trigger_events_validity": "trigger_events \.exists() implies not trigger_events.is_empty",
                 "Send_changes_only_validity": "send_changes_only implies persist_in_server"
             }
         },
@@ -6110,11 +6110,11 @@
             "invariants": {
                 "Type_valid": "type = name",
                 "Identities_valid": "not identities.is_empty",
-                "Contacts_valid": "contacts \/= Void implies not contacts.is_empty",
-                "Relationships_validity": "relationships \/= Void implies (not relationships.is_empty and then relationships.for_all (r | r.source = self)",
-                "Reverse_relationships_validity": "reverse_relationships \/= Void implies (not reverse_relationships.empty and then reverse_relationships.for_all (item | repository (\"demographics\").all_party_relationships.has_object (item) and then repository(\"demographics\").all_party_relationships.object (item).target = self))",
+                "Contacts_valid": "contacts \.exists() implies not contacts.is_empty",
+                "Relationships_validity": "relationships \.exists() implies (not relationships.is_empty and then relationships.for_all (r | r.source = self)",
+                "Reverse_relationships_validity": "reverse_relationships \.exists() implies (not reverse_relationships.empty and then reverse_relationships.for_all (item | repository (\"demographics\").all_party_relationships.has_object (item) and then repository(\"demographics\").all_party_relationships.object (item).target = self))",
                 "Is_archetype_root": "is_archetype_root",
-                "Uid_mandatory": "uid \/= Void"
+                "Uid_mandatory": "uid \.exists()"
             }
         },
         "CONTACT": {
@@ -6256,7 +6256,7 @@
                 }
             },
             "invariants": {
-                "Capabilities_valid": "capabilities \/= Void implies not capabilities.empty"
+                "Capabilities_valid": "capabilities \.exists() implies not capabilities.empty"
             }
         },
         "ACTOR": {
@@ -6295,7 +6295,7 @@
                 }
             },
             "invariants": {
-                "Roles_valid": "roles \/= Void implies not roles.is_empty",
+                "Roles_valid": "roles \.exists() implies not roles.is_empty",
                 "Legal_identity_exists": "has_legal_identity"
             }
         },
@@ -6399,8 +6399,8 @@
                 }
             },
             "invariants": {
-                "Source_valid": "source \/= Void and then source.relationships.has (self)",
-                "Target_valid": "target \/= Void and then not target.reverse_relationships.has (self)",
+                "Source_valid": "source \.exists() and then source.relationships.has (self)",
+                "Target_valid": "target \.exists() and then not target.reverse_relationships.has (self)",
                 "Type_validity": "type = name"
             }
         },
@@ -6493,7 +6493,7 @@
                 "Is_persistent_validity": "is_persistent implies context = Void",
                 "Territory_valid": "code_set(Code_set_id_countries).has_code(territory)",
                 "Language_valid": "code_set(Code_set_id_languages).has_code(language)",
-                "Content_valid": "content \/= Void implies not content.is_empty",
+                "Content_valid": "content \.exists() implies not content.is_empty",
                 "Is_archetype_root": "is_archetype_root"
             }
         },
@@ -6552,8 +6552,8 @@
             },
             "invariants": {
                 "Setting_valid": "Terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_setting, setting.defining_code)",
-                "Participations_validity": "participations \/= Void implies not participations.is_empty",
-                "location_valid": "location \/= Void implies not location.is_empty"
+                "Participations_validity": "participations \.exists() implies not participations.is_empty",
+                "location_valid": "location \.exists() implies not location.is_empty"
             }
         },
         "CONTENT_ITEM": {
@@ -6586,7 +6586,7 @@
                 }
             },
             "invariants": {
-                "Items_valid": "items \/= Void implies not items.is_empty"
+                "Items_valid": "items \.exists() implies not items.is_empty"
             }
         },
         "ADMIN_ENTRY": {
@@ -6771,7 +6771,7 @@
             },
             "invariants": {
                 "Current_state_valid": "terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_instruction_states, current_state.defining_code)",
-                "Transition_valid": "transition \/= Void implies terminology (Terminology_id_openehr).\nhas_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
+                "Transition_valid": "transition \.exists() implies terminology (Terminology_id_openehr).\nhas_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"
             }
         },
         "INSTRUCTION_DETAILS": {
@@ -6869,7 +6869,7 @@
                 "Language_valid": "code_set (Code_set_id_languages).has_code (language)",
                 "Encoding_valid": "code_set (Code_set_id_character_sets).has_code (encoding)",
                 "Subject_validity": "subject_is_self implies subject.generating_type = \u201cPARTY_SELF\u201d",
-                "Other_participations_valid": "other_participations \/= Void implies not other_participations.is_empty",
+                "Other_participations_valid": "other_participations \.exists() implies not other_participations.is_empty",
                 "Is_archetype_root": "is_archetype_root"
             }
         },
@@ -6911,7 +6911,7 @@
                 }
             },
             "invariants": {
-                "Activities_valid": "activities \/= Void implies not activities.is_empty"
+                "Activities_valid": "activities \.exists() implies not activities.is_empty"
             }
         }
     }

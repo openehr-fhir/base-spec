@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "RESOURCE-DESCRIPTION",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_resource_description_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/RESOURCE-DESCRIPTION",
@@ -56,7 +56,7 @@
         "key" : "Language_valid",
         "severity" : "error",
         "human" : "Language valid must be present",
-        "expression" : "parent_resource.exists() implies details.for_all (d | parent_resource.languages_available.has (d.language.code_string))"
+        "expression" : "parent_resource.exists() implies details.all(parent_resource.languages_available.has(d.language.code_string))"
       },
       {
         "key" : "Parent_resource_valid",

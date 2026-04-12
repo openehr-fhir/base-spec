@@ -34,7 +34,7 @@
         "key" : "Function_valid",
         "severity" : "error",
         "human" : "Function valid must be present",
-        "expression" : "function.exists() and then function.generating_type.is_equal (“DV_CODED_TEXT”) implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)"
+        "expression" : "function.exists() and function.generating_type.is_equal ('DV_CODED_TEXT') implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_participation_function, function.defining_code)"
       },
       {
         "key" : "Mode_valid",

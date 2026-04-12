@@ -196,7 +196,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_proportion_class"
   },
   {
@@ -264,7 +264,7 @@
         "key" : "Type_validity",
         "severity" : "error",
         "human" : "Type validity",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Precision_validity",
@@ -288,19 +288,19 @@
         "key" : "Unitary_validity",
         "severity" : "error",
         "human" : "Unitary validity must satisfy conditional constraints",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Percent_validity",
         "severity" : "error",
         "human" : "Percent validity must satisfy conditional constraints",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Valid_denominator",
         "severity" : "error",
         "human" : "Valid denominator",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       }],
       "isModifier" : false
     },

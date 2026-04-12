@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_composition_class"
   },
   {
@@ -61,25 +61,25 @@
         "key" : "Setting_valid",
         "severity" : "error",
         "human" : "Setting valid",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "unnamed2",
         "severity" : "error",
         "human" : "unnamed2",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "unnamed3",
         "severity" : "error",
         "human" : "unnamed3",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Category_validity",
         "severity" : "error",
         "human" : "Category validity",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Is_persistent_validity",

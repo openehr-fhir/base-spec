@@ -110,7 +110,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_quantified_class"
   },
   {
@@ -169,7 +169,7 @@
         "key" : "Magnitude_status_valid",
         "severity" : "error",
         "human" : "Magnitude status valid must be present",
-        "expression" : "magnitude_status.exists() implies valid_magnitude_status() (magnitude_status)"
+        "expression" : "magnitude_status.exists() implies valid_magnitude_status()"
       }],
       "isModifier" : false
     },

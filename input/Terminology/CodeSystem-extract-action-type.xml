@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="extract-action-type"/>
   <url value="https://specifications.openehr.org/fhir/codesystem-extract_action_type"/>
   <version value="3.1.0"/>
-  <name value="extract_action_type"/>
+  <name value="Extract_action_type"/>
   <title value="Extract Action Type"/>
   <status value="active"/>
   <experimental value="false"/>

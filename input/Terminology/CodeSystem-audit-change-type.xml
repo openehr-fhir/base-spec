@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="audit-change-type"/>
   <url value="https://specifications.openehr.org/fhir/codesystem-audit_change_type"/>
   <version value="3.1.0"/>
-  <name value="audit_change_type"/>
+  <name value="Audit_change_type"/>
   <title value="Audit Change Type"/>
   <status value="active"/>
   <experimental value="false"/>

@@ -151,7 +151,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_quantity_class"
   },
   {
@@ -240,7 +240,7 @@
     {
       "path" : "DV_QUANTITY.units",
       "short" : "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in `_units_system_`, when set.",
-      "definition" : "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in `_units_system_`, when set.\n\nIn either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.\n\nIf the `_units_display_name_` field is set, this may be used for display. If not, the implementations must effect the resolution of the `_units_` value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.\n\nExample values from UCUM: \"kg/m^2\", “mm[Hg]\", \"ms-1\", \"km/h\".",
+      "definition" : "Quantity units, expressed as a code or syntax string from either UCUM (the default) or the units system specified in `_units_system_`, when set.\n\nIn either case, the value is the code or syntax - normally formed of standard ASCII - which is in principal not the same as the display string, although in simple cases such as 'm' (for meters) it will be.\n\nIf the `_units_display_name_` field is set, this may be used for display. If not, the implementations must effect the resolution of the `_units_` value to a display form locally, e.g. by lookup of reference tables, request to a terminology service etc.\n\nExample values from UCUM: \"kg/m^2\", 'mm[Hg]\", \"ms-1\", \"km/h\".",
       "min" : 1,
       "max" : "1",
       "type" : [{

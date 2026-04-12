@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "ACTOR",
   "extension" : [{ 
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_actor_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ACTOR",

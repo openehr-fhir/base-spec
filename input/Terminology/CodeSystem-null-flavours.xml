@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="null-flavours"/>
   <url value="https://specifications.openehr.org/fhir/codesystem-null_flavours"/>
   <version value="3.1.0"/>
-  <name value="null_flavours"/>
+  <name value="Null_flavours"/>
   <title value="Null Flavours"/>
   <status value="active"/>
   <experimental value="false"/>

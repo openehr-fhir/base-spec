@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "EHR",
   "extension" : [{ 
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/EHR",

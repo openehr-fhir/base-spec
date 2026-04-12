@@ -46,7 +46,7 @@
         "key" : "Send_changes_only_validity",
         "severity" : "error",
         "human" : "Send changes only validity must satisfy conditional constraints",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       }],
       "isModifier" : false
     },

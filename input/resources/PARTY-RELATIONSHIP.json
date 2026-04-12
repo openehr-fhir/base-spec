@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_party_relationship_class"
   },
   {
@@ -61,13 +61,13 @@
         "key" : "Source_valid",
         "severity" : "error",
         "human" : "Source valid must be present",
-        "expression" : "source.exists() and then source.relationships.has (self)"
+        "expression" : "source.exists() and source.relationships.has (self)"
       },
       {
         "key" : "Target_valid",
         "severity" : "error",
         "human" : "Target valid must be present",
-        "expression" : "target.exists() and then target.not().reverse_relationships.has (self)"
+        "expression" : "target.exists() and target.not().reverse_relationships.has (self)"
       },
       {
         "key" : "Type_validity",
