@@ -92,7 +92,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_ordered_class"
   },
   {
@@ -156,7 +156,7 @@
         "key" : "Normal_range_and_status_consistency",
         "severity" : "error",
         "human" : "Normal range and status consistency must be present",
-        "expression" : "(normal_range.exists() and normal_status.exists()) implies (normal_status.code_string.is_equal (“N”) xor normal_range.not().has (self))"
+        "expression" : "(normal_range.exists() and normal_status.exists()) implies (normal_status.code_string.is_equal ('N') xor normal_range.not().has (self))"
       }],
       "isModifier" : false,
       "binding" : {

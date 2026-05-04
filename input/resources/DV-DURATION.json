@@ -170,7 +170,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_duration_class"
   },
   {
@@ -234,7 +234,7 @@
         "key" : "Value_valid",
         "severity" : "error",
         "human" : "Value valid",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       }],
       "isModifier" : false
     },

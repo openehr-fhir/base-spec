@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/demographic.html#_party_class"
   },
   {
@@ -79,13 +79,13 @@
         "key" : "Relationships_validity",
         "severity" : "error",
         "human" : "Relationships validity must be present",
-        "expression" : "relationships.exists() implies (relationships.empty().not() and then relationships.for_all (r | r.source = self)"
+        "expression" : "relationships.exists() implies (relationships.empty().not() and relationships.all (r.source = self))"
       },
       {
         "key" : "Reverse_relationships_validity",
         "severity" : "error",
         "human" : "Reverse relationships validity must be present",
-        "expression" : "reverse_relationships.exists() implies (reverse_relationships.empty().not() and then reverse_relationships.for_all (item | repository (\\\"demographics\\\").all_party_relationships.has_object (item) and then repository(\\\"demographics\\\").all_party_relationships.object (item).target = self))"
+        "expression" : "reverse_relationships.exists() implies (reverse_relationships.empty().not() and reverse_relationships.all(repository ('demographics').all_party_relationships.has_object (item) and repository('demographics').all_party_relationships.object (item).target = self))"
       },
       {
         "key" : "Is_archetype_root",

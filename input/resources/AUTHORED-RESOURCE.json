@@ -40,7 +40,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_authored_resource_class"
   },
   {
@@ -96,7 +96,7 @@
         "key" : "Current_revision_valid",
         "severity" : "error",
         "human" : "Current revision valid must be present",
-        "expression" : "(current_revision().exists() and is_controlled.not()) implies current_revision().is_equal (“(uncontrolled)”)"
+        "expression" : "(current_revision().exists() and is_controlled.not()) implies current_revision().is_equal ('(uncontrolled)')"
       },
       {
         "key" : "Translations_valid",
@@ -108,7 +108,7 @@
         "key" : "Description_valid",
         "severity" : "error",
         "human" : "Description valid must be present",
-        "expression" : "translations.exists() implies (description.details.for_all (d |\\ntranslations.has_key (d.language.code_string)))"
+        "expression" : "translations.exists() implies (description.details.all(translations.has_key ($this.language.code_string)))"
       }],
       "isModifier" : false,
       "binding" : {

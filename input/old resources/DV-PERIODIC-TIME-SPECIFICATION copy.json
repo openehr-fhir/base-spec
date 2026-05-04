@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "DV-PERIODIC-TIME-SPECIFICATION",
   "extension" : [{ 
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_periodic_time_specification_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-PERIODIC-TIME-SPECIFICATION",

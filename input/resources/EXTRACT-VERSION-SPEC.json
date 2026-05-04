@@ -34,7 +34,7 @@
         "key" : "Includes_revision_history_valid",
         "severity" : "error",
         "human" : "Includes revision history valid must satisfy conditional constraints",
-        "expression" : "include_dat.not()a implies include_revision_history"
+        "expression" : "include_data.not() implies include_revision_history"
       }],
       "isModifier" : false
     },

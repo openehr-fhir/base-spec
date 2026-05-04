@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_history_class"
   },
   {
@@ -72,7 +72,7 @@
         "key" : "Events_valid",
         "severity" : "error",
         "human" : "Events valid must be present",
-        "expression" : "(events.exists() and then events.empty().not()) or summary.exists()"
+        "expression" : "(events.exists() and events.empty().not()) or summary.exists()"
       },
       {
         "key" : "Periodic_validity",
@@ -84,7 +84,7 @@
         "key" : "Period_consistency",
         "severity" : "error",
         "human" : "Period consistency must satisfy conditional constraints",
-        "expression" : "is_periodic() implies events.for_all (e: EVENT | e.offset. to_seconds.mod(period.to_seconds) = 0)"
+        "expression" : "is_periodic() implies events.all(offset.to_seconds().mod(period.to_seconds()) = 0)"
       }],
       "isModifier" : false
     },

@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "A “message” is an authored, possibly signed, piece of content intended for one or more recipients. Since the recipient may or may not be known directly, recipients are specified in the `ADDRESSED_MESSAGE` class.",
+  "description" : "A 'message' is an authored, possibly signed, piece of content intended for one or more recipients. Since the recipient may or may not be known directly, recipients are specified in the `ADDRESSED_MESSAGE` class.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -26,8 +26,8 @@
   "differential" : {
     "element" : [{
       "path" : "MESSAGE",
-      "short" : "A “message” is an authored, possibly signed, piece of content intended for one or more recipients.",
-      "definition" : "A “message” is an authored, possibly signed, piece of content intended for one or more recipients. Since the recipient may or may not be known directly, recipients are specified in the `ADDRESSED_MESSAGE` class.",
+      "short" : "A 'message' is an authored, possibly signed, piece of content intended for one or more recipients.",
+      "definition" : "A 'message' is an authored, possibly signed, piece of content intended for one or more recipients. Since the recipient may or may not be known directly, recipients are specified in the `ADDRESSED_MESSAGE` class.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false

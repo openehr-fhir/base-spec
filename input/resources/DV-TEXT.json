@@ -2,8 +2,11 @@
   "resourceType" : "StructureDefinition",
   "id" : "DV-TEXT",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_text_class"
+  },{
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
+    "valueCode" : "can-bind"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT",
   "version" : "1.2.0",
@@ -44,13 +47,13 @@
         "key" : "Mappings_valid",
         "severity" : "error",
         "human" : "Mappings valid must not be empty",
-        "expression" : "mappings /= void implies mappings.empty().not()"
+        "expression" : "mappings .exists() implies mappings.empty().not()"
       },
       {
         "key" : "Formatting_valid",
         "severity" : "error",
         "human" : "Formatting valid must not be empty",
-        "expression" : "formatting /= void implies formatting.empty().not()"
+        "expression" : "formatting .exists() implies formatting.empty().not()"
       }],
       "isModifier" : false,
       "binding" : {

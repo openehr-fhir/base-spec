@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "EHR",
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_class"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/EHR",
@@ -38,37 +38,37 @@
         "key" : "Contributions_valid",
         "severity" : "error",
         "human" : "Contributions valid",
-        "expression" : "for_all c in contributions | c.type().is_equal(\\\"CONTRIBUTION\\\")"
+        "expression" : "contributions.all(type().is_equal('CONTRIBUTION'))"
       },
       {
         "key" : "Ehr_access_valid",
         "severity" : "error",
         "human" : "Ehr access valid",
-        "expression" : "ehr_access.type().is_equal (\\\"VERSIONED_EHR_ACCESS\\\")"
+        "expression" : "ehr_access.type().is_equal ('VERSIONED_EHR_ACCESS')"
       },
       {
         "key" : "Ehr_status_valid",
         "severity" : "error",
         "human" : "Ehr status valid",
-        "expression" : "ehr_status.type().is_equal(\\\"VERSIONED_EHR_STATUS\\\")"
+        "expression" : "ehr_status.type().is_equal('VERSIONED_EHR_STATUS')"
       },
       {
         "key" : "Compositions_valid",
         "severity" : "error",
         "human" : "Compositions valid",
-        "expression" : "for_all c in compositions | c.type().is_equal (\\\"VERSIONED_COMPOSITION\\\")"
+        "expression" : "compositions.all(type().is_equal ('VERSIONED_COMPOSITION'))"
       },
       {
         "key" : "Directory_valid",
         "severity" : "error",
         "human" : "Directory valid must be present",
-        "expression" : "directory.exists() implies directory.type().is_equal (\\\"VERSIONED_FOLDER\\\")"
+        "expression" : "directory.exists() implies directory.type().is_equal ('VERSIONED_FOLDER')"
       },
       {
         "key" : "Folders_valid",
         "severity" : "error",
         "human" : "Folders valid must be present",
-        "expression" : "folders.exists() implies for_all f in folders | f.type().is_equal(\\\"VERSIONED_FOLDER\\\")"
+        "expression" : "folders.exists() implies folders.all(type().is_equal('VERSIONED_FOLDER'))"
       },
       {
         "key" : "Directory_in_folders",

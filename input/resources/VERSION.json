@@ -135,7 +135,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_version_class"
   },
   {
@@ -222,7 +222,7 @@
         "key" : "Lifecycle_state_ valid",
         "severity" : "error",
         "human" : "Lifecycle state  valid must be present",
-        "expression" : "lifecycle_state().exists() and then terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state().defining_code)"
+        "expression" : "lifecycle_state().exists() and terminology (Term_id_openehr).has_code_for_group_id (Group_id_version_lifecycle_state, lifecycle_state().defining_code)"
       }],
       "isModifier" : false
     },

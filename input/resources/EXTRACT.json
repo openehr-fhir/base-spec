@@ -34,7 +34,7 @@
         "key" : "Sequence_nr_valid",
         "severity" : "error",
         "human" : "Sequence nr valid must satisfy range constraints",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       }],
       "isModifier" : false
     },

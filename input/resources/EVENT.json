@@ -21,7 +21,7 @@
     }]
   }],
   "extension" : [{
-    "url" : "http://hl7.org/fhir/tools/StructureDefinition/web-source",
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_structures.html#_event_class"
   },
   {
@@ -72,13 +72,13 @@
         "key" : "Offset_validity",
         "severity" : "error",
         "human" : "Offset validity",
-        "expression" : "null # TODO: manual translation needed"
+        "expression" : "{} // : manual translation needed"
       },
       {
         "key" : "Offset_validity1",
         "severity" : "error",
         "human" : "Offset validity1 must be present",
-        "expression" : "offset().exists() and then offset() = time.diff (parent().origin)"
+        "expression" : "offset().exists() and offset() = time.diff (parent().origin)"
       }],
       "isModifier" : false
     },
