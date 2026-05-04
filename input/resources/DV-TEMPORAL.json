@@ -113,8 +113,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
@@ -124,8 +123,7 @@
     "element" : [{
       "path" : "DV_TEMPORAL",
       "short" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",
-      "definition" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`. ",
-      "min" : 0,
+      "definition" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },

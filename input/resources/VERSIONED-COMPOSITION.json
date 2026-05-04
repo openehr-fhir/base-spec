@@ -54,8 +54,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_COMPOSITION",
@@ -65,8 +64,7 @@
     "element" : [{
       "path" : "VERSIONED_COMPOSITION",
       "short" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`.",
-      "definition" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`. ",
-      "min" : 0,
+      "definition" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Archetype_node_id_valid",

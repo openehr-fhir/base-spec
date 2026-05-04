@@ -27,8 +27,7 @@
     "title" : "calendar_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Calendar alignment extracted from value. ",
-    "code" : "calendar_alignment",
+    "description" : "Calendar alignment extracted from value.",    "code" : "calendar_alignment",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -46,8 +45,7 @@
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Event alignment extracted from value. ",
-    "code" : "event_alignment",
+    "description" : "Event alignment extracted from value.",    "code" : "event_alignment",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -112,8 +110,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PERIODIC_TIME_SPECIFICATION",
@@ -123,8 +120,7 @@
     "element" : [{
       "path" : "DV_PERIODIC_TIME_SPECIFICATION",
       "short" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked).",
-      "definition" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model. ",
-      "min" : 0,
+      "definition" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Value_valid",

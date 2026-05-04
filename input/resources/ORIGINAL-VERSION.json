@@ -54,8 +54,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "A Version containing locally created content and optional attestations. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "A Version containing locally created content and optional attestations.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL_VERSION",
@@ -65,8 +64,7 @@
     "element" : [{
       "path" : "ORIGINAL_VERSION",
       "short" : "A Version containing locally created content and optional attestations.",
-      "definition" : "A Version containing locally created content and optional attestations. ",
-      "min" : 0,
+      "definition" : "A Version containing locally created content and optional attestations.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Attestations_valid",
@@ -91,8 +89,7 @@
     {
       "path" : "ORIGINAL_VERSION.uid",
       "short" : "Stored version of inheritance precursor.",
-      "definition" : "Stored version of inheritance precursor. ",
-      "min" : 1,
+      "definition" : "Stored version of inheritance precursor.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
@@ -102,8 +99,7 @@
     {
       "path" : "ORIGINAL_VERSION.preceding_version_uid",
       "short" : "Stored version of inheritance precursor.",
-      "definition" : "Stored version of inheritance precursor. ",
-      "min" : 0,
+      "definition" : "Stored version of inheritance precursor.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
@@ -113,8 +109,7 @@
     {
       "path" : "ORIGINAL_VERSION.other_input_version_uids",
       "short" : "Identifiers of other versions whose content was merged into this version, if any.",
-      "definition" : "Identifiers of other versions whose content was merged into this version, if any. ",
-      "min" : 0,
+      "definition" : "Identifiers of other versions whose content was merged into this version, if any.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
@@ -135,8 +130,7 @@
     {
       "path" : "ORIGINAL_VERSION.attestations",
       "short" : "Set of attestations relating to this version.",
-      "definition" : "Set of attestations relating to this version. ",
-      "min" : 0,
+      "definition" : "Set of attestations relating to this version.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/ATTESTATION"

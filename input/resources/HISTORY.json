@@ -8,8 +8,7 @@
     "title" : "is_periodic",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Indicates whether history is periodic. \n",
-    "code" : "is_periodic",
+    "description" : "Indicates whether history is periodic.",    "code" : "is_periodic",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -54,8 +53,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/HISTORY",
@@ -65,8 +63,7 @@
     "element" : [{
       "path" : "HISTORY",
       "short" : "Root object of a linear history, i.",
-      "definition" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed. ",
-      "min" : 0,
+      "definition" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Events_valid",
@@ -91,8 +88,7 @@
     {
       "path" : "HISTORY.origin",
       "short" : "Time origin of this event history.",
-      "definition" : "Time origin of this event history. The first event is not necessarily at the origin point. ",
-      "min" : 1,
+      "definition" : "Time origin of this event history. The first event is not necessarily at the origin point.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
@@ -113,8 +109,7 @@
     {
       "path" : "HISTORY.duration",
       "short" : "Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists.",
-      "definition" : "Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists. ",
-      "min" : 0,
+      "definition" : "Duration of the entire History; either corresponds to the duration of all the events, and/or the duration represented by the summary, if it exists.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"

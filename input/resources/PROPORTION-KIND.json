@@ -16,8 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/PROPORTION_KIND",
@@ -27,8 +26,7 @@
     "element" : [{
       "path" : "PROPORTION_KIND",
       "short" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class.",
-      "definition" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class. ",
-      "min" : 0,
+      "definition" : "Class of enumeration constants defining types of proportion for the `DV_PROPORTION` class.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

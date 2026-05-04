@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "DEPRECATED: use markdown formatted `DV_TEXT` instead.\n\nOriginal definition:\n\nA logical composite text value consisting of a series of `DV_TEXTs`, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph. \n\n`DV_PARAGRAPH` is the standard way for constructing longer text items in summaries, reports and so on. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "DEPRECATED: use markdown formatted `DV_TEXT` instead.\n\nOriginal definition:\n\nA logical composite text value consisting of a series of `DV_TEXTs`, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph. \n\n`DV_PARAGRAPH` is the standard way for constructing longer text items in summaries, reports and so on.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PARAGRAPH",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "DV_PARAGRAPH",
       "short" : "DEPRECATED: use markdown formatted `DV_TEXT` instead.",
-      "definition" : "DEPRECATED: use markdown formatted `DV_TEXT` instead.\n\nOriginal definition:\n\nA logical composite text value consisting of a series of `DV_TEXTs`, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph. \n\n`DV_PARAGRAPH` is the standard way for constructing longer text items in summaries, reports and so on. ",
-      "min" : 0,
+      "definition" : "DEPRECATED: use markdown formatted `DV_TEXT` instead.\n\nOriginal definition:\n\nA logical composite text value consisting of a series of `DV_TEXTs`, i.e. plain text (optionally coded) potentially with simple formatting, to form a larger tract of prose, which may be interpreted for display purposes as a paragraph. \n\n`DV_PARAGRAPH` is the standard way for constructing longer text items in summaries, reports and so on.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Items_valid",
@@ -45,8 +43,7 @@
     {
       "path" : "DV_PARAGRAPH.items",
       "short" : "Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks).",
-      "definition" : "Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks). ",
-      "min" : 1,
+      "definition" : "Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks).",      "min" : 1,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"

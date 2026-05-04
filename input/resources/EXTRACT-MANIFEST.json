@@ -26,8 +26,7 @@
   "differential" : {
     "element" : [{
       "path" : "EXTRACT_MANIFEST",
-      "short" : "Specification of the candidate entities and optionally top-level items (e.",
-      "definition" : "Specification of the candidate entities and optionally top-level items (e.g. Compositions) to be included in the Extract.",
+      "short" : "Specification of the candidate entities and optionally top-level items",      "definition" : "Specification of the candidate entities and optionally top-level items (e.g. Compositions) to be included in the Extract.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false

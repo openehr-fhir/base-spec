@@ -8,8 +8,7 @@
     "title" : "valid_magnitude_status",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Test whether a string value is one of the valid values for the magnitude_status attribute. ",
-    "code" : "valid_magnitude_status",
+    "description" : "Test whether a string value is one of the valid values for the magnitude_status attribute.",    "code" : "valid_magnitude_status",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -175,9 +174,7 @@
     },
     {
       "path" : "DV_QUANTIFIED.magnitude_status",
-      "short" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"` .",
-      "definition" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"` . \n",
-      "min" : 0,
+      "short" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"`.",      "definition" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"`.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"

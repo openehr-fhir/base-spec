@@ -27,8 +27,7 @@
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Event alignment extracted from value. ",
-    "code" : "event_alignment",
+    "description" : "Event alignment extracted from value.",    "code" : "event_alignment",
     "system" : false,
     "instance" : true,
     "parameter" : [{

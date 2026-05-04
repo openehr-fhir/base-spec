@@ -49,8 +49,7 @@
     {
       "path" : "DV_ENCAPSULATED.charset",
       "short" : "Name of character encoding scheme in which this value is encoded.",
-      "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions. ",
-      "min" : 0,
+      "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"

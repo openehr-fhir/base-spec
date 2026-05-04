@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines a single activity within an Instruction, such as a medication administration. ",
+  "description" : "Defines a single activity within an Instruction, such as a medication administration.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -31,7 +31,7 @@
     "element" : [{
       "path" : "ACTIVITY",
       "short" : "Defines a single activity within an Instruction, such as a medication administration.",
-      "definition" : "Defines a single activity within an Instruction, such as a medication administration. ",
+      "definition" : "Defines a single activity within an Instruction, such as a medication administration.",
       "min" : 0,
       "max" : "*",
       "constraint" : [{

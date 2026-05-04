@@ -8,8 +8,7 @@
     "title" : "type",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Type of relationship, such as  employment,  authority,  health provision ",
-    "code" : "type",
+    "description" : "Type of relationship, such as  employment,  authority,  health provision",    "code" : "type",
     "system" : false,
     "instance" : true,
     "parameter" : [{

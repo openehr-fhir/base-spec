@@ -83,8 +83,7 @@
     },
     {
       "path" : "ITEM_TAG.target_path",
-      "short" : "Optional archetype (i.",
-      "definition" : "Optional archetype (i.e. AQL) or RM path within `_target_`, used to tag a fine-grained element.",
+      "short" : "Optional archetype",      "definition" : "Optional archetype (i.e. AQL) or RM path within `_target_`, used to tag a fine-grained element.",
       "min" : 0,
       "max" : "1",
       "type" : [{

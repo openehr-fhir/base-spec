@@ -43,8 +43,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The abstract parent of all `ENTRY` subtypes. An `ENTRY` is the root of a logical item of  hard  clinical information created in the  clinical statement  context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition.\n\nAn `ENTRY` is also the minimal unit of information any query should return, since a whole `ENTRY` (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The abstract parent of all `ENTRY` subtypes. An `ENTRY` is the root of a logical item of  hard  clinical information created in the  clinical statement  context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition.\n\nAn `ENTRY` is also the minimal unit of information any query should return, since a whole `ENTRY` (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
@@ -54,8 +53,7 @@
     "element" : [{
       "path" : "ENTRY",
       "short" : "The abstract parent of all `ENTRY` subtypes.",
-      "definition" : "The abstract parent of all `ENTRY` subtypes. An `ENTRY` is the root of a logical item of  hard  clinical information created in the  clinical statement  context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition.\n\nAn `ENTRY` is also the minimal unit of information any query should return, since a whole `ENTRY` (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information. ",
-      "min" : 0,
+      "definition" : "The abstract parent of all `ENTRY` subtypes. An `ENTRY` is the root of a logical item of  hard  clinical information created in the  clinical statement  context, within a clinical session. There can be numerous such contexts in a clinical session. Observations and other Entry types only ever document information captured/created in the event documented by the enclosing Composition.\n\nAn `ENTRY` is also the minimal unit of information any query should return, since a whole `ENTRY` (including subparts) records spatial structure, timing information, and contextual information, as well as the subject and generator of the information.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Subject_validity",
@@ -84,8 +82,7 @@
     {
       "path" : "ENTRY.language",
       "short" : "Mandatory indicator of the localised language in which this Entry is written.",
-      "definition" : "Mandatory indicator of the localised language in which this Entry is written. Coded from openEHR Code Set  languages . ",
-      "min" : 1,
+      "definition" : "Mandatory indicator of the localised language in which this Entry is written. Coded from openEHR Code Set  languages.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
@@ -106,8 +103,7 @@
     {
       "path" : "ENTRY.other_participations",
       "short" : "Other participations at `ENTRY` level.",
-      "definition" : "Other participations at `ENTRY` level. ",
-      "min" : 0,
+      "definition" : "Other participations at `ENTRY` level.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/PARTICIPATION"
@@ -139,8 +135,7 @@
     {
       "path" : "ENTRY.provider",
       "short" : "Optional identification of provider of the information in this `ENTRY`, which might be: \n\n* the patient \n* a patient agent, e.",
-      "definition" : "Optional identification of provider of the information in this `ENTRY`, which might be: \n\n* the patient \n* a patient agent, e.g. parent, guardian \n* the clinician \n* a device or software \n\nGenerally only used when the recorder needs to make it explicit. Otherwise, Composition composer and other participants are assumed. \n",
-      "min" : 0,
+      "definition" : "Optional identification of provider of the information in this `ENTRY`, which might be: \n\n* the patient \n* a patient agent, e.g. parent, guardian \n* the clinician \n* a device or software \n\nGenerally only used when the recorder needs to make it explicit. Otherwise, Composition composer and other participants are assumed.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"

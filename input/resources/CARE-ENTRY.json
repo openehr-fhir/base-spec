@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes. ",
+  "description" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
@@ -31,7 +31,7 @@
     "element" : [{
       "path" : "CARE_ENTRY",
       "short" : "The abstract parent of all clinical `ENTRY` subtypes.",
-      "definition" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes. ",
+      "definition" : "The abstract parent of all clinical `ENTRY` subtypes. A `CARE_ENTRY` defines protocol and guideline attributes for all clinical Entry subtypes.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false
@@ -57,8 +57,8 @@
         }]
       }],
       "path" : "CARE_ENTRY.protocol",
-      "short" : "Description of the method (i.",
-      "definition" : "Description of the method (i.e. how) the information in this entry was arrived at. For `OBSERVATIONs`, this is a description of the method or instrument used. For `EVALUATIONs`, how the evaluation was arrived at. For `INSTRUCTIONs`, how to execute the Instruction. This may take the form of references to guidelines, including manually followed and executable; knowledge references such as a paper in Medline; clinical reasons within a larger care process. ",
+      "short" : "Description of the method",
+      "definition" : "Description of the method (i.e. how) the information in this entry was arrived at. For `OBSERVATIONs`, this is a description of the method or instrument used. For `EVALUATIONs`, how the evaluation was arrived at. For `INSTRUCTIONs`, how to execute the Instruction. This may take the form of references to guidelines, including manually followed and executable; knowledge references such as a paper in Medline; clinical reasons within a larger care process.",
       "min" : 0,
       "max" : "1",
       "type" : [{

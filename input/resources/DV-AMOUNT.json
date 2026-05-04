@@ -8,7 +8,7 @@
     "title" : "valid_percentage",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Test whether a number is a valid percentage, i.e. between 0 and 100. ",
+    "description" : "Test whether a number is a valid percentage, i.e. between 0 and 100.",
     "code" : "valid_percentage",
     "system" : false,
     "instance" : true,
@@ -223,7 +223,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types). \n",
+  "description" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types).",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
@@ -234,7 +234,7 @@
     "element" : [{
       "path" : "DV_AMOUNT",
       "short" : "Abstract class defining the concept of relative quantified  'amounts'.",
-      "definition" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types). \n",
+      "definition" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types).",
       "min" : 0,
       "max" : "*",
       "constraint" : [{

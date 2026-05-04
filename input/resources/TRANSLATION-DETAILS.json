@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Class providing details of a natural language translation. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Class providing details of a natural language translation.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION_DETAILS",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "TRANSLATION_DETAILS",
       "short" : "Class providing details of a natural language translation.",
-      "definition" : "Class providing details of a natural language translation. ",
-      "min" : 0,
+      "definition" : "Class providing details of a natural language translation.",      "min" : 0,
       "max" : "*",
       "isModifier" : false,
       "binding" : {

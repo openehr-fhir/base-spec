@@ -8,8 +8,7 @@
     "title" : "valid_terminology_group_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Validity function to test if an identifier is in the set defined by this class. ",
-    "code" : "valid_terminology_group_id",
+    "description" : "Validity function to test if an identifier is in the set defined by this class.",    "code" : "valid_terminology_group_id",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -46,8 +45,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "List of identifiers for groups in the openEHR terminology. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "List of identifiers for groups in the openEHR terminology.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
@@ -57,8 +55,7 @@
     "element" : [{
       "path" : "OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
       "short" : "List of identifiers for groups in the openEHR terminology.",
-      "definition" : "List of identifiers for groups in the openEHR terminology. ",
-      "min" : 0,
+      "definition" : "List of identifiers for groups in the openEHR terminology.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

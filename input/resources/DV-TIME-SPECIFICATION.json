@@ -27,8 +27,7 @@
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute. ",
-    "code" : "event_alignment",
+    "description" : "Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute.",    "code" : "event_alignment",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -89,8 +88,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
@@ -100,8 +98,7 @@
     "element" : [{
       "path" : "DV_TIME_SPECIFICATION",
       "short" : "This is an abstract class of which all timing specifications are specialisations.",
-      "definition" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast. ",
-      "min" : 0,
+      "definition" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },

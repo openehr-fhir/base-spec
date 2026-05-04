@@ -53,8 +53,7 @@
     "title" : "is_normal",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Value is in the normal range, determined by comparison of the value to `_normal_range_` if present, or by the `_normal_status_` marker if present. \n",
-    "code" : "is_normal",
+    "description" : "Value is in the normal range, determined by comparison of the value to `_normal_range_` if present, or by the `_normal_status_` marker if present.",    "code" : "is_normal",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -126,8 +125,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `<` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `<` function, or used as limits in the `DV_INTERVAL<T>` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL<T>` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity. \n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `<` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `<` function, or used as limits in the `DV_INTERVAL<T>` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL<T>` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
@@ -137,8 +135,7 @@
     "element" : [{
       "path" : "DV_ORDERED",
       "short" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities.",
-      "definition" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `<` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `<` function, or used as limits in the `DV_INTERVAL<T>` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL<T>` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity. \n",
-      "min" : 0,
+      "definition" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `<` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `<` function, or used as limits in the `DV_INTERVAL<T>` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL<T>` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Other_reference_ranges_validity",
@@ -167,8 +164,7 @@
     {
       "path" : "DV_ORDERED.normal_status",
       "short" : "Optional normal status indicator of value with respect to normal range for this value.",
-      "definition" : "Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group  `normal_status`. ",
-      "min" : 0,
+      "definition" : "Optional normal status indicator of value with respect to normal range for this value. Often included by lab, even if the normal range itself is not included. Coded by ordinals in series HHH, HH, H, (nothing), L, LL, LLL; see openEHR terminology group  `normal_status`.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
@@ -178,8 +174,7 @@
     {
       "path" : "DV_ORDERED.normal_range",
       "short" : "Optional normal range.",
-      "definition" : "Optional normal range. ",
-      "min" : 0,
+      "definition" : "Optional normal range.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"

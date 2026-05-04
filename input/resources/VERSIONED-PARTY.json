@@ -31,8 +31,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_PARTY",
@@ -42,8 +41,7 @@
     "element" : [{
       "path" : "VERSIONED_PARTY",
       "short" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`.",
-      "definition" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`. ",
-      "min" : 0,
+      "definition" : "Static type formed by binding generic parameter of `VERSIONED_OBJECT<T>` to `PARTY`.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

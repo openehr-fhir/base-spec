@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ISM_TRANSITION",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "ISM_TRANSITION",
       "short" : "Model of a transition in the Instruction State Machine, caused by a careflow step.",
-      "definition" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition. ",
-      "min" : 0,
+      "definition" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Current_state_valid",

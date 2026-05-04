@@ -45,8 +45,7 @@
     },
     {
       "path" : "EXTRACT_SPEC.manifest",
-      "short" : "Specification of entities (e.",
-      "definition" : "Specification of entities (e.g. records) to include in the Extract.",
+      "short" : "Specification of entities",      "definition" : "Specification of entities (e.g. records) to include in the Extract.",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -90,8 +89,7 @@
     {
       "path" : "EXTRACT_SPEC.link_depth",
       "short" : "Degree of links to follow emanating from content items specified for inclusion.",
-      "definition" : "Degree of links to follow emanating from content items specified for inclusion. The kind of links to follow is dependent on the type of Extract.\n\nAll items at the target end of followed links at the given depth are also included in the extract; `EXTRACT_CONTENT_ITEM._is_primary_` is used to differentiate.\n\n* 0 = don't follow;\n* 1 = follow first degree links;\n* 2 = follow 2nd degree links;\n* ....\n* n = follow nth degree links\n",
-      "min" : 1,
+      "definition" : "Degree of links to follow emanating from content items specified for inclusion. The kind of links to follow is dependent on the type of Extract.\n\nAll items at the target end of followed links at the given depth are also included in the extract; `EXTRACT_CONTENT_ITEM._is_primary_` is used to differentiate.\n\n* 0 = don't follow;\n* 1 = follow first degree links;\n* 2 = follow 2nd degree links;\n* ....\n* n = follow nth degree links",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "integer"

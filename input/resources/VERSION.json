@@ -122,8 +122,7 @@
     "title" : "is_branch",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this Version represents a branch. Derived from `_uid_` attribute. ",
-    "code" : "is_branch",
+    "description" : "True if this Version represents a branch. Derived from `_uid_` attribute.",    "code" : "is_branch",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -229,8 +228,7 @@
     {
       "path" : "VERSION.contribution",
       "short" : "Contribution in which this version was added.",
-      "definition" : "Contribution in which this version was added. ",
-      "min" : 1,
+      "definition" : "Contribution in which this version was added.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
@@ -240,8 +238,7 @@
     {
       "path" : "VERSION.signature",
       "short" : "OpenPGP digital signature or digest of content committed in this Version.",
-      "definition" : "OpenPGP digital signature or digest of content committed in this Version. ",
-      "min" : 0,
+      "definition" : "OpenPGP digital signature or digest of content committed in this Version.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"

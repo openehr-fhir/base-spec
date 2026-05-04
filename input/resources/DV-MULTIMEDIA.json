@@ -27,8 +27,7 @@
     "title" : "is_inline",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the data attribute. True if  the  data is stored  in  expanded  form, ie within the EHR itself. ",
-    "code" : "is_inline",
+    "description" : "Computed from the value of the data attribute. True if  the  data is stored  in  expanded  form, ie within the EHR itself.",    "code" : "is_inline",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -46,8 +45,7 @@
     "title" : "is_compressed",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the `_compression_algorithm_` attribute: True if  the  data is stored in compressed form. ",
-    "code" : "is_compressed",
+    "description" : "Computed from the value of the `_compression_algorithm_` attribute: True if  the  data is stored in compressed form.",    "code" : "is_compressed",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -65,8 +63,7 @@
     "title" : "has_integrity_check",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the `_integrity_check_algorithm_` attribute: True if an integrity check has been computed. ",
-    "code" : "has_integrity_check",
+    "description" : "Computed from the value of the `_integrity_check_algorithm_` attribute: True if an integrity check has been computed.",    "code" : "has_integrity_check",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -164,8 +161,7 @@
     {
       "path" : "DV_MULTIMEDIA.uri",
       "short" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.",
-      "definition" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference. \n",
-      "min" : 0,
+      "definition" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-URI"
@@ -186,8 +182,7 @@
     {
       "path" : "DV_MULTIMEDIA.media_type",
       "short" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set).",
-      "definition" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set). \n",
-      "min" : 1,
+      "definition" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set).",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
@@ -197,8 +192,7 @@
     {
       "path" : "DV_MULTIMEDIA.compression_algorithm",
       "short" : "Compression type, a coded value from the openEHR Integrity check code set.",
-      "definition" : "Compression type, a coded value from the openEHR Integrity check code set. Void means no compression. ",
-      "min" : 0,
+      "definition" : "Compression type, a coded value from the openEHR Integrity check code set. Void means no compression.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
@@ -219,8 +213,7 @@
     {
       "path" : "DV_MULTIMEDIA.integrity_check_algorithm",
       "short" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set.",
-      "definition" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set. ",
-      "min" : 0,
+      "definition" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"

@@ -23,7 +23,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list. ",
+  "description" : "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -34,7 +34,7 @@
     "element" : [{
       "path" : "CLUSTER",
       "short" : "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list.",
-      "definition" : "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list. ",
+      "definition" : "The grouping variant of `ITEM`, which may contain further instances of `ITEM`, in an ordered list.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false
@@ -61,7 +61,7 @@
       }],
       "path" : "CLUSTER.items",
       "short" : "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`.",
-      "definition" : "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`. ",
+      "definition" : "Ordered list of items - `CLUSTER` or `ELEMENT` objects - under this `CLUSTER`.",
       "min" : 1,
       "max" : "*",
       "type" : [{

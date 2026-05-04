@@ -8,7 +8,7 @@
     "title" : "is_persistent",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if category is `431|persistent|`, False otherwise. Useful for finding Compositions in an EHR which are guaranteed to be of interest to most users. ",
+    "description" : "True if category is `431|persistent|`, False otherwise. Useful for finding Compositions in an EHR which are guaranteed to be of interest to most users.",
     "code" : "is_persistent",
     "system" : false,
     "instance" : true,
@@ -108,7 +108,7 @@
     {
       "path" : "COMPOSITION.language",
       "short" : "Mandatory indicator of the localised language in which this Composition is written.",
-      "definition" : "Mandatory indicator of the localised language in which this Composition is written. Coded from openEHR Code Set  `languages`. The language of an Entry if different from the Composition is indicated in `ENTRY._language_`. ",
+      "definition" : "Mandatory indicator of the localised language in which this Composition is written. Coded from openEHR Code Set  `languages`. The language of an Entry if different from the Composition is indicated in `ENTRY._language_`.",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -130,7 +130,7 @@
     {
       "path" : "COMPOSITION.category",
       "short" : "Temporal category of this Composition, i.",
-      "definition" : "Temporal category of this Composition, i.e. \n\n* `431|persistent|` - of potential life-time validity;\n* `451|episodic|` - valid over the life of a care episode;\n* `433|event|` - valid at the time of recording (long-term validity requires subsequent clinical assessment).\n\nor any other code defined in the openEHR terminology group 'category'.\n",
+      "definition" : "Temporal category of this Composition, i.e. \n\n* `431|persistent|` - of potential life-time validity;\n* `451|episodic|` - valid over the life of a care episode;\n* `433|event|` - valid at the time of recording (long-term validity requires subsequent clinical assessment).\n\nor any other code defined in the openEHR terminology group 'category'.",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -141,7 +141,7 @@
     {
       "path" : "COMPOSITION.context",
       "short" : "The clinical session context of this Composition, i.",
-      "definition" : "The clinical session context of this Composition, i.e. the contextual attributes of the clinical session. ",
+      "definition" : "The clinical session context of this Composition, i.e. the contextual attributes of the clinical session.",
       "min" : 0,
       "max" : "1",
       "type" : [{
@@ -163,7 +163,7 @@
     {
       "path" : "COMPOSITION.content",
       "short" : "The content of this Composition.",
-      "definition" : "The content of this Composition. ",
+      "definition" : "The content of this Composition.",
       "min" : 0,
       "max" : "*",
       "type" : [{

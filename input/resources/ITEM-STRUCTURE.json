@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract parent class of all spatial data types. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Abstract parent class of all spatial data types.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "ITEM_STRUCTURE",
       "short" : "Abstract parent class of all spatial data types.",
-      "definition" : "Abstract parent class of all spatial data types. ",
-      "min" : 0,
+      "definition" : "Abstract parent class of all spatial data types.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

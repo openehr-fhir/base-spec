@@ -16,8 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations.\n\nShould not be used in place of more permanent relationships between demographic entities. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations.\n\nShould not be used in place of more permanent relationships between demographic entities.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_PARTICIPATION",
@@ -27,8 +26,7 @@
     "element" : [{
       "path" : "EXTRACT_PARTICIPATION",
       "short" : "Model of a participation of a Party (any Actor or Role) in an activity.",
-      "definition" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations.\n\nShould not be used in place of more permanent relationships between demographic entities. ",
-      "min" : 0,
+      "definition" : "Model of a participation of a Party (any Actor or Role) in an activity.  Used to represent any participation of a Party in some activity, which is not  explicitly in the model, e.g. assisting nurse. Can be used to record past or  future participations.\n\nShould not be used in place of more permanent relationships between demographic entities.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Function_valid",
@@ -46,9 +44,7 @@
     },
     {
       "path" : "EXTRACT_PARTICIPATION.time",
-      "short" : "The time interval during which the participation took place, if it is used in an observational context (i.",
-      "definition" : "The time interval during which the participation took place, if it is used in an observational context (i.e. recording facts about the past); or the intended time interval of the participation when used in future contexts, such as EHR Instructions. ",
-      "min" : 0,
+      "short" : "The time interval during which the participation took place, if it is used in an observational context",      "definition" : "The time interval during which the participation took place, if it is used in an observational context (i.e. recording facts about the past); or the intended time interval of the participation when used in future contexts, such as EHR Instructions.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{
@@ -69,8 +65,7 @@
     {
       "path" : "EXTRACT_PARTICIPATION.function",
       "short" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity).",
-      "definition" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented. ",
-      "min" : 1,
+      "definition" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
@@ -80,8 +75,7 @@
     {
       "path" : "EXTRACT_PARTICIPATION.mode",
       "short" : "The mode of the performer / activity interaction, e.",
-      "definition" : "The mode of the performer / activity interaction, e.g. present, by telephone, by email etc. ",
-      "min" : 0,
+      "definition" : "The mode of the performer / activity interaction, e.g. present, by telephone, by email etc.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"

@@ -63,8 +63,7 @@
     {
       "path" : "DV_IDENTIFIER.issuer",
       "short" : "Optional authority which issues the kind of id used in the id field of this object.",
-      "definition" : "Optional authority which issues the kind of id used in the id field of this object. ",
-      "min" : 0,
+      "definition" : "Optional authority which issues the kind of id used in the id field of this object.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -85,8 +84,7 @@
     {
       "path" : "DV_IDENTIFIER.id",
       "short" : "The identifier value.",
-      "definition" : "The identifier value. Often structured, according to the definition of the issuing authority's rules. ",
-      "min" : 1,
+      "definition" : "The identifier value. Often structured, according to the definition of the issuing authority's rules.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -95,8 +93,7 @@
     },
     {
       "path" : "DV_IDENTIFIER.type",
-      "short" : "Optional identifier type, such as  prescription , or  Social Security Number .",
-      "definition" : "Optional identifier type, such as  prescription , or  Social Security Number . One day a controlled vocabulary might be possible for this.",
+      "short" : "Optional identifier type, such as  prescription , or  Social Security Number.",      "definition" : "Optional identifier type, such as  prescription , or  Social Security Number . One day a controlled vocabulary might be possible for this.",
       "min" : 0,
       "max" : "1",
       "type" : [{

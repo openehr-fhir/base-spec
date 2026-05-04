@@ -27,8 +27,7 @@
     "title" : "most_recent_version_time_committed",
     "status" : "active",
     "kind" : "operation",
-    "description" : "The commit date/time of the most recent item, as a String. ",
-    "code" : "most_recent_version_time_committed",
+    "description" : "The commit date/time of the most recent item, as a String.",    "code" : "most_recent_version_time_committed",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -66,8 +65,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY",
@@ -77,16 +75,14 @@
     "element" : [{
       "path" : "REVISION_HISTORY",
       "short" : "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed.",
-      "definition" : "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order. ",
-      "min" : 0,
+      "definition" : "Purpose Defines the notion of a revision history of audit items, each associated with the version for which that audit was committed. The list is in most-recent-first order.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },
     {
       "path" : "REVISION_HISTORY.items",
       "short" : "The items in this history in most-recent-last order.",
-      "definition" : "The items in this history in most-recent-last order. ",
-      "min" : 1,
+      "definition" : "The items in this history in most-recent-last order.",      "min" : 1,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY-ITEM"

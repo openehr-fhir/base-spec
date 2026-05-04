@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another. ",
+  "description" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -31,7 +31,7 @@
     "element" : [{
       "path" : "ACTION",
       "short" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow.",
-      "definition" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another. ",
+      "definition" : "Used to record a clinical action that has been performed, which may have been ad hoc, or due to the execution of an Activity in an Instruction workflow. Every Action corresponds to a careflow step of some kind or another.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false

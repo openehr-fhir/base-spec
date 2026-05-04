@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The set of attributes required to document the committal of an information item to a repository. ",
+  "description" : "The set of attributes required to document the committal of an information item to a repository.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -31,7 +31,7 @@
     "element" : [{
       "path" : "AUDIT_DETAILS",
       "short" : "The set of attributes required to document the committal of an information item to a repository.",
-      "definition" : "The set of attributes required to document the committal of an information item to a repository. ",
+      "definition" : "The set of attributes required to document the committal of an information item to a repository.",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
@@ -62,7 +62,7 @@
     {
       "path" : "AUDIT_DETAILS.time_committed",
       "short" : "Time of committal of the item.",
-      "definition" : "Time of committal of the item. ",
+      "definition" : "Time of committal of the item.",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -95,7 +95,7 @@
     {
       "path" : "AUDIT_DETAILS.committer",
       "short" : "Identity and optional reference into identity management service, of user who committed the item.",
-      "definition" : "Identity and optional reference into identity management service, of user who committed the item. ",
+      "definition" : "Identity and optional reference into identity management service, of user who committed the item.",
       "min" : 1,
       "max" : "1",
       "type" : [{

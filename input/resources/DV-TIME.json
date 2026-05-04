@@ -8,8 +8,7 @@
     "title" : "magnitude",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Numeric value of the time as seconds since the start of day, i.e. `00:00:00`. ",
-    "code" : "magnitude",
+    "description" : "Numeric value of the time as seconds since the start of day, i.e. `00:00:00`.",    "code" : "magnitude",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -105,8 +104,7 @@
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this time object is less than `_other_`, based on comparison of `_magnitude()_`. ",
-    "code" : "less_than",
+    "description" : "True if this time object is less than `_other_`, based on comparison of `_magnitude()_`.",    "code" : "less_than",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -193,8 +191,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601. \n\nUsed for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601. \n\nUsed for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TIME",
@@ -204,8 +201,7 @@
     "element" : [{
       "path" : "DV_TIME",
       "short" : "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second.",
-      "definition" : "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601. \n\nUsed for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations. ",
-      "min" : 0,
+      "definition" : "Represents an absolute point in time from an origin usually interpreted as meaning the start of the current day, specified to a fraction of a second. Semantics defined by ISO 8601. \n\nUsed for recording real world times, rather than scientifically measured fine amounts of time. The partial form is used for approximate times of events and substance administrations.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Value_valid",

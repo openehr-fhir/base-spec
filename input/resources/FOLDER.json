@@ -45,8 +45,7 @@
     {
       "path" : "FOLDER.items",
       "short" : "The list of references to other (usually) versioned objects logically in this folder.",
-      "definition" : "The list of references to other (usually) versioned objects logically in this folder. ",
-      "min" : 0,
+      "definition" : "The list of references to other (usually) versioned objects logically in this folder.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
@@ -56,8 +55,7 @@
     {
       "path" : "FOLDER.folders",
       "short" : "Sub-folders of this `FOLDER`.",
-      "definition" : "Sub-folders of this `FOLDER`. ",
-      "min" : 0,
+      "definition" : "Sub-folders of this `FOLDER`.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/FOLDER"

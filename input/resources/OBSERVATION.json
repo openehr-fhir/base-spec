@@ -83,8 +83,7 @@
       }],
       "path" : "OBSERVATION.state",
       "short" : "Optional recording of the state of subject of this observation during the observation process, in the form of a separate history of values which may be of any complexity.",
-      "definition" : "Optional recording of the state of subject of this observation during the observation process, in the form of a separate history of values which may be of any complexity. State may also be recorded within the History of the data attribute. ",
-      "min" : 0,
+      "definition" : "Optional recording of the state of subject of this observation during the observation process, in the form of a separate history of values which may be of any complexity. State may also be recorded within the History of the data attribute.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{

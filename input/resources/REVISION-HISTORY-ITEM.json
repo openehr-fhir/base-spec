@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY_ITEM",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "REVISION_HISTORY_ITEM",
       "short" : "An entry in a revision history, corresponding to a version from a versioned container.",
-      "definition" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs. ",
-      "min" : 0,
+      "definition" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Audit_valid",
@@ -45,8 +43,7 @@
     {
       "path" : "REVISION_HISTORY_ITEM.version_id",
       "short" : "Version identifier for this revision.",
-      "definition" : "Version identifier for this revision. ",
-      "min" : 1,
+      "definition" : "Version identifier for this revision.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
@@ -56,8 +53,7 @@
     {
       "path" : "REVISION_HISTORY_ITEM.audits",
       "short" : "The audits for this revision; there will always be at least one commit audit (which may itself be an `ATTESTATION`), there may also be further attestations.",
-      "definition" : "The audits for this revision; there will always be at least one commit audit (which may itself be an `ATTESTATION`), there may also be further attestations. ",
-      "min" : 1,
+      "definition" : "The audits for this revision; there will always be at least one commit audit (which may itself be an `ATTESTATION`), there may also be further attestations.",      "min" : 1,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"

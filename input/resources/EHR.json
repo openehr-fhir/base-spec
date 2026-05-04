@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The EHR object is the root object and access point of an EHR for a subject of care.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EHR",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "EHR",
       "short" : "The EHR object is the root object and access point of an EHR for a subject of care.",
-      "definition" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
-      "min" : 0,
+      "definition" : "The EHR object is the root object and access point of an EHR for a subject of care.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Contributions_valid",
@@ -81,8 +79,7 @@
     {
       "path" : "EHR.system_id",
       "short" : "The identifier of the logical EHR management system in which this EHR was created.",
-      "definition" : "The identifier of the logical EHR management system in which this EHR was created. \n",
-      "min" : 1,
+      "definition" : "The identifier of the logical EHR management system in which this EHR was created.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
@@ -103,8 +100,7 @@
     {
       "path" : "EHR.contributions",
       "short" : "List of contributions causing changes to this EHR.",
-      "definition" : "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`. ",
-      "min" : 0,
+      "definition" : "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"

@@ -43,8 +43,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE",
@@ -54,8 +53,7 @@
     "element" : [{
       "path" : "DV_PARSABLE",
       "short" : "Encapsulated data expressed as a parsable String.",
-      "definition" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data. ",
-      "min" : 0,
+      "definition" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Formalism_valid",

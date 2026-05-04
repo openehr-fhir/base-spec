@@ -182,8 +182,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines an object providing proxy access to a terminology. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines an object providing proxy access to a terminology.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
@@ -193,8 +192,7 @@
     "element" : [{
       "path" : "TERMINOLOGY_ACCESS",
       "short" : "Defines an object providing proxy access to a terminology.",
-      "definition" : "Defines an object providing proxy access to a terminology. ",
-      "min" : 0,
+      "definition" : "Defines an object providing proxy access to a terminology.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

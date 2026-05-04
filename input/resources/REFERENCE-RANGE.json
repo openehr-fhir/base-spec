@@ -8,8 +8,7 @@
     "title" : "is_in_range",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Indicates if the value  `_v_` is inside the range.\n",
-    "code" : "is_in_range",
+    "description" : "Indicates if the value  `_v_` is inside the range.",    "code" : "is_in_range",
     "system" : false,
     "instance" : true,
     "parameter" : [{

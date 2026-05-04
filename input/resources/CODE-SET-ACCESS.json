@@ -46,7 +46,7 @@
     "title" : "has_lang",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if code set knows about 'a_lang' .",
+    "description" : "True if code set knows about 'a_lang'.",
     "code" : "has_lang",
     "system" : false,
     "instance" : true,

@@ -89,8 +89,7 @@
     {
       "path" : "RESOURCE_DESCRIPTION_ITEM.keywords",
       "short" : "Keywords which characterise this resource, used e.",
-      "definition" : "Keywords which characterise this resource, used e.g. for indexing and searching. ",
-      "min" : 0,
+      "definition" : "Keywords which characterise this resource, used e.g. for indexing and searching.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "string"
@@ -100,8 +99,7 @@
     {
       "path" : "RESOURCE_DESCRIPTION_ITEM.use",
       "short" : "Description of the uses of the resource, i.",
-      "definition" : "Description of the uses of the resource, i.e. contexts in which it could be used. \n",
-      "min" : 0,
+      "definition" : "Description of the uses of the resource, i.e. contexts in which it could be used.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -122,8 +120,7 @@
     {
       "path" : "RESOURCE_DESCRIPTION_ITEM.copyright",
       "short" : "Optional copyright statement for the resource as a knowledge resource.",
-      "definition" : "Optional copyright statement for the resource as a knowledge resource. \n",
-      "min" : 0,
+      "definition" : "Optional copyright statement for the resource as a knowledge resource.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -133,8 +130,7 @@
     {
       "path" : "RESOURCE_DESCRIPTION_ITEM.original_resource_uri",
       "short" : "URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning.",
-      "definition" : "URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning. ",
-      "min" : 0,
+      "definition" : "URIs of original clinical document(s) or description of which resource is a formalisation, in the language of this description item; keyed by meaning.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{
@@ -166,8 +162,7 @@
     {
       "path" : "RESOURCE_DESCRIPTION_ITEM.other_details",
       "short" : "Additional language-senstive resource metadata, as a list of name/value pairs.",
-      "definition" : "Additional language-senstive resource metadata, as a list of name/value pairs. ",
-      "min" : 0,
+      "definition" : "Additional language-senstive resource metadata, as a list of name/value pairs.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{

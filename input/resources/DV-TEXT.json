@@ -64,8 +64,7 @@
     {
       "path" : "DV_TEXT.value",
       "short" : "Displayable rendition of the item, regardless of its underlying structure.",
-      "definition" : "Displayable rendition of the item, regardless of its underlying structure. For `DV_CODED_TEXT`, this is the rubric of the complete term as provided by the terminology service.\n",
-      "min" : 1,
+      "definition" : "Displayable rendition of the item, regardless of its underlying structure. For `DV_CODED_TEXT`, this is the rubric of the complete term as provided by the terminology service.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -86,8 +85,7 @@
     {
       "path" : "DV_TEXT.formatting",
       "short" : "If set, contains one of the following values:\n\n* `\"plain\"`: use for plain text, possibly containing newlines, but otherwise unformatted (same as Void);\n* `\"plain_no_newlines\"`: use for text containing no newlines or other formatting;\n* `\"markdown\"`: use for markdown formatted text, strongly recommended in the format of the CommonMark specification.",
-      "definition" : "If set, contains one of the following values:\n\n* `\"plain\"`: use for plain text, possibly containing newlines, but otherwise unformatted (same as Void);\n* `\"plain_no_newlines\"`: use for text containing no newlines or other formatting;\n* `\"markdown\"`: use for markdown formatted text, strongly recommended in the format of the CommonMark specification.\n\nDEPRECATED usage: contains a string of the form `\"name:value; name:value...\"` , e.g. `\"font-weight : bold; font-family : Arial; font-size : 12pt;\"`. Values taken from W3C CSS2 properties lists for background and font . ",
-      "min" : 0,
+      "definition" : "If set, contains one of the following values:\n\n* `\"plain\"`: use for plain text, possibly containing newlines, but otherwise unformatted (same as Void);\n* `\"plain_no_newlines\"`: use for text containing no newlines or other formatting;\n* `\"markdown\"`: use for markdown formatted text, strongly recommended in the format of the CommonMark specification.\n\nDEPRECATED usage: contains a string of the form `\"name:value; name:value...\"` , e.g. `\"font-weight : bold; font-family : Arial; font-size : 12pt;\"`. Values taken from W3C CSS2 properties lists for background and font.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -96,9 +94,7 @@
     },
     {
       "path" : "DV_TEXT.mappings",
-      "short" : "Terms from other terminologies most closely matching this term, typically used where the originator (e.",
-      "definition" : "Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC). \n",
-      "min" : 0,
+      "short" : "Terms from other terminologies most closely matching this term, typically used where the originator",      "definition" : "Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING"
@@ -108,8 +104,7 @@
     {
       "path" : "DV_TEXT.language",
       "short" : "Optional indicator of the localised language in which the value is written.",
-      "definition" : "Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set  languages . Only used when either the text object is in a different language from the enclosing `ENTRY`, or else the text object is being used outside of an `ENTRY` or other enclosing structure which indicates the language. ",
-      "min" : 0,
+      "definition" : "Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set  languages . Only used when either the text object is in a different language from the enclosing `ENTRY`, or else the text object is being used outside of an `ENTRY` or other enclosing structure which indicates the language.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
@@ -119,8 +114,7 @@
     {
       "path" : "DV_TEXT.encoding",
       "short" : "Name of character encoding scheme in which this value is encoded.",
-      "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions. \n",
-      "min" : 0,
+      "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"

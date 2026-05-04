@@ -54,8 +54,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines a single interval event in a series. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines a single interval event in a series.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/INTERVAL_EVENT",
@@ -65,8 +64,7 @@
     "element" : [{
       "path" : "INTERVAL_EVENT",
       "short" : "Defines a single interval event in a series.",
-      "definition" : "Defines a single interval event in a series. ",
-      "min" : 0,
+      "definition" : "Defines a single interval event in a series.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Math_function_validity",

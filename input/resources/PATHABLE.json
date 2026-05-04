@@ -8,8 +8,7 @@
     "title" : "parent",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Parent of this node in a compositional hierarchy. \n",
-    "code" : "parent",
+    "description" : "Parent of this node in a compositional hierarchy.",    "code" : "parent",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -27,8 +26,7 @@
     "title" : "item_at_path",
     "status" : "active",
     "kind" : "operation",
-    "description" : "The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item. ",
-    "code" : "item_at_path",
+    "description" : "The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item.",    "code" : "item_at_path",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -79,8 +77,7 @@
     "title" : "path_exists",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if the path exists in the data with respect to the current item. ",
-    "code" : "path_exists",
+    "description" : "True if the path exists in the data with respect to the current item.",    "code" : "path_exists",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -105,8 +102,7 @@
     "title" : "path_unique",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if the path corresponds to a single item in the data. ",
-    "code" : "path_unique",
+    "description" : "True if the path corresponds to a single item in the data.",    "code" : "path_unique",
     "system" : false,
     "instance" : true,
     "parameter" : [{

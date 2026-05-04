@@ -8,8 +8,7 @@
     "title" : "is_null",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if value logically not known, e.g. if indeterminate, not asked etc. ",
-    "code" : "is_null",
+    "description" : "True if value logically not known, e.g. if indeterminate, not asked etc.",    "code" : "is_null",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -43,8 +42,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
@@ -54,8 +52,7 @@
     "element" : [{
       "path" : "ELEMENT",
       "short" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",
-      "definition" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached. ",
-      "min" : 0,
+      "definition" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Inv_is_null_valid",

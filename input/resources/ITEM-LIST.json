@@ -174,8 +174,7 @@
     {
       "path" : "ITEM_LIST.items",
       "short" : "Physical representation of the list.",
-      "definition" : "Physical representation of the list. ",
-      "min" : 0,
+      "definition" : "Physical representation of the list.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/ELEMENT"

@@ -8,8 +8,7 @@
     "title" : "concept",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node) ",
-    "code" : "concept",
+    "description" : "Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node)",    "code" : "concept",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -66,8 +65,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE",
@@ -77,8 +75,7 @@
     "element" : [{
       "path" : "LOCATABLE",
       "short" : "Root class of all information model classes that can be archetyped.",
-      "definition" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`. ",
-      "min" : 0,
+      "definition" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Links_valid",
@@ -103,8 +100,7 @@
     {
       "path" : "LOCATABLE.name",
       "short" : "Runtime name of this fragment, used to build runtime paths.",
-      "definition" : "Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users. \n",
-      "min" : 1,
+      "definition" : "Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
@@ -114,8 +110,7 @@
     {
       "path" : "LOCATABLE.archetype_node_id",
       "short" : "Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths.",
-      "definition" : "Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  `at0005`. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology. \n\nAt an archetype root point, the value of this attribute is always the stringified form of the `_archetype_id_` found in the `_archetype_details_` object. \n",
-      "min" : 1,
+      "definition" : "Design-time archetype identifier of this node taken from its generating archetype; used to build archetype paths. Always in the form of an at-code, e.g.  `at0005`. This value enables a 'standardised' name for this node to be generated, by referring to the generating archetype local terminology. \n\nAt an archetype root point, the value of this attribute is always the stringified form of the `_archetype_id_` found in the `_archetype_details_` object.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -125,8 +120,7 @@
     {
       "path" : "LOCATABLE.uid",
       "short" : "Optional globally unique object identifier for root points of archetyped structures.",
-      "definition" : "Optional globally unique object identifier for root points of archetyped structures. ",
-      "min" : 0,
+      "definition" : "Optional globally unique object identifier for root points of archetyped structures.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID"
@@ -136,8 +130,7 @@
     {
       "path" : "LOCATABLE.links",
       "short" : "Links to other archetyped structures (data whose root object inherits from `ARCHETYPED`, such as `ENTRY`, `SECTION` and so on).",
-      "definition" : "Links to other archetyped structures (data whose root object inherits from `ARCHETYPED`, such as `ENTRY`, `SECTION` and so on). Links may be to structures in other compositions. ",
-      "min" : 0,
+      "definition" : "Links to other archetyped structures (data whose root object inherits from `ARCHETYPED`, such as `ENTRY`, `SECTION` and so on). Links may be to structures in other compositions.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/LINK"
@@ -158,8 +151,7 @@
     {
       "path" : "LOCATABLE.feeder_audit",
       "short" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.",
-      "definition" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node. ",
-      "min" : 0,
+      "definition" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT"

@@ -31,8 +31,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_FOLDER",
@@ -42,8 +41,7 @@
     "element" : [{
       "path" : "VERSIONED_FOLDER",
       "short" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",
-      "definition" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory. ",
-      "min" : 0,
+      "definition" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

@@ -198,8 +198,7 @@
     {
       "path" : "DV_COUNT.normal_range",
       "short" : "Optional normal range.",
-      "definition" : "Optional normal range. ",
-      "min" : 0,
+      "definition" : "Optional normal range.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{

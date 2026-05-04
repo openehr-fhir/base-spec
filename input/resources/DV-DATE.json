@@ -131,8 +131,7 @@
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this date object is less than `_other_`, based on comparison of `_magnitude()_`. ",
-    "code" : "less_than",
+    "description" : "True if this date object is less than `_other_`, based on comparison of `_magnitude()_`.",    "code" : "less_than",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -223,8 +222,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.\n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE",
@@ -234,8 +232,7 @@
     "element" : [{
       "path" : "DV_DATE",
       "short" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day.",
-      "definition" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.\n",
-      "min" : 0,
+      "definition" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Value_valid",

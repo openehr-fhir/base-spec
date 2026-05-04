@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "For representing state values which obey a defined state machine, such as a variable  representing the states of an instruction or care process. \n\nDV_STATE is expressed as a String but its values are driven by archetype-defined  state machines. This provides a powerful way of capturing stateful complex processes  in simple data. \n",
-  "fhirVersion" : "5.0.0",
+  "description" : "For representing state values which obey a defined state machine, such as a variable  representing the states of an instruction or care process. \n\nDV_STATE is expressed as a String but its values are driven by archetype-defined  state machines. This provides a powerful way of capturing stateful complex processes  in simple data.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_STATE",
@@ -31,16 +30,14 @@
     "element" : [{
       "path" : "DV_STATE",
       "short" : "For representing state values which obey a defined state machine, such as a variable  representing the states of an instruction or care process.",
-      "definition" : "For representing state values which obey a defined state machine, such as a variable  representing the states of an instruction or care process. \n\nDV_STATE is expressed as a String but its values are driven by archetype-defined  state machines. This provides a powerful way of capturing stateful complex processes  in simple data. \n",
-      "min" : 0,
+      "definition" : "For representing state values which obey a defined state machine, such as a variable  representing the states of an instruction or care process. \n\nDV_STATE is expressed as a String but its values are driven by archetype-defined  state machines. This provides a powerful way of capturing stateful complex processes  in simple data.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },
     {
       "path" : "DV_STATE.value",
       "short" : "The state name.",
-      "definition" : "The state name. State names are determined by a state/event table defined in archetypes, and coded using openEHR Terminology or local archetype terms, as specified by the archetype. ",
-      "min" : 1,
+      "definition" : "The state name. State names are determined by a state/event table defined in archetypes, and coded using openEHR Terminology or local archetype terms, as specified by the archetype.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"

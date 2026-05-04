@@ -8,8 +8,7 @@
     "title" : "scheme",
     "status" : "active",
     "kind" : "operation",
-    "description" : "The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute. ",
-    "code" : "scheme",
+    "description" : "The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute.",    "code" : "scheme",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -74,8 +73,7 @@
     {
       "path" : "EHR_ACCESS.settings",
       "short" : "Access control settings for the EHR.",
-      "definition" : "Access control settings for the EHR. Instance is a subtype of the type `ACCESS_CONTROL_SETTINGS`, allowing for the use of different access control schemes. ",
-      "min" : 0,
+      "definition" : "Access control settings for the EHR. Instance is a subtype of the type `ACCESS_CONTROL_SETTINGS`, allowing for the use of different access control schemes.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/ACCESS-CONTROL-SETTINGS"

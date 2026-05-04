@@ -8,8 +8,7 @@
     "title" : "magnitude",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Numeric value of the date/time as seconds since the calendar origin date/time `0001-01-01T00:00:00Z`. \n",
-    "code" : "magnitude",
+    "description" : "Numeric value of the date/time as seconds since the calendar origin date/time `0001-01-01T00:00:00Z`.",    "code" : "magnitude",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -105,8 +104,7 @@
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this date-time object is less than `_other_`, based on comparison of `_magnitude()_`. ",
-    "code" : "less_than",
+    "description" : "True if this date-time object is less than `_other_`, based on comparison of `_magnitude()_`.",    "code" : "less_than",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -193,8 +191,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. \n\nUsed for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a `HISTORY` in an `OBSERVATION` which is only partially known. \n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. \n\nUsed for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a `HISTORY` in an `OBSERVATION` which is only partially known.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME",
@@ -204,8 +201,7 @@
     "element" : [{
       "path" : "DV_DATE_TIME",
       "short" : "Represents an absolute point in time, specified to the second.",
-      "definition" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. \n\nUsed for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a `HISTORY` in an `OBSERVATION` which is only partially known. \n",
-      "min" : 0,
+      "definition" : "Represents an absolute point in time, specified to the second. Semantics defined by ISO 8601. \n\nUsed for recording a precise point in real world time, and for approximate time stamps, e.g. the origin of a `HISTORY` in an `OBSERVATION` which is only partially known.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
         "key" : "Value_valid",

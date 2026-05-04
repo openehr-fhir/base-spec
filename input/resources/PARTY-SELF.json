@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have `_external_ref_` set. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have `_external_ref_` set.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_SELF",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "PARTY_SELF",
       "short" : "Party proxy representing the subject of the record.",
-      "definition" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have `_external_ref_` set. ",
-      "min" : 0,
+      "definition" : "Party proxy representing the subject of the record. Used to indicate that the party is the owner of the record. May or may not have `_external_ref_` set.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

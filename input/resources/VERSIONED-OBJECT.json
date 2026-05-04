@@ -27,8 +27,7 @@
     "title" : "all_version_ids",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return a list of ids of all versions in this object. ",
-    "code" : "all_version_ids",
+    "description" : "Return a list of ids of all versions in this object.",    "code" : "all_version_ids",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -46,8 +45,7 @@
     "title" : "all_versions",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return a list of all versions in this object. ",
-    "code" : "all_versions",
+    "description" : "Return a list of all versions in this object.",    "code" : "all_versions",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -65,8 +63,7 @@
     "title" : "has_version_at_time",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if a version for time  `_a_time_` exists. ",
-    "code" : "has_version_at_time",
+    "description" : "True if a version for time  `_a_time_` exists.",    "code" : "has_version_at_time",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -91,8 +88,7 @@
     "title" : "has_version_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if a version with `_a_version_uid_` exists. ",
-    "code" : "has_version_id",
+    "description" : "True if a version with `_a_version_uid_` exists.",    "code" : "has_version_id",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -117,8 +113,7 @@
     "title" : "version_with_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the version with `_uid_` =  `_a_version_uid_`. \n",
-    "code" : "version_with_id",
+    "description" : "Return the version with `_uid_` =  `_a_version_uid_`.",    "code" : "version_with_id",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -143,8 +138,7 @@
     "title" : "is_original_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if version with `_a_version_uid_` is an `ORIGINAL_VERSION`. ",
-    "code" : "is_original_version",
+    "description" : "True if version with `_a_version_uid_` is an `ORIGINAL_VERSION`.",    "code" : "is_original_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -169,8 +163,7 @@
     "title" : "version_at_time",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the version for time  `_a_time_`. ",
-    "code" : "version_at_time",
+    "description" : "Return the version for time  `_a_time_`.",    "code" : "version_at_time",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -214,8 +207,7 @@
     "title" : "latest_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the most recently added version (i.e. on trunk or any branch). ",
-    "code" : "latest_version",
+    "description" : "Return the most recently added version (i.e. on trunk or any branch).",    "code" : "latest_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -233,8 +225,7 @@
     "title" : "latest_trunk_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the most recently added trunk version. ",
-    "code" : "latest_trunk_version",
+    "description" : "Return the most recently added trunk version.",    "code" : "latest_trunk_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -252,8 +243,7 @@
     "title" : "trunk_lifecycle_state",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the lifecycle state from the latest trunk version. Useful for determining if the version container is logically deleted. ",
-    "code" : "trunk_lifecycle_state",
+    "description" : "Return the lifecycle state from the latest trunk version. Useful for determining if the version container is logically deleted.",    "code" : "trunk_lifecycle_state",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -271,8 +261,7 @@
     "title" : "commit_original_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new original version. ",
-    "code" : "commit_original_version",
+    "description" : "Add a new original version.",    "code" : "commit_original_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -339,8 +328,7 @@
     "title" : "commit_original_merged_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new original merged version. This commit function adds a parameter containing the ids of other versions merged into the current one. ",
-    "code" : "commit_original_merged_version",
+    "description" : "Add a new original merged version. This commit function adds a parameter containing the ids of other versions merged into the current one.",    "code" : "commit_original_merged_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -414,8 +402,7 @@
     "title" : "commit_imported_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new imported version. Details of version id etc come from the `ORIGINAL_VERSION` being committed. ",
-    "code" : "commit_imported_version",
+    "description" : "Add a new imported version. Details of version id etc come from the `ORIGINAL_VERSION` being committed.",    "code" : "commit_imported_version",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -454,8 +441,7 @@
     "title" : "commit_attestation",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new attestation to a specified original version. Attestations can only be added to Original versions. ",
-    "code" : "commit_attestation",
+    "description" : "Add a new attestation to a specified original version. Attestations can only be added to Original versions.",    "code" : "commit_attestation",
     "system" : false,
     "instance" : true,
     "parameter" : [{
@@ -630,8 +616,7 @@
     {
       "path" : "VERSIONED_OBJECT.uid",
       "short" : "Unique identifier of this version container in the form of a UID with no extension.",
-      "definition" : "Unique identifier of this version container in the form of a UID with no extension. This id will be the same in all instances of the same container in a distributed environment, meaning that it can be understood as the uid of the  virtual version tree. ",
-      "min" : 1,
+      "definition" : "Unique identifier of this version container in the form of a UID with no extension. This id will be the same in all instances of the same container in a distributed environment, meaning that it can be understood as the uid of the  virtual version tree.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
@@ -641,8 +626,7 @@
     {
       "path" : "VERSIONED_OBJECT.owner_id",
       "short" : "Reference to object to which this version container belongs, e.",
-      "definition" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity. ",
-      "min" : 1,
+      "definition" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
@@ -652,8 +636,7 @@
     {
       "path" : "VERSIONED_OBJECT.time_created",
       "short" : "Time of initial creation of this versioned object.",
-      "definition" : "Time of initial creation of this versioned object. ",
-      "min" : 1,
+      "definition" : "Time of initial creation of this versioned object.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
