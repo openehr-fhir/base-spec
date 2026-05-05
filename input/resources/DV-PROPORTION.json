@@ -98,7 +98,7 @@
     "title" : "is_equal",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return True if this `DV_AMOUNT` is considered equal to `_other_`.",
+    "description" : "Return True if this `DV-AMOUNT` is considered equal to `_other_`.",
     "code" : "is_equal",
     "system" : false,
     "instance" : true,
@@ -250,7 +250,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PROPORTION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
