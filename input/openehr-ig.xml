@@ -46,16 +46,19 @@
   </dependsOn>
   <definition>
     <page>
-      <sourceUrl value="index.html"/>
-      <name value="index.html"/>
-      <title value="Home Page"/>
-      <generation value="html"/>
-      <page>
-        <sourceUrl value="toc.html"/>
-        <name value="toc.html"/>
-        <title value="Table of Contents"/>
-        <generation value="html"/>
-      </page>
+      <nameUrl value="index.html"/>
+      <title value="IG Home"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
+      <nameUrl value="downloads.html"/>
+      <title value="Downloads"/>
+      <generation value="markdown"/>
+    </page>
+    <page>
+      <nameUrl value="changelog.html"/>
+      <title value="Change Log"/>
+      <generation value="markdown"/>
     </page>
     <parameter>
       <code>
