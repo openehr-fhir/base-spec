@@ -54,7 +54,11 @@
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-character_sets"
+      }
     },
     {
       "path" : "DV_ENCAPSULATED.language",
@@ -65,7 +69,11 @@
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-languages"
+      }
     }]
   }
 }

@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "countries",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_countries"
+  }],
+  "url" : "https://specifications.openehr.org/fhir/valueset-countries",
+  "version" : "3.0.0",
+  "name" : "COUNTRIES",
+  "title" : "COUNTRIES",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Country codes as defined by the ISO 3166-1 'alpha-2' standard, consisting of two-character names of countries and country subdivisions. Used in COMPOSITION.territory.",
+  "compose" : {
+    "include" : [{
+      "system" : "https://specifications.openehr.org/fhir/codesystem-countries"
+    }]
+  }
+}

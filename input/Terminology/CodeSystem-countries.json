@@ -1,0 +1,2532 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "countries",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/web-source",
+      "valueUrl": "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_countries"
+    }
+  ],
+  "url": "https://specifications.openehr.org/fhir/codesystem-countries",
+  "version": "3.1.0",
+  "name": "Countries",
+  "title": "Countries",
+  "status": "active",
+  "experimental": false,
+  "date": "2024-04-11",
+  "publisher": "http://openehr.org/",
+  "description": "Country codes as defined by the ISO 3166-1 'alpha-2' standard, consisting of two-character names of countries and country subdivisions. Used in COMPOSITION.territory.",
+  "caseSensitive": true,
+  "valueSet": "https://specifications.openehr.org/fhir/valueset-countries",
+  "content": "complete",
+  "property": [
+    {
+      "code": "status",
+      "uri": "http://hl7.org/fhir/concept-properties#status",
+      "type": "code",
+      "description": "A code that indicates the status of the concept. Typical values are active, experimental, deprecated, and retired."
+    }
+  ],
+  "concept": [
+    {
+      "code": "AF",
+      "display": "AFGHANISTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AX",
+      "display": "ÅLAND ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AL",
+      "display": "ALBANIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DZ",
+      "display": "ALGERIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AS",
+      "display": "AMERICAN SAMOA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AD",
+      "display": "ANDORRA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AO",
+      "display": "ANGOLA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AI",
+      "display": "ANGUILLA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AQ",
+      "display": "ANTARCTICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AG",
+      "display": "ANTIGUA AND BARBUDA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AR",
+      "display": "ARGENTINA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AM",
+      "display": "ARMENIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AW",
+      "display": "ARUBA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AU",
+      "display": "AUSTRALIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AT",
+      "display": "AUSTRIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AZ",
+      "display": "AZERBAIJAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BS",
+      "display": "BAHAMAS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BH",
+      "display": "BAHRAIN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BD",
+      "display": "BANGLADESH",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BB",
+      "display": "BARBADOS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BY",
+      "display": "BELARUS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BE",
+      "display": "BELGIUM",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BZ",
+      "display": "BELIZE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BJ",
+      "display": "BENIN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BM",
+      "display": "BERMUDA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BT",
+      "display": "BHUTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BO",
+      "display": "BOLIVIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BQ",
+      "display": "BONAIRE, SINT EUSTATIUS AND SABA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BA",
+      "display": "BOSNIA AND HERZEGOVINA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BW",
+      "display": "BOTSWANA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BV",
+      "display": "BOUVET ISLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BR",
+      "display": "BRAZIL",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IO",
+      "display": "BRITISH INDIAN OCEAN TERRITORY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BN",
+      "display": "BRUNEI DARUSSALAM",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BG",
+      "display": "BULGARIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BF",
+      "display": "BURKINA FASO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BI",
+      "display": "BURUNDI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KH",
+      "display": "CAMBODIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CM",
+      "display": "CAMEROON",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CA",
+      "display": "CANADA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CV",
+      "display": "CAPE VERDE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KY",
+      "display": "CAYMAN ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CF",
+      "display": "CENTRAL AFRICAN REPUBLIC",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TD",
+      "display": "CHAD",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CL",
+      "display": "CHILE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CN",
+      "display": "CHINA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CX",
+      "display": "CHRISTMAS ISLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CC",
+      "display": "COCOS (KEELING) ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CO",
+      "display": "COLOMBIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KM",
+      "display": "COMOROS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CG",
+      "display": "CONGO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CD",
+      "display": "CONGO, THE DEMOCRATIC REPUBLIC OF THE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CK",
+      "display": "COOK ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CR",
+      "display": "COSTA RICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CI",
+      "display": "CÔTE D’IVOIRE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HR",
+      "display": "CROATIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CU",
+      "display": "CUBA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CW",
+      "display": "CURAÇAO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CY",
+      "display": "CYPRUS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CZ",
+      "display": "CZECH REPUBLIC",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DK",
+      "display": "DENMARK",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DJ",
+      "display": "DJIBOUTI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DM",
+      "display": "DOMINICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DO",
+      "display": "DOMINICAN REPUBLIC",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "EC",
+      "display": "ECUADOR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "EG",
+      "display": "EGYPT",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SV",
+      "display": "EL SALVADOR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GQ",
+      "display": "EQUATORIAL GUINEA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ER",
+      "display": "ERITREA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "EE",
+      "display": "ESTONIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SZ",
+      "display": "ESWATINI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ET",
+      "display": "ETHIOPIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FK",
+      "display": "FALKLAND ISLANDS (MALVINAS)",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FO",
+      "display": "FAROE ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FJ",
+      "display": "FIJI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FI",
+      "display": "FINLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FR",
+      "display": "FRANCE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GF",
+      "display": "FRENCH GUIANA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PF",
+      "display": "FRENCH POLYNESIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TF",
+      "display": "FRENCH SOUTHERN TERRITORIES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GA",
+      "display": "GABON",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GM",
+      "display": "GAMBIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GE",
+      "display": "GEORGIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "display": "GERMANY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GH",
+      "display": "GHANA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GI",
+      "display": "GIBRALTAR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GR",
+      "display": "GREECE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GL",
+      "display": "GREENLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GD",
+      "display": "GRENADA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GP",
+      "display": "GUADELOUPE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GU",
+      "display": "GUAM",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GT",
+      "display": "GUATEMALA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GG",
+      "display": "GUERNSEY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GN",
+      "display": "GUINEA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GW",
+      "display": "GUINEA-BISSAU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GY",
+      "display": "GUYANA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HT",
+      "display": "HAITI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HM",
+      "display": "HEARD ISLAND AND MCDONALD ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VA",
+      "display": "HOLY SEE (VATICAN CITY STATE)",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HN",
+      "display": "HONDURAS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HK",
+      "display": "HONG KONG",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "HU",
+      "display": "HUNGARY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IS",
+      "display": "ICELAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IN",
+      "display": "INDIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ID",
+      "display": "INDONESIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IR",
+      "display": "IRAN, ISLAMIC REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IQ",
+      "display": "IRAQ",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IE",
+      "display": "IRELAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IM",
+      "display": "ISLE OF MAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IL",
+      "display": "ISRAEL",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "IT",
+      "display": "ITALY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "JM",
+      "display": "JAMAICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "JP",
+      "display": "JAPAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "JE",
+      "display": "JERSEY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "JO",
+      "display": "JORDAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KZ",
+      "display": "KAZAKHSTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KE",
+      "display": "KENYA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KI",
+      "display": "KIRIBATI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KP",
+      "display": "KOREA, DEMOCRATIC PEOPLE’S REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KR",
+      "display": "KOREA, REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KW",
+      "display": "KUWAIT",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KG",
+      "display": "KYRGYZSTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LA",
+      "display": "LAO PEOPLE’S DEMOCRATIC REPUBLIC",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LV",
+      "display": "LATVIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LB",
+      "display": "LEBANON",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LS",
+      "display": "LESOTHO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LR",
+      "display": "LIBERIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LY",
+      "display": "LIBYA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LI",
+      "display": "LIECHTENSTEIN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LT",
+      "display": "LITHUANIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LU",
+      "display": "LUXEMBOURG",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MO",
+      "display": "MACAO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MG",
+      "display": "MADAGASCAR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MW",
+      "display": "MALAWI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MY",
+      "display": "MALAYSIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MV",
+      "display": "MALDIVES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ML",
+      "display": "MALI",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MT",
+      "display": "MALTA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MH",
+      "display": "MARSHALL ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MQ",
+      "display": "MARTINIQUE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MR",
+      "display": "MAURITANIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MU",
+      "display": "MAURITIUS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "YT",
+      "display": "MAYOTTE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MX",
+      "display": "MEXICO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "FM",
+      "display": "MICRONESIA, FEDERATED STATES OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MD",
+      "display": "MOLDOVA, REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MC",
+      "display": "MONACO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MN",
+      "display": "MONGOLIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ME",
+      "display": "MONTENEGRO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MS",
+      "display": "MONTSERRAT",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MA",
+      "display": "MOROCCO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MZ",
+      "display": "MOZAMBIQUE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MM",
+      "display": "MYANMAR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NA",
+      "display": "NAMIBIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NR",
+      "display": "NAURU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NP",
+      "display": "NEPAL",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NL",
+      "display": "NETHERLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AN",
+      "display": "NETHERLANDS ANTILLES - DEPRECATED",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NC",
+      "display": "NEW CALEDONIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NZ",
+      "display": "NEW ZEALAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NI",
+      "display": "NICARAGUA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NE",
+      "display": "NIGER",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NG",
+      "display": "NIGERIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NU",
+      "display": "NIUE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NF",
+      "display": "NORFOLK ISLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MK",
+      "display": "NORTH MACEDONIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MP",
+      "display": "NORTHERN MARIANA ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "NO",
+      "display": "NORWAY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "OM",
+      "display": "OMAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PK",
+      "display": "PAKISTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PW",
+      "display": "PALAU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PS",
+      "display": "PALESTINIAN, STATE OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PA",
+      "display": "PANAMA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PG",
+      "display": "PAPUA NEW GUINEA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PY",
+      "display": "PARAGUAY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PE",
+      "display": "PERU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PH",
+      "display": "PHILIPPINES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PN",
+      "display": "PITCAIRN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PL",
+      "display": "POLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PT",
+      "display": "PORTUGAL",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PR",
+      "display": "PUERTO RICO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "QA",
+      "display": "QATAR",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "RE",
+      "display": "RÉUNION",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "RO",
+      "display": "ROMANIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "RU",
+      "display": "RUSSIAN FEDERATION",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "RW",
+      "display": "RWANDA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "BL",
+      "display": "SAINT BARTHÉLEMY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SH",
+      "display": "SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "KN",
+      "display": "SAINT KITTS AND NEVIS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LC",
+      "display": "SAINT LUCIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "MF",
+      "display": "SAINT MARTIN (FRENCH PART)",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "PM",
+      "display": "SAINT PIERRE AND MIQUELON",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VC",
+      "display": "SAINT VINCENT AND THE GRENADINES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "WS",
+      "display": "SAMOA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SM",
+      "display": "SAN MARINO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ST",
+      "display": "SAO TOME AND PRINCIPE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SA",
+      "display": "SAUDI ARABIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SN",
+      "display": "SENEGAL",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "RS",
+      "display": "SERBIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SC",
+      "display": "SEYCHELLES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SL",
+      "display": "SIERRA LEONE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SG",
+      "display": "SINGAPORE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SX",
+      "display": "SINT MAARTEN (DUTCH PART)",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SK",
+      "display": "SLOVAKIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SI",
+      "display": "SLOVENIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SB",
+      "display": "SOLOMON ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SO",
+      "display": "SOMALIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ZA",
+      "display": "SOUTH AFRICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GS",
+      "display": "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SS",
+      "display": "SOUTH SUDAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ES",
+      "display": "SPAIN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "LK",
+      "display": "SRI LANKA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SD",
+      "display": "SUDAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SR",
+      "display": "SURINAME",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SJ",
+      "display": "SVALBARD AND JAN MAYEN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SE",
+      "display": "SWEDEN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "CH",
+      "display": "SWITZERLAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "SY",
+      "display": "SYRIAN ARAB REPUBLIC",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TW",
+      "display": "TAIWAN, PROVINCE OF CHINA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TJ",
+      "display": "TAJIKISTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TZ",
+      "display": "TANZANIA, UNITED REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TH",
+      "display": "THAILAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TL",
+      "display": "TIMOR-LESTE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TG",
+      "display": "TOGO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TK",
+      "display": "TOKELAU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TO",
+      "display": "TONGA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TT",
+      "display": "TRINIDAD AND TOBAGO",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TN",
+      "display": "TUNISIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TR",
+      "display": "TÜRKIYE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TM",
+      "display": "TURKMENISTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TC",
+      "display": "TURKS AND CAICOS ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "TV",
+      "display": "TUVALU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "UG",
+      "display": "UGANDA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "UA",
+      "display": "UKRAINE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "AE",
+      "display": "UNITED ARAB EMIRATES",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "GB",
+      "display": "UNITED KINGDOM OF GREAT BRITAIN AND NORTHERN IRELAND",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "US",
+      "display": "UNITED STATES OF AMERICA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "UM",
+      "display": "UNITED STATES MINOR OUTLYING ISLANDS",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "UY",
+      "display": "URUGUAY",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "UZ",
+      "display": "UZBEKISTAN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VU",
+      "display": "VANUATU",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VE",
+      "display": "VENEZUELA, BOLIVARIAN REPUBLIC OF",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VN",
+      "display": "VIET NAM",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VG",
+      "display": "VIRGIN ISLANDS, BRITISH",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "VI",
+      "display": "VIRGIN ISLANDS, U.S.",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "WF",
+      "display": "WALLIS AND FUTUNA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "EH",
+      "display": "WESTERN SAHARA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "YE",
+      "display": "YEMEN",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ZM",
+      "display": "ZAMBIA",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    },
+    {
+      "code": "ZW",
+      "display": "ZIMBABWE",
+      "property": [
+        {
+          "code": "status",
+          "valueCode": "active"
+        }
+      ]
+    }
+  ]
+}

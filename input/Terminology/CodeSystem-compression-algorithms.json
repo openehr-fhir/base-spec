@@ -1,6 +1,12 @@
 {
   "resourceType" : "CodeSystem",
   "id" : "compression-algorithms",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/web-source",
+      "valueUrl": "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_compression_algorithms"
+    }
+  ],
   "url" : "https://specifications.openehr.org/fhir/codesystem-compression_algorithms",
   "version" : "3.1.0",
   "name" : "Compression_algorithms",
@@ -9,7 +15,7 @@
   "experimental" : false,
   "date" : "2024-04-11",
   "publisher" : "http://openehr.org/",
-  "description" : "Compression algorithms",
+  "description" : "This code set consists of the names of algorithms used to compress data.",
   "caseSensitive" : true,
   "valueSet" : "https://specifications.openehr.org/fhir/valueset-compression_algorithms",
   "content" : "complete",

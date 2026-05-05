@@ -109,7 +109,11 @@
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-languages"
+      }
     },
     {
       "path" : "DV_TEXT.encoding",
