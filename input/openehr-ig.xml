@@ -123,6 +123,7 @@
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-proportion_kind"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-setting"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-subject_relationship"/></parameter>
+    <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-term_mapping_match"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-term_mapping_purpose"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-time_definitions"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-version_lifecycle_state"/></parameter>
@@ -149,6 +150,7 @@
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-proportion_kind"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-setting"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-subject_relationship"/></parameter>
+    <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-term_mapping_match"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-term_mapping_purpose"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-time_definitions"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-version_lifecycle_state"/></parameter>

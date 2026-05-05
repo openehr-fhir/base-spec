@@ -174,9 +174,13 @@
       "definition" : "The relative match of the target term with respect to the mapped text item. Result meanings: \n\n* `'>'`: the mapping is to a broader term e.g. orginal text =  arbovirus infection , target =  viral infection  \n* `'='`: the mapping is to a (supposedly) equivalent to the original item \n* `'<'`: the mapping is to a narrower term. e.g. original text =  diabetes , mapping =  diabetes mellitus . \n* `'?'`: the kind of mapping is unknown. \n\nThe first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri).",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "string"
+        "code" : "code"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term-mapping-match"
+      }
     },
     {
       "path" : "TERM_MAPPING.purpose",
