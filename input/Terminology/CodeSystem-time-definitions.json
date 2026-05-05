@@ -192,7 +192,7 @@
             "property": [
                 {
                     "code": "constant-decimal-value",
-                    "valueInteger": 30.42
+                    "valueDecimal": 30.42
                 }
             ]
         },
