@@ -46,7 +46,7 @@
     "title" : "named_item",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Retrieve the item with name ‘a_name’.",
+    "description" : "Retrieve the item with name 'a_name'.",
     "code" : "named_item",
     "system" : false,
     "instance" : true,
