@@ -46,17 +46,20 @@
   </dependsOn>
   <definition>
     <page>
-      <nameUrl value="index.html"/>
+      <sourceUrl value="index.html"/>
+      <name value="index.html"/>
       <title value="IG Home"/>
       <generation value="markdown"/>
     </page>
     <page>
-      <nameUrl value="downloads.html"/>
+      <sourceUrl value="downloads.html"/>
+      <name value="downloads.html"/>
       <title value="Downloads"/>
       <generation value="markdown"/>
     </page>
     <page>
-      <nameUrl value="changelog.html"/>
+      <sourceUrl value="changelog.html"/>
+      <name value="changelog.html"/>
       <title value="Change Log"/>
       <generation value="markdown"/>
     </page>
@@ -78,13 +81,6 @@
       <code>
         <system value="http://hl7.org/fhir/guide-parameter-code"/>
         <code value="no-usage-check"/>
-      </code>
-      <value value="true"/>
-    </parameter>
-    <parameter>
-      <code>
-        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="noRootToc"/>
       </code>
       <value value="true"/>
     </parameter>
