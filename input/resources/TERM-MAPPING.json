@@ -155,13 +155,13 @@
       "definition" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of `DV_CODED_TEXT`.\n\nUsed for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies).",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Purpose_valid",
+        "key" : "purpose-valid",
         "severity" : "error",
         "human" : "Purpose valid must be present",
         "expression" : "purpose.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)"
       },
       {
-        "key" : "Match_valid",
+        "key" : "match-valid",
         "severity" : "error",
         "human" : "Match valid",
         "expression" : "is_valid_match_code()"

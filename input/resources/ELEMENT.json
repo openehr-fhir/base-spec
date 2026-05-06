@@ -55,25 +55,25 @@
       "definition" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Inv_is_null_valid",
+        "key" : "inv-is-null-valid",
         "severity" : "error",
         "human" : "Inv is null valid",
         "expression" : "is_null() = (value .empty())"
       },
       {
-        "key" : "Inv_null_flavour_indicated",
+        "key" : "inv-null-flavour-indicated",
         "severity" : "error",
         "human" : "Inv null flavour indicated must satisfy exclusive conditions",
         "expression" : "is_null() xor null_flavour .empty()"
       },
       {
-        "key" : "Inv_null_flavour_valid",
+        "key" : "inv-null-flavour-valid",
         "severity" : "error",
         "human" : "Inv null flavour valid must satisfy conditional constraints",
         "expression" : "is_null() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)"
       },
       {
-        "key" : "Inv_null_reason_valid",
+        "key" : "inv-null-reason-valid",
         "severity" : "error",
         "human" : "Inv null reason valid must be present",
         "expression" : "null_reason.exists() implies is_null()"

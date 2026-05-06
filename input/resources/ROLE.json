@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Capabilities_valid",
+        "key" : "capabilities-valid",
         "severity" : "error",
         "human" : "Capabilities valid must be present",
         "expression" : "capabilities.exists() implies capabilities.empty().not()"

@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Code_string_valid",
+        "key" : "code-string-valid",
         "severity" : "error",
         "human" : "Code string valid must not be empty",
         "expression" : "code_string.empty().not()"

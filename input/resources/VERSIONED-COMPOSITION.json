@@ -67,13 +67,13 @@
       "definition" : "Version-controlled composition abstraction, defined by inheriting `VERSIONED_OBJECT<COMPOSITION>`.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Archetype_node_id_valid",
+        "key" : "archetype-node-id-valid",
         "severity" : "error",
         "human" : "Archetype node id valid",
         "expression" : "all_versions().all(archetype_node_id.is_equal (all_versions().first().archetype_node_id))"
       },
       {
-        "key" : "Persistent_validity",
+        "key" : "persistent-validity",
         "severity" : "error",
         "human" : "Persistent validity",
         "expression" : "all_versions().all(is_persistent() = all_versions().first().data.is_persistent())"

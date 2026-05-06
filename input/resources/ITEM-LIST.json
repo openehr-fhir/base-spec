@@ -164,7 +164,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Valid_structure",
+        "key" : "valid-structure",
         "severity" : "error",
         "human" : "Valid structure",
         "expression" : " items.all(ITEM or i.type() = 'ELEMENT')"

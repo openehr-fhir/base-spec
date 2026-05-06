@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Folders_valid",
+        "key" : "folders-valid",
         "severity" : "error",
         "human" : "Folders valid must not be empty",
         "expression" : "folders.empty().not()"

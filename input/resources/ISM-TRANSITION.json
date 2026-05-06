@@ -33,13 +33,13 @@
       "definition" : "Model of a transition in the Instruction State Machine, caused by a careflow step. The attributes document the careflow step as well as the ISM transition.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Current_state_valid",
+        "key" : "current-state-valid",
         "severity" : "error",
         "human" : "Current state valid",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Transition_valid",
+        "key" : "transition-valid",
         "severity" : "error",
         "human" : "Transition valid must be present",
         "expression" : "transition.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_instruction_transitions, transition.defining_code)"

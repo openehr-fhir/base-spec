@@ -33,7 +33,7 @@
       "definition" : "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Items_valid",
+        "key" : "items-valid",
         "severity" : "error",
         "human" : "Items valid must be present",
         "expression" : "items.exists() implies items.empty().not()"

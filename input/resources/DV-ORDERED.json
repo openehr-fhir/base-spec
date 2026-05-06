@@ -138,19 +138,19 @@
       "definition" : "Abstract class defining the concept of ordered values, which includes ordinals as well as true quantities. It defines the functions  `<` and `_is_strictly_comparable_to()_`, the latter of which must evaluate to `True` for instances being compared with the  `<` function, or used as limits in the `DV_INTERVAL<T>` class. \n\nData value types which are to be used as limits in the `DV_INTERVAL<T>` class must inherit from this class, and implement the function `_is_strictly_comparable_to()_` to ensure that instances compare meaningfully. For example, instances of `DV_QUANTITY` can only be compared if they measure the same kind of physical quantity.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Other_reference_ranges_validity",
+        "key" : "other-reference-ranges-validity",
         "severity" : "error",
         "human" : "Other reference ranges validity must be present",
         "expression" : "other_reference_ranges.exists() implies other_reference_ranges.empty().not()"
       },
       {
-        "key" : "Is_simple_validity",
+        "key" : "is-simple-validity",
         "severity" : "error",
         "human" : "Is simple validity must satisfy conditional constraints",
         "expression" : "(normal_range .empty() and other_reference_ranges .empty()) implies is_simple()"
       },
       {
-        "key" : "Normal_range_and_status_consistency",
+        "key" : "normal-range-and-status-consistency",
         "severity" : "error",
         "human" : "Normal range and status consistency must be present",
         "expression" : "(normal_range.exists() and normal_status.exists()) implies (normal_status.code_string.is_equal ('N') xor normal_range.not().has (self))"

@@ -66,19 +66,19 @@
       "definition" : "Root object of a linear history, i.e. time series structure. This is a generic class whose type parameter must be a descendant of `ITEM_STRUCTURE`, ensuring that each Event in the `_events_` of a given instance is of the same structural type, i.e. `ITEM_TREE`, `ITEM_LIST` etc.\n\nFor a periodic series of events, period will be set, and the time of each Event in the History must correspond; i.e. the `EVENT._offset_` must be a multiple of period for each Event. Missing events in a period History are however allowed.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Events_valid",
+        "key" : "events-valid",
         "severity" : "error",
         "human" : "Events valid must be present",
         "expression" : "(events.exists() and events.empty().not()) or summary.exists()"
       },
       {
-        "key" : "Periodic_validity",
+        "key" : "periodic-validity",
         "severity" : "error",
         "human" : "Periodic validity must satisfy exclusive conditions",
         "expression" : "is_periodic() xor period .empty()"
       },
       {
-        "key" : "Period_consistency",
+        "key" : "period-consistency",
         "severity" : "error",
         "human" : "Period consistency must satisfy conditional constraints",
         "expression" : "is_periodic() implies events.all(offset.to_seconds().mod(period.to_seconds()) = 0)"

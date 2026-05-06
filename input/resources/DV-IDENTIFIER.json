@@ -35,25 +35,25 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Issuer_valid",
+        "key" : "issuer-valid",
         "severity" : "error",
         "human" : "Issuer valid must not be empty",
         "expression" : "issuer.empty().not()"
       },
       {
-        "key" : "Assigner_valid",
+        "key" : "assigner-valid",
         "severity" : "error",
         "human" : "Assigner valid must not be empty",
         "expression" : "assigner.empty().not()"
       },
       {
-        "key" : "Id_valid",
+        "key" : "id-valid",
         "severity" : "error",
         "human" : "Id valid must not be empty",
         "expression" : "id.empty().not()"
       },
       {
-        "key" : "Type_valid",
+        "key" : "type-valid",
         "severity" : "error",
         "human" : "Type valid must not be empty",
         "expression" : "type.empty().not()"

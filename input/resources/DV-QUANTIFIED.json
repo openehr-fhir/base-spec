@@ -165,7 +165,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Magnitude_status_valid",
+        "key" : "magnitude-status-valid",
         "severity" : "error",
         "human" : "Magnitude status valid must be present",
         "expression" : "magnitude_status.exists() implies valid_magnitude_status()"

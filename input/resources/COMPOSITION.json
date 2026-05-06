@@ -58,7 +58,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Setting_valid",
+        "key" : "setting-valid",
         "severity" : "error",
         "human" : "Setting valid",
         "expression" : "{} // : manual translation needed"
@@ -76,25 +76,25 @@
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Category_validity",
+        "key" : "category-validity",
         "severity" : "error",
         "human" : "Category validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Is_persistent_validity",
+        "key" : "is-persistent-validity",
         "severity" : "error",
         "human" : "Is persistent validity must satisfy conditional constraints",
         "expression" : "is_persistent() implies context .empty()"
       },
       {
-        "key" : "Content_valid",
+        "key" : "content-valid",
         "severity" : "error",
         "human" : "Content valid must be present",
         "expression" : "content.exists() implies content.empty().not()"
       },
       {
-        "key" : "Is_archetype_root",
+        "key" : "is-archetype-root",
         "severity" : "error",
         "human" : "Is archetype root",
         "expression" : "is_archetype_root()"

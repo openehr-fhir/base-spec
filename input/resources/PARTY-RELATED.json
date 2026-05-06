@@ -33,7 +33,7 @@
       "definition" : "Proxy type for identifying a party and its relationship to the subject of the record. Use where the relationship between the party and the subject of the record must be known.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Relationship_valid",
+        "key" : "relationship-valid",
         "severity" : "error",
         "human" : "Relationship valid",
         "expression" : "{} // : manual translation needed"

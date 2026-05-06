@@ -67,13 +67,13 @@
       "definition" : "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT<ITEM_LIST>`. Subtypes express point or intveral data.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Offset_validity",
+        "key" : "offset-validity",
         "severity" : "error",
         "human" : "Offset validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Offset_validity1",
+        "key" : "offset-validity1",
         "severity" : "error",
         "human" : "Offset validity1 must be present",
         "expression" : "offset().exists() and offset() = time.diff (parent().origin)"

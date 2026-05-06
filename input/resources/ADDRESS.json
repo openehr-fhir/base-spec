@@ -58,7 +58,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Type_valid",
+        "key" : "type-valid",
         "severity" : "error",
         "human" : "Type valid",
         "expression" : "type() = name"

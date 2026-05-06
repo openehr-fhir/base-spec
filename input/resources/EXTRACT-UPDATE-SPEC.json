@@ -31,19 +31,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Overall_validity",
+        "key" : "overall-validity",
         "severity" : "error",
         "human" : "Overall validity must be present",
         "expression" : "repeat_period.exists() or trigger_events.exists()"
       },
       {
-        "key" : "Trigger_events_validity",
+        "key" : "trigger-events-validity",
         "severity" : "error",
         "human" : "Trigger events validity must be present",
         "expression" : "trigger_events.exists() implies trigger_events.empty().not()"
       },
       {
-        "key" : "Send_changes_only_validity",
+        "key" : "send-changes-only-validity",
         "severity" : "error",
         "human" : "Send changes only validity must satisfy conditional constraints",
         "expression" : "{} // : manual translation needed"

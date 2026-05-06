@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Scheme_valid",
+        "key" : "scheme-valid",
         "severity" : "error",
         "human" : "Scheme valid",
         "expression" : "scheme().is_equal (Ehr_scheme)"

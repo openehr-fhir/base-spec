@@ -98,13 +98,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Limits_valid",
+        "key" : "limits-valid",
         "severity" : "error",
         "human" : "Limits valid",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Reference_range_valid",
+        "key" : "reference-range-valid",
         "severity" : "error",
         "human" : "Reference range valid",
         "expression" : "{} // : manual translation needed"

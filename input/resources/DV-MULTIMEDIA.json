@@ -124,19 +124,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Not_empty",
+        "key" : "not-empty",
         "severity" : "error",
         "human" : "Not empty",
         "expression" : "is_inline() or is_external()"
       },
       {
-        "key" : "Integrity_check_validity",
+        "key" : "integrity-check-validity",
         "severity" : "error",
         "human" : "Integrity check validity must be present",
         "expression" : "integrity_check.exists() implies integrity_check_algorithm.exists()"
       },
       {
-        "key" : "Size_valid",
+        "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
         "expression" : "{} // : manual translation needed"

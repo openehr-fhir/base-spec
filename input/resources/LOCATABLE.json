@@ -78,19 +78,19 @@
       "definition" : "Root class of all information model classes that can be archetyped. Most classes in the openEHR reference model inherit from the `LOCATABLE` class, which defines the idea of  locatability in an archetyped structure. `LOCATABLE` defines a runtime name and an `_archetype_node_id_`.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Links_valid",
+        "key" : "links-valid",
         "severity" : "error",
         "human" : "Links valid must be present",
         "expression" : "links.exists() implies links.empty().not()"
       },
       {
-        "key" : "Archetyped_valid",
+        "key" : "archetyped-valid",
         "severity" : "error",
         "human" : "Archetyped valid must satisfy exclusive conditions",
         "expression" : "is_archetype_root() xor archetype_details .empty()"
       },
       {
-        "key" : "Archetype_node_id_valid",
+        "key" : "archetype-node-id-valid",
         "severity" : "error",
         "human" : "Archetype node id valid must not be empty",
         "expression" : "archetype_node_id.empty().not()"

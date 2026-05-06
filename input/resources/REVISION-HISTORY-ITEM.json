@@ -33,7 +33,7 @@
       "definition" : "An entry in a revision history, corresponding to a version from a versioned container. Consists of `AUDIT_DETAILS` instances with revision identifier of the revision to which the `AUDIT_DETAILS` instance belongs.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Audit_valid",
+        "key" : "audit-valid",
         "severity" : "error",
         "human" : "Audit valid must not be empty",
         "expression" : "audits.empty().not()"

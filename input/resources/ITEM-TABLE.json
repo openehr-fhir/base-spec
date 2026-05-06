@@ -364,7 +364,7 @@
       "definition" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other. Implemented using Cluster-per-row encoding. Each row Cluster must have an identical number of Elements, each of which in turn must have identical names and value types in the corresponding positions in each row. \n\nSome columns may be designated  key' columns, containing key data for each row, in the manner of relational tables. This allows row-naming, where each row represents a body site, a blood antigen etc. All values in a column have the same data type. \n\nUsed for representing any data which is logically a table of values, such as blood pressure, most protocols, many blood tests etc. \n\nMisuse: Not to be used for time-based data, which should be represented with the temporal class `HISTORY`. The table may be empty.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Valid_structure",
+        "key" : "valid-structure",
         "severity" : "error",
         "human" : "Valid structure",
         "expression" : "{} // : manual translation needed"

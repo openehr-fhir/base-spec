@@ -33,7 +33,7 @@
       "definition" : "Audit details for any system in a feeder system chain. Audit details here means the general notion of who/where/when the information item to which the audit is attached was created. None of the attributes is defined as mandatory, however, in different scenarios, various combinations of attributes will usually be mandatory. This can be controlled by specifying feeder audit details in legacy archetypes.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "System_id_valid",
+        "key" : "system-id-valid",
         "severity" : "error",
         "human" : "System id valid must not be empty",
         "expression" : "system_id.empty().not()"

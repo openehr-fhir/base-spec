@@ -238,13 +238,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Accuracy_is_percent_validity",
+        "key" : "accuracy-is-percent-validity",
         "severity" : "error",
         "human" : "Accuracy is percent validity must satisfy conditional constraints",
         "expression" : "accuracy = 0 implies accuracy_is_percent.not()"
       },
       {
-        "key" : "Accuracy_validity",
+        "key" : "accuracy-validity",
         "severity" : "error",
         "human" : "Accuracy validity must satisfy conditional constraints",
         "expression" : "accuracy_is_percent implies valid_percentage()"

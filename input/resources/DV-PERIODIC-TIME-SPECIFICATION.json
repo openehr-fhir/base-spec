@@ -123,7 +123,7 @@
       "definition" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Value_valid",
+        "key" : "value-valid",
         "severity" : "error",
         "human" : "Value valid",
         "expression" : "{} // : manual translation needed"

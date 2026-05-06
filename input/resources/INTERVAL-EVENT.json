@@ -67,13 +67,13 @@
       "definition" : "Defines a single interval event in a series.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Math_function_validity",
+        "key" : "math-function-validity",
         "severity" : "error",
         "human" : "Math function validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Interval_start_time_valid",
+        "key" : "interval-start-time-valid",
         "severity" : "error",
         "human" : "Interval start time valid",
         "expression" : "interval_start_time() = time - width"

@@ -33,7 +33,7 @@
       "definition" : "Used to record details of the Instruction causing an Action.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Activity_path_valid",
+        "key" : "activity-path-valid",
         "severity" : "error",
         "human" : "Activity path valid must not be empty",
         "expression" : "activity_id.empty().not()"

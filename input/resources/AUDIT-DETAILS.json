@@ -35,13 +35,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "System_id_valid",
+        "key" : "system-id-valid",
         "severity" : "error",
         "human" : "System id valid must not be empty",
         "expression" : "system_id.empty().not()"
       },
       {
-        "key" : "Change_type_valid",
+        "key" : "change-type-valid",
         "severity" : "error",
         "human" : "Change type valid",
         "expression" : "{} // : manual translation needed"

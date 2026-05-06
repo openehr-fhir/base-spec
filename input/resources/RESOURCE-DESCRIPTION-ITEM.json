@@ -35,25 +35,25 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Purpose_valid",
+        "key" : "purpose-valid",
         "severity" : "error",
         "human" : "Purpose valid must not be empty",
         "expression" : "purpose.empty().not()"
       },
       {
-        "key" : "Use_valid",
+        "key" : "use-valid",
         "severity" : "error",
         "human" : "Use valid must be present",
         "expression" : "use.exists() implies use.empty().not()"
       },
       {
-        "key" : "misuse_valid",
+        "key" : "misuse-valid",
         "severity" : "error",
         "human" : "misuse valid must be present",
         "expression" : "misuse.exists() implies misuse.empty().not()"
       },
       {
-        "key" : "copyright_valid",
+        "key" : "copyright-valid",
         "severity" : "error",
         "human" : "copyright valid must be present",
         "expression" : "copyright.exists() implies copyright.empty().not()"

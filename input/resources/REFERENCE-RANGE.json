@@ -75,7 +75,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Range_is_simple",
+        "key" : "range-is-simple",
         "severity" : "error",
         "human" : "Range is simple",
         "expression" : "{} // : manual translation needed"

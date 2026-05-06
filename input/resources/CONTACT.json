@@ -58,7 +58,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Purpose_valid",
+        "key" : "purpose-valid",
         "severity" : "error",
         "human" : "Purpose valid",
         "expression" : "purpose() = name"

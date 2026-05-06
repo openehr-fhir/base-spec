@@ -35,13 +35,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Items_valid",
+        "key" : "items-valid",
         "severity" : "error",
         "human" : "Items valid must be present",
         "expression" : "items.exists() implies items.empty().not()"
       },
       {
-        "key" : "Reason_valid",
+        "key" : "reason-valid",
         "severity" : "error",
         "human" : "Reason valid must satisfy conditional constraints",
         "expression" : "{} // : manual translation needed"

@@ -33,19 +33,19 @@
       "definition" : "Documents the context information of a healthcare event involving the subject of care and the health system. The context information recorded here are independent of the attributes recorded in the version audit, which document the  system interaction  context, i.e. the context of a user interacting with the health record system. Healthcare events include patient contacts, and any other business activity, such as pathology investigations which take place on behalf of the patient.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Setting_valid",
+        "key" : "setting-valid",
         "severity" : "error",
         "human" : "Setting valid",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Participations_validity",
+        "key" : "participations-validity",
         "severity" : "error",
         "human" : "Participations validity must be present",
         "expression" : "participations.exists() implies participations.empty().not()"
       },
       {
-        "key" : "location_valid",
+        "key" : "location-valid",
         "severity" : "error",
         "human" : "location valid must be present",
         "expression" : "location.exists() implies location.empty().not()"

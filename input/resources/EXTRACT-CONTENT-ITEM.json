@@ -31,7 +31,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Item_validity",
+        "key" : "item-validity",
         "severity" : "error",
         "human" : "Item validity must be present",
         "expression" : "is_masked xor item.exists()"

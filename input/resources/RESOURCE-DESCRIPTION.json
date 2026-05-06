@@ -35,31 +35,31 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Original_author_valid",
+        "key" : "original-author-valid",
         "severity" : "error",
         "human" : "Original author valid must not be empty",
         "expression" : "original_author.empty().not()"
       },
       {
-        "key" : "Lifecycle_state_valid",
+        "key" : "lifecycle-state-valid",
         "severity" : "error",
         "human" : "Lifecycle state valid must not be empty",
         "expression" : "lifecycle_state.empty().not()"
       },
       {
-        "key" : "Details_valid",
+        "key" : "details-valid",
         "severity" : "error",
         "human" : "Details valid must not be empty",
         "expression" : "details.empty().not()"
       },
       {
-        "key" : "Language_valid",
+        "key" : "language-valid",
         "severity" : "error",
         "human" : "Language valid must be present",
         "expression" : "parent_resource.exists() implies details.all(parent_resource.languages_available.has(d.language.code_string))"
       },
       {
-        "key" : "Parent_resource_valid",
+        "key" : "parent-resource-valid",
         "severity" : "error",
         "human" : "Parent resource valid must be present",
         "expression" : "parent_resource.exists() implies parent_resource.description = self"

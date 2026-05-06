@@ -123,7 +123,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Value_valid",
+        "key" : "value-valid",
         "severity" : "error",
         "human" : "Value valid must not be empty",
         "expression" : "value.empty().not()"

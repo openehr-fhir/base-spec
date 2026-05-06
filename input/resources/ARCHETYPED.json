@@ -35,13 +35,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "rm_version_valid",
+        "key" : "rm-version-valid",
         "severity" : "error",
         "human" : "rm version valid must not be empty",
         "expression" : "rm_version.empty().not()"
       },
       {
-        "key" : "Rm_version_valid",
+        "key" : "rm-version-valid-2",
         "severity" : "error",
         "human" : "Rm version valid must not be empty",
         "expression" : "rm_version.empty().not()"

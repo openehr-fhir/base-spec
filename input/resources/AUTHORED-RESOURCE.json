@@ -81,31 +81,31 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Languages_available_valid",
+        "key" : "languages-available-valid",
         "severity" : "error",
         "human" : "Languages available valid",
         "expression" : "languages_available().has (original_language)"
       },
       {
-        "key" : "Revision_history_valid",
+        "key" : "revision-history-valid",
         "severity" : "error",
         "human" : "Revision history valid must satisfy exclusive conditions",
         "expression" : "is_controlled xor revision_history .empty()"
       },
       {
-        "key" : "Current_revision_valid",
+        "key" : "current-revision-valid",
         "severity" : "error",
         "human" : "Current revision valid must be present",
         "expression" : "(current_revision().exists() and is_controlled.not()) implies current_revision().is_equal ('(uncontrolled)')"
       },
       {
-        "key" : "Translations_valid",
+        "key" : "translations-valid",
         "severity" : "error",
         "human" : "Translations valid must be present",
         "expression" : "translations.exists() implies (translations.empty().not() and translations.not().has (orginal_language.code_string))"
       },
       {
-        "key" : "Description_valid",
+        "key" : "description-valid",
         "severity" : "error",
         "human" : "Description valid must be present",
         "expression" : "translations.exists() implies (description.details.all(translations.has_key ($this.language.code_string)))"

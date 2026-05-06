@@ -38,19 +38,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Valid_value",
+        "key" : "valid-value",
         "severity" : "error",
         "human" : "Valid value must not be empty",
         "expression" : "value.empty().not()"
       },
       {
-        "key" : "Mappings_valid",
+        "key" : "mappings-valid",
         "severity" : "error",
         "human" : "Mappings valid must not be empty",
         "expression" : "mappings .exists() implies mappings.empty().not()"
       },
       {
-        "key" : "Formatting_valid",
+        "key" : "formatting-valid",
         "severity" : "error",
         "human" : "Formatting valid must not be empty",
         "expression" : "formatting .exists() implies formatting.empty().not()"

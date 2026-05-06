@@ -57,13 +57,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Scheme_valid",
+        "key" : "scheme-valid",
         "severity" : "error",
         "human" : "Scheme valid must not be empty",
         "expression" : "scheme().not().empty()"
       },
       {
-        "key" : "Is_archetype_root",
+        "key" : "is-archetype-root",
         "severity" : "error",
         "human" : "Is archetype root",
         "expression" : "is_archetype_root()"

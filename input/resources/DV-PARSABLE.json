@@ -56,13 +56,13 @@
       "definition" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Formalism_valid",
+        "key" : "formalism-valid",
         "severity" : "error",
         "human" : "Formalism valid must not be empty",
         "expression" : "formalism.empty().not()"
       },
       {
-        "key" : "Size_valid",
+        "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
         "expression" : "size() >= 0"

@@ -57,19 +57,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Source_valid",
+        "key" : "source-valid",
         "severity" : "error",
         "human" : "Source valid must be present",
         "expression" : "source.exists() and source.relationships.has (self)"
       },
       {
-        "key" : "Target_valid",
+        "key" : "target-valid",
         "severity" : "error",
         "human" : "Target valid must be present",
         "expression" : "target.exists() and target.not().reverse_relationships.has (self)"
       },
       {
-        "key" : "Type_validity",
+        "key" : "type-validity",
         "severity" : "error",
         "human" : "Type validity",
         "expression" : "type() = name"

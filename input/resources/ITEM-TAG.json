@@ -35,13 +35,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Inv_key_valid",
+        "key" : "inv-key-valid",
         "severity" : "error",
         "human" : "Inv key valid must not be empty",
         "expression" : "key.empty().not() and key.is_justified"
       },
       {
-        "key" : "Inv_value_valid",
+        "key" : "inv-value-valid",
         "severity" : "error",
         "human" : "Inv value valid must be present",
         "expression" : "value.exists() implies value.empty().not()"

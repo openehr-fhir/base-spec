@@ -259,43 +259,43 @@
       "definition" : "Models a ratio of values, i.e. where the numerator and denominator are both pure numbers. The `_valid_proportion_kind_` property of the `PROPORTION_KIND` class is used to control the type attribute to be one of a defined set.\n\nUsed for recording titers (e.g. 1:128), concentration ratios, e.g. Na:K (unitary denominator), albumin:creatinine ratio, and percentages, e.g. red cell distirbution width (RDW). \n \nMisuse: Should not be used to represent things like blood pressure which are often written using a  '/' character, giving the misleading impression that the item is a ratio, when in fact it is a structured value. Similarly, visual acuity, often written as (e.g.) \"6/24\" in clinical notes is not a ratio but an ordinal (which includes non-numeric symbols like CF = count fingers etc). Should not be used for formulations.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Type_validity",
+        "key" : "type-validity",
         "severity" : "error",
         "human" : "Type validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Precision_validity",
+        "key" : "precision-validity",
         "severity" : "error",
         "human" : "Precision validity must satisfy conditional constraints",
         "expression" : "precision = 0 implies is_integral()"
       },
       {
-        "key" : "Is_integral_validity",
+        "key" : "is-integral-validity",
         "severity" : "error",
         "human" : "Is integral validity must satisfy conditional constraints",
         "expression" : "is_integral() implies (numerator.floor = numerator and denominator.floor = denominator)"
       },
       {
-        "key" : "Fraction_validity",
+        "key" : "fraction-validity",
         "severity" : "error",
         "human" : "Fraction validity must satisfy conditional constraints",
         "expression" : "(type = pk_fraction or type = pk_integer_fraction) implies is_integral()"
       },
       {
-        "key" : "Unitary_validity",
+        "key" : "unitary-validity",
         "severity" : "error",
         "human" : "Unitary validity must satisfy conditional constraints",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Percent_validity",
+        "key" : "percent-validity",
         "severity" : "error",
         "human" : "Percent validity must satisfy conditional constraints",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Valid_denominator",
+        "key" : "valid-denominator",
         "severity" : "error",
         "human" : "Valid denominator",
         "expression" : "{} // : manual translation needed"

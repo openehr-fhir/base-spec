@@ -33,43 +33,43 @@
       "definition" : "The EHR object is the root object and access point of an EHR for a subject of care.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Contributions_valid",
+        "key" : "contributions-valid",
         "severity" : "error",
         "human" : "Contributions valid",
         "expression" : "contributions.all(type().is_equal('CONTRIBUTION'))"
       },
       {
-        "key" : "Ehr_access_valid",
+        "key" : "ehr-access-valid",
         "severity" : "error",
         "human" : "Ehr access valid",
         "expression" : "ehr_access.type().is_equal ('VERSIONED_EHR_ACCESS')"
       },
       {
-        "key" : "Ehr_status_valid",
+        "key" : "ehr-status-valid",
         "severity" : "error",
         "human" : "Ehr status valid",
         "expression" : "ehr_status.type().is_equal('VERSIONED_EHR_STATUS')"
       },
       {
-        "key" : "Compositions_valid",
+        "key" : "compositions-valid",
         "severity" : "error",
         "human" : "Compositions valid",
         "expression" : "compositions.all(type().is_equal ('VERSIONED_COMPOSITION'))"
       },
       {
-        "key" : "Directory_valid",
+        "key" : "directory-valid",
         "severity" : "error",
         "human" : "Directory valid must be present",
         "expression" : "directory.exists() implies directory.type().is_equal ('VERSIONED_FOLDER')"
       },
       {
-        "key" : "Folders_valid",
+        "key" : "folders-valid",
         "severity" : "error",
         "human" : "Folders valid must be present",
         "expression" : "folders.exists() implies folders.all(type().is_equal('VERSIONED_FOLDER'))"
       },
       {
-        "key" : "Directory_in_folders",
+        "key" : "directory-in-folders",
         "severity" : "error",
         "human" : "Directory in folders must be present",
         "expression" : "folders.exists() implies folders.item(1) = directory"

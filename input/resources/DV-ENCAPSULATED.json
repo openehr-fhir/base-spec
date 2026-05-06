@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Size_valid",
+        "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
         "expression" : "size() >= 0"

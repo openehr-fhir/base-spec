@@ -582,31 +582,31 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Version_count_valid",
+        "key" : "version-count-valid",
         "severity" : "error",
         "human" : "Version count valid must satisfy range constraints",
         "expression" : "version_count() >= 0"
       },
       {
-        "key" : "All_version_ids_valid",
+        "key" : "all-version-ids-valid",
         "severity" : "error",
         "human" : "All version ids valid",
         "expression" : "all_version_ids().count() = version_count()"
       },
       {
-        "key" : "All_versions_valid",
+        "key" : "all-versions-valid",
         "severity" : "error",
         "human" : "All versions valid",
         "expression" : "all_versions().count() = version_count()"
       },
       {
-        "key" : "Latest_version_valid",
+        "key" : "latest-version-valid",
         "severity" : "error",
         "human" : "Latest version valid must be present",
         "expression" : "version_count() > 0 implies latest_version().exists()"
       },
       {
-        "key" : "Uid_validity",
+        "key" : "uid-validity",
         "severity" : "error",
         "human" : "Uid validity must not be empty",
         "expression" : "extension.empty()"

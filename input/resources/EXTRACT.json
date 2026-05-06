@@ -31,7 +31,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Sequence_nr_valid",
+        "key" : "sequence-nr-valid",
         "severity" : "error",
         "human" : "Sequence nr valid must satisfy range constraints",
         "expression" : "{} // : manual translation needed"
