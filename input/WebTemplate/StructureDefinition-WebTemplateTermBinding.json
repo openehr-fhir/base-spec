@@ -40,7 +40,7 @@
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term-binding-type"
+        "valueSet" : "http://openehr.org/fhir/ValueSet/term-binding-type"
       }
     },{
       "path" : "WebTemplateTermBinding.value",

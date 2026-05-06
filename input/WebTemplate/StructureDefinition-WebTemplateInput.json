@@ -48,7 +48,7 @@
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-input-type"
+        "valueSet" : "http://openehr.org/fhir/ValueSet/input-type"
       }
     },{
       "extension" : [{

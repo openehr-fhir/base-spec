@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/valueset-version_lifecycle_state"/>
   <version value="3.1.0"/>
   <name value="Version_lifecycle_state"/>
-  <title value="Version Lifecycle State"/>
+  <title value="Version Lifecycle State Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

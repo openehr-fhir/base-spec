@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/valueset-instruction_transitions"/>
   <version value="3.1.0"/>
   <name value="Instruction_transitions"/>
-  <title value="Instruction Transitions"/>
+  <title value="Instruction Transitions Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

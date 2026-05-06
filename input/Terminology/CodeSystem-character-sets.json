@@ -10,7 +10,7 @@
   "url" : "https://specifications.openehr.org/fhir/codesystem-character_sets",
   "version" : "3.1.0",
   "name" : "Character_sets",
-  "title" : "Character Set",
+  "title" : "Character Set Code System",
   "description" : "This IANA (Internet Naming Authority) code set consists of the names of recognised character sets.",
   "status" : "active",
   "experimental" : false,

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_media-types"
   }],
-  "url" : "https://specifications.openehr.org/fhir/valueset-media-types",
+  "url" : "http://openehr.org/fhir/ValueSet/media-types",
   "version" : "3.0.0",
   "name" : "MEDIA_TYPES",
   "title" : "MEDIA_TYPES",

@@ -1,6 +1,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="range-minop"/>
-  <url value="https://specifications.openehr.org/fhir/codesystem-range-minop"/>
+  <url value="http://openehr.org/fhir/CodeSystem/range-minop"/>
   <version value="3.1.0"/>
   <name value="RangeMinOpCS"/>
   <title value="Range MinOp CodeSystem"/>

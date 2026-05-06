@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/codesystem-participation_function"/>
   <version value="3.1.0"/>
   <name value="Participation_function"/>
-  <title value="Participation Function"/>
+  <title value="Participation Function Code System"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

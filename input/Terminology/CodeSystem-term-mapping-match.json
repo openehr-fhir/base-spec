@@ -10,7 +10,7 @@
   "url": "https://specifications.openehr.org/fhir/codesystem-term_mapping_match",
   "version": "1.1.0",
   "name": "TERM_MAPPING_MATCH",
-  "title": "TERM_MAPPING_MATCH",
+  "title": "TERM_MAPPING_MATCH Code System",
   "status": "active",
   "experimental": false,
   "date": "2023-06-27T18:45:58+10:00",

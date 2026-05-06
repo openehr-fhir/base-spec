@@ -1,6 +1,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="item-rmtype"/>
-  <url value="https://specifications.openehr.org/fhir/codesystem-item-rmtype"/>
+  <url value="http://openehr.org/fhir/CodeSystem/item-rmtype"/>
   <version value="3.1.0"/>
   <name value="ItemRMTypeCS"/>
   <title value="Item rmType CodeSystem"/>

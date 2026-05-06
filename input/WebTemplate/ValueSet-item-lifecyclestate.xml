@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="item-lifecyclestate"/>
-  <url value="https://specifications.openehr.org/fhir/valueset-item-lifecyclestate"/>
+  <url value="http://openehr.org/fhir/ValueSet/item-lifecyclestate"/>
   <version value="3.1.0"/>
   <name value="ItemLifecycleStateVS"/>
   <title value="Item Lifecycle State ValueSet"/>
@@ -15,7 +15,7 @@
   <description value="Item Lifecycle State ValueSet"/>
   <compose>
     <include>
-      <system value="https://specifications.openehr.org/fhir/codesystem-item-lifecyclestate"/>
+      <system value="http://openehr.org/fhir/CodeSystem/item-lifecyclestate"/>
     </include>
   </compose>
 </ValueSet>

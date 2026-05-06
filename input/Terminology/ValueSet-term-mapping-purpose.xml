@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/valueset-term_mapping_purpose"/>
   <version value="3.1.0"/>
   <name value="Term_mapping_purpose"/>
-  <title value="Term Mapping Purpose"/>
+  <title value="Term Mapping Purpose Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

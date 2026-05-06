@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/codesystem-term_mapping_purpose"/>
   <version value="3.1.0"/>
   <name value="Term_mapping_purpose"/>
-  <title value="Term Mapping Purpose"/>
+  <title value="Term Mapping Purpose Code System"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

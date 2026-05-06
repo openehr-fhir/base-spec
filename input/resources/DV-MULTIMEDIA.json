@@ -190,7 +190,7 @@
       "isModifier" : false,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-media-types"
+        "valueSet" : "http://openehr.org/fhir/ValueSet/media-types"
       }
     },
     {

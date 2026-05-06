@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="input-type"/>
-  <url value="https://specifications.openehr.org/fhir/valueset-input-type"/>
+  <url value="http://openehr.org/fhir/ValueSet/input-type"/>
   <version value="3.1.0"/>
   <name value="InputTypeVS"/>
   <title value="Input Type ValueSet"/>
@@ -15,7 +15,7 @@
   <description value="Input Type ValueSet"/>
   <compose>
     <include>
-      <system value="https://specifications.openehr.org/fhir/codesystem-input-type"/>
+      <system value="http://openehr.org/fhir/CodeSystem/input-type"/>
     </include>
   </compose>
 </ValueSet>

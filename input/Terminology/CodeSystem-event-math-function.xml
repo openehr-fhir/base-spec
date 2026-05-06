@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/codesystem-event_math_function"/>
   <version value="3.1.0"/>
   <name value="Event_math_function"/>
-  <title value="Event Math Function"/>
+  <title value="Event Math Function Code System"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

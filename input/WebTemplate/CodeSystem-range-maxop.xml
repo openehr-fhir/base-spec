@@ -1,6 +1,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="range-maxop"/>
-  <url value="https://specifications.openehr.org/fhir/codesystem-range-maxop"/>
+  <url value="http://openehr.org/fhir/CodeSystem/range-maxop"/>
   <version value="3.1.0"/>
   <name value="RangeMaxOpCS"/>
   <title value="Range MaxOp CodeSystem"/>

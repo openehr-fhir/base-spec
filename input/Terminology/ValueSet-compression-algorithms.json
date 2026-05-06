@@ -4,7 +4,7 @@
   "url" : "https://specifications.openehr.org/fhir/valueset-compression_algorithms",
   "version" : "3.1.0",
   "name" : "Compression_algorithms",
-  "title" : "Compression algorithms",
+  "title" : "Compression algorithms Value Set",
   "status" : "active",
   "experimental" : false,
   "date" : "2024-04-11",

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="range-maxop"/>
-  <url value="https://specifications.openehr.org/fhir/valueset-range-maxop"/>
+  <url value="http://openehr.org/fhir/ValueSet/range-maxop"/>
   <version value="3.1.0"/>
   <name value="RangeMaxOpVS"/>
   <title value="Range MaxOp ValueSet"/>
@@ -15,7 +15,7 @@
   <description value="Range MaxOp ValueSet"/>
   <compose>
     <include>
-      <system value="https://specifications.openehr.org/fhir/codesystem-range-maxop"/>
+      <system value="http://openehr.org/fhir/CodeSystem/range-maxop"/>
     </include>
   </compose>
 </ValueSet>

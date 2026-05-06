@@ -10,7 +10,7 @@
     "url": "https://specifications.openehr.org/fhir/codesystem-time_definitions",
     "version": "1.1.0",
     "name": "TIME_DEFINITIONS",
-    "title": "TIME_DEFINITIONS",
+    "title": "TIME_DEFINITIONS Code System",
     "status": "active",
     "experimental": false,
     "date": "2023-06-27T18:45:58+10:00",

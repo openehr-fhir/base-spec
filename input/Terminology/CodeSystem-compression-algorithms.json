@@ -10,7 +10,7 @@
   "url" : "https://specifications.openehr.org/fhir/codesystem-compression_algorithms",
   "version" : "3.1.0",
   "name" : "Compression_algorithms",
-  "title" : "Compression algorithms",
+  "title" : "Compression algorithms Code System",
   "status" : "active",
   "experimental" : false,
   "date" : "2024-04-11",
