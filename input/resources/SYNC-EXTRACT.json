@@ -16,6 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
+  "description" : "openEHR SYNC_EXTRACT message body carrying the synchronously-returned content of an Extract request.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

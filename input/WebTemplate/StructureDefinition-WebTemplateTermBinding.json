@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Binding from an openEHR Web Template node to one or more external terminology codes.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

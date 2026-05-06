@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Single node in an openEHR Web Template tree (composition root, section, entry, cluster, element, …) carrying its archetype path, cardinality and inputs.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

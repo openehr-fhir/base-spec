@@ -16,6 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
+  "description" : "Describes an error encountered while assembling an openEHR Extract response.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

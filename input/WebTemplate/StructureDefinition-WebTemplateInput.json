@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Single user input field within an openEHR Web Template item, describing its data type, allowed values and presentation hints.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

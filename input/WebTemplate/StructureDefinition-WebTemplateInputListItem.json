@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Selectable option for a list-typed openEHR Web Template input (value, label and optional ordering).",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Allowed numeric or temporal range for an openEHR Web Template input, expressed as inclusive/exclusive lower and upper bounds.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

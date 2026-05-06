@@ -104,7 +104,7 @@
             "property": [
                 {
                     "code": "constant-integer-value",
-                    "valueDecimal": 365
+                    "valueInteger": 365
                 }
             ]
         },

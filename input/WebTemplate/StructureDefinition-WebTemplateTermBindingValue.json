@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Single (terminology, code) pair carried by an openEHR Web Template term binding entry.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
