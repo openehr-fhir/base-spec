@@ -5,7 +5,7 @@
   <li><a href="index.html">IG Home</a></li>
   <li><a href="artifacts.html">Full Artifact Index</a></li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="menu.html" class="dropdown-toggle">Support
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Support
       <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
