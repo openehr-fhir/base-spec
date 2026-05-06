@@ -40,11 +40,7 @@
         "human" : "Size valid must satisfy range constraints",
         "expression" : "size() >= 0"
       }],
-      "isModifier" : false,
-      "binding" : {
-        "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-character_sets"
-      }
+      "isModifier" : false
     },
     {
       "path" : "DV_ENCAPSULATED.charset",
