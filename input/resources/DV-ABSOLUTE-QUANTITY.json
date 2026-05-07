@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "add",
-    "name" : "add",
+    "name" : "Add",
     "title" : "add",
     "status" : "active",
     "kind" : "operation",
     "description" : "Addition of a differential amount to this quantity. \n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -30,13 +31,14 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "subtract",
-    "name" : "subtract",
+    "name" : "Subtract",
     "title" : "subtract",
     "status" : "active",
     "kind" : "operation",
     "description" : "Result of subtracting a differential amount from this quantity.\n\nThe value of `_accuracy_` in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -56,13 +58,14 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "diff",
-    "name" : "diff",
+    "name" : "Diff",
     "title" : "diff",
     "status" : "active",
     "kind" : "operation",
     "description" : "Difference of two quantities.\n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "diff",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",

@@ -3,14 +3,15 @@
   "id" : "OPENEHR-CODE-SET-IDENTIFIERS",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_code_set_id",
-    "name" : "valid_code_set_id",
+    "id" : "valid-code-set-id",
+    "name" : "ValidCodeSetId",
     "title" : "valid_code_set_id",
     "status" : "active",
     "kind" : "operation",
     "description" : "Validity function to test if an identifier is in the set defined by this class.",
     "code" : "valid_code_set_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "an_id",

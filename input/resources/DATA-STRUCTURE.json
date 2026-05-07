@@ -3,14 +3,15 @@
   "id" : "DATA-STRUCTURE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
-    "name" : "as_hierarchy",
+    "id" : "as-hierarchy",
+    "name" : "AsHierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",
     "description" : "Hierarchical equivalent of the physical representation of each subtype, compatible with CEN EN 13606 structures.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

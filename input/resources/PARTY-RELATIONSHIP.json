@@ -4,12 +4,13 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "type",
-    "name" : "type",
+    "name" : "Type",
     "title" : "type",
     "status" : "active",
     "kind" : "operation",
     "description" : "Type of relationship, such as  employment,  authority,  health provision",    "code" : "type",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

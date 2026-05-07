@@ -3,14 +3,15 @@
   "id" : "ITEM-SINGLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
-    "name" : "as_hierarchy",
+    "id" : "as-hierarchy",
+    "name" : "AsHierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",
     "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `ELEMENT`.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

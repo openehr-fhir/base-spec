@@ -4,12 +4,13 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "concept",
-    "name" : "concept",
+    "name" : "Concept",
     "title" : "concept",
     "status" : "active",
     "kind" : "operation",
     "description" : "Clinical concept of the archetype as a whole (= derived from the archetype_node_id' of the root node)",    "code" : "concept",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -21,14 +22,15 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_archetype_root",
-    "name" : "is_archetype_root",
+    "id" : "is-archetype-root",
+    "name" : "IsArchetypeRoot",
     "title" : "is_archetype_root",
     "status" : "active",
     "kind" : "operation",
     "description" : "True if this node is the root of an archetyped structure.",
     "code" : "is_archetype_root",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

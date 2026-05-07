@@ -3,14 +3,15 @@
   "id" : "VERSIONED-COMPOSITION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_persistent",
-    "name" : "is_persistent",
+    "id" : "is-persistent",
+    "name" : "IsPersistent",
     "title" : "is_persistent",
     "status" : "active",
     "kind" : "operation",
     "description" : "Indicates whether this composition set is persistent; derived from first version.",
     "code" : "is_persistent",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

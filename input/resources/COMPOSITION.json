@@ -3,14 +3,15 @@
   "id" : "COMPOSITION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_persistent",
-    "name" : "is_persistent",
+    "id" : "is-persistent",
+    "name" : "IsPersistent",
     "title" : "is_persistent",
     "status" : "active",
     "kind" : "operation",
     "description" : "True if category is `431|persistent|`, False otherwise. Useful for finding Compositions in an EHR which are guaranteed to be of interest to most users.",
     "code" : "is_persistent",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

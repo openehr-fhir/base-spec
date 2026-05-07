@@ -3,13 +3,14 @@
   "id" : "ELEMENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_null",
-    "name" : "is_null",
+    "id" : "is-null",
+    "name" : "IsNull",
     "title" : "is_null",
     "status" : "active",
     "kind" : "operation",
     "description" : "True if value logically not known, e.g. if indeterminate, not asked etc.",    "code" : "is_null",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

@@ -3,14 +3,15 @@
   "id" : "ORIGINAL-VERSION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_merged",
-    "name" : "is_merged",
+    "id" : "is-merged",
+    "name" : "IsMerged",
     "title" : "is_merged",
     "status" : "active",
     "kind" : "operation",
     "description" : "True if this Version was created from more than just the preceding (checked out) version.",
     "code" : "is_merged",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

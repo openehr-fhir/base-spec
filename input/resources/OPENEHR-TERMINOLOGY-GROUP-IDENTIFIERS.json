@@ -3,13 +3,14 @@
   "id" : "OPENEHR-TERMINOLOGY-GROUP-IDENTIFIERS",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_terminology_group_id",
-    "name" : "valid_terminology_group_id",
+    "id" : "valid-terminology-group-id",
+    "name" : "ValidTerminologyGroupId",
     "title" : "valid_terminology_group_id",
     "status" : "active",
     "kind" : "operation",
     "description" : "Validity function to test if an identifier is in the set defined by this class.",    "code" : "valid_terminology_group_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "an_id",

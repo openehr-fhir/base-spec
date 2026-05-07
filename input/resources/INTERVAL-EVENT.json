@@ -3,14 +3,15 @@
   "id" : "INTERVAL-EVENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "interval_start_time",
-    "name" : "interval_start_time",
+    "id" : "interval-start-time",
+    "name" : "IntervalStartTime",
     "title" : "interval_start_time",
     "status" : "active",
     "kind" : "operation",
     "description" : "Start time of the interval of this event.",
     "code" : "interval_start_time",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

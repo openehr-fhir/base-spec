@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "offset",
-    "name" : "offset",
+    "name" : "Offset",
     "title" : "offset",
     "status" : "active",
     "kind" : "operation",
     "description" : "Offset of this event from origin, computed as time.diff(parent.origin).",
     "code" : "offset",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

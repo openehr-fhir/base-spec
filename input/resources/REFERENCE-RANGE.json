@@ -3,13 +3,14 @@
   "id" : "REFERENCE-RANGE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_in_range",
-    "name" : "is_in_range",
+    "id" : "is-in-range",
+    "name" : "IsInRange",
     "title" : "is_in_range",
     "status" : "active",
     "kind" : "operation",
     "description" : "Indicates if the value  `_v_` is inside the range.",    "code" : "is_in_range",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "v",

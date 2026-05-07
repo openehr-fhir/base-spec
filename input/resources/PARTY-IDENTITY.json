@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "purpose",
-    "name" : "purpose",
+    "name" : "Purpose",
     "title" : "purpose",
     "status" : "active",
     "kind" : "operation",
     "description" : "Purpose of identity, e.g. legal ,  stagename,  nickname,  tribal name,  trading name. Taken from value of inherited `_name_` attribute.",
     "code" : "purpose",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

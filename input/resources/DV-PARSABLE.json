@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "size",
-    "name" : "size",
+    "name" : "Size",
     "title" : "size",
     "status" : "active",
     "kind" : "operation",
     "description" : "Size in bytes of value.",
     "code" : "size",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

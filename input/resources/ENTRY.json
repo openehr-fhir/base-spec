@@ -3,14 +3,15 @@
   "id" : "ENTRY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "subject_is_self",
-    "name" : "subject_is_self",
+    "id" : "subject-is-self",
+    "name" : "SubjectIsSelf",
     "title" : "subject_is_self",
     "status" : "active",
     "kind" : "operation",
     "description" : "Returns True if this Entry is about the subject of the EHR, in which case the subject attribute is of type PARTY_SELF.",
     "code" : "subject_is_self",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

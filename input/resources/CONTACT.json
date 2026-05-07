@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "purpose",
-    "name" : "purpose",
+    "name" : "Purpose",
     "title" : "purpose",
     "status" : "active",
     "kind" : "operation",
     "description" : "Purpose for which this contact is used, e.g. mail,  daytime phone, etc. Taken from value of inherited `_name_` attribute.",
     "code" : "purpose",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

@@ -4,13 +4,14 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "type",
-    "name" : "type",
+    "name" : "Type",
     "title" : "type",
     "status" : "active",
     "kind" : "operation",
     "description" : "Type of address, e.g. electronic,  locality. Taken from value of inherited `_name_` attribute.",
     "code" : "type",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

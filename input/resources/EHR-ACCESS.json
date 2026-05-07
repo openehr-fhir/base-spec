@@ -4,12 +4,13 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "scheme",
-    "name" : "scheme",
+    "name" : "Scheme",
     "title" : "scheme",
     "status" : "active",
     "kind" : "operation",
     "description" : "The name of the access control scheme in use; corresponds to the concrete instance of the settings attribute.",    "code" : "scheme",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",

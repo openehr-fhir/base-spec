@@ -3,13 +3,14 @@
   "id" : "HISTORY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_periodic",
-    "name" : "is_periodic",
+    "id" : "is-periodic",
+    "name" : "IsPeriodic",
     "title" : "is_periodic",
     "status" : "active",
     "kind" : "operation",
     "description" : "Indicates whether history is periodic.",    "code" : "is_periodic",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
