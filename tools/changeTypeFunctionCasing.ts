@@ -1,7 +1,10 @@
 #!/usr/bin/env bun
 // Bulk-toggle casing of openEHR type-function OperationDefinitions.
-// See tools/README.md for full usage. This is a Phase-1 stub; the real
-// pipeline is wired in later phases.
+// See tools/README.md for full usage. The pipeline (file walk + edit
+// construction + report) is wired up in later phases; this module owns
+// argv parsing and process exit semantics.
+
+import { parseArgv } from "./lib/argv.ts";
 
 const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions.
 
@@ -28,21 +31,22 @@ Exit codes:
   2  argv/usage error, or no case-specifying flag and no --repair
 `;
 
-function main(argv: string[]): number {
-  if (argv.includes("--help") || argv.includes("-h")) {
+export function main(argv: readonly string[]): number {
+  const parsed = parseArgv(argv);
+  if ("error" in parsed) {
+    process.stderr.write(parsed.error + "\n");
+    return 2;
+  }
+  if (parsed.help) {
     process.stdout.write(HELP);
     return 0;
   }
-  if (argv.length === 0) {
-    process.stderr.write(
-      "error: nothing to do; pass --all-snake, --all-fhir, --id-case/--name-case/--title-case, or --repair\n"
-    );
-    return 2;
-  }
-  // Phase 1 stub: real pipeline is implemented in later phases.
+  // Phase 3 stub: pipeline wired up in later phases.
   process.stdout.write("0 change(s) across 0 file(s).\n");
   return 0;
 }
 
-const code = main(process.argv.slice(2));
-process.exit(code);
+if (import.meta.main) {
+  process.exit(main(process.argv.slice(2)));
+}
+
