@@ -83,7 +83,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_valid_match_code",
+    "id" : "is-valid-match-code",
     "name" : "is_valid_match_code",
     "title" : "is_valid_match_code",
     "status" : "active",
@@ -130,7 +130,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_valid_match_code"
+    "valueCanonical" : "#is-valid-match-code"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING",
   "version" : "1.2.0",

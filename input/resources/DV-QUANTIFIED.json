@@ -3,7 +3,7 @@
   "id" : "DV-QUANTIFIED",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_magnitude_status",
+    "id" : "valid-magnitude-status",
     "name" : "valid_magnitude_status",
     "title" : "valid_magnitude_status",
     "status" : "active",
@@ -41,7 +41,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "accuracy_unknown",
+    "id" : "accuracy-unknown",
     "name" : "accuracy_unknown",
     "title" : "accuracy_unknown",
     "status" : "active",
@@ -61,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_equal",
+    "id" : "is-equal",
     "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
@@ -88,7 +88,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -119,7 +119,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#valid_magnitude_status"
+    "valueCanonical" : "#valid-magnitude-status"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -127,15 +127,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#accuracy_unknown"
+    "valueCanonical" : "#accuracy-unknown"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_equal"
+    "valueCanonical" : "#is-equal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "has-range"

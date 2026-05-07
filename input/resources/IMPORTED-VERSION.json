@@ -22,7 +22,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "preceding_version_uid",
+    "id" : "preceding-version-uid",
     "name" : "preceding_version_uid",
     "title" : "preceding_version_uid",
     "status" : "active",
@@ -41,7 +41,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "lifecycle_state",
+    "id" : "lifecycle-state",
     "name" : "lifecycle_state",
     "title" : "lifecycle_state",
     "status" : "active",
@@ -99,11 +99,11 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#preceding_version_uid"
+    "valueCanonical" : "#preceding-version-uid"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#lifecycle_state"
+    "valueCanonical" : "#lifecycle-state"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",

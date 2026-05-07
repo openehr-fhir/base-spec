@@ -3,7 +3,7 @@
   "id" : "MEASUREMENT-SERVICE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_valid_units_string",
+    "id" : "is-valid-units-string",
     "name" : "is_valid_units_string",
     "title" : "is_valid_units_string",
     "status" : "active",
@@ -30,7 +30,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "units_equivalent",
+    "id" : "units-equivalent",
     "name" : "units_equivalent",
     "title" : "units_equivalent",
     "status" : "active",
@@ -64,11 +64,11 @@
   }],
   "extension" : [{
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_valid_units_string"
+    "valueCanonical" : "#is-valid-units-string"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#units_equivalent"
+    "valueCanonical" : "#units-equivalent"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/MEASUREMENT-SERVICE",
   "version" : "1.2.0",

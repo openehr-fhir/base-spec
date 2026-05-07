@@ -22,7 +22,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "item_at_path",
+    "id" : "item-at-path",
     "name" : "item_at_path",
     "title" : "item_at_path",
     "status" : "active",
@@ -48,7 +48,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "items_at_path",
+    "id" : "items-at-path",
     "name" : "items_at_path",
     "title" : "items_at_path",
     "status" : "active",
@@ -75,7 +75,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_exists",
+    "id" : "path-exists",
     "name" : "path_exists",
     "title" : "path_exists",
     "status" : "active",
@@ -101,7 +101,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_unique",
+    "id" : "path-unique",
     "name" : "path_unique",
     "title" : "path_unique",
     "status" : "active",
@@ -127,7 +127,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_of_item",
+    "id" : "path-of-item",
     "name" : "path_of_item",
     "title" : "path_of_item",
     "status" : "active",
@@ -162,23 +162,23 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#item_at_path"
+    "valueCanonical" : "#item-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#items_at_path"
+    "valueCanonical" : "#items-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_exists"
+    "valueCanonical" : "#path-exists"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_unique"
+    "valueCanonical" : "#path-unique"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_of_item"
+    "valueCanonical" : "#path-of-item"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
   "version" : "1.2.0",

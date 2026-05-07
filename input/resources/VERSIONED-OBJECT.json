@@ -3,7 +3,7 @@
   "id" : "VERSIONED-OBJECT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "version_count",
+    "id" : "version-count",
     "name" : "version_count",
     "title" : "version_count",
     "status" : "active",
@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_version_ids",
+    "id" : "all-version-ids",
     "name" : "all_version_ids",
     "title" : "all_version_ids",
     "status" : "active",
@@ -42,7 +42,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_versions",
+    "id" : "all-versions",
     "name" : "all_versions",
     "title" : "all_versions",
     "status" : "active",
@@ -61,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_version_at_time",
+    "id" : "has-version-at-time",
     "name" : "has_version_at_time",
     "title" : "has_version_at_time",
     "status" : "active",
@@ -87,7 +87,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_version_id",
+    "id" : "has-version-id",
     "name" : "has_version_id",
     "title" : "has_version_id",
     "status" : "active",
@@ -113,7 +113,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "version_with_id",
+    "id" : "version-with-id",
     "name" : "version_with_id",
     "title" : "version_with_id",
     "status" : "active",
@@ -139,7 +139,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_original_version",
+    "id" : "is-original-version",
     "name" : "is_original_version",
     "title" : "is_original_version",
     "status" : "active",
@@ -165,7 +165,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "version_at_time",
+    "id" : "version-at-time",
     "name" : "version_at_time",
     "title" : "version_at_time",
     "status" : "active",
@@ -191,7 +191,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "revision_history",
+    "id" : "revision-history",
     "name" : "revision_history",
     "title" : "revision_history",
     "status" : "active",
@@ -211,7 +211,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "latest_version",
+    "id" : "latest-version",
     "name" : "latest_version",
     "title" : "latest_version",
     "status" : "active",
@@ -230,7 +230,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "latest_trunk_version",
+    "id" : "latest-trunk-version",
     "name" : "latest_trunk_version",
     "title" : "latest_trunk_version",
     "status" : "active",
@@ -249,7 +249,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "trunk_lifecycle_state",
+    "id" : "trunk-lifecycle-state",
     "name" : "trunk_lifecycle_state",
     "title" : "trunk_lifecycle_state",
     "status" : "active",
@@ -268,7 +268,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_original_version",
+    "id" : "commit-original-version",
     "name" : "commit_original_version",
     "title" : "commit_original_version",
     "status" : "active",
@@ -336,7 +336,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_original_merged_version",
+    "id" : "commit-original-merged-version",
     "name" : "commit_original_merged_version",
     "title" : "commit_original_merged_version",
     "status" : "active",
@@ -411,7 +411,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_imported_version",
+    "id" : "commit-imported-version",
     "name" : "commit_imported_version",
     "title" : "commit_imported_version",
     "status" : "active",
@@ -451,7 +451,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_attestation",
+    "id" : "commit-attestation",
     "name" : "commit_attestation",
     "title" : "commit_attestation",
     "status" : "active",
@@ -506,67 +506,67 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_count"
+    "valueCanonical" : "#version-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_version_ids"
+    "valueCanonical" : "#all-version-ids"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_versions"
+    "valueCanonical" : "#all-versions"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_version_at_time"
+    "valueCanonical" : "#has-version-at-time"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_version_id"
+    "valueCanonical" : "#has-version-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_with_id"
+    "valueCanonical" : "#version-with-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_original_version"
+    "valueCanonical" : "#is-original-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_at_time"
+    "valueCanonical" : "#version-at-time"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#revision_history"
+    "valueCanonical" : "#revision-history"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#latest_version"
+    "valueCanonical" : "#latest-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#latest_trunk_version"
+    "valueCanonical" : "#latest-trunk-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#trunk_lifecycle_state"
+    "valueCanonical" : "#trunk-lifecycle-state"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_original_version"
+    "valueCanonical" : "#commit-original-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_original_merged_version"
+    "valueCanonical" : "#commit-original-merged-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_imported_version"
+    "valueCanonical" : "#commit-imported-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_attestation"
+    "valueCanonical" : "#commit-attestation"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
   "version" : "1.2.0",

@@ -41,7 +41,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "fragment_id",
+    "id" : "fragment-id",
     "name" : "fragment_id",
     "title" : "fragment_id",
     "status" : "active",
@@ -91,7 +91,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#fragment_id"
+    "valueCanonical" : "#fragment-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",

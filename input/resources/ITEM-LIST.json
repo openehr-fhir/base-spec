@@ -3,7 +3,7 @@
   "id" : "ITEM-LIST",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "item_count",
+    "id" : "item-count",
     "name" : "item_count",
     "title" : "item_count",
     "status" : "active",
@@ -43,7 +43,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "named_item",
+    "id" : "named-item",
     "name" : "named_item",
     "title" : "named_item",
     "status" : "active",
@@ -70,7 +70,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "ith_item",
+    "id" : "ith-item",
     "name" : "ith_item",
     "title" : "ith_item",
     "status" : "active",
@@ -97,7 +97,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -121,7 +121,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#item_count"
+    "valueCanonical" : "#item-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -129,15 +129,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#named_item"
+    "valueCanonical" : "#named-item"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#ith_item"
+    "valueCanonical" : "#ith-item"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-LIST",
   "version" : "1.2.0",

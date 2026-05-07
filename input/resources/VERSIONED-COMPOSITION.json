@@ -3,7 +3,7 @@
   "id" : "VERSIONED-COMPOSITION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_persistent",
+    "id" : "is-persistent",
     "name" : "is_persistent",
     "title" : "is_persistent",
     "status" : "active",
@@ -27,7 +27,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_persistent"
+    "valueCanonical" : "#is-persistent"
   },
   {
     "extension" : [{

@@ -3,7 +3,7 @@
   "id" : "DV-ORDERED",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -30,7 +30,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_simple",
+    "id" : "is-simple",
     "name" : "is_simple",
     "title" : "is_simple",
     "status" : "active",
@@ -50,7 +50,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_normal",
+    "id" : "is-normal",
     "name" : "is_normal",
     "title" : "is_normal",
     "status" : "active",
@@ -69,7 +69,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -100,19 +100,19 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_simple"
+    "valueCanonical" : "#is-simple"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_normal"
+    "valueCanonical" : "#is-normal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
   "version" : "1.2.0",

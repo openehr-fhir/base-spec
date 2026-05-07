@@ -3,7 +3,7 @@
   "id" : "OPENEHR-CODE-SET-IDENTIFIERS",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_code_set_id",
+    "id" : "valid-code-set-id",
     "name" : "valid_code_set_id",
     "title" : "valid_code_set_id",
     "status" : "active",
@@ -30,7 +30,7 @@
   }],
   "extension" : [{
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#valid_code_set_id"
+    "valueCanonical" : "#valid-code-set-id"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-CODE-SET-IDENTIFIERS",
   "version" : "1.2.0",

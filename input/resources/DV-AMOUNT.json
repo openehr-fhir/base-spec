@@ -3,7 +3,7 @@
   "id" : "DV-AMOUNT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_percentage",
+    "id" : "valid-percentage",
     "name" : "valid_percentage",
     "title" : "valid_percentage",
     "status" : "active",
@@ -84,7 +84,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_equal",
+    "id" : "is-equal",
     "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
@@ -158,7 +158,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -189,7 +189,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#valid_percentage"
+    "valueCanonical" : "#valid-percentage"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -201,7 +201,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_equal"
+    "valueCanonical" : "#is-equal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -213,7 +213,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
   "version" : "1.2.0",

@@ -3,7 +3,7 @@
   "id" : "ORIGINAL-VERSION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_merged",
+    "id" : "is-merged",
     "name" : "is_merged",
     "title" : "is_merged",
     "status" : "active",
@@ -38,7 +38,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_merged"
+    "valueCanonical" : "#is-merged"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL-VERSION",
   "version" : "1.2.0",

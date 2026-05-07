@@ -3,7 +3,7 @@
   "id" : "AUTHORED-RESOURCE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "current_revision",
+    "id" : "current-revision",
     "name" : "current_revision",
     "title" : "current_revision",
     "status" : "active",
@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "languages_available",
+    "id" : "languages-available",
     "name" : "languages_available",
     "title" : "languages_available",
     "status" : "active",
@@ -47,11 +47,11 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#current_revision"
+    "valueCanonical" : "#current-revision"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#languages_available"
+    "valueCanonical" : "#languages-available"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/AUTHORED-RESOURCE",
   "version" : "1.2.0",

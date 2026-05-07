@@ -29,7 +29,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set",
+    "id" : "code-set",
     "name" : "code_set",
     "title" : "code_set",
     "status" : "active",
@@ -55,7 +55,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set_for_id",
+    "id" : "code-set-for-id",
     "name" : "code_set_for_id",
     "title" : "code_set_for_id",
     "status" : "active",
@@ -81,7 +81,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_terminology",
+    "id" : "has-terminology",
     "name" : "has_terminology",
     "title" : "has_terminology",
     "status" : "active",
@@ -108,7 +108,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_code_set",
+    "id" : "has-code-set",
     "name" : "has_code_set",
     "title" : "has_code_set",
     "status" : "active",
@@ -134,7 +134,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "terminology_identifiers",
+    "id" : "terminology-identifiers",
     "name" : "terminology_identifiers",
     "title" : "terminology_identifiers",
     "status" : "active",
@@ -153,7 +153,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "openehr_code_sets",
+    "id" : "openehr-code-sets",
     "name" : "openehr_code_sets",
     "title" : "openehr_code_sets",
     "status" : "active",
@@ -172,7 +172,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set_identifiers",
+    "id" : "code-set-identifiers",
     "name" : "code_set_identifiers",
     "title" : "code_set_identifiers",
     "status" : "active",
@@ -195,31 +195,31 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set"
+    "valueCanonical" : "#code-set"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set_for_id"
+    "valueCanonical" : "#code-set-for-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_terminology"
+    "valueCanonical" : "#has-terminology"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_code_set"
+    "valueCanonical" : "#has-code-set"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#terminology_identifiers"
+    "valueCanonical" : "#terminology-identifiers"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#openehr_code_sets"
+    "valueCanonical" : "#openehr-code-sets"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set_identifiers"
+    "valueCanonical" : "#code-set-identifiers"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-SERVICE",
   "version" : "1.2.0",

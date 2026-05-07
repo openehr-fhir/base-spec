@@ -84,7 +84,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -111,7 +111,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_integral",
+    "id" : "is-integral",
     "name" : "is_integral",
     "title" : "is_integral",
     "status" : "active",
@@ -131,7 +131,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -174,15 +174,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_integral"
+    "valueCanonical" : "#is-integral"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "is-continuous"

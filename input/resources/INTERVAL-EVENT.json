@@ -3,7 +3,7 @@
   "id" : "INTERVAL-EVENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "interval_start_time",
+    "id" : "interval-start-time",
     "name" : "interval_start_time",
     "title" : "interval_start_time",
     "status" : "active",
@@ -38,7 +38,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#interval_start_time"
+    "valueCanonical" : "#interval-start-time"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL-EVENT",
   "version" : "1.2.0",

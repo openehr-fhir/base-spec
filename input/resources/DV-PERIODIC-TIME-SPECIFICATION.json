@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "calendar_alignment",
+    "id" : "calendar-alignment",
     "name" : "calendar_alignment",
     "title" : "calendar_alignment",
     "status" : "active",
@@ -42,7 +42,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "event_alignment",
+    "id" : "event-alignment",
     "name" : "event_alignment",
     "title" : "event_alignment",
     "status" : "active",
@@ -61,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "institution_specified",
+    "id" : "institution-specified",
     "name" : "institution_specified",
     "title" : "institution_specified",
     "status" : "active",
@@ -89,15 +89,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#calendar_alignment"
+    "valueCanonical" : "#calendar-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#event_alignment"
+    "valueCanonical" : "#event-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#institution_specified"
+    "valueCanonical" : "#institution-specified"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-PERIODIC-TIME-SPECIFICATION",
   "version" : "1.2.0",

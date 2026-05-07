@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "preceding_version_uid",
+    "id" : "preceding-version-uid",
     "name" : "preceding_version_uid",
     "title" : "preceding_version_uid",
     "status" : "active",
@@ -63,7 +63,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "lifecycle_state",
+    "id" : "lifecycle-state",
     "name" : "lifecycle_state",
     "title" : "lifecycle_state",
     "status" : "active",
@@ -83,7 +83,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "canonical_form",
+    "id" : "canonical-form",
     "name" : "canonical_form",
     "title" : "canonical_form",
     "status" : "active",
@@ -103,7 +103,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "owner_id",
+    "id" : "owner-id",
     "name" : "owner_id",
     "title" : "owner_id",
     "status" : "active",
@@ -123,7 +123,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_branch",
+    "id" : "is-branch",
     "name" : "is_branch",
     "title" : "is_branch",
     "status" : "active",
@@ -161,7 +161,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#preceding_version_uid"
+    "valueCanonical" : "#preceding-version-uid"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -169,19 +169,19 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#lifecycle_state"
+    "valueCanonical" : "#lifecycle-state"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#canonical_form"
+    "valueCanonical" : "#canonical-form"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#owner_id"
+    "valueCanonical" : "#owner-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_branch"
+    "valueCanonical" : "#is-branch"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/VERSION",
   "version" : "1.2.0",

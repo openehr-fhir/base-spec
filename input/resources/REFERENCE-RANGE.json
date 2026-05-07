@@ -3,7 +3,7 @@
   "id" : "REFERENCE-RANGE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_in_range",
+    "id" : "is-in-range",
     "name" : "is_in_range",
     "title" : "is_in_range",
     "status" : "active",
@@ -44,7 +44,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_in_range"
+    "valueCanonical" : "#is-in-range"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
   "version" : "1.2.0",

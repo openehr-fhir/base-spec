@@ -3,7 +3,7 @@
   "id" : "ENTRY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "subject_is_self",
+    "id" : "subject-is-self",
     "name" : "subject_is_self",
     "title" : "subject_is_self",
     "status" : "active",
@@ -27,7 +27,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#subject_is_self"
+    "valueCanonical" : "#subject-is-self"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
   "version" : "1.2.0",

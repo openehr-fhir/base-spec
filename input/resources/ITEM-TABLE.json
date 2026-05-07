@@ -3,7 +3,7 @@
   "id" : "ITEM-TABLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "row_count",
+    "id" : "row-count",
     "name" : "row_count",
     "title" : "row_count",
     "status" : "active",
@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "column_count",
+    "id" : "column-count",
     "name" : "column_count",
     "title" : "column_count",
     "status" : "active",
@@ -43,7 +43,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "row_names",
+    "id" : "row-names",
     "name" : "row_names",
     "title" : "row_names",
     "status" : "active",
@@ -63,7 +63,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "column_names",
+    "id" : "column-names",
     "name" : "column_names",
     "title" : "column_names",
     "status" : "active",
@@ -83,7 +83,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "ith_row",
+    "id" : "ith-row",
     "name" : "ith_row",
     "title" : "ith_row",
     "status" : "active",
@@ -110,7 +110,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_row_with_name",
+    "id" : "has-row-with-name",
     "name" : "has_row_with_name",
     "title" : "has_row_with_name",
     "status" : "active",
@@ -137,7 +137,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_column_with_name",
+    "id" : "has-column-with-name",
     "name" : "has_column_with_name",
     "title" : "has_column_with_name",
     "status" : "active",
@@ -164,7 +164,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "named_row",
+    "id" : "named-row",
     "name" : "named_row",
     "title" : "named_row",
     "status" : "active",
@@ -191,7 +191,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_row_with_key",
+    "id" : "has-row-with-key",
     "name" : "has_row_with_key",
     "title" : "has_row_with_key",
     "status" : "active",
@@ -218,7 +218,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "row_with_key",
+    "id" : "row-with-key",
     "name" : "row_with_key",
     "title" : "row_with_key",
     "status" : "active",
@@ -245,7 +245,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "element_at_cell_ij",
+    "id" : "element-at-cell-ij",
     "name" : "element_at_cell_ij",
     "title" : "element_at_cell_ij",
     "status" : "active",
@@ -279,7 +279,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -302,51 +302,51 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_count"
+    "valueCanonical" : "#row-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#column_count"
+    "valueCanonical" : "#column-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_names"
+    "valueCanonical" : "#row-names"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#column_names"
+    "valueCanonical" : "#column-names"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#ith_row"
+    "valueCanonical" : "#ith-row"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_row_with_name"
+    "valueCanonical" : "#has-row-with-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_column_with_name"
+    "valueCanonical" : "#has-column-with-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#named_row"
+    "valueCanonical" : "#named-row"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_row_with_key"
+    "valueCanonical" : "#has-row-with-key"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_with_key"
+    "valueCanonical" : "#row-with-key"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#element_at_cell_ij"
+    "valueCanonical" : "#element-at-cell-ij"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TABLE",
   "version" : "1.2.0",

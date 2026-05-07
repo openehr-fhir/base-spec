@@ -3,7 +3,7 @@
   "id" : "HISTORY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_periodic",
+    "id" : "is-periodic",
     "name" : "is_periodic",
     "title" : "is_periodic",
     "status" : "active",
@@ -37,7 +37,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_periodic"
+    "valueCanonical" : "#is-periodic"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/HISTORY",
   "version" : "1.2.0",

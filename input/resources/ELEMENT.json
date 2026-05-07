@@ -3,7 +3,7 @@
   "id" : "ELEMENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_null",
+    "id" : "is-null",
     "name" : "is_null",
     "title" : "is_null",
     "status" : "active",
@@ -26,7 +26,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_null"
+    "valueCanonical" : "#is-null"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
   "version" : "1.2.0",

@@ -3,7 +3,7 @@
   "id" : "ITEM-SINGLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -27,7 +27,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-SINGLE",
   "version" : "1.2.0",

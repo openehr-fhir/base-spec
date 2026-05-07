@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_codes",
+    "id" : "all-codes",
     "name" : "all_codes",
     "title" : "all_codes",
     "status" : "active",
@@ -43,7 +43,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes_for_group_id",
+    "id" : "codes-for-group-id",
     "name" : "codes_for_group_id",
     "title" : "codes_for_group_id",
     "status" : "active",
@@ -70,7 +70,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes_for_group_name",
+    "id" : "codes-for-group-name",
     "name" : "codes_for_group_name",
     "title" : "codes_for_group_name",
     "status" : "active",
@@ -104,7 +104,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_code_for_group_id",
+    "id" : "has-code-for-group-id",
     "name" : "has_code_for_group_id",
     "title" : "has_code_for_group_id",
     "status" : "active",
@@ -124,7 +124,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "rubric_for_code",
+    "id" : "rubric-for-code",
     "name" : "rubric_for_code",
     "title" : "rubric_for_code",
     "status" : "active",
@@ -155,23 +155,23 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_codes"
+    "valueCanonical" : "#all-codes"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#codes_for_group_id"
+    "valueCanonical" : "#codes-for-group-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#codes_for_group_name"
+    "valueCanonical" : "#codes-for-group-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_code_for_group_id"
+    "valueCanonical" : "#has-code-for-group-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#rubric_for_code"
+    "valueCanonical" : "#rubric-for-code"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ACCESS",
   "version" : "1.2.0",

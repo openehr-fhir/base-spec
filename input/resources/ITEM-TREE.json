@@ -3,7 +3,7 @@
   "id" : "ITEM-TREE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "has_element_path",
+    "id" : "has-element-path",
     "name" : "has_element_path",
     "title" : "has_element_path",
     "status" : "active",
@@ -29,7 +29,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "element_at_path",
+    "id" : "element-at-path",
     "name" : "element_at_path",
     "title" : "element_at_path",
     "status" : "active",
@@ -56,7 +56,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -80,15 +80,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_element_path"
+    "valueCanonical" : "#has-element-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#element_at_path"
+    "valueCanonical" : "#element-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TREE",
   "version" : "1.2.0",

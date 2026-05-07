@@ -3,7 +3,7 @@
   "id" : "REVISION-HISTORY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "most_recent_version",
+    "id" : "most-recent-version",
     "name" : "most_recent_version",
     "title" : "most_recent_version",
     "status" : "active",
@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "most_recent_version_time_committed",
+    "id" : "most-recent-version-time-committed",
     "name" : "most_recent_version_time_committed",
     "title" : "most_recent_version_time_committed",
     "status" : "active",
@@ -46,11 +46,11 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#most_recent_version"
+    "valueCanonical" : "#most-recent-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#most_recent_version_time_committed"
+    "valueCanonical" : "#most-recent-version-time-committed"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY",
   "version" : "1.2.0",

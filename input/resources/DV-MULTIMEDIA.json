@@ -3,7 +3,7 @@
   "id" : "DV-MULTIMEDIA",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_external",
+    "id" : "is-external",
     "name" : "is_external",
     "title" : "is_external",
     "status" : "active",
@@ -23,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_inline",
+    "id" : "is-inline",
     "name" : "is_inline",
     "title" : "is_inline",
     "status" : "active",
@@ -42,7 +42,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_compressed",
+    "id" : "is-compressed",
     "name" : "is_compressed",
     "title" : "is_compressed",
     "status" : "active",
@@ -61,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_integrity_check",
+    "id" : "has-integrity-check",
     "name" : "has_integrity_check",
     "title" : "has_integrity_check",
     "status" : "active",
@@ -84,19 +84,19 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_external"
+    "valueCanonical" : "#is-external"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_inline"
+    "valueCanonical" : "#is-inline"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_compressed"
+    "valueCanonical" : "#is-compressed"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_integrity_check"
+    "valueCanonical" : "#has-integrity-check"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/DV-MULTIMEDIA",
   "version" : "1.2.0",
