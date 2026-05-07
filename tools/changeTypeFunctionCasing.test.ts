@@ -1,5 +1,12 @@
 import { describe, expect, it } from "bun:test";
 import { applyEdits, parseTree } from "jsonc-parser";
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
+import {
+  preservesTrailingByte,
+  runWith,
+} from "./changeTypeFunctionCasing.ts";
 import { parseArgv } from "./lib/argv.ts";
 import { planCaseChanges } from "./lib/edits.ts";
 import { planRepair, resolveRefByTokens } from "./lib/repair.ts";
@@ -607,5 +614,200 @@ describe('planRepair', () => {
     const r = planRepair({ source: ambiguous, root });
     expect(r.errors.some((e) => e.includes('ambiguous'))).toBe(true);
     expect(r.edits).toEqual([]);
+  });
+});
+
+describe('preservesTrailingByte', () => {
+  it('passes when last bytes match', () => {
+    expect(preservesTrailingByte(0x7d, 0x7d)).toBe(true);
+  });
+  it('fails when last bytes differ', () => {
+    expect(preservesTrailingByte(0x7d, 0x0a)).toBe(false);
+  });
+  it('treats undefined as -1', () => {
+    expect(preservesTrailingByte(undefined, undefined)).toBe(true);
+    expect(preservesTrailingByte(0x7d, undefined)).toBe(false);
+  });
+});
+
+function makeTempDir(): string {
+  const dir = mkdtempSync(join(tmpdir(), 'cttfc-'));
+  return dir;
+}
+
+function writeFixture(dir: string, name: string, content: string): void {
+  writeFileSync(join(dir, name), Buffer.from(content, 'utf8'));
+}
+
+function captureRun(argv: string[], resourcesDir: string): { code: number; out: string; err: string } {
+  let out = '';
+  let err = '';
+  const code = runWith(argv, {
+    resourcesDir,
+    out: (s) => { out += s; },
+    err: (s) => { err += s; },
+  });
+  return { code, out, err };
+}
+
+describe('runWith (end-to-end)', () => {
+  it('emits the expected report and writes byte-identical post-edit bytes', () => {
+    const dir = makeTempDir();
+    try {
+      // ALPHA.json: needs an id flip and a #ref rewrite under --all-snake.
+      writeFixture(dir, 'ALPHA.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "less-than",',
+        '    "name" : "LessThan",',
+        '    "title" : "less_than",',
+        '    "code" : "less_than"',
+        '  }],',
+        '  "extension" : [{',
+        '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+        '    "valueCanonical" : "#less-than"',
+        '  }]',
+        '}',
+      ]));
+      // BETA.json: zero changes (already snake everywhere); should be omitted from per-file blocks.
+      writeFixture(dir, 'BETA.json', crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "magnitude",',
+        '    "name" : "magnitude",',
+        '    "title" : "magnitude",',
+        '    "code" : "magnitude"',
+        '  }]',
+        '}',
+      ]));
+
+      const result = captureRun(['--all-snake'], dir);
+      expect(result.code).toBe(0);
+      expect(result.err).toBe('');
+      // Per-file block for ALPHA only; BETA omitted.
+      expect(result.out).toContain('=== ');
+      expect(result.out).toContain('ALPHA.json');
+      expect(result.out).not.toContain('BETA.json');
+      expect(result.out).toContain('less-than.id: "less-than" -> "less_than"');
+      expect(result.out).toContain('less-than.name: "LessThan" -> "less_than"');
+      expect(result.out).toContain('less_than.valueCanonical: "#less-than" -> "#less_than"');
+      expect(result.out.trimEnd().endsWith('3 change(s) across 1 file(s).')).toBe(true);
+
+      // Files should be written; verify ALPHA bytes byte-by-byte.
+      const alphaOut = readFileSync(join(dir, 'ALPHA.json'), 'utf8');
+      expect(alphaOut).toContain('"id" : "less_than"');
+      expect(alphaOut).toContain('"name" : "less_than"');
+      expect(alphaOut).toContain('"valueCanonical" : "#less_than"');
+      // BETA must be byte-identical.
+      const betaIn = crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "magnitude",',
+        '    "name" : "magnitude",',
+        '    "title" : "magnitude",',
+        '    "code" : "magnitude"',
+        '  }]',
+        '}',
+      ]);
+      const betaOut = readFileSync(join(dir, 'BETA.json'), 'utf8');
+      expect(betaOut).toBe(betaIn);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('is idempotent end-to-end (second run reports zero changes)', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'GAMMA.json', crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "less-than",',
+        '    "name" : "LessThan",',
+        '    "title" : "less_than",',
+        '    "code" : "less_than"',
+        '  }]',
+        '}',
+      ]));
+
+      const r1 = captureRun(['--all-snake'], dir);
+      expect(r1.code).toBe(0);
+
+      const r2 = captureRun(['--all-snake'], dir);
+      expect(r2.code).toBe(0);
+      expect(r2.out.trimEnd().endsWith('0 change(s) across 0 file(s).')).toBe(true);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--dry-run does not write files', () => {
+    const dir = makeTempDir();
+    try {
+      const original = crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "less-than",',
+        '    "name" : "LessThan",',
+        '    "title" : "less_than",',
+        '    "code" : "less_than"',
+        '  }]',
+        '}',
+      ]);
+      writeFixture(dir, 'DELTA.json', original);
+      const r = captureRun(['--all-snake', '--dry-run'], dir);
+      expect(r.code).toBe(0);
+      expect(r.out).toContain('DELTA.json');
+      const after = readFileSync(join(dir, 'DELTA.json'), 'utf8');
+      expect(after).toBe(original);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('returns exit 1 when a file has malformed JSON', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'BROKEN.json', '{ this is not json');
+      writeFixture(dir, 'OK.json', crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "magnitude",',
+        '    "code" : "magnitude"',
+        '  }]',
+        '}',
+      ]));
+      const r = captureRun(['--all-snake'], dir);
+      expect(r.code).toBe(1);
+      expect(r.out).toContain('BROKEN.json');
+      expect(r.out.toLowerCase()).toContain('error');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('returns exit 2 with no flags', () => {
+    const dir = makeTempDir();
+    try {
+      const r = captureRun([], dir);
+      expect(r.code).toBe(2);
+      expect(r.err).toContain('nothing to do');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--help prints usage and exits 0 (no file walk)', () => {
+    const r = captureRun(['--help'], '/this/dir/does/not/exist');
+    expect(r.code).toBe(0);
+    expect(r.out).toContain('Usage:');
+    expect(r.err).toBe('');
   });
 });

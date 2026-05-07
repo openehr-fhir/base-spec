@@ -168,7 +168,7 @@ export function runWith(
       const last = original.length > 0 ? original[original.length - 1] : -1;
       const newBuf = Buffer.from(result.newSource, "utf8");
       const newLast = newBuf.length > 0 ? newBuf[newBuf.length - 1] : -1;
-      if (last !== newLast) {
+      if (!preservesTrailingByte(last, newLast)) {
         opts.err(
           `error: refusing to write ${rel}: trailing-byte preservation guard failed (old=0x${(last ?? -1).toString(16)} new=0x${(newLast ?? -1).toString(16)})\n`,
         );
@@ -183,6 +183,10 @@ export function runWith(
   opts.out(`${report}${totalChanges} change(s) across ${filesWithChanges} file(s).\n`);
 
   return errorCount > 0 ? 1 : 0;
+}
+
+export function preservesTrailingByte(oldLast: number | undefined, newLast: number | undefined): boolean {
+  return (oldLast ?? -1) === (newLast ?? -1);
 }
 
 export function main(argv: readonly string[]): number {
