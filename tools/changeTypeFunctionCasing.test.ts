@@ -1,5 +1,7 @@
 import { describe, expect, it } from "bun:test";
+import { applyEdits, parseTree } from "jsonc-parser";
 import { parseArgv } from "./lib/argv.ts";
+import { planCaseChanges } from "./lib/edits.ts";
 import {
   ALLOWED_ID_CASES,
   ALLOWED_NAME_CASES,
@@ -281,5 +283,208 @@ describe('parseArgv', () => {
     const r = parseArgv(['--help']);
     ok(r);
     expect(r.help).toBe(true);
+  });
+});
+
+// CRLF fixture in IG-publisher style (single space around `:`, 2-space
+// indent, no trailing newline). Constructed in-memory so it survives
+// git's autocrlf shenanigans on Windows.
+function crlf(lines: string[]): string {
+  return lines.join('\r\n');
+}
+
+const FIXTURE_WITH_TITLE = crlf([
+  '{',
+  '  "resourceType" : "StructureDefinition",',
+  '  "id" : "DV-DATE",',
+  '  "contained" : [{',
+  '    "resourceType" : "OperationDefinition",',
+  '    "id" : "is-strictly-comparable-to",',
+  '    "name" : "IsStrictlyComparableTo",',
+  '    "title" : "is_strictly_comparable_to",',
+  '    "code" : "is_strictly_comparable_to"',
+  '  },',
+  '  {',
+  '    "resourceType" : "OperationDefinition",',
+  '    "id" : "magnitude",',
+  '    "name" : "magnitude",',
+  '    "title" : "magnitude",',
+  '    "code" : "magnitude"',
+  '  }],',
+  '  "extension" : [{',
+  '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+  '    "valueCanonical" : "#is-strictly-comparable-to"',
+  '  },',
+  '  {',
+  '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+  '    "valueCanonical" : "#magnitude"',
+  '  }]',
+  '}',
+]);
+
+function plan(source: string, args: { idCase?: any; nameCase?: any; titleCase?: any }) {
+  const root = parseTree(source);
+  if (!root) throw new Error('parse failed');
+  return planCaseChanges({
+    source,
+    root,
+    idCase: args.idCase ?? null,
+    nameCase: args.nameCase ?? null,
+    titleCase: args.titleCase ?? null,
+  });
+}
+
+describe('planCaseChanges', () => {
+  it('--all-snake on FIXTURE_WITH_TITLE produces id+name+valueCanonical edits', () => {
+    const r = plan(FIXTURE_WITH_TITLE, { idCase: 'lower_snake', nameCase: 'lower_snake', titleCase: 'lower_snake' });
+    expect(r.errors).toEqual([]);
+    // OpDef1 (was kebab id, Pascal name, snake title) -> id+name change.
+    // OpDef2 (magnitude) is single-token, no string changes.
+    // The kebab #ref to OpDef1 is rewritten to #snake.
+    const fields = r.records.map((x) => `${x.opId}.${x.field}`).sort();
+    expect(fields).toEqual([
+      'is-strictly-comparable-to.id',
+      'is-strictly-comparable-to.name',
+      'is_strictly_comparable_to.valueCanonical',
+    ]);
+    const out = applyEdits(FIXTURE_WITH_TITLE, r.edits);
+    expect(out).toContain('"id" : "is_strictly_comparable_to"');
+    expect(out).toContain('"name" : "is_strictly_comparable_to"');
+    expect(out).toContain('"valueCanonical" : "#is_strictly_comparable_to"');
+    expect(out).toContain('"valueCanonical" : "#magnitude"');
+  });
+
+  it('--all-fhir on FIXTURE_WITH_TITLE only flips name/title (id+ext already kebab)', () => {
+    const r = plan(FIXTURE_WITH_TITLE, { idCase: 'lower-kebab', nameCase: 'UpperPascal', titleCase: 'UpperPascal' });
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(FIXTURE_WITH_TITLE, r.edits);
+    // OpDef1: id stays kebab (lower-kebab); name already Pascal; title flips snake->Pascal.
+    expect(out).toContain('"id" : "is-strictly-comparable-to"');
+    expect(out).toContain('"name" : "IsStrictlyComparableTo"');
+    expect(out).toContain('"title" : "IsStrictlyComparableTo"');
+    // OpDef2: magnitude (single token) gets Pascal name+title.
+    expect(out).toContain('"name" : "Magnitude"');
+    expect(out).toContain('"title" : "Magnitude"');
+    // No rewrites needed for the ext frags (already kebab/single-token).
+    expect(out).toContain('"valueCanonical" : "#is-strictly-comparable-to"');
+    expect(out).toContain('"valueCanonical" : "#magnitude"');
+  });
+
+  it('preserves bytes outside planned edit ranges (CRLF, indentation, separator)', () => {
+    const r = plan(FIXTURE_WITH_TITLE, { idCase: 'lower_snake', nameCase: 'lower_snake' });
+    const out = applyEdits(FIXTURE_WITH_TITLE, r.edits);
+    // Same number of CRLF tokens (we only swap string values)
+    const crlfCount = (s: string) => (s.match(/\r\n/g) ?? []).length;
+    expect(crlfCount(out)).toBe(crlfCount(FIXTURE_WITH_TITLE));
+    // Same trailing byte
+    expect(out.charCodeAt(out.length - 1)).toBe(FIXTURE_WITH_TITLE.charCodeAt(FIXTURE_WITH_TITLE.length - 1));
+    // Same separator style preserved
+    expect(out).toContain('"id" : "is_strictly_comparable_to"');
+  });
+
+  it('is idempotent: re-planning on the output yields zero edits and zero records', () => {
+    const r1 = plan(FIXTURE_WITH_TITLE, { idCase: 'lower_snake', nameCase: 'lower_snake', titleCase: 'lower_snake' });
+    const out = applyEdits(FIXTURE_WITH_TITLE, r1.edits);
+    const r2 = plan(out, { idCase: 'lower_snake', nameCase: 'lower_snake', titleCase: 'lower_snake' });
+    expect(r2.edits).toEqual([]);
+    expect(r2.records).toEqual([]);
+    expect(r2.errors).toEqual([]);
+  });
+
+  it('inserts a missing title with matching CRLF + 4-space indent (after name)', () => {
+    const fixtureNoTitle = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "name" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(fixtureNoTitle, { titleCase: 'lower_snake' });
+    expect(r.errors).toEqual([]);
+    expect(r.records).toEqual([
+      { opId: 'magnitude', field: 'title', oldValue: null, newValue: 'magnitude' },
+    ]);
+    const out = applyEdits(fixtureNoTitle, r.edits);
+    // Inserted after "name", before "code", with CRLF + 4-space indent and " : " separator.
+    expect(out).toContain('"name" : "magnitude",\r\n    "title" : "magnitude",\r\n    "code"');
+  });
+
+  it('inserts a missing title using LF EOL when the host file is LF', () => {
+    const fixtureLf =
+      '{\n' +
+      '  "contained" : [{\n' +
+      '    "resourceType" : "OperationDefinition",\n' +
+      '    "id" : "magnitude",\n' +
+      '    "name" : "magnitude",\n' +
+      '    "code" : "magnitude"\n' +
+      '  }]\n' +
+      '}';
+    const r = plan(fixtureLf, { titleCase: 'lower_snake' });
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixtureLf, r.edits);
+    expect(out).toContain('"name" : "magnitude",\n    "title" : "magnitude",\n    "code"');
+    expect(out).not.toContain('\r');
+  });
+
+  it('detects duplicate ids after re-casing', () => {
+    const dup = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "name" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  },',
+      '  {',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "Magnitude",',
+      '    "name" : "Magnitude",',
+      '    "code" : "magnitude"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(dup, { idCase: 'lower_snake', nameCase: 'lower_snake' });
+    expect(r.errors.some((e) => e.includes("duplicate"))).toBe(true);
+  });
+
+  it('detects unresolved valueCanonical fragments (case-changing mode)', () => {
+    const broken = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "name" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "#nonexistent_function"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(broken, { idCase: 'lower_snake' });
+    expect(r.errors.some((e) => e.includes("does not resolve"))).toBe(true);
+  });
+
+  it('skips absolute-URL valueCanonical refs silently', () => {
+    const absolute = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "name" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "http://example.org/other#magnitude"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(absolute, { idCase: 'lower_snake' });
+    expect(r.errors).toEqual([]);
   });
 });
