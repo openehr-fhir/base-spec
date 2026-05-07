@@ -3,8 +3,8 @@
   "id" : "REVISION-HISTORY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "most-recent-version",
-    "name" : "MostRecentVersion",
+    "id" : "most_recent_version",
+    "name" : "most_recent_version",
     "title" : "most_recent_version",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "most-recent-version-time-committed",
-    "name" : "MostRecentVersionTimeCommitted",
+    "id" : "most_recent_version_time_committed",
+    "name" : "most_recent_version_time_committed",
     "title" : "most_recent_version_time_committed",
     "status" : "active",
     "kind" : "operation",

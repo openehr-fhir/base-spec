@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "offset",
-    "name" : "Offset",
+    "name" : "offset",
     "title" : "offset",
     "status" : "active",
     "kind" : "operation",

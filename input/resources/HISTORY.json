@@ -3,8 +3,8 @@
   "id" : "HISTORY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-periodic",
-    "name" : "IsPeriodic",
+    "id" : "is_periodic",
+    "name" : "is_periodic",
     "title" : "is_periodic",
     "status" : "active",
     "kind" : "operation",

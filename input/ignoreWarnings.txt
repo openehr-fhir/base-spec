@@ -11,3 +11,11 @@ Rule eld-20: 'The first component of the path should be UpperCamelCase.%
 
 # don't care
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+
+# openEHR IG publishes operations on logical-model SDs by attaching
+# the hl7.fhir.uv.tools `type-operation` extension at the SD root.
+# The current upstream extension definition restricts its context to
+# Extension/Extension.value, so the validator complains; pending an
+# upstream context expansion (or migration to a different carrier),
+# we suppress the message and keep the carrier as-is.
+The extension http://hl7.org/fhir/tools/StructureDefinition/type-operation v1.1.2 is not allowed to be used at this point (this element is [StructureDefinition]; allowed for this version = e:Extension, e:Extension.value)

@@ -3,8 +3,8 @@
   "id" : "OPENEHR-CODE-SET-IDENTIFIERS",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid-code-set-id",
-    "name" : "ValidCodeSetId",
+    "id" : "valid_code_set_id",
+    "name" : "valid_code_set_id",
     "title" : "valid_code_set_id",
     "status" : "active",
     "kind" : "operation",

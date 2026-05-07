@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "parent",
-    "name" : "Parent",
+    "name" : "parent",
     "title" : "parent",
     "status" : "active",
     "kind" : "operation",
@@ -22,8 +22,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "item-at-path",
-    "name" : "ItemAtPath",
+    "id" : "item_at_path",
+    "name" : "item_at_path",
     "title" : "item_at_path",
     "status" : "active",
     "kind" : "operation",
@@ -48,8 +48,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "items-at-path",
-    "name" : "ItemsAtPath",
+    "id" : "items_at_path",
+    "name" : "items_at_path",
     "title" : "items_at_path",
     "status" : "active",
     "kind" : "operation",
@@ -75,8 +75,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path-exists",
-    "name" : "PathExists",
+    "id" : "path_exists",
+    "name" : "path_exists",
     "title" : "path_exists",
     "status" : "active",
     "kind" : "operation",
@@ -101,8 +101,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path-unique",
-    "name" : "PathUnique",
+    "id" : "path_unique",
+    "name" : "path_unique",
     "title" : "path_unique",
     "status" : "active",
     "kind" : "operation",
@@ -127,8 +127,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path-of-item",
-    "name" : "PathOfItem",
+    "id" : "path_of_item",
+    "name" : "path_of_item",
     "title" : "path_of_item",
     "status" : "active",
     "kind" : "operation",

@@ -3,8 +3,8 @@
   "id" : "MEASUREMENT-SERVICE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-valid-units-string",
-    "name" : "IsValidUnitsString",
+    "id" : "is_valid_units_string",
+    "name" : "is_valid_units_string",
     "title" : "is_valid_units_string",
     "status" : "active",
     "kind" : "operation",
@@ -30,8 +30,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "units-equivalent",
-    "name" : "UnitsEquivalent",
+    "id" : "units_equivalent",
+    "name" : "units_equivalent",
     "title" : "units_equivalent",
     "status" : "active",
     "kind" : "operation",

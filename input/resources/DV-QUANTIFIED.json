@@ -3,8 +3,8 @@
   "id" : "DV-QUANTIFIED",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid-magnitude-status",
-    "name" : "ValidMagnitudeStatus",
+    "id" : "valid_magnitude_status",
+    "name" : "valid_magnitude_status",
     "title" : "valid_magnitude_status",
     "status" : "active",
     "kind" : "operation",
@@ -23,7 +23,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "magnitude",
-    "name" : "Magnitude",
+    "name" : "magnitude",
     "title" : "magnitude",
     "status" : "active",
     "kind" : "operation",
@@ -41,8 +41,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "accuracy-unknown",
-    "name" : "AccuracyUnknown",
+    "id" : "accuracy_unknown",
+    "name" : "accuracy_unknown",
     "title" : "accuracy_unknown",
     "status" : "active",
     "kind" : "operation",
@@ -61,8 +61,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-equal",
-    "name" : "IsEqual",
+    "id" : "is_equal",
+    "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
     "kind" : "operation",
@@ -88,8 +88,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less-than",
-    "name" : "LessThan",
+    "id" : "less_than",
+    "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",

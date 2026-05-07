@@ -3,8 +3,8 @@
   "id" : "DV-ORDERED",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-strictly-comparable-to",
-    "name" : "IsStrictlyComparableTo",
+    "id" : "is_strictly_comparable_to",
+    "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
     "kind" : "operation",
@@ -30,8 +30,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-simple",
-    "name" : "IsSimple",
+    "id" : "is_simple",
+    "name" : "is_simple",
     "title" : "is_simple",
     "status" : "active",
     "kind" : "operation",
@@ -50,8 +50,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-normal",
-    "name" : "IsNormal",
+    "id" : "is_normal",
+    "name" : "is_normal",
     "title" : "is_normal",
     "status" : "active",
     "kind" : "operation",
@@ -69,8 +69,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less-than",
-    "name" : "LessThan",
+    "id" : "less_than",
+    "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",

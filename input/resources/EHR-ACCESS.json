@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "scheme",
-    "name" : "Scheme",
+    "name" : "scheme",
     "title" : "scheme",
     "status" : "active",
     "kind" : "operation",

@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "concept",
-    "name" : "Concept",
+    "name" : "concept",
     "title" : "concept",
     "status" : "active",
     "kind" : "operation",
@@ -22,8 +22,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-archetype-root",
-    "name" : "IsArchetypeRoot",
+    "id" : "is_archetype_root",
+    "name" : "is_archetype_root",
     "title" : "is_archetype_root",
     "status" : "active",
     "kind" : "operation",

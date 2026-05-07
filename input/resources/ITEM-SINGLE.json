@@ -3,8 +3,8 @@
   "id" : "ITEM-SINGLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as-hierarchy",
-    "name" : "AsHierarchy",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",

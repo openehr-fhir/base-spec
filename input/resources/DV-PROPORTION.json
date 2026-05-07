@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "magnitude",
-    "name" : "Magnitude",
+    "name" : "magnitude",
     "title" : "magnitude",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-integral",
-    "name" : "IsIntegral",
+    "id" : "is_integral",
+    "name" : "is_integral",
     "title" : "is_integral",
     "status" : "active",
     "kind" : "operation",
@@ -44,7 +44,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "add",
-    "name" : "Add",
+    "name" : "add",
     "title" : "add",
     "status" : "active",
     "kind" : "operation",
@@ -71,7 +71,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "subtract",
-    "name" : "Subtract",
+    "name" : "subtract",
     "title" : "subtract",
     "status" : "active",
     "kind" : "operation",
@@ -97,8 +97,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-equal",
-    "name" : "IsEqual",
+    "id" : "is_equal",
+    "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
     "kind" : "operation",
@@ -125,7 +125,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "multiply",
-    "name" : "Multiply",
+    "name" : "multiply",
     "title" : "multiply",
     "status" : "active",
     "kind" : "operation",
@@ -151,8 +151,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less-than",
-    "name" : "LessThan",
+    "id" : "less_than",
+    "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
@@ -178,8 +178,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-strictly-comparable-to",
-    "name" : "IsStrictlyComparableTo",
+    "id" : "is_strictly_comparable_to",
+    "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
     "kind" : "operation",

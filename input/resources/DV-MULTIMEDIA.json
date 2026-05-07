@@ -3,8 +3,8 @@
   "id" : "DV-MULTIMEDIA",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-external",
-    "name" : "IsExternal",
+    "id" : "is_external",
+    "name" : "is_external",
     "title" : "is_external",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-inline",
-    "name" : "IsInline",
+    "id" : "is_inline",
+    "name" : "is_inline",
     "title" : "is_inline",
     "status" : "active",
     "kind" : "operation",
@@ -42,8 +42,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-compressed",
-    "name" : "IsCompressed",
+    "id" : "is_compressed",
+    "name" : "is_compressed",
     "title" : "is_compressed",
     "status" : "active",
     "kind" : "operation",
@@ -61,8 +61,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has-integrity-check",
-    "name" : "HasIntegrityCheck",
+    "id" : "has_integrity_check",
+    "name" : "has_integrity_check",
     "title" : "has_integrity_check",
     "status" : "active",
     "kind" : "operation",

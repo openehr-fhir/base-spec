@@ -3,8 +3,8 @@
   "id" : "VERSIONED-COMPOSITION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-persistent",
-    "name" : "IsPersistent",
+    "id" : "is_persistent",
+    "name" : "is_persistent",
     "title" : "is_persistent",
     "status" : "active",
     "kind" : "operation",

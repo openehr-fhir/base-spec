@@ -3,8 +3,8 @@
   "id" : "REFERENCE-RANGE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-in-range",
-    "name" : "IsInRange",
+    "id" : "is_in_range",
+    "name" : "is_in_range",
     "title" : "is_in_range",
     "status" : "active",
     "kind" : "operation",

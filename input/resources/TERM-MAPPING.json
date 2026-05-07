@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "narrower",
-    "name" : "Narrower",
+    "name" : "narrower",
     "title" : "narrower",
     "status" : "active",
     "kind" : "operation",
@@ -24,7 +24,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "broader",
-    "name" : "Broader",
+    "name" : "broader",
     "title" : "broader",
     "status" : "active",
     "kind" : "operation",
@@ -44,7 +44,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "equivalent",
-    "name" : "Equivalent",
+    "name" : "equivalent",
     "title" : "equivalent",
     "status" : "active",
     "kind" : "operation",
@@ -64,7 +64,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "unknown",
-    "name" : "Unknown",
+    "name" : "unknown",
     "title" : "unknown",
     "status" : "active",
     "kind" : "operation",
@@ -83,8 +83,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-valid-match-code",
-    "name" : "IsValidMatchCode",
+    "id" : "is_valid_match_code",
+    "name" : "is_valid_match_code",
     "title" : "is_valid_match_code",
     "status" : "active",
     "kind" : "operation",

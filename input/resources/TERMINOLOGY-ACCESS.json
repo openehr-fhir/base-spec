@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "id",
-    "name" : "Id",
+    "name" : "id",
     "title" : "id",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all-codes",
-    "name" : "AllCodes",
+    "id" : "all_codes",
+    "name" : "all_codes",
     "title" : "all_codes",
     "status" : "active",
     "kind" : "operation",
@@ -43,8 +43,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes-for-group-id",
-    "name" : "CodesForGroupId",
+    "id" : "codes_for_group_id",
+    "name" : "codes_for_group_id",
     "title" : "codes_for_group_id",
     "status" : "active",
     "kind" : "operation",
@@ -70,8 +70,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes-for-group-name",
-    "name" : "CodesForGroupName",
+    "id" : "codes_for_group_name",
+    "name" : "codes_for_group_name",
     "title" : "codes_for_group_name",
     "status" : "active",
     "kind" : "operation",
@@ -104,8 +104,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has-code-for-group-id",
-    "name" : "HasCodeForGroupId",
+    "id" : "has_code_for_group_id",
+    "name" : "has_code_for_group_id",
     "title" : "has_code_for_group_id",
     "status" : "active",
     "kind" : "operation",
@@ -124,8 +124,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "rubric-for-code",
-    "name" : "RubricForCode",
+    "id" : "rubric_for_code",
+    "name" : "rubric_for_code",
     "title" : "rubric_for_code",
     "status" : "active",
     "kind" : "operation",

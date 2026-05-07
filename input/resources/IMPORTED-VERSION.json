@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "uid",
-    "name" : "Uid",
+    "name" : "uid",
     "title" : "uid",
     "status" : "active",
     "kind" : "operation",
@@ -22,8 +22,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "preceding-version-uid",
-    "name" : "PrecedingVersionUid",
+    "id" : "preceding_version_uid",
+    "name" : "preceding_version_uid",
     "title" : "preceding_version_uid",
     "status" : "active",
     "kind" : "operation",
@@ -41,8 +41,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "lifecycle-state",
-    "name" : "LifecycleState",
+    "id" : "lifecycle_state",
+    "name" : "lifecycle_state",
     "title" : "lifecycle_state",
     "status" : "active",
     "kind" : "operation",
@@ -62,7 +62,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "data",
-    "name" : "Data",
+    "name" : "data",
     "title" : "data",
     "status" : "active",
     "kind" : "operation",

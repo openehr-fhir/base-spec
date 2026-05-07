@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "period",
-    "name" : "Period",
+    "name" : "period",
     "title" : "period",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "calendar-alignment",
-    "name" : "CalendarAlignment",
+    "id" : "calendar_alignment",
+    "name" : "calendar_alignment",
     "title" : "calendar_alignment",
     "status" : "active",
     "kind" : "operation",
@@ -42,8 +42,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "event-alignment",
-    "name" : "EventAlignment",
+    "id" : "event_alignment",
+    "name" : "event_alignment",
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
@@ -61,8 +61,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "institution-specified",
-    "name" : "InstitutionSpecified",
+    "id" : "institution_specified",
+    "name" : "institution_specified",
     "title" : "institution_specified",
     "status" : "active",
     "kind" : "operation",

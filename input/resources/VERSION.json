@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "uid",
-    "name" : "Uid",
+    "name" : "uid",
     "title" : "uid",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "preceding-version-uid",
-    "name" : "PrecedingVersionUid",
+    "id" : "preceding_version_uid",
+    "name" : "preceding_version_uid",
     "title" : "preceding_version_uid",
     "status" : "active",
     "kind" : "operation",
@@ -44,7 +44,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "data",
-    "name" : "Data",
+    "name" : "data",
     "title" : "data",
     "status" : "active",
     "kind" : "operation",
@@ -63,8 +63,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "lifecycle-state",
-    "name" : "LifecycleState",
+    "id" : "lifecycle_state",
+    "name" : "lifecycle_state",
     "title" : "lifecycle_state",
     "status" : "active",
     "kind" : "operation",
@@ -83,8 +83,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "canonical-form",
-    "name" : "CanonicalForm",
+    "id" : "canonical_form",
+    "name" : "canonical_form",
     "title" : "canonical_form",
     "status" : "active",
     "kind" : "operation",
@@ -103,8 +103,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "owner-id",
-    "name" : "OwnerId",
+    "id" : "owner_id",
+    "name" : "owner_id",
     "title" : "owner_id",
     "status" : "active",
     "kind" : "operation",
@@ -123,8 +123,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-branch",
-    "name" : "IsBranch",
+    "id" : "is_branch",
+    "name" : "is_branch",
     "title" : "is_branch",
     "status" : "active",
     "kind" : "operation",

@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "id",
-    "name" : "Id",
+    "name" : "id",
     "title" : "id",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all-codes",
-    "name" : "AllCodes",
+    "id" : "all_codes",
+    "name" : "all_codes",
     "title" : "all_codes",
     "status" : "active",
     "kind" : "operation",
@@ -43,8 +43,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has-lang",
-    "name" : "HasLang",
+    "id" : "has_lang",
+    "name" : "has_lang",
     "title" : "has_lang",
     "status" : "active",
     "kind" : "operation",
@@ -70,8 +70,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has-code",
-    "name" : "HasCode",
+    "id" : "has_code",
+    "name" : "has_code",
     "title" : "has_code",
     "status" : "active",
     "kind" : "operation",

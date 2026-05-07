@@ -3,8 +3,8 @@
   "id" : "ITEM-TREE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "has-element-path",
-    "name" : "HasElementPath",
+    "id" : "has_element_path",
+    "name" : "has_element_path",
     "title" : "has_element_path",
     "status" : "active",
     "kind" : "operation",
@@ -29,8 +29,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "element-at-path",
-    "name" : "ElementAtPath",
+    "id" : "element_at_path",
+    "name" : "element_at_path",
     "title" : "element_at_path",
     "status" : "active",
     "kind" : "operation",
@@ -56,8 +56,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as-hierarchy",
-    "name" : "AsHierarchy",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",

@@ -3,8 +3,8 @@
   "id" : "ENTRY",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "subject-is-self",
-    "name" : "SubjectIsSelf",
+    "id" : "subject_is_self",
+    "name" : "subject_is_self",
     "title" : "subject_is_self",
     "status" : "active",
     "kind" : "operation",

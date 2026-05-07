@@ -3,8 +3,8 @@
   "id" : "OPENEHR-TERMINOLOGY-GROUP-IDENTIFIERS",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid-terminology-group-id",
-    "name" : "ValidTerminologyGroupId",
+    "id" : "valid_terminology_group_id",
+    "name" : "valid_terminology_group_id",
     "title" : "valid_terminology_group_id",
     "status" : "active",
     "kind" : "operation",

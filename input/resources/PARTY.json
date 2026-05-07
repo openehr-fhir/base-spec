@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "type",
-    "name" : "Type",
+    "name" : "type",
     "title" : "type",
     "status" : "active",
     "kind" : "operation",

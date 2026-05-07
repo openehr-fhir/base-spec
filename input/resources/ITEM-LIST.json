@@ -3,8 +3,8 @@
   "id" : "ITEM-LIST",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "item-count",
-    "name" : "ItemCount",
+    "id" : "item_count",
+    "name" : "item_count",
     "title" : "item_count",
     "status" : "active",
     "kind" : "operation",
@@ -24,7 +24,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "names",
-    "name" : "Names",
+    "name" : "names",
     "title" : "names",
     "status" : "active",
     "kind" : "operation",
@@ -43,8 +43,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "named-item",
-    "name" : "NamedItem",
+    "id" : "named_item",
+    "name" : "named_item",
     "title" : "named_item",
     "status" : "active",
     "kind" : "operation",
@@ -70,8 +70,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "ith-item",
-    "name" : "IthItem",
+    "id" : "ith_item",
+    "name" : "ith_item",
     "title" : "ith_item",
     "status" : "active",
     "kind" : "operation",
@@ -97,8 +97,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as-hierarchy",
-    "name" : "AsHierarchy",
+    "id" : "as_hierarchy",
+    "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",

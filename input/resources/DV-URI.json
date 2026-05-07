@@ -4,7 +4,7 @@
   "contained" : [{
     "resourceType" : "OperationDefinition",
     "id" : "scheme",
-    "name" : "Scheme",
+    "name" : "scheme",
     "title" : "scheme",
     "status" : "active",
     "kind" : "operation",
@@ -23,7 +23,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "path",
-    "name" : "Path",
+    "name" : "path",
     "title" : "path",
     "status" : "active",
     "kind" : "operation",
@@ -41,8 +41,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "fragment-id",
-    "name" : "FragmentId",
+    "id" : "fragment_id",
+    "name" : "fragment_id",
     "title" : "fragment_id",
     "status" : "active",
     "kind" : "operation",
@@ -61,7 +61,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "query",
-    "name" : "Query",
+    "name" : "query",
     "title" : "query",
     "status" : "active",
     "kind" : "operation",

@@ -3,8 +3,8 @@
   "id" : "AUTHORED-RESOURCE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "current-revision",
-    "name" : "CurrentRevision",
+    "id" : "current_revision",
+    "name" : "current_revision",
     "title" : "current_revision",
     "status" : "active",
     "kind" : "operation",
@@ -23,8 +23,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "languages-available",
-    "name" : "LanguagesAvailable",
+    "id" : "languages_available",
+    "name" : "languages_available",
     "title" : "languages_available",
     "status" : "active",
     "kind" : "operation",

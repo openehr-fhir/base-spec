@@ -3,8 +3,8 @@
   "id" : "ELEMENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-null",
-    "name" : "IsNull",
+    "id" : "is_null",
+    "name" : "is_null",
     "title" : "is_null",
     "status" : "active",
     "kind" : "operation",

@@ -3,8 +3,8 @@
   "id" : "DV-AMOUNT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid-percentage",
-    "name" : "ValidPercentage",
+    "id" : "valid_percentage",
+    "name" : "valid_percentage",
     "title" : "valid_percentage",
     "status" : "active",
     "kind" : "operation",
@@ -31,7 +31,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "add",
-    "name" : "Add",
+    "name" : "add",
     "title" : "add",
     "status" : "active",
     "kind" : "operation",
@@ -58,7 +58,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "subtract",
-    "name" : "Subtract",
+    "name" : "subtract",
     "title" : "subtract",
     "status" : "active",
     "kind" : "operation",
@@ -84,8 +84,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is-equal",
-    "name" : "IsEqual",
+    "id" : "is_equal",
+    "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
     "kind" : "operation",
@@ -112,7 +112,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "multiply",
-    "name" : "Multiply",
+    "name" : "multiply",
     "title" : "multiply",
     "status" : "active",
     "kind" : "operation",
@@ -139,7 +139,7 @@
   {
     "resourceType" : "OperationDefinition",
     "id" : "negative",
-    "name" : "Negative",
+    "name" : "negative",
     "title" : "negative",
     "status" : "active",
     "kind" : "operation",
@@ -158,8 +158,8 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less-than",
-    "name" : "LessThan",
+    "id" : "less_than",
+    "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",

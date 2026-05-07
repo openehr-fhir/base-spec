@@ -3,8 +3,8 @@
   "id" : "ORIGINAL-VERSION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is-merged",
-    "name" : "IsMerged",
+    "id" : "is_merged",
+    "name" : "is_merged",
     "title" : "is_merged",
     "status" : "active",
     "kind" : "operation",
