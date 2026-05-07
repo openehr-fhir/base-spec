@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_media-types"
   }],
-  "url" : "http://openehr.org/fhir/ValueSet/media-types",
+  "url" : "http://specifications.openehr.org/fhir/valueset-media_types",
   "version" : "3.0.0",
   "name" : "MEDIA_TYPES",
   "title" : "MEDIA_TYPES",
@@ -23,7 +23,7 @@
   "description" : "This IANA (Internet Naming Authority) code set consists of the names of media types. Used in: DV_MULTIMEDIA.media_type.",
   "compose" : {
     "include" : [{
-      "system" : "https://specifications.openehr.org/fhir/codesystem-media-types"
+      "system" : "https://specifications.openehr.org/fhir/codesystem-media_types"
     }]
   }
 }
