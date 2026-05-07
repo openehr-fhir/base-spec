@@ -46,3 +46,9 @@ translations/
 Requirements-fromNarrative.json
 
 scratch/
+
+# tools/ Bun workspace #
+########################
+tools/node_modules/
+tools/bun.lock
+tools/bun.lockb
