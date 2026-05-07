@@ -2,6 +2,7 @@ import { describe, expect, it } from "bun:test";
 import { applyEdits, parseTree } from "jsonc-parser";
 import { parseArgv } from "./lib/argv.ts";
 import { planCaseChanges } from "./lib/edits.ts";
+import { planRepair, resolveRefByTokens } from "./lib/repair.ts";
 import {
   ALLOWED_ID_CASES,
   ALLOWED_NAME_CASES,
@@ -486,5 +487,125 @@ describe('planCaseChanges', () => {
     ]);
     const r = plan(absolute, { idCase: 'lower_snake' });
     expect(r.errors).toEqual([]);
+  });
+});
+
+describe('resolveRefByTokens', () => {
+  it('exact-token match returns the matching id', () => {
+    const r = resolveRefByTokens('is_strictly_comparable_to', [
+      'is-strictly-comparable-to',
+      'magnitude',
+    ]);
+    expect(r).toEqual({ kind: 'match', id: 'is-strictly-comparable-to' });
+  });
+
+  it('returns none when no id has the same token sequence', () => {
+    const r = resolveRefByTokens('typo_func', ['magnitude', 'add']);
+    expect(r.kind).toBe('none');
+  });
+
+  it('returns ambiguous when multiple ids share the token sequence', () => {
+    const r = resolveRefByTokens('foo_bar', ['foo-bar', 'fooBar']);
+    expect(r.kind).toBe('ambiguous');
+    if (r.kind === 'ambiguous') {
+      expect(r.ids.sort()).toEqual(['foo-bar', 'fooBar'].sort());
+    }
+  });
+});
+
+describe('planRepair', () => {
+  it('rewrites #snake fragment to match a kebab id', () => {
+    const broken = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "is-strictly-comparable-to",',
+      '    "code" : "is_strictly_comparable_to"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "#is_strictly_comparable_to"',
+      '  }]',
+      '}',
+    ]);
+    const root = parseTree(broken)!;
+    const r = planRepair({ source: broken, root });
+    expect(r.errors).toEqual([]);
+    expect(r.records).toEqual([
+      {
+        opId: 'is-strictly-comparable-to',
+        field: 'valueCanonical',
+        oldValue: '#is_strictly_comparable_to',
+        newValue: '#is-strictly-comparable-to',
+      },
+    ]);
+    const out = applyEdits(broken, r.edits);
+    expect(out).toContain('"valueCanonical" : "#is-strictly-comparable-to"');
+  });
+
+  it('emits zero edits when all fragments already match', () => {
+    const aligned = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "#magnitude"',
+      '  }]',
+      '}',
+    ]);
+    const root = parseTree(aligned)!;
+    const r = planRepair({ source: aligned, root });
+    expect(r.errors).toEqual([]);
+    expect(r.edits).toEqual([]);
+    expect(r.records).toEqual([]);
+  });
+
+  it('errors on a fragment that resolves to no OpDef', () => {
+    const broken = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "#typo_func"',
+      '  }]',
+      '}',
+    ]);
+    const root = parseTree(broken)!;
+    const r = planRepair({ source: broken, root });
+    expect(r.errors.some((e) => e.includes('does not resolve'))).toBe(true);
+    expect(r.edits).toEqual([]);
+  });
+
+  it('errors (and writes nothing) when a fragment is ambiguous', () => {
+    const ambiguous = crlf([
+      '{',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "foo-bar",',
+      '    "code" : "foo_bar"',
+      '  },',
+      '  {',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "fooBar",',
+      '    "code" : "foo_bar"',
+      '  }],',
+      '  "extension" : [{',
+      '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+      '    "valueCanonical" : "#foo_bar"',
+      '  }]',
+      '}',
+    ]);
+    const root = parseTree(ambiguous)!;
+    const r = planRepair({ source: ambiguous, root });
+    expect(r.errors.some((e) => e.includes('ambiguous'))).toBe(true);
+    expect(r.edits).toEqual([]);
   });
 });

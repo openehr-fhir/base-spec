@@ -7,6 +7,7 @@ import { join, relative } from "node:path";
 import { applyEdits, parseTree, printParseErrorCode } from "jsonc-parser";
 import { parseArgv } from "./lib/argv.ts";
 import { planCaseChanges, type ChangeRecord } from "./lib/edits.ts";
+import { planRepair } from "./lib/repair.ts";
 
 const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions.
 
@@ -64,9 +65,15 @@ function processFile(
     };
   }
   if (args.repair) {
-    // Phase 5 wires up planRepair; for Phase 4 the case-changing path
-    // is the only one that produces edits.
-    return { relPath, records: [], errors: [], newSource: null };
+    const plan = planRepair({ source, root });
+    if (plan.errors.length > 0) {
+      return { relPath, records: [], errors: plan.errors, newSource: null };
+    }
+    if (plan.edits.length === 0) {
+      return { relPath, records: [], errors: [], newSource: null };
+    }
+    const newSource = applyEdits(source, plan.edits);
+    return { relPath, records: plan.records, errors: [], newSource };
   }
   const plan = planCaseChanges({
     source,
