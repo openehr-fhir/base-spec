@@ -32,6 +32,10 @@ Exit codes:
   0  success (any number of changes, including zero)
   1  one or more files reported errors
   2  argv/usage error, or no case-specifying flag and no --repair
+
+Examples and the full flag-combination rules live in tools/README.md.
+Tip: if existing #refs and OpDef ids are out of sync, run --repair
+first, then the case-changing flag of your choice.
 `;
 
 interface FileResult {
