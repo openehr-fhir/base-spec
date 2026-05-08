@@ -457,7 +457,7 @@ const FIXTURE_WITH_TITLE = crlf([
   '}',
 ]);
 
-function plan(source: string, args: { idCase?: any; nameCase?: any; titleCase?: any }) {
+function plan(source: string, args: { idCase?: any; nameCase?: any; titleCase?: any; structureIdCase?: any; structureNameCase?: any; structureTitleCase?: any }) {
   const root = parseTree(source);
   if (!root) throw new Error('parse failed');
   return planCaseChanges({
@@ -466,6 +466,9 @@ function plan(source: string, args: { idCase?: any; nameCase?: any; titleCase?: 
     idCase: args.idCase ?? null,
     nameCase: args.nameCase ?? null,
     titleCase: args.titleCase ?? null,
+    structureIdCase: args.structureIdCase ?? null,
+    structureNameCase: args.structureNameCase ?? null,
+    structureTitleCase: args.structureTitleCase ?? null,
   });
 }
 
@@ -776,6 +779,139 @@ function captureRun(argv: string[], resourcesDir: string): { code: number; out: 
   });
   return { code, out, err };
 }
+
+describe('SD field flags (planCaseChanges structureIdCase/etc)', () => {
+  it('--structure-id mutates SD.id only, leaves contained OpDef alone', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "magnitude",',
+      '    "name" : "magnitude",',
+      '    "code" : "magnitude"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(fixture, { structureIdCase: 'lower-kebab' } as any);
+    expect(r.errors).toEqual([]);
+    expect(r.records).toEqual([
+      { opId: 'ACTIVITY', field: 'sd.id', oldValue: 'ACTIVITY', newValue: 'activity' },
+    ]);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"id" : "activity"');
+    // OpDef untouched (single-token magnitude renders as "magnitude" in any case anyway,
+    // but SD-only flags should never even visit the OpDef).
+    expect(out).toContain('"id" : "magnitude"');
+  });
+
+  it('--structure-name + --structure-title work; missing title is inserted', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY-ITEM-STRUCTURE",',
+      '  "name" : "ACTIVITY-ITEM-STRUCTURE"',
+      '}',
+    ]);
+    const r = plan(fixture, {
+      structureNameCase: 'UpperPascal',
+      structureTitleCase: 'Title-Kebab',
+    } as any);
+    expect(r.errors).toEqual([]);
+    const fields = r.records.map((x) => `${x.opId}.${x.field}`).sort();
+    expect(fields).toEqual([
+      'ACTIVITY-ITEM-STRUCTURE.sd.name',
+      'ACTIVITY-ITEM-STRUCTURE.sd.title',
+    ]);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"name" : "ActivityItemStructure"');
+    // Title was inserted after the existing name property, with matching CRLF + 2-space indent.
+    expect(out).toContain('"name" : "ActivityItemStructure",\r\n  "title" : "Activity-Item-Structure"');
+  });
+
+  it('composes operation-side and structure-side flags in one pass', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "contained" : [{',
+      '    "resourceType" : "OperationDefinition",',
+      '    "id" : "less-than",',
+      '    "name" : "LessThan",',
+      '    "title" : "less_than",',
+      '    "code" : "less_than"',
+      '  }]',
+      '}',
+    ]);
+    const r = plan(fixture, {
+      idCase: 'lower_snake',
+      structureIdCase: 'lower-kebab',
+    } as any);
+    expect(r.errors).toEqual([]);
+    const fields = r.records.map((x) => `${x.opId}.${x.field}`).sort();
+    expect(fields).toEqual(['ACTIVITY.sd.id', 'less-than.id']);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"id" : "activity"');
+    expect(out).toContain('"id" : "less_than"');
+  });
+
+  it('non-SD root file is silently skipped by SD-side flags', () => {
+    const codeSystem = crlf([
+      '{',
+      '  "resourceType" : "CodeSystem",',
+      '  "id" : "MEDIA-TYPES",',
+      '  "url" : "http://example.org/cs/MEDIA-TYPES"',
+      '}',
+    ]);
+    const r = plan(codeSystem, {
+      structureIdCase: 'lower-kebab',
+      structureNameCase: 'UpperPascal',
+      structureTitleCase: 'lower_snake',
+    } as any);
+    expect(r.errors).toEqual([]);
+    expect(r.edits).toEqual([]);
+    expect(r.records).toEqual([]);
+  });
+
+  it('SD with no usable id/name/title errors when SD-side cases are requested', () => {
+    const noTokens = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "url" : "http://example.org/sd/foo"',
+      '}',
+    ]);
+    const r = plan(noTokens, { structureIdCase: 'lower-kebab' } as any);
+    expect(r.errors.some((e) => e.includes('no usable id/name/title'))).toBe(true);
+  });
+});
+
+describe('runWith (end-to-end) > SD field flags', () => {
+  it('--structure-id lower-kebab on a single-SD file updates only the SD.id', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'ACTIVITY.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "magnitude",',
+        '    "name" : "magnitude",',
+        '    "code" : "magnitude"',
+        '  }]',
+        '}',
+      ]));
+      const r = captureRun(['--structure-id', 'lower-kebab', '--update'], dir);
+      expect(r.code).toBe(0);
+      expect(r.out).toContain('ACTIVITY.id: "ACTIVITY" -> "activity"');
+      const after = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
+      expect(after).toContain('"id" : "activity"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
 
 describe('runWith (end-to-end)', () => {
   it('emits the expected report and writes byte-identical post-edit bytes', () => {

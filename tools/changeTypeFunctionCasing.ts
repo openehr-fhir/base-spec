@@ -112,6 +112,9 @@ function processFile(
     idCase: args.operationIdCase,
     nameCase: args.operationNameCase,
     titleCase: args.operationTitleCase,
+    structureIdCase: args.structureIdCase,
+    structureNameCase: args.structureNameCase,
+    structureTitleCase: args.structureTitleCase,
   });
   allErrors.push(...cc.errors);
   allEdits.push(...cc.edits);
@@ -159,10 +162,16 @@ function processFile(
 function formatRecords(records: readonly ChangeRecord[]): string[] {
   const lines: string[] = [];
   for (const r of records) {
+    // SD-rooted records use the "sd." prefix internally to disambiguate
+    // from OpDef records; render as "<sd-id>.<field>" by stripping the
+    // prefix in the output.
+    const renderedField = r.field.startsWith("sd.")
+      ? r.field.slice("sd.".length)
+      : r.field;
     if (r.oldValue === null) {
-      lines.push(`  ${r.opId}.${r.field}: <inserted> "${r.newValue}"`);
+      lines.push(`  ${r.opId}.${renderedField}: <inserted> "${r.newValue}"`);
     } else {
-      lines.push(`  ${r.opId}.${r.field}: "${r.oldValue}" -> "${r.newValue}"`);
+      lines.push(`  ${r.opId}.${renderedField}: "${r.oldValue}" -> "${r.newValue}"`);
     }
   }
   return lines;

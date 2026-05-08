@@ -13,12 +13,18 @@ import {
 import { format, tokenize, type Case } from "./casing.ts";
 
 export type FieldName = "id" | "name" | "title";
+export type SdFieldName = "sd.id" | "sd.name" | "sd.title";
 
 export interface ChangeRecord {
-  /** Original OperationDefinition.id, used as the row key in the report. */
+  /**
+   * Row key for the report line. For OpDef-rooted records this is the
+   * (pre-rename) OperationDefinition.id. For SD-rooted records this is
+   * the (pre-rename) StructureDefinition.id (or the file's basename
+   * fallback when the SD has no id).
+   */
   opId: string;
-  /** "id" | "name" | "title" | "valueCanonical" */
-  field: FieldName | "valueCanonical";
+  /** Field discriminator. SD records use the "sd." prefix internally. */
+  field: FieldName | SdFieldName | "valueCanonical";
   /** Original value, or null when this is an inserted property. */
   oldValue: string | null;
   /** New value (without surrounding quotes; for valueCanonical includes the leading "#"). */
@@ -28,10 +34,14 @@ export interface ChangeRecord {
 export interface PlannerInput {
   source: string;
   root: Node;
-  /** Per-field cases, each may be null to mean "leave alone". */
+  /** Operation-side (contained OpDef) per-field cases. */
   idCase: Case | null;
   nameCase: Case | null;
   titleCase: Case | null;
+  /** Structure-side (parent StructureDefinition) per-field cases. */
+  structureIdCase?: Case | null;
+  structureNameCase?: Case | null;
+  structureTitleCase?: Case | null;
 }
 
 export interface PlannerOutput {
@@ -48,6 +58,16 @@ interface OpDefSite {
   /** Original id text (unchanged copy of the JSON value). */
   originalId: string | null;
   originalCode: string | null;
+  originalName: string | null;
+  originalTitle: string | null;
+}
+
+interface SdSite {
+  /** Root SD object node. */
+  obj: Node;
+  /** Property nodes for SD top-level id/name/title (when present). */
+  props: Partial<Record<FieldName, Node>>;
+  originalId: string | null;
   originalName: string | null;
   originalTitle: string | null;
 }
@@ -121,6 +141,55 @@ export function collectOpDefs(root: Node): OpDefSite[] {
     });
   }
   return out;
+}
+
+/**
+ * Capture the parent StructureDefinition's top-level id/name/title
+ * property nodes, when the root resource is a StructureDefinition.
+ * Returns null if the root is missing, not an object, or not a
+ * StructureDefinition.
+ *
+ * NOTE: assumes at most one StructureDefinition per file (true for all
+ * files under input/resources/ today). If a future file ever bundled
+ * multiple SDs, only the file-root SD would be considered.
+ */
+export function collectSdSite(root: Node): SdSite | null {
+  if (root.type !== "object") return null;
+  const rt = findNodeAtLocation(root, ["resourceType"]);
+  if (!rt || rt.type !== "string" || rt.value !== "StructureDefinition") {
+    return null;
+  }
+  const props: SdSite["props"] = {};
+  let originalId: string | null = null;
+  let originalName: string | null = null;
+  let originalTitle: string | null = null;
+  for (const prop of root.children ?? []) {
+    if (prop.type !== "property") continue;
+    const key = prop.children?.[0]?.value;
+    const valueNode = prop.children?.[1];
+    if (typeof key !== "string" || !valueNode) continue;
+    switch (key) {
+      case "id":
+        if (valueNode.type === "string") {
+          props.id = prop;
+          originalId = String(valueNode.value);
+        }
+        break;
+      case "name":
+        if (valueNode.type === "string") {
+          props.name = prop;
+          originalName = String(valueNode.value);
+        }
+        break;
+      case "title":
+        if (valueNode.type === "string") {
+          props.title = prop;
+          originalTitle = String(valueNode.value);
+        }
+        break;
+    }
+  }
+  return { obj: root, props, originalId, originalName, originalTitle };
 }
 
 /**
@@ -210,8 +279,8 @@ function computeTargets(
 }
 
 /**
- * For an OpDef object that needs a new "title" property inserted,
- * build the insertion Edit. The text is `,<EOL><indent>"title" : "<v>"`,
+ * For a JSON object that needs a new "title" property inserted, build
+ * the insertion Edit. The text is `,<EOL><indent>"title" : "<v>"`,
  * where:
  *   - `<EOL>` is the EOL style of the line *preceding* the chosen
  *     anchor sibling (CRLF or LF; falls back to "\n").
@@ -221,14 +290,18 @@ function computeTargets(
  *     and value (typically " : " in the IG-publisher style).
  *
  * Anchor preference: the existing `name` property → `id` → first
- * property in the OpDef object.
+ * property in the host object.
  *
- * Returns null when the OpDef object is empty (nothing to anchor on);
+ * Returns null when the host object is empty (nothing to anchor on);
  * callers should treat this as an internal error and skip the file.
+ *
+ * Generic site interface: any host that exposes `obj` (the object
+ * Node) and `props` (a record possibly containing `id`/`name` property
+ * Nodes) works. Both OpDef and SD planners use this.
  */
 function buildTitleInsertionEdit(
   source: string,
-  site: OpDefSite,
+  site: { obj: Node; props: { id?: Node; name?: Node } },
   newTitle: string,
 ): Edit | null {
   const anchor = site.props.name ?? site.props.id ?? firstPropertyOf(site.obj);
@@ -284,19 +357,201 @@ function detectEol(source: string, lineStart: number): string {
 }
 
 /**
- * Plan id/name/title changes (and the matching root extension
- * valueCanonical rewrites) for one parsed file.
+ * Plan id/name/title changes for the parent StructureDefinition.
+ * Mirrors the per-OpDef id/name/title logic in planCaseChanges, but
+ * for the SD's top-level fields. Returns zero edits and zero records
+ * when no SD-side cases are requested or when the file root is not a
+ * StructureDefinition.
+ *
+ * Token derivation order: SD `id` → `name` → `title` (no `code` at SD
+ * level — code is OpDef-only). If none of the three are present and
+ * any SD-side case is requested, an error is recorded.
  */
-export function planCaseChanges(input: PlannerInput): PlannerOutput {
-  const { source, root, idCase, nameCase, titleCase } = input;
+export function applySdFieldEdits(
+  source: string,
+  root: Node,
+  sdIdCase: Case | null,
+  sdNameCase: Case | null,
+  sdTitleCase: Case | null,
+): PlannerOutput {
   const edits: Edit[] = [];
   const records: ChangeRecord[] = [];
   const errors: string[] = [];
 
-  const opDefs = collectOpDefs(root);
-  if (opDefs.length === 0) {
+  if (sdIdCase === null && sdNameCase === null && sdTitleCase === null) {
     return { edits, records, errors };
   }
+
+  const site = collectSdSite(root);
+  if (!site) {
+    // Root resource is not a StructureDefinition; SD-side flags are a
+    // no-op for this file.
+    return { edits, records, errors };
+  }
+
+  // Tokens: id → name → title (no `code` at SD level).
+  const sources = [site.originalId, site.originalName, site.originalTitle];
+  let tokens: string[] | null = null;
+  for (const s of sources) {
+    if (s === null) continue;
+    const t = tokenize(s);
+    if (t.length > 0) {
+      tokens = t;
+      break;
+    }
+  }
+  if (!tokens) {
+    errors.push(
+      "StructureDefinition has no usable id/name/title to derive tokens from",
+    );
+    return { edits, records, errors };
+  }
+
+  const rowKey = site.originalId ?? site.originalName ?? "<unknown-sd>";
+
+  const newId = sdIdCase !== null ? format(tokens, sdIdCase) : null;
+  const newName = sdNameCase !== null ? format(tokens, sdNameCase) : null;
+  const newTitle = sdTitleCase !== null ? format(tokens, sdTitleCase) : null;
+
+  // SD.id
+  if (newId !== null && site.originalId !== null && newId !== site.originalId) {
+    if (!isJsonSafeIdentifier(newId)) {
+      errors.push(
+        `computed StructureDefinition.id '${newId}' contains characters that would require escaping`,
+      );
+    } else {
+      const idValue = site.props.id!.children![1]!;
+      edits.push(buildStringValueEdit(idValue, newId));
+      records.push({
+        opId: rowKey,
+        field: "sd.id",
+        oldValue: site.originalId,
+        newValue: newId,
+      });
+    }
+  }
+
+  // SD.name
+  if (newName !== null && site.originalName !== null && newName !== site.originalName) {
+    if (!isJsonSafeIdentifier(newName)) {
+      errors.push(
+        `computed StructureDefinition.name '${newName}' contains characters that would require escaping`,
+      );
+    } else {
+      const nameValue = site.props.name!.children![1]!;
+      edits.push(buildStringValueEdit(nameValue, newName));
+      records.push({
+        opId: rowKey,
+        field: "sd.name",
+        oldValue: site.originalName,
+        newValue: newName,
+      });
+    }
+  }
+
+  // SD.title (replace existing or insert).
+  if (newTitle !== null) {
+    if (site.originalTitle !== null) {
+      if (newTitle !== site.originalTitle) {
+        if (!isJsonSafeIdentifier(newTitle)) {
+          errors.push(
+            `computed StructureDefinition.title '${newTitle}' contains characters that would require escaping`,
+          );
+        } else {
+          const titleValue = site.props.title!.children![1]!;
+          edits.push(buildStringValueEdit(titleValue, newTitle));
+          records.push({
+            opId: rowKey,
+            field: "sd.title",
+            oldValue: site.originalTitle,
+            newValue: newTitle,
+          });
+        }
+      }
+    } else {
+      if (!isJsonSafeIdentifier(newTitle)) {
+        errors.push(
+          `computed StructureDefinition.title '${newTitle}' contains characters that would require escaping`,
+        );
+      } else {
+        const insert = buildTitleInsertionEdit(source, site, newTitle);
+        if (!insert) {
+          errors.push(
+            `cannot insert title for StructureDefinition '${rowKey}' (no anchor property)`,
+          );
+        } else {
+          edits.push(insert);
+          records.push({
+            opId: rowKey,
+            field: "sd.title",
+            oldValue: null,
+            newValue: newTitle,
+          });
+        }
+      }
+    }
+  }
+
+  return { edits, records, errors };
+}
+
+/**
+ * Plan id/name/title changes (and the matching root extension
+ * valueCanonical rewrites) for one parsed file.
+ */
+export function planCaseChanges(input: PlannerInput): PlannerOutput {
+  const {
+    source,
+    root,
+    idCase,
+    nameCase,
+    titleCase,
+    structureIdCase = null,
+    structureNameCase = null,
+    structureTitleCase = null,
+  } = input;
+  const edits: Edit[] = [];
+  const records: ChangeRecord[] = [];
+  const errors: string[] = [];
+
+  // Operation-side: re-case contained OpDefs.
+  const opDefs = collectOpDefs(root);
+  if (opDefs.length > 0) {
+    const opOut = planOpDefCaseChanges(source, root, opDefs, idCase, nameCase, titleCase);
+    edits.push(...opOut.edits);
+    records.push(...opOut.records);
+    errors.push(...opOut.errors);
+  }
+
+  // Structure-side: re-case the parent SD's id/name/title.
+  const sdOut = applySdFieldEdits(
+    source,
+    root,
+    structureIdCase,
+    structureNameCase,
+    structureTitleCase,
+  );
+  edits.push(...sdOut.edits);
+  records.push(...sdOut.records);
+  errors.push(...sdOut.errors);
+
+  // Stable order: sort edits by offset for predictable apply.
+  edits.sort((a, b) => a.offset - b.offset);
+
+  return { edits, records, errors };
+}
+
+function planOpDefCaseChanges(
+  source: string,
+  root: Node,
+  opDefs: OpDefSite[],
+  idCase: Case | null,
+  nameCase: Case | null,
+  titleCase: Case | null,
+): PlannerOutput {
+  const edits: Edit[] = [];
+  const records: ChangeRecord[] = [];
+  const errors: string[] = [];
 
   // First pass: tokenize and compute targets, capturing old→new id map
   // for the extension rewrite step.
@@ -447,9 +702,6 @@ export function planCaseChanges(input: PlannerInput): PlannerOutput {
       }
     }
   }
-
-  // Stable order: sort edits by offset for predictable apply.
-  edits.sort((a, b) => a.offset - b.offset);
 
   return { edits, records, errors };
 }
