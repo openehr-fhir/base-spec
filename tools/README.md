@@ -62,20 +62,23 @@ Other flags:
 `<case>` is one of:
 
 - `lower_snake` — `lower_snake_case`
-- `lower-kebab` — `lower-kebab-case` (aliases: `lower-hyphen`, `lower-dash`)
-- `Title-Kebab` — `Title-Kebab-Case` (aliases: `Title-Hyphen`, `Title-Dash`)
-- `Pascal-Kebab` — `Pascal-Kebab-Case` (aliases: `Pascal-Hyphen`, `Pascal-Dash`)
-- `Upper-Kebab` — `UPPER-KEBAB-CASE` (aliases: `Upper-Hyphen`, `Upper-Dash`)
-- `lowerCamel` — `lowerCamelCase` (alias: `camel`)
-- `UpperPascal` — `UpperPascalCase` (alias: `Pascal`)
+- `lower-kebab` — `lower-kebab-case`
+- `Title_Snake` — `Title_Snake_Case`
+- `Title-Kebab` — `Title-Kebab-Case`
+- `UPPER_SNAKE` — `UPPER_SNAKE_CASE`
+- `UPPER-KEBAB` — `UPPER-KEBAB-CASE`
+- `camel` — `lowerCamelCase`
+- `Pascal` — `UpperPascalCase`
 
-Property-specific case allowlists:
+Input is case-insensitive; `-` and `_` are interchangeable separators
+(e.g. `LOWER-KEBAB`, `lower_kebab`, and `Lower-Kebab` all resolve to
+canonical `lower-kebab`). Single-token `pascal` resolves to `camel`
+and single-token `CAMEL` resolves to `Pascal` (the canonical chosen
+follows the first character of the input); `pascal` as a family
+keyword in two-token forms (e.g. `pascal-kebab`, `PASCAL_SNAKE`) is
+a synonym for `title`.
 
-- `--operation-id`, `--structure-id`: `lower_snake`, `lower-kebab`.
-- `--operation-name`, `--operation-title`, `--structure-name`,
-  `--structure-title`: any of the seven cases above.
-- `--structure-canonical`: any of the seven cases above (operates on
-  the **final** segment of each canonical URL).
+Every case-taking matrix flag accepts the same 8-name allowlist.
 
 `--operation-canonical <mode>` is the ref-sync switch (analogous to
 the old `--repair`). `<mode>` is one of:
@@ -94,6 +97,10 @@ the old `--repair`). `<mode>` is one of:
 - Combining `--operation-canonical ref` with `--operation-id <case>`
   is allowed but redundant: the id rename already syncs every `#ref`,
   so the canonical-sync planner is skipped.
+- If `--operation-id` or `--structure-id` is given a case whose
+  canonical name contains `_` (i.e. `lower_snake`, `Title_Snake`,
+  `UPPER_SNAKE`), a one-line stderr warning is printed once per flag
+  (the FHIR `id` regex forbids `_`). The exit code is unaffected.
 
 Any violation exits with code `2` and a single stderr line.
 
@@ -116,27 +123,34 @@ bun tools/changeTypeFunctionCasing.ts --operation-canonical '#ref' --update
 # FHIR-flavored: kebab id, Pascal name+title, refs follow the new id.
 bun tools/changeTypeFunctionCasing.ts \
     --operation-id lower-kebab \
-    --operation-name UpperPascal \
-    --operation-title UpperPascal \
+    --operation-name Pascal \
+    --operation-title Pascal \
     --update
 
 # Re-case the StructureDefinition top-level fields.
 bun tools/changeTypeFunctionCasing.ts \
-    --structure-id Upper-Kebab \
-    --structure-name UpperPascal \
-    --structure-title UpperPascal \
+    --structure-id UPPER-KEBAB \
+    --structure-name Pascal \
+    --structure-title Pascal \
+    --update
+
+# Re-case operation-side fields to Title-Kebab.
+bun tools/changeTypeFunctionCasing.ts \
+    --operation-id lower-kebab \
+    --operation-name Title-Kebab \
+    --operation-title Title-Kebab \
     --update
 
 # Re-case every SD canonical-URL final segment plus all in-package
 # cross-references (code/profile/targetProfile/valueCanonical/valueUrl).
-bun tools/changeTypeFunctionCasing.ts --structure-canonical Upper-Kebab --update
+bun tools/changeTypeFunctionCasing.ts --structure-canonical UPPER-KEBAB --update
 
 # Combined matrix: operation-side + structure-side + SD-canonical in one pass.
 bun tools/changeTypeFunctionCasing.ts \
     --operation-id lower_snake \
     --operation-canonical '#ref' \
-    --structure-id Upper-Kebab \
-    --structure-canonical Upper-Kebab \
+    --structure-id UPPER-KEBAB \
+    --structure-canonical UPPER-KEBAB \
     --update
 ```
 
@@ -183,6 +197,11 @@ The same format is emitted for both preview and `--update` runs.
 - `--structure-canonical`: rewriting URLs that match a discovered
   canonical only by version-prefix (e.g. `.../FOO|1.2.0`). Versioned
   references are skipped.
+- Per-token rendering overrides. `format(tokens, case)` always
+  normalizes per-token (lowercases the token then applies the case
+  shape); all-caps input tokens such as `EHR` are not preserved
+  (e.g. `format(["DV","EHR","URI"], "Pascal") === "DvEhrUri"`, not
+  `"DVEHRURI"`). No DSL is exposed for forcing per-token casing.
 
 ## Tests
 
