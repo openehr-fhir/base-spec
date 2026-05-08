@@ -311,6 +311,18 @@ export function planSdCanonicalRewrite(
     return { edits, records, errors };
   }
 
+  // Pinned-SD belt-and-suspenders. The orchestrator (`processFile`)
+  // already short-circuits pinned SD files before they reach this
+  // planner, but planners are also reachable from direct callers and
+  // tests; refuse to rewrite a pinned SD's own canonical trio so the
+  // pin is enforced regardless of how the planner is entered. This
+  // also suppresses the SD's own url/type re-case path below, which
+  // the cross-ref gates (baseDefinition / tryEmitCrossRefEdit /
+  // divergent-type resolver) do not cover.
+  if (PINNED_SD_CANONICALS.has(urlValue)) {
+    return { edits, records, errors };
+  }
+
   // Compute the new final segment from the current one.
   const lastSlash = urlValue.lastIndexOf("/");
   if (lastSlash < 0) {
@@ -346,27 +358,38 @@ export function planSdCanonicalRewrite(
 
       if (resolution.kind === "match") {
         const matchedUrl = resolution.canonicalUrl;
-        const matchedPrefix = prefixOf(matchedUrl);
-        const matchedSeg = lastSegmentOf(matchedUrl);
-        const matchedNewSeg = format(tokenize(matchedSeg), targetCase);
-        const resolvedFinal =
-          matchedPrefix.length > 0
-            ? `${matchedPrefix}/${matchedNewSeg}`
-            : matchedNewSeg;
-        // Replace the entire string-literal contents (offset+1 .. -1
-        // strips the surrounding double quotes).
-        edits.push({
-          offset: typeNode.offset + 1,
-          length: typeNode.length - 2,
-          content: resolvedFinal,
-        });
-        records.push({
-          opId: rowKey,
-          field: "sd.type-resolve" as any,
-          oldValue: typeValue,
-          newValue: resolvedFinal,
-        });
-        typeResolved = true;
+        if (PINNED_SD_CANONICALS.has(matchedUrl)) {
+          // Pinned canonicals are never rewritten — not even by the
+          // resolver, which would otherwise introduce a write whose
+          // value is the pinned url. Mark the type as "resolved" so
+          // the standard re-case path below does not also emit an
+          // edit on this node. Mirrors the `ambiguous` branch's
+          // refusal-to-rewrite shape; the planner emits no edit and
+          // no record for this node.
+          typeResolved = true;
+        } else {
+          const matchedPrefix = prefixOf(matchedUrl);
+          const matchedSeg = lastSegmentOf(matchedUrl);
+          const matchedNewSeg = format(tokenize(matchedSeg), targetCase);
+          const resolvedFinal =
+            matchedPrefix.length > 0
+              ? `${matchedPrefix}/${matchedNewSeg}`
+              : matchedNewSeg;
+          // Replace the entire string-literal contents (offset+1 .. -1
+          // strips the surrounding double quotes).
+          edits.push({
+            offset: typeNode.offset + 1,
+            length: typeNode.length - 2,
+            content: resolvedFinal,
+          });
+          records.push({
+            opId: rowKey,
+            field: "sd.type-resolve" as any,
+            oldValue: typeValue,
+            newValue: resolvedFinal,
+          });
+          typeResolved = true;
+        }
       } else if (resolution.kind === "ambiguous") {
         errors.push(
           `type '${typeValue}' is ambiguous; matches multiple discovered SDs: ${resolution.candidates.join(", ")}; refusing to re-case`,
@@ -433,10 +456,13 @@ export function planSdCanonicalRewrite(
 
   // baseDefinition: only emit an edit if the FULL value is in the
   // discovered set. This naturally excludes HL7 base types like
-  // ".../Element".
+  // ".../Element". Pinned canonicals (e.g. the openEHR Any SD) are
+  // discovered but never rewritten — every reference to them must
+  // render the literal final segment as it appears in the pinned
+  // SD's own url.
   if (baseNode && baseNode.type === "string") {
     const baseValue = String(baseNode.value);
-    if (discovered.has(baseValue)) {
+    if (discovered.has(baseValue) && !PINNED_SD_CANONICALS.has(baseValue)) {
       const baseLast = baseValue.lastIndexOf("/");
       if (baseLast >= 0) {
         const baseOld = baseValue.substring(baseLast + 1);
@@ -592,6 +618,10 @@ function tryEmitCrossRefEdit(
   rowKey: string,
 ): void {
   if (!discovered.has(value)) return;
+  // Pinned canonicals are kept literal across every casing flag.
+  // Separate `if` (not a combined `||`) so a future contributor adding
+  // logging or telemetry has an obvious hook.
+  if (PINNED_SD_CANONICALS.has(value)) return;
   const li = value.lastIndexOf("/");
   if (li < 0) return;
   const oldSeg = value.substring(li + 1);
