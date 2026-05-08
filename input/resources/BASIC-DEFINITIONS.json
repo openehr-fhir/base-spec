@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "BASIC-DEFINITIONS",
-  "url" : "http://openehr.org/fhir/StructureDefinition/BASIC-DEFINITIONS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/BASIC_DEFINITIONS",
   "version" : "1.2.0",
   "name" : "BASIC_DEFINITIONS",
   "title" : "BASIC_DEFINITIONS",

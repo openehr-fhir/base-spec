@@ -8,7 +8,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "can-bind"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT",
   "version" : "1.2.0",
   "name" : "DV_TEXT",
   "title" : "DV_TEXT",
@@ -28,7 +28,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -78,7 +78,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-URI"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_URI"
       }],
       "isModifier" : false
     },
@@ -97,7 +97,7 @@
       "short" : "Terms from other terminologies most closely matching this term, typically used where the originator",      "definition" : "Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING"
+        "code" : "http://openehr.org/fhir/StructureDefinition/TERM_MAPPING"
       }],
       "isModifier" : false
     },
@@ -107,7 +107,7 @@
       "definition" : "Optional indicator of the localised language in which the value is written. Coded from openEHR Code Set  languages . Only used when either the text object is in a different language from the enclosing `ENTRY`, or else the text object is being used outside of an `ENTRY` or other enclosing structure which indicates the language.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false,
       "binding" : {
@@ -121,7 +121,7 @@
       "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

@@ -111,7 +111,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#has-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/CODE-SET-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/CODE_SET_ACCESS",
   "version" : "1.2.0",
   "name" : "CODE_SET_ACCESS",
   "title" : "CODE_SET_ACCESS",

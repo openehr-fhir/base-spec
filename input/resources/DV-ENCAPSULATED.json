@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_encapsulated_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-ENCAPSULATED",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED",
   "version" : "1.2.0",
   "name" : "DV_ENCAPSULATED",
   "title" : "DV_ENCAPSULATED",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -48,7 +48,7 @@
       "definition" : "Name of character encoding scheme in which this value is encoded. Coded from openEHR Code Set  character sets . Unicode is the default assumption in openEHR, with UTF-8 being the assumed encoding. This attribute allows for variations from these assumptions.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false,
       "binding" : {
@@ -63,7 +63,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false,
       "binding" : {

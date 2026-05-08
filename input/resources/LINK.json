@@ -40,7 +40,7 @@
       "definition" : "Used to describe the relationship, usually in clinical terms, such as  in response to  (the relationship between test results and an order),  follow-up to  and so on. Such relationships can represent any clinically meaningful connection between pieces of information. Values for meaning include those described in Annex C, ENV 13606 pt 2 under the categories of  generic ,  documenting and reporting ,  organisational ,  clinical ,  circumstancial , and  view management.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -49,7 +49,7 @@
       "short" : "The type attribute is used to indicate a clinical or domain-level meaning for the kind of link, for example  problem  or  issue.",      "definition" : "The type attribute is used to indicate a clinical or domain-level meaning for the kind of link, for example  problem  or  issue . If type values are designed appropriately, they can be used by the requestor of EHR extracts to categorise links which must be followed and which can be broken when the extract is created.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -60,7 +60,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-EHR-URI"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI"
       }],
       "isModifier" : false
     }]

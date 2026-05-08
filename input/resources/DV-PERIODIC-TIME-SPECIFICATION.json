@@ -99,7 +99,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#institution-specified"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-PERIODIC-TIME-SPECIFICATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_PERIODIC_TIME_SPECIFICATION",
   "version" : "1.2.0",
   "name" : "DV_PERIODIC_TIME_SPECIFICATION",
   "title" : "DV_PERIODIC_TIME_SPECIFICATION",
@@ -118,7 +118,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PERIODIC_TIME_SPECIFICATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TIME-SPECIFICATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

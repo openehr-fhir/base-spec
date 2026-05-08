@@ -238,7 +238,7 @@
       "definition" : "Contribution in which this version was added.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -259,7 +259,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS"
       }],
       "isModifier" : false
     }]

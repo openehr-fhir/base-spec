@@ -105,7 +105,7 @@
       "definition" : "Runtime name of this fragment, used to build runtime paths. This is the term provided via a clinical application or batch process to name this EHR construct: its retention in the EHR faithfully preserves the original label by which this entry was known to end users.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -125,7 +125,7 @@
       "definition" : "Optional globally unique object identifier for root points of archetyped structures.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID"
       }],
       "isModifier" : false
     },
@@ -156,7 +156,7 @@
       "definition" : "Audit trail from non-openEHR system of original commit of information forming the content of this node, or from a conversion gateway which has synthesised this node.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT"
       }],
       "isModifier" : false
     }]

@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "OPENEHR-DEFINITIONS",
-  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-DEFINITIONS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_DEFINITIONS",
   "version" : "1.2.0",
   "name" : "OPENEHR_DEFINITIONS",
   "title" : "OPENEHR_DEFINITIONS",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_DEFINITIONS",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/BASIC-DEFINITIONS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/BASIC_DEFINITIONS",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

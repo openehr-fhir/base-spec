@@ -40,7 +40,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is-merged"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL-VERSION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ORIGINAL_VERSION",
   "version" : "1.2.0",
   "name" : "ORIGINAL_VERSION",
   "title" : "ORIGINAL_VERSION",
@@ -93,7 +93,7 @@
       "definition" : "Stored version of inheritance precursor.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID"
       }],
       "isModifier" : false
     },
@@ -103,7 +103,7 @@
       "definition" : "Stored version of inheritance precursor.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID"
       }],
       "isModifier" : false
     },
@@ -113,7 +113,7 @@
       "definition" : "Identifiers of other versions whose content was merged into this version, if any.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID"
       }],
       "isModifier" : false
     },
@@ -124,7 +124,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },

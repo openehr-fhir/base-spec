@@ -4,12 +4,24 @@
   "extension" : [{
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_paragraph_class"
-  }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-PARAGRAPH",
+  },
+  {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "deprecated",
+      "_valueCode" : {
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status-reason",
+            "valueMarkdown" : "The DV_PARAGRAPH class is deprecated in openEHR 1.1.0. Class note: DEPRECATED: use markdown formatted DV_TEXT instead."
+          }
+        ]
+      }
+    }],
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_PARAGRAPH",
   "version" : "1.2.0",
   "name" : "DV_PARAGRAPH",
   "title" : "DV_PARAGRAPH",
-  "status" : "active",
+  "status" : "retired",
   "experimental" : false,
   "date" : "2025-09-06T15:35:39+10:00",
   "publisher" : "openEHR",
@@ -24,7 +36,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PARAGRAPH",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -46,7 +58,7 @@
       "definition" : "Items making up the paragraph, each of which is a text item (which may have its own formatting, and/or have hyperlinks).",      "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     }]

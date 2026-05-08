@@ -101,7 +101,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "is-continuous"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
   "version" : "1.2.0",
   "name" : "DV_TEMPORAL",
   "title" : "DV_TEMPORAL",
@@ -120,7 +120,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -137,7 +137,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     }]

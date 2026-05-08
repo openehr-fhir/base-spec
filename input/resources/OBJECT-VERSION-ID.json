@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_object_version_id_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID",
   "version" : "1.1.0",
   "name" : "OBJECT_VERSION_ID",
   "title" : "OBJECT_VERSION_ID",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_coded_text_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT",
   "version" : "1.2.0",
   "name" : "DV_CODED_TEXT",
   "title" : "DV_CODED_TEXT",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -43,7 +43,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_feeder_audit_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT",
   "version" : "1.2.0",
   "name" : "FEEDER_AUDIT",
   "title" : "FEEDER_AUDIT",
@@ -40,7 +40,7 @@
       "definition" : "Identifiers used for the item in the originating system, e.g. filler and placer ids.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-IDENTIFIER"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_IDENTIFIER"
       }],
       "isModifier" : false
     },
@@ -50,7 +50,7 @@
       "definition" : "Identifiers used for the item in the feeder system, where the feeder system is distinct from the originating system.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-IDENTIFIER"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_IDENTIFIER"
       }],
       "isModifier" : false
     },
@@ -60,7 +60,7 @@
       "definition" : "Optional inline inclusion of or reference to original content corresponding to the openEHR content at this node. Typically a URI reference to a document or message in a persistent store associated with the EHR.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-ENCAPSULATED"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED"
       }],
       "isModifier" : false
     },
@@ -70,7 +70,7 @@
       "definition" : "Any audit information for the information item from the originating system.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT_DETAILS"
       }],
       "isModifier" : false
     },
@@ -81,7 +81,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT_DETAILS"
       }],
       "isModifier" : false
     }]

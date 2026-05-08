@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "MESSAGE-CONTENT",
-  "url" : "http://openehr.org/fhir/StructureDefinition/MESSAGE-CONTENT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/MESSAGE_CONTENT",
   "version" : "1.2.0",
   "name" : "MESSAGE_CONTENT",
   "title" : "MESSAGE_CONTENT",

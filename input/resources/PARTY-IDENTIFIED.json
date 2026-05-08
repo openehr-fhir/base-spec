@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_party_identified_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED",
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED",
   "version" : "1.2.0",
   "name" : "PARTY_IDENTIFIED",
   "title" : "PARTY_IDENTIFIED",
@@ -24,7 +24,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -69,7 +69,7 @@
       "definition" : "One or more formal identifiers (possibly computable).",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-IDENTIFIER"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_IDENTIFIER"
       }],
       "isModifier" : false
     }]

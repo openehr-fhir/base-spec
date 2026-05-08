@@ -221,7 +221,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#code-set-identifiers"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-SERVICE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_SERVICE",
   "version" : "1.2.0",
   "name" : "TERMINOLOGY_SERVICE",
   "title" : "TERMINOLOGY_SERVICE",
@@ -240,7 +240,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_SERVICE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-TERMINOLOGY-GROUP-IDENTIFIERS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

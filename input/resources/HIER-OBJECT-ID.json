@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_hier_object_id_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID",
+  "url" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID",
   "version" : "1.1.0",
   "name" : "HIER_OBJECT_ID",
   "title" : "HIER_OBJECT_ID",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID-BASED-ID",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/UID_BASED_ID",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

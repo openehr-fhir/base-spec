@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-FOLDER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_FOLDER",
   "version" : "1.2.0",
   "name" : "VERSIONED_FOLDER",
   "title" : "VERSIONED_FOLDER",
@@ -35,7 +35,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_FOLDER",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

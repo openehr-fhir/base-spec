@@ -98,7 +98,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#has-integrity-check"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-MULTIMEDIA",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA",
   "version" : "1.2.0",
   "name" : "DV_MULTIMEDIA",
   "title" : "DV_MULTIMEDIA",
@@ -118,7 +118,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ENCAPSULATED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -143,7 +143,7 @@
         "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
-        "expression" : "{} // : manual translation needed"
+        "expression" : "size() >= 0"
       }],
       "isModifier" : false,
       "binding" : {
@@ -168,7 +168,7 @@
       "definition" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-URI"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_URI"
       }],
       "isModifier" : false
     },
@@ -189,12 +189,12 @@
       "definition" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set).",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false,
       "binding" : {
-        "strength" : "required",
-        "valueSet" : "http://openehr.org/fhir/ValueSet/media-types"
+        "strength" : "extensible",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-media_types"
       }
     },
     {
@@ -203,7 +203,7 @@
       "definition" : "Compression type, a coded value from the openEHR Integrity check code set. Void means no compression.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false,
       "binding" : {
@@ -228,7 +228,7 @@
       "definition" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },
@@ -239,7 +239,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-MULTIMEDIA"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA"
       }],
       "isModifier" : false
     },

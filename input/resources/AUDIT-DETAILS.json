@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_audit_details_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS",
   "version" : "1.2.0",
   "name" : "AUDIT_DETAILS",
   "title" : "AUDIT_DETAILS",
@@ -66,7 +66,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -77,7 +77,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -88,7 +88,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -99,7 +99,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     }]

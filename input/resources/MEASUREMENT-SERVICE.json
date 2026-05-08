@@ -70,7 +70,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#units-equivalent"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/MEASUREMENT-SERVICE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/MEASUREMENT_SERVICE",
   "version" : "1.2.0",
   "name" : "MEASUREMENT_SERVICE",
   "title" : "MEASUREMENT_SERVICE",

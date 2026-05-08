@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-EHR-STATUS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_STATUS",
   "version" : "1.2.0",
   "name" : "VERSIONED_EHR_STATUS",
   "title" : "VERSIONED_EHR_STATUS",
@@ -36,7 +36,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_STATUS",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

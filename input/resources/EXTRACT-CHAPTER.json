@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-CHAPTER",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-CHAPTER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CHAPTER",
   "version" : "1.2.0",
   "name" : "EXTRACT_CHAPTER",
   "title" : "EXTRACT_CHAPTER",
@@ -39,7 +39,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ITEM"
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM"
       }],
       "isModifier" : false
     }]

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_feeder_audit_details_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/FEEDER-AUDIT-DETAILS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/FEEDER_AUDIT_DETAILS",
   "version" : "1.2.0",
   "name" : "FEEDER_AUDIT_DETAILS",
   "title" : "FEEDER_AUDIT_DETAILS",
@@ -56,7 +56,7 @@
       "definition" : "Identifier of the particular site/facility within an organisation which handled the item. For computability, this identifier needs to be e.g. a PKI identifier which can be included in the identifier list of the `PARTY_IDENTIFIED` object.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED"
       }],
       "isModifier" : false
     },
@@ -66,7 +66,7 @@
       "definition" : "Identifiers for subject of the received information item.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     },
@@ -76,7 +76,7 @@
       "definition" : "Optional provider(s) who created, committed, forwarded or otherwise handled the item.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED"
       }],
       "isModifier" : false
     },
@@ -87,7 +87,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -108,7 +108,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

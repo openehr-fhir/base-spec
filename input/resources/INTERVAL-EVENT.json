@@ -40,7 +40,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#interval-start-time"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL-EVENT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL_EVENT",
   "version" : "1.2.0",
   "name" : "INTERVAL_EVENT",
   "title" : "INTERVAL_EVENT",
@@ -88,7 +88,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     },
@@ -110,7 +110,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     }]

@@ -132,7 +132,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is-valid-match-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERM_MAPPING",
   "version" : "1.2.0",
   "name" : "TERM_MAPPING",
   "title" : "TERM_MAPPING",
@@ -184,7 +184,7 @@
       "isModifier" : false,
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term-mapping-match"
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term_mapping_match"
       }
     },
     {
@@ -194,7 +194,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -204,7 +204,7 @@
       "definition" : "The target term of the mapping.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

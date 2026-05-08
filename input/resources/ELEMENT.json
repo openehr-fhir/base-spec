@@ -88,7 +88,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -99,7 +99,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE"
       }],
       "isModifier" : false
     },
@@ -110,7 +110,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     }]

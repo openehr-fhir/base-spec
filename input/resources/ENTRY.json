@@ -48,7 +48,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/ENTRY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -86,7 +86,7 @@
       "definition" : "Mandatory indicator of the localised language in which this Entry is written. Coded from openEHR Code Set  languages.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },
@@ -97,7 +97,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },
@@ -118,7 +118,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -129,7 +129,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     },
@@ -139,7 +139,7 @@
       "definition" : "Optional identification of provider of the information in this `ENTRY`, which might be: \n\n* the patient \n* a patient agent, e.g. parent, guardian \n* the clinician \n* a device or software \n\nGenerally only used when the recorder needs to make it explicit. Otherwise, Composition composer and other participants are assumed.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     }]

@@ -207,7 +207,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#magnitude"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION",
   "version" : "1.2.0",
   "name" : "DV_DURATION",
   "title" : "DV_DURATION",
@@ -226,7 +226,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

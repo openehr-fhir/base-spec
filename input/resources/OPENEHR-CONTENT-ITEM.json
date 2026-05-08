@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "OPENEHR-CONTENT-ITEM",
-  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-CONTENT-ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_CONTENT_ITEM",
   "version" : "1.2.0",
   "name" : "OPENEHR_CONTENT_ITEM",
   "title" : "OPENEHR_CONTENT_ITEM",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_CONTENT_ITEM",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-CONTENT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -39,7 +39,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT"
       }],
       "isModifier" : false
     }]

@@ -29,7 +29,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DATA-STRUCTURE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DATA_STRUCTURE",
   "version" : "1.2.0",
   "name" : "DATA_STRUCTURE",
   "title" : "DATA_STRUCTURE",

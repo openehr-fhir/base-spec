@@ -28,7 +28,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#type"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP",
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATIONSHIP",
   "version" : "1.2.0",
   "name" : "PARTY_RELATIONSHIP",
   "title" : "PARTY_RELATIONSHIP",
@@ -84,7 +84,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     },
@@ -95,7 +95,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     },
@@ -117,7 +117,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -128,7 +128,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     }]

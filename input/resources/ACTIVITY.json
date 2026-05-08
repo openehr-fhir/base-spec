@@ -49,7 +49,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     },
@@ -71,7 +71,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

@@ -98,7 +98,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#diff"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
   "version" : "1.2.0",
   "name" : "DV_ABSOLUTE_QUANTITY",
   "title" : "DV_ABSOLUTE_QUANTITY",
@@ -118,7 +118,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -134,7 +134,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT"
       }],
       "isModifier" : false
     }]

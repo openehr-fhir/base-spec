@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-PARTY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_PARTY",
   "version" : "1.2.0",
   "name" : "VERSIONED_PARTY",
   "title" : "VERSIONED_PARTY",
@@ -35,7 +35,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_PARTY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

@@ -173,7 +173,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#rubric-for-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
   "version" : "1.2.0",
   "name" : "TERMINOLOGY_ACCESS",
   "title" : "TERMINOLOGY_ACCESS",

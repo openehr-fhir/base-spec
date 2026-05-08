@@ -52,7 +52,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#most-recent-version-time-committed"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY",
   "version" : "1.2.0",
   "name" : "REVISION_HISTORY",
   "title" : "REVISION_HISTORY",
@@ -87,7 +87,7 @@
       "definition" : "The items in this history in most-recent-last order.",      "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY-ITEM"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY_ITEM"
       }],
       "isModifier" : false
     }]

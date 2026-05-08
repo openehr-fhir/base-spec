@@ -24,7 +24,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EVALUATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE-ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -41,7 +41,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

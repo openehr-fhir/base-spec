@@ -98,6 +98,14 @@
       <value value="/input/data"/>
     </parameter>
 
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="special-url-base"/>
+      </code>
+      <value value="http://openehr.org/fhir"/>
+    </parameter>
+
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Terminology"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/Foundation"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/guide-parameter-code"/><code value="path-resource"/></code><value value="input/DataTypes"/></parameter>

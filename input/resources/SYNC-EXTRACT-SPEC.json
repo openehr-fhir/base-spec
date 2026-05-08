@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "SYNC-EXTRACT-SPEC",
-  "url" : "http://openehr.org/fhir/StructureDefinition/SYNC-EXTRACT-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/SYNC_EXTRACT_SPEC",
   "version" : "1.2.0",
   "name" : "SYNC_EXTRACT_SPEC",
   "title" : "SYNC_EXTRACT_SPEC",
@@ -50,7 +50,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
       }],
       "isModifier" : false
     },
@@ -61,7 +61,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },

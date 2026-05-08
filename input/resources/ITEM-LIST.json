@@ -139,7 +139,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-LIST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_LIST",
   "version" : "1.2.0",
   "name" : "ITEM_LIST",
   "title" : "ITEM_LIST",
@@ -159,7 +159,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_LIST",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -172,7 +172,7 @@
         "key" : "valid-structure",
         "severity" : "error",
         "human" : "Valid structure",
-        "expression" : " items.all(ITEM or i.type() = 'ELEMENT')"
+        "expression" : "items.all(ITEM or i.type() = 'ELEMENT')"
       }],
       "isModifier" : false
     },

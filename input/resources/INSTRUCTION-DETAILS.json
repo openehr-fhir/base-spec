@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_instruction_details_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION-DETAILS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION_DETAILS",
   "version" : "1.2.0",
   "name" : "INSTRUCTION_DETAILS",
   "title" : "INSTRUCTION_DETAILS",
@@ -47,7 +47,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE_REF"
       }],
       "isModifier" : false
     },
@@ -67,7 +67,7 @@
       "definition" : "Various workflow engine state details, potentially including such things as:\n\n* condition that fired to cause this Action to be done (with actual variables substituted); \n* list of notifications which actually occurred (with all variables substituted); \n* other workflow engine state. \n\nThis specification does not currently define the actual structure or semantics of this field.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

@@ -140,7 +140,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "has-range"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "version" : "1.2.0",
   "name" : "DV_QUANTIFIED",
   "title" : "DV_QUANTIFIED",
@@ -160,7 +160,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

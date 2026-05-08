@@ -190,7 +190,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "has-units"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTITY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTITY",
   "version" : "1.2.0",
   "name" : "DV_QUANTITY",
   "title" : "DV_QUANTITY",
@@ -210,7 +210,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTITY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -271,7 +271,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -293,7 +293,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE"
       }],
       "isModifier" : false
     },

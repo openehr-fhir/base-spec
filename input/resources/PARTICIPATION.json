@@ -52,7 +52,7 @@
       "definition" : "The function of the Party in this participation (note that a given party might participate in more than one way in a particular activity). This attribute should be coded, but cannot be limited to the HL7v3:ParticipationFunction vocabulary, since it is too limited and hospital-oriented.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -62,7 +62,7 @@
       "definition" : "Optional field for recording the 'mode' of the performer / activity interaction, e.g. present, by telephone, by email etc.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -72,7 +72,7 @@
       "definition" : "The id and possibly demographic system link of the party participating in the activity.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     },
@@ -92,7 +92,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     }]

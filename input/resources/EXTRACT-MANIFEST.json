@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-MANIFEST",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-MANIFEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_MANIFEST",
   "version" : "1.2.0",
   "name" : "EXTRACT_MANIFEST",
   "title" : "EXTRACT_MANIFEST",
@@ -38,7 +38,7 @@
       "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ENTITY-MANIFEST"
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_MANIFEST"
       }],
       "isModifier" : false
     }]

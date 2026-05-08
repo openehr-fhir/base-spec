@@ -40,7 +40,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-COMPOSITION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_COMPOSITION",
   "version" : "1.2.0",
   "name" : "VERSIONED_COMPOSITION",
   "title" : "VERSIONED_COMPOSITION",
@@ -59,7 +59,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_COMPOSITION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

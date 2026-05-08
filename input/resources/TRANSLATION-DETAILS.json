@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_translation_details_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION-DETAILS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION_DETAILS",
   "version" : "1.2.0",
   "name" : "TRANSLATION_DETAILS",
   "title" : "TRANSLATION_DETAILS",
@@ -45,7 +45,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },

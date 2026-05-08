@@ -348,7 +348,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TABLE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TABLE",
   "version" : "1.2.0",
   "name" : "ITEM_TABLE",
   "title" : "ITEM_TABLE",
@@ -367,7 +367,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TABLE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

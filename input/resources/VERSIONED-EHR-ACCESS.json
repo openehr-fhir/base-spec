@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-EHR-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_ACCESS",
   "version" : "1.2.0",
   "name" : "VERSIONED_EHR_ACCESS",
   "title" : "VERSIONED_EHR_ACCESS",
@@ -36,7 +36,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_EHR_ACCESS",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

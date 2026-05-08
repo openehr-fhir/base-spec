@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_code_phrase_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE",
   "version" : "1.2.0",
   "name" : "CODE_PHRASE",
   "title" : "CODE_PHRASE",
@@ -49,7 +49,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ID"
       }],
       "isModifier" : false
     },

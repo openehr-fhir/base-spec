@@ -24,7 +24,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE-ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -46,7 +46,7 @@
       "definition" : "Mandatory human-readable version of what the Instruction is about.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -56,7 +56,7 @@
       "definition" : "Optional expiry date/time to assist determination of when an Instruction can be assumed to have expired. This helps prevent false listing of Instructions as Active when they clearly must have been terminated in some way or other.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -66,7 +66,7 @@
       "definition" : "Optional workflow engine executable expression of the Instruction.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     },

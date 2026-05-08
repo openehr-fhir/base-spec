@@ -24,7 +24,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/SECTION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -47,7 +47,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM"
       }],
       "isModifier" : false
     }]

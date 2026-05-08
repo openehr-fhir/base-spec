@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/BASE/latest/base_types.html#_object_id_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/OBJECT-ID",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OBJECT_ID",
   "version" : "1.1.0",
   "name" : "OBJECT_ID",
   "title" : "OBJECT_ID",

@@ -182,7 +182,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is-strictly-comparable-to"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME",
   "version" : "1.2.0",
   "name" : "DV_DATE_TIME",
   "title" : "DV_DATE_TIME",
@@ -201,7 +201,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

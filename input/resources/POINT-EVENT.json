@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/POINT-EVENT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/POINT_EVENT",
   "version" : "1.2.0",
   "name" : "POINT_EVENT",
   "title" : "POINT_EVENT",

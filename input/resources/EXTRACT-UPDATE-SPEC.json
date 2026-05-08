@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-UPDATE-SPEC",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-UPDATE-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_UPDATE_SPEC",
   "version" : "1.2.0",
   "name" : "EXTRACT_UPDATE_SPEC",
   "title" : "EXTRACT_UPDATE_SPEC",
@@ -68,7 +68,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     },
@@ -79,7 +79,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -90,7 +90,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

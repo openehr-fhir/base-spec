@@ -28,7 +28,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/OBSERVATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE-ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

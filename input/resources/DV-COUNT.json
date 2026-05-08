@@ -160,7 +160,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is-strictly-comparable-to"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-COUNT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_COUNT",
   "version" : "1.2.0",
   "name" : "DV_COUNT",
   "title" : "DV_COUNT",
@@ -180,7 +180,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_COUNT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -217,7 +217,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -239,7 +239,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE"
       }],
       "isModifier" : false
     }]

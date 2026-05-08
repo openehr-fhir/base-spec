@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "GENERIC-ENTRY",
-  "url" : "http://openehr.org/fhir/StructureDefinition/GENERIC-ENTRY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/GENERIC_ENTRY",
   "version" : "1.2.0",
   "name" : "GENERIC_ENTRY",
   "title" : "GENERIC_ENTRY",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/GENERIC_ENTRY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

@@ -46,7 +46,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#is-in-range"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE",
   "version" : "1.2.0",
   "name" : "REFERENCE_RANGE",
   "title" : "REFERENCE_RANGE",
@@ -90,7 +90,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -101,7 +101,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     }]

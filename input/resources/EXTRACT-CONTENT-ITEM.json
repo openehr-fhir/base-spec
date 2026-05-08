@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-CONTENT-ITEM",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-CONTENT-ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
   "version" : "1.2.0",
   "name" : "EXTRACT_CONTENT_ITEM",
   "title" : "EXTRACT_CONTENT_ITEM",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CONTENT_ITEM",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

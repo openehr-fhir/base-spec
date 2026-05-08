@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ACTION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE-ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -43,7 +43,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -54,7 +54,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ISM-TRANSITION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ISM_TRANSITION"
       }],
       "isModifier" : false
     },
@@ -65,7 +65,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/INSTRUCTION_DETAILS"
       }],
       "isModifier" : false
     },
@@ -76,7 +76,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_revision_history_item_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY-ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY_ITEM",
   "version" : "1.2.0",
   "name" : "REVISION_HISTORY_ITEM",
   "title" : "REVISION_HISTORY_ITEM",
@@ -46,7 +46,7 @@
       "definition" : "Version identifier for this revision.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-VERSION-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_VERSION_ID"
       }],
       "isModifier" : false
     },
@@ -56,7 +56,7 @@
       "definition" : "The audits for this revision; there will always be at least one commit audit (which may itself be an `ATTESTATION`), there may also be further attestations.",      "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS"
       }],
       "isModifier" : false
     }]

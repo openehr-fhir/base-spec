@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_ehr_uri_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-EHR-URI",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI",
   "version" : "1.2.0",
   "name" : "DV_EHR_URI",
   "title" : "DV_EHR_URI",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_EHR_URI",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-URI",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_URI",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

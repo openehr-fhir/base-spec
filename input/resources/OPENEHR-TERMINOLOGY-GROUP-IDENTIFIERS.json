@@ -31,7 +31,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#valid-terminology-group-id"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-TERMINOLOGY-GROUP-IDENTIFIERS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
   "version" : "1.2.0",
   "name" : "OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
   "title" : "OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",

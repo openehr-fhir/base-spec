@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_party_proxy_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY",
   "version" : "1.2.0",
   "name" : "PARTY_PROXY",
   "title" : "PARTY_PROXY",
@@ -40,7 +40,7 @@
       "definition" : "Optional reference to more detailed demographic or identification information for this party, in an external system.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     }]

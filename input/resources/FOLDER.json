@@ -48,7 +48,7 @@
       "definition" : "The list of references to other (usually) versioned objects logically in this folder.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -69,7 +69,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

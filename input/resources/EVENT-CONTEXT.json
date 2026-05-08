@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_event_context_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/EVENT-CONTEXT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EVENT_CONTEXT",
   "version" : "1.2.0",
   "name" : "EVENT_CONTEXT",
   "title" : "EVENT_CONTEXT",
@@ -58,7 +58,7 @@
       "definition" : "Start time of the clinical session or other kind of event during which a provider performs a service of any kind for the patient.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -68,7 +68,7 @@
       "definition" : "Optional end time of the clinical session.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -89,7 +89,7 @@
       "definition" : "The setting in which the clinical session took place. Coded using the openEHR Terminology,  setting  group.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -100,7 +100,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     },
@@ -110,7 +110,7 @@
       "definition" : "The health care facility under whose care the event took place. This is the most specific workgroup or delivery unit within a care delivery enterprise that has an official identifier in the health system, and can be used to ensure medico-legal accountability.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTIFIED"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTIFIED"
       }],
       "isModifier" : false
     },

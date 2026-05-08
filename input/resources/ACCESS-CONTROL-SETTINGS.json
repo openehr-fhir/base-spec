@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_access_control_settings_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ACCESS-CONTROL-SETTINGS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ACCESS_CONTROL_SETTINGS",
   "version" : "1.2.0",
   "name" : "ACCESS_CONTROL_SETTINGS",
   "title" : "ACCESS_CONTROL_SETTINGS",

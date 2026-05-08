@@ -215,7 +215,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#less-than"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "version" : "1.2.0",
   "name" : "DV_AMOUNT",
   "title" : "DV_AMOUNT",
@@ -235,7 +235,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_admin_entry_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ADMIN-ENTRY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ADMIN_ENTRY",
   "version" : "1.2.0",
   "name" : "ADMIN_ENTRY",
   "title" : "ADMIN_ENTRY",
@@ -43,7 +43,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

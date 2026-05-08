@@ -90,7 +90,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TREE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
   "version" : "1.2.0",
   "name" : "ITEM_TREE",
   "title" : "ITEM_TREE",
@@ -110,7 +110,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

@@ -76,7 +76,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#institution-specified"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TIME-SPECIFICATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
   "version" : "1.2.0",
   "name" : "DV_TIME_SPECIFICATION",
   "title" : "DV_TIME_SPECIFICATION",
@@ -95,7 +95,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -112,7 +112,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     }]

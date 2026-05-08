@@ -97,7 +97,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#query"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-URI",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_URI",
   "version" : "1.2.0",
   "name" : "DV_URI",
   "title" : "DV_URI",
@@ -117,7 +117,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_URI",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
