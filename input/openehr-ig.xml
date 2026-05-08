@@ -120,6 +120,7 @@
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-instruction_transitions"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-integrity_check_algorithms"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-languages"/></parameter>
+    <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-media_types"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-normal_statuses"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-null_flavours"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/codesystem-participation_function"/></parameter>
@@ -147,6 +148,7 @@
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-instruction_transitions"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-integrity_check_algorithms"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-languages"/></parameter>
+    <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-media_types"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-normal_statuses"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-null_flavours"/></parameter>
     <parameter><code><system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/><code value="special-url"/></code><value value="https://specifications.openehr.org/fhir/valueset-participation_function"/></parameter>
