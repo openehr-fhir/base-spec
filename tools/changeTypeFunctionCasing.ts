@@ -1,28 +1,59 @@
 #!/usr/bin/env bun
-// Bulk-toggle casing of openEHR type-function OperationDefinitions.
-// See tools/README.md for full usage.
+// Bulk-toggle casing of openEHR type-function OperationDefinitions and
+// (Phase 3+) the parent StructureDefinition's id/name/title and (Phase 4+)
+// canonical-URL trio. See tools/README.md for full usage.
 
 import { readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join, relative } from "node:path";
-import { applyEdits, parseTree, printParseErrorCode } from "jsonc-parser";
-import { parseArgv } from "./lib/argv.ts";
+import {
+  applyEdits,
+  parseTree,
+  printParseErrorCode,
+  type Edit,
+} from "jsonc-parser";
+import { parseArgv, type ParsedArgs } from "./lib/argv.ts";
 import { planCaseChanges, type ChangeRecord } from "./lib/edits.ts";
 import { planRepair } from "./lib/repair.ts";
 
-const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions.
+const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions
+and the parent StructureDefinition.
 
 Usage:
-  bun tools/changeTypeFunctionCasing.ts [flags]
+  bun tools/changeTypeFunctionCasing.ts [matrix flags] [--update]
 
-Flags (mutually-exclusive groups described in tools/README.md):
-  --all-snake             id, name, title -> lower_snake_case; #refs -> #lower_snake_case
-  --all-fhir              id -> lower-kebab-case; name+title -> UpperPascalCase; #refs -> #lower-kebab-case
-  --id-case <case>        lower_snake | lower-kebab (aliases: lower-hyphen, lower-dash)
-  --name-case <case>      lower_snake | lower-kebab | Upper-Kebab | lowerCamel | UpperPascal (+ aliases)
-  --title-case <case>     same value set as --name-case
-  --repair                rewrite #refs to match the current OperationDefinition.id (no casing change)
-  --dry-run               do not write any files; print the change report only
-  --help                  print this message
+Operation-side flags (re-case contained OperationDefinitions):
+  --operation-id <case>          (alias: --op-id)
+                                 lower_snake | lower-kebab
+  --operation-name <case>        (alias: --op-name)
+                                 lower_snake | lower-kebab | Upper-Kebab
+                                 | Title-Kebab | Pascal-Kebab | lowerCamel
+                                 | UpperPascal
+  --operation-title <case>       (alias: --op-title)
+                                 same value set as --operation-name
+  --operation-canonical <#ref>   (alias: --op-canonical)
+                                 sentinel: one of {none, na, ref, #, #ref}.
+                                 Sync the type-operation valueCanonical
+                                 #refs to match contained OpDef.id values.
+
+Structure-side flags (re-case the parent StructureDefinition):
+  --structure-id <case>          (alias: --sd-id)
+                                 lower_snake | lower-kebab
+  --structure-name <case>        (alias: --sd-name)
+                                 same values as --operation-name
+  --structure-title <case>       (alias: --sd-title)
+                                 same values as --operation-name
+  --structure-canonical <case>   (alias: --sd-canonical)
+                                 lower_snake | lower-kebab | Upper-Kebab
+                                 | Title-Kebab | Pascal-Kebab.
+                                 Re-case the SD's url/type/baseDefinition
+                                 final segment AND every in-package
+                                 reference to a discovered SD canonical.
+
+Mode flags:
+  --update, -u                   Apply edits. Default is preview-only.
+  --help, -h                     Print this message.
+
+At least one matrix flag must be present (or --help).
 
 Operates on every *.json directly under input/resources/ (resolved
 relative to the current working directory). The summary line counts
@@ -31,11 +62,12 @@ files that contain at least one change.
 Exit codes:
   0  success (any number of changes, including zero)
   1  one or more files reported errors
-  2  argv/usage error, or no case-specifying flag and no --repair
+  2  argv/usage error
 
-Examples and the full flag-combination rules live in tools/README.md.
-Tip: if existing #refs and OpDef ids are out of sync, run --repair
-first, then the case-changing flag of your choice.
+Tip: --operation-canonical typically needs shell quoting on POSIX
+shells (the '#' is a comment character). PowerShell is fine.
+
+See tools/README.md for examples and the full flag-combination rules.
 `;
 
 interface FileResult {
@@ -49,11 +81,8 @@ interface FileResult {
 function processFile(
   absPath: string,
   relPath: string,
-  args: ReturnType<typeof parseArgv>,
+  args: ParsedArgs,
 ): FileResult {
-  if ("error" in args) {
-    return { relPath, records: [], errors: [args.error], newSource: null };
-  }
   const source = readFileSync(absPath, "utf8");
   const parseErrors: import("jsonc-parser").ParseError[] = [];
   const root = parseTree(source, parseErrors);
@@ -68,32 +97,63 @@ function processFile(
       newSource: null,
     };
   }
-  if (args.repair) {
-    const plan = planRepair({ source, root });
-    if (plan.errors.length > 0) {
-      return { relPath, records: [], errors: plan.errors, newSource: null };
-    }
-    if (plan.edits.length === 0) {
-      return { relPath, records: [], errors: [], newSource: null };
-    }
-    const newSource = applyEdits(source, plan.edits);
-    return { relPath, records: plan.records, errors: [], newSource };
-  }
-  const plan = planCaseChanges({
+
+  // Unified pipeline: always run planCaseChanges with whatever matrix
+  // cases were provided; additionally run planRepair when the user
+  // asked for ref-sync but did NOT pass --operation-id (id-casing
+  // already syncs the #refs, so combining them would double-edit).
+  const allEdits: Edit[] = [];
+  const allRecords: ChangeRecord[] = [];
+  const allErrors: string[] = [];
+
+  const cc = planCaseChanges({
     source,
     root,
-    idCase: args.idCase,
-    nameCase: args.nameCase,
-    titleCase: args.titleCase,
+    idCase: args.operationIdCase,
+    nameCase: args.operationNameCase,
+    titleCase: args.operationTitleCase,
   });
-  if (plan.errors.length > 0) {
-    return { relPath, records: [], errors: plan.errors, newSource: null };
+  allErrors.push(...cc.errors);
+  allEdits.push(...cc.edits);
+  allRecords.push(...cc.records);
+
+  if (
+    args.operationCanonicalRefSync &&
+    args.operationIdCase === null
+  ) {
+    const rp = planRepair({ source, root });
+    allErrors.push(...rp.errors);
+    allEdits.push(...rp.edits);
+    allRecords.push(...rp.records);
   }
-  if (plan.edits.length === 0) {
+
+  if (allErrors.length > 0) {
+    return { relPath, records: [], errors: allErrors, newSource: null };
+  }
+  if (allEdits.length === 0) {
     return { relPath, records: [], errors: [], newSource: null };
   }
-  const newSource = applyEdits(source, plan.edits);
-  return { relPath, records: plan.records, errors: [], newSource };
+
+  // Sort edits by offset before applying.
+  allEdits.sort((a, b) => a.offset - b.offset);
+
+  // Defensive overlap check: each planner emits non-overlapping edits;
+  // when planners are merged we revalidate the joined sequence.
+  for (let i = 1; i < allEdits.length; i++) {
+    const prev = allEdits[i - 1]!;
+    const cur = allEdits[i]!;
+    if (prev.offset + prev.length > cur.offset) {
+      return {
+        relPath,
+        records: [],
+        errors: [`internal error: overlapping edits at offset ${cur.offset}`],
+        newSource: null,
+      };
+    }
+  }
+
+  const newSource = applyEdits(source, allEdits);
+  return { relPath, records: allRecords, errors: [], newSource };
 }
 
 function formatRecords(records: readonly ChangeRecord[]): string[] {
@@ -167,7 +227,7 @@ export function runWith(
     totalChanges += result.records.length;
     filesWithChanges++;
 
-    if (!parsed.dryRun && result.newSource !== null) {
+    if (parsed.update && result.newSource !== null) {
       const original = readFileSync(abs);
       const last = original.length > 0 ? original[original.length - 1] : -1;
       const newBuf = Buffer.from(result.newSource, "utf8");
@@ -204,5 +264,3 @@ export function main(argv: readonly string[]): number {
 if (import.meta.main) {
   process.exit(main(process.argv.slice(2)));
 }
-
-

@@ -422,20 +422,29 @@ export function planCaseChanges(input: PlannerInput): PlannerOutput {
 
   // Detect any extension whose fragment doesn't resolve to any OpDef
   // id (after applying planned id changes). This is the "no dangling
-  // refs" guarantee from the request.
-  const finalIds = new Set<string>();
-  for (const p of plans) {
-    finalIds.add(p.target.id ?? p.site.originalId ?? "");
-  }
-  finalIds.delete("");
-  const allExts = collectTypeOpExtensions(root);
-  for (const e of allExts) {
-    // Resolve old fragment through the rename map first.
-    const resolved = idRenames.get(e.fragment) ?? e.fragment;
-    if (!finalIds.has(resolved)) {
-      errors.push(
-        `type-operation valueCanonical '#${e.fragment}' does not resolve to any contained OperationDefinition.id`,
-      );
+  // refs" guarantee from the request. Only run this safety check when
+  // at least one operation-side case was requested — when the caller
+  // passes no operation-side cases (e.g. they're driving --operation-
+  // canonical #ref alone, or only structure-side flags), planCaseChanges
+  // is a no-op for this file and should not second-guess unrelated
+  // ref state. (planRepair, when invoked, handles dangling refs on its
+  // own terms.)
+  const anyOpCase = idCase !== null || nameCase !== null || titleCase !== null;
+  if (anyOpCase) {
+    const finalIds = new Set<string>();
+    for (const p of plans) {
+      finalIds.add(p.target.id ?? p.site.originalId ?? "");
+    }
+    finalIds.delete("");
+    const allExts = collectTypeOpExtensions(root);
+    for (const e of allExts) {
+      // Resolve old fragment through the rename map first.
+      const resolved = idRenames.get(e.fragment) ?? e.fragment;
+      if (!finalIds.has(resolved)) {
+        errors.push(
+          `type-operation valueCanonical '#${e.fragment}' does not resolve to any contained OperationDefinition.id`,
+        );
+      }
     }
   }
 

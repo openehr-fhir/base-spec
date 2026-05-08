@@ -198,58 +198,28 @@ describe('parseArgv', () => {
     expect(r.error).toContain('nothing to do');
   });
 
-  it('rejects --all-snake + --all-fhir', () => {
-    const r = parseArgv(['--all-snake', '--all-fhir']);
+  it('rejects unknown --operation-id value', () => {
+    const r = parseArgv(['--operation-id', 'snake']);
     err(r);
-    expect(r.error).toContain('mutually exclusive');
+    expect(r.error).toContain('--operation-id');
   });
 
-  it('rejects --all-snake + --id-case', () => {
-    const r = parseArgv(['--all-snake', '--id-case', 'lower-kebab']);
+  it('rejects name-only case value on --operation-id', () => {
+    const r = parseArgv(['--operation-id', 'UpperPascal']);
     err(r);
-    expect(r.error).toContain('cannot be combined');
+    expect(r.error).toContain('--operation-id');
   });
 
-  it('rejects --all-fhir + --name-case', () => {
-    const r = parseArgv(['--all-fhir', '--name-case', 'lowerCamel']);
+  it('rejects unknown --operation-name value', () => {
+    const r = parseArgv(['--operation-name', 'kebab']);
     err(r);
-    expect(r.error).toContain('cannot be combined');
+    expect(r.error).toContain('--operation-name');
   });
 
-  it('rejects --repair + --all-snake', () => {
-    const r = parseArgv(['--repair', '--all-snake']);
+  it('rejects unknown --operation-title value', () => {
+    const r = parseArgv(['--operation-title', 'spongebob']);
     err(r);
-    expect(r.error).toContain('--repair');
-  });
-
-  it('rejects --repair + --title-case', () => {
-    const r = parseArgv(['--repair', '--title-case', 'lower_snake']);
-    err(r);
-    expect(r.error).toContain('--repair');
-  });
-
-  it('rejects unknown --id-case value', () => {
-    const r = parseArgv(['--id-case', 'snake']);
-    err(r);
-    expect(r.error).toContain('--id-case');
-  });
-
-  it('rejects name-only case value on --id-case', () => {
-    const r = parseArgv(['--id-case', 'UpperPascal']);
-    err(r);
-    expect(r.error).toContain('--id-case');
-  });
-
-  it('rejects unknown --name-case value', () => {
-    const r = parseArgv(['--name-case', 'kebab']);
-    err(r);
-    expect(r.error).toContain('--name-case');
-  });
-
-  it('rejects unknown --title-case value', () => {
-    const r = parseArgv(['--title-case', 'spongebob']);
-    err(r);
-    expect(r.error).toContain('--title-case');
+    expect(r.error).toContain('--operation-title');
   });
 
   it('rejects unknown flag', () => {
@@ -258,81 +228,196 @@ describe('parseArgv', () => {
     expect(r.error).toMatch(/error:/);
   });
 
-  it('expands --all-snake to all-snake fields', () => {
-    const r = parseArgv(['--all-snake']);
-    ok(r);
-    expect(r.idCase).toBe('lower_snake');
-    expect(r.nameCase).toBe('lower_snake');
-    expect(r.titleCase).toBe('lower_snake');
-    expect(r.repair).toBe(false);
-    expect(r.dryRun).toBe(false);
-  });
-
-  it('expands --all-fhir to FHIR-flavored fields', () => {
-    const r = parseArgv(['--all-fhir']);
-    ok(r);
-    expect(r.idCase).toBe('lower-kebab');
-    expect(r.nameCase).toBe('UpperPascal');
-    expect(r.titleCase).toBe('UpperPascal');
-  });
-
-  it('resolves --id-case lower-hyphen to lower-kebab', () => {
-    const r = parseArgv(['--id-case', 'lower-hyphen']);
-    ok(r);
-    expect(r.idCase).toBe('lower-kebab');
-  });
-
-  it('resolves --id-case lower-dash to lower-kebab', () => {
-    const r = parseArgv(['--id-case', 'lower-dash']);
-    ok(r);
-    expect(r.idCase).toBe('lower-kebab');
-  });
-
   it('mix-and-match per-field flags work together', () => {
     const r = parseArgv([
-      '--id-case', 'lower-kebab',
-      '--name-case', 'UpperPascal',
-      '--title-case', 'lower_snake',
+      '--operation-id', 'lower-kebab',
+      '--operation-name', 'UpperPascal',
+      '--operation-title', 'lower_snake',
     ]);
     ok(r);
-    expect(r.idCase).toBe('lower-kebab');
-    expect(r.nameCase).toBe('UpperPascal');
-    expect(r.titleCase).toBe('lower_snake');
+    expect(r.operationIdCase).toBe('lower-kebab');
+    expect(r.operationNameCase).toBe('UpperPascal');
+    expect(r.operationTitleCase).toBe('lower_snake');
+    expect(r.update).toBe(false);
   });
 
-  it('--dry-run combines with --all-snake', () => {
-    const r = parseArgv(['--all-snake', '--dry-run']);
+  it('--update combines with operation flags', () => {
+    const r = parseArgv(['--operation-id', 'lower_snake', '--update']);
     ok(r);
-    expect(r.dryRun).toBe(true);
+    expect(r.update).toBe(true);
+    expect(r.operationIdCase).toBe('lower_snake');
   });
 
-  it('--dry-run combines with --repair', () => {
-    const r = parseArgv(['--repair', '--dry-run']);
+  it('-u short alias for --update', () => {
+    const r = parseArgv(['--operation-id', 'lower_snake', '-u']);
     ok(r);
-    expect(r.dryRun).toBe(true);
-    expect(r.repair).toBe(true);
+    expect(r.update).toBe(true);
   });
 
-  it('--dry-run combines with mix-and-match', () => {
-    const r = parseArgv(['--id-case', 'lower_snake', '--dry-run']);
-    ok(r);
-    expect(r.dryRun).toBe(true);
-    expect(r.idCase).toBe('lower_snake');
-  });
-
-  it('--repair alone parses as repair mode', () => {
-    const r = parseArgv(['--repair']);
-    ok(r);
-    expect(r.repair).toBe(true);
-    expect(r.idCase).toBeNull();
-    expect(r.nameCase).toBeNull();
-    expect(r.titleCase).toBeNull();
+  it('--update without any matrix flag is rejected', () => {
+    const r = parseArgv(['--update']);
+    err(r);
+    expect(r.error).toContain('nothing to do');
   });
 
   it('--help short-circuits everything else', () => {
     const r = parseArgv(['--help']);
     ok(r);
     expect(r.help).toBe(true);
+  });
+
+  it('-h short alias for --help', () => {
+    const r = parseArgv(['-h']);
+    ok(r);
+    expect(r.help).toBe(true);
+  });
+
+  // Short-form (alias) folding
+  it('--op-id is an alias for --operation-id', () => {
+    const r = parseArgv(['--op-id', 'lower_snake']);
+    ok(r);
+    expect(r.operationIdCase).toBe('lower_snake');
+  });
+
+  it('--op-name is an alias for --operation-name', () => {
+    const r = parseArgv(['--op-name', 'UpperPascal']);
+    ok(r);
+    expect(r.operationNameCase).toBe('UpperPascal');
+  });
+
+  it('--op-title is an alias for --operation-title', () => {
+    const r = parseArgv(['--op-title', 'Title-Kebab']);
+    ok(r);
+    expect(r.operationTitleCase).toBe('Title-Kebab');
+  });
+
+  it('--sd-id is an alias for --structure-id', () => {
+    const r = parseArgv(['--sd-id', 'lower-kebab']);
+    ok(r);
+    expect(r.structureIdCase).toBe('lower-kebab');
+  });
+
+  it('--sd-name is an alias for --structure-name', () => {
+    const r = parseArgv(['--sd-name', 'UpperPascal']);
+    ok(r);
+    expect(r.structureNameCase).toBe('UpperPascal');
+  });
+
+  it('--sd-title is an alias for --structure-title', () => {
+    const r = parseArgv(['--sd-title', 'Title-Kebab']);
+    ok(r);
+    expect(r.structureTitleCase).toBe('Title-Kebab');
+  });
+
+  it('--op-canonical is an alias for --operation-canonical', () => {
+    const r = parseArgv(['--op-canonical', '#ref']);
+    ok(r);
+    expect(r.operationCanonicalRefSync).toBe(true);
+  });
+
+  it('--sd-canonical is an alias for --structure-canonical', () => {
+    const r = parseArgv(['--sd-canonical', 'Upper-Kebab']);
+    ok(r);
+    expect(r.structureCanonicalCase).toBe('Upper-Kebab');
+  });
+
+  it('long-form takes precedence on alias collision (last-wins folding)', () => {
+    const r = parseArgv([
+      '--op-id', 'lower-kebab',
+      '--operation-id', 'lower_snake',
+    ]);
+    ok(r);
+    expect(r.operationIdCase).toBe('lower_snake');
+  });
+
+  // --operation-canonical sentinel parsing
+  for (const sentinel of ['none', 'na', 'ref', '#', '#ref', 'NONE', 'Ref', 'NA']) {
+    it(`--operation-canonical ${JSON.stringify(sentinel)} parses as ref-sync true`, () => {
+      const r = parseArgv(['--operation-canonical', sentinel]);
+      ok(r);
+      expect(r.operationCanonicalRefSync).toBe(true);
+    });
+  }
+
+  it('--operation-canonical with invalid value is rejected', () => {
+    const r = parseArgv(['--operation-canonical', 'sync']);
+    err(r);
+    expect(r.error).toContain('--operation-canonical');
+  });
+
+  // SD-side flags
+  it('--structure-id lower-kebab parses', () => {
+    const r = parseArgv(['--structure-id', 'lower-kebab']);
+    ok(r);
+    expect(r.structureIdCase).toBe('lower-kebab');
+  });
+
+  it('--structure-canonical accepts SC values', () => {
+    const r = parseArgv(['--structure-canonical', 'Upper-Kebab']);
+    ok(r);
+    expect(r.structureCanonicalCase).toBe('Upper-Kebab');
+  });
+
+  it('--structure-canonical rejects lowerCamel (not in ALLOWED_SC_CASES)', () => {
+    const r = parseArgv(['--structure-canonical', 'lowerCamel']);
+    err(r);
+    expect(r.error).toContain('--structure-canonical');
+  });
+
+  it('--structure-canonical rejects UpperPascal (not in ALLOWED_SC_CASES)', () => {
+    const r = parseArgv(['--structure-canonical', 'UpperPascal']);
+    err(r);
+    expect(r.error).toContain('--structure-canonical');
+  });
+
+  // Removed-flag hints
+  it('--all-snake is removed (with hint)', () => {
+    const r = parseArgv(['--all-snake']);
+    err(r);
+    expect(r.error).toContain('--all-snake');
+    expect(r.error).toContain('removed');
+  });
+
+  it('--all-fhir is removed (with hint)', () => {
+    const r = parseArgv(['--all-fhir']);
+    err(r);
+    expect(r.error).toContain('--all-fhir');
+    expect(r.error).toContain('removed');
+  });
+
+  it('--id-case is removed (with rename hint)', () => {
+    const r = parseArgv(['--id-case', 'lower_snake']);
+    err(r);
+    expect(r.error).toContain('--id-case');
+    expect(r.error).toContain('--operation-id');
+  });
+
+  it('--name-case is removed (with rename hint)', () => {
+    const r = parseArgv(['--name-case', 'UpperPascal']);
+    err(r);
+    expect(r.error).toContain('--name-case');
+    expect(r.error).toContain('--operation-name');
+  });
+
+  it('--title-case is removed (with rename hint)', () => {
+    const r = parseArgv(['--title-case', 'lower_snake']);
+    err(r);
+    expect(r.error).toContain('--title-case');
+    expect(r.error).toContain('--operation-title');
+  });
+
+  it('--repair is removed (with replacement hint)', () => {
+    const r = parseArgv(['--repair']);
+    err(r);
+    expect(r.error).toContain('--repair');
+    expect(r.error).toContain('--operation-canonical');
+  });
+
+  it('--dry-run is removed (with replacement hint)', () => {
+    const r = parseArgv(['--dry-run']);
+    err(r);
+    expect(r.error).toContain('--dry-run');
+    expect(r.error).toContain('--update');
   });
 });
 
@@ -696,7 +781,7 @@ describe('runWith (end-to-end)', () => {
   it('emits the expected report and writes byte-identical post-edit bytes', () => {
     const dir = makeTempDir();
     try {
-      // ALPHA.json: needs an id flip and a #ref rewrite under --all-snake.
+      // ALPHA.json: needs an id flip and a #ref rewrite under all-snake.
       writeFixture(dir, 'ALPHA.json', crlf([
         '{',
         '  "resourceType" : "StructureDefinition",',
@@ -726,7 +811,12 @@ describe('runWith (end-to-end)', () => {
         '}',
       ]));
 
-      const result = captureRun(['--all-snake'], dir);
+      const result = captureRun([
+        '--operation-id', 'lower_snake',
+        '--operation-name', 'lower_snake',
+        '--operation-title', 'lower_snake',
+        '--update',
+      ], dir);
       expect(result.code).toBe(0);
       expect(result.err).toBe('');
       // Per-file block for ALPHA only; BETA omitted.
@@ -777,10 +867,20 @@ describe('runWith (end-to-end)', () => {
         '}',
       ]));
 
-      const r1 = captureRun(['--all-snake'], dir);
+      const r1 = captureRun([
+        '--operation-id', 'lower_snake',
+        '--operation-name', 'lower_snake',
+        '--operation-title', 'lower_snake',
+        '--update',
+      ], dir);
       expect(r1.code).toBe(0);
 
-      const r2 = captureRun(['--all-snake'], dir);
+      const r2 = captureRun([
+        '--operation-id', 'lower_snake',
+        '--operation-name', 'lower_snake',
+        '--operation-title', 'lower_snake',
+        '--update',
+      ], dir);
       expect(r2.code).toBe(0);
       expect(r2.out.trimEnd().endsWith('0 change(s) across 0 file(s).')).toBe(true);
     } finally {
@@ -788,7 +888,7 @@ describe('runWith (end-to-end)', () => {
     }
   });
 
-  it('--dry-run does not write files', () => {
+  it('preview is the default: runs without --update do not write files (byte-identical on disk)', () => {
     const dir = makeTempDir();
     try {
       const original = crlf([
@@ -803,11 +903,76 @@ describe('runWith (end-to-end)', () => {
         '}',
       ]);
       writeFixture(dir, 'DELTA.json', original);
-      const r = captureRun(['--all-snake', '--dry-run'], dir);
+      const r = captureRun(['--operation-id', 'lower_snake'], dir);
       expect(r.code).toBe(0);
       expect(r.out).toContain('DELTA.json');
       const after = readFileSync(join(dir, 'DELTA.json'), 'utf8');
       expect(after).toBe(original);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--operation-id + --operation-canonical #ref together: redundant-but-allowed (no warning, no double-edit)', () => {
+    // Fixture where the contained OpDef id is out of sync with the
+    // #ref. Under --operation-id, the id-casing pipeline already syncs
+    // the #ref. Adding --operation-canonical #ref must not double-edit
+    // and must not emit a warning.
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'REDUN.json', crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "is-strictly-comparable-to",',
+        '    "name" : "IsStrictlyComparableTo",',
+        '    "code" : "is_strictly_comparable_to"',
+        '  }],',
+        '  "extension" : [{',
+        '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+        '    "valueCanonical" : "#is_strictly_comparable_to"',
+        '  }]',
+        '}',
+      ]));
+      const r = captureRun([
+        '--operation-id', 'lower_snake',
+        '--operation-canonical', '#ref',
+        '--update',
+      ], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toBe('');
+      const after = readFileSync(join(dir, 'REDUN.json'), 'utf8');
+      // id moved to snake; #ref already snake stays snake; no double-write
+      // would be visible in the bytes anyway, but the file must parse and
+      // the values must agree.
+      expect(after).toContain('"id" : "is_strictly_comparable_to"');
+      expect(after).toContain('"valueCanonical" : "#is_strictly_comparable_to"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--operation-canonical #ref alone behaves like the old --repair (sync only)', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'BROKENREF.json', crlf([
+        '{',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "is-strictly-comparable-to",',
+        '    "code" : "is_strictly_comparable_to"',
+        '  }],',
+        '  "extension" : [{',
+        '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+        '    "valueCanonical" : "#is_strictly_comparable_to"',
+        '  }]',
+        '}',
+      ]));
+      const r = captureRun(['--operation-canonical', '#ref', '--update'], dir);
+      expect(r.code).toBe(0);
+      expect(r.out).toContain('valueCanonical');
+      const after = readFileSync(join(dir, 'BROKENREF.json'), 'utf8');
+      expect(after).toContain('"valueCanonical" : "#is-strictly-comparable-to"');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
@@ -826,7 +991,12 @@ describe('runWith (end-to-end)', () => {
         '  }]',
         '}',
       ]));
-      const r = captureRun(['--all-snake'], dir);
+      const r = captureRun([
+        '--operation-id', 'lower_snake',
+        '--operation-name', 'lower_snake',
+        '--operation-title', 'lower_snake',
+        '--update',
+      ], dir);
       expect(r.code).toBe(1);
       expect(r.out).toContain('BROKEN.json');
       expect(r.out.toLowerCase()).toContain('error');
