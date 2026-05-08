@@ -188,6 +188,20 @@ is no opt-in/opt-out flag. Cross-ref values (`code`, `profile`,
 require exact-string membership in the discovered set.
 
 
+### Pinned StructureDefinitions
+
+The abstract root SD `Any`
+(`http://openehr.org/fhir/StructureDefinition/Any`) is permanently
+pinned. The tool will never write `input/resources/Any.json` under
+any flag combination, and every in-package reference whose full
+value equals the `Any` canonical is preserved verbatim regardless
+of `--structure-canonical`. This is silent: pinned no-ops do not
+warn and do not change the exit code. The pin lives in
+`tools/lib/sdCanonical.ts` as `PINNED_SD_CANONICALS`; extending it
+to additional SDs is an in-source one-liner today and will graduate
+to a configurable list if the set ever grows.
+
+
 ### Report format
 
 ```
