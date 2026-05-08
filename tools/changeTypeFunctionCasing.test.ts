@@ -19,7 +19,9 @@ import {
 } from "./lib/casing.ts";
 import {
   discoverSdCanonicals,
+  isPinnedSdFile,
   isStructureDefinitionRoot,
+  PINNED_SD_CANONICALS,
   planSdCanonicalRewrite,
   resolveDivergentType,
   type SdLookupIndex,
@@ -1460,6 +1462,208 @@ describe('planSdCanonicalRewrite (divergent-type resolver via index)', () => {
   });
 });
 
+describe('PINNED_SD_CANONICALS', () => {
+  it('contains the openEHR `Any` canonical', () => {
+    // Membership-only: deliberately no size assertion. When the set
+    // legitimately graduates to a second SD, that contributor should
+    // not also have to update an unrelated test.
+    expect(
+      PINNED_SD_CANONICALS.has('http://openehr.org/fhir/StructureDefinition/Any'),
+    ).toBe(true);
+  });
+});
+
+describe('isPinnedSdFile', () => {
+  it('SD root with pinned url returns true', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "Any",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/Any"',
+      '}',
+    ]);
+    const root = parseTree(fixture)!;
+    expect(isPinnedSdFile(root)).toBe(true);
+  });
+
+  it('SD root with non-pinned url returns false', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/ACTIVITY"',
+      '}',
+    ]);
+    const root = parseTree(fixture)!;
+    expect(isPinnedSdFile(root)).toBe(false);
+  });
+
+  it('non-SD root with pinned url string returns false', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "CodeSystem",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/Any"',
+      '}',
+    ]);
+    const root = parseTree(fixture)!;
+    expect(isPinnedSdFile(root)).toBe(false);
+  });
+});
+
+describe('planSdCanonicalRewrite (pinned SD)', () => {
+  const PINNED_ANY = 'http://openehr.org/fhir/StructureDefinition/Any';
+
+  for (const c of ALLOWED_CASES) {
+    it(`pinned SD root produces zero edits/records/errors under targetCase ${c}`, () => {
+      const fixture = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "Any",',
+        '  "name" : "Any",',
+        '  "title" : "Any",',
+        `  "url" : "${PINNED_ANY}",`,
+        `  "type" : "${PINNED_ANY}",`,
+        '  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base"',
+        '}',
+      ]);
+      // Discovered set includes the pinned canonical (mirrors how
+      // `discoverSdCanonicals` treats it: it IS in the discovered set;
+      // the planner-level pin gate is what keeps it from being edited).
+      const discovered = new Set([PINNED_ANY]);
+      const r = planSC(fixture, c, discovered);
+      expect(r.edits).toEqual([]);
+      expect(r.records).toEqual([]);
+      expect(r.errors).toEqual([]);
+    });
+  }
+
+  it('cross-ref pin: sibling SD never re-cases references to Any but DOES re-case its own canonical trio', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "MESSAGE",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/MESSAGE",',
+      '  "type" : "http://openehr.org/fhir/StructureDefinition/MESSAGE",',
+      `  "baseDefinition" : "${PINNED_ANY}",`,
+      '  "extension" : [',
+      `    { "url" : "x", "valueCanonical" : "${PINNED_ANY}" },`,
+      `    { "url" : "y", "valueUrl" : "${PINNED_ANY}" }`,
+      '  ],',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "type" : [{',
+      `        "code" : "${PINNED_ANY}",`,
+      `        "profile" : ["${PINNED_ANY}"],`,
+      `        "targetProfile" : ["${PINNED_ANY}"]`,
+      '      }, {',
+      '        "code" : "http://example.org/sd/OTHER"',
+      '      }]',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set([
+      PINNED_ANY,
+      'http://example.org/sd/OTHER',
+      'http://openehr.org/fhir/StructureDefinition/MESSAGE',
+    ]);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    // Zero records whose newValue ends in `/any`.
+    const anyHits = r.records.filter((x) => x.newValue.endsWith('/any'));
+    expect(anyHits).toEqual([]);
+    // Exactly one cross-ref record for OTHER.
+    const otherHits = r.records.filter(
+      (x) => x.newValue === 'http://example.org/sd/other',
+    );
+    expect(otherHits).toHaveLength(1);
+    // MESSAGE's own url and type ARE re-cased (proves pin is per-canonical, not per-file).
+    const sdUrlRec = r.records.find((x) => (x.field as string) === 'sd.url');
+    expect(sdUrlRec?.newValue).toBe('http://openehr.org/fhir/StructureDefinition/message');
+    const sdTypeRec = r.records.find((x) => (x.field as string) === 'sd.type');
+    expect(sdTypeRec?.newValue).toBe('http://openehr.org/fhir/StructureDefinition/message');
+  });
+
+  it('mixed pin/non-pin targetProfile array: only the non-pinned element is rewritten', () => {
+    // Guards against a future regression where the pin check inside
+    // tryEmitCrossRefEdit (or its caller's array loop) is changed
+    // from per-element to per-array short-circuit.
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "MESSAGE",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/MESSAGE",',
+      '  "type" : "http://openehr.org/fhir/StructureDefinition/MESSAGE",',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "type" : [{',
+      `        "targetProfile" : ["${PINNED_ANY}", "http://example.org/sd/OTHER"]`,
+      '      }]',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set([
+      PINNED_ANY,
+      'http://example.org/sd/OTHER',
+      'http://openehr.org/fhir/StructureDefinition/MESSAGE',
+    ]);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    const crossRefRecs = r.records.filter((x) =>
+      (x.field as string).includes('targetProfile'),
+    );
+    expect(crossRefRecs).toHaveLength(1);
+    expect(crossRefRecs[0]!.field as string).toContain('targetProfile[1]');
+    expect(crossRefRecs[0]!.newValue).toBe('http://example.org/sd/other');
+    // No record at targetProfile[0] (the pinned element).
+    expect(
+      r.records.some((x) => (x.field as string).includes('targetProfile[0]')),
+    ).toBe(false);
+  });
+});
+
+describe('planSdCanonicalRewrite (pinned-resolver branch)', () => {
+  const PINNED_ANY = 'http://openehr.org/fhir/StructureDefinition/Any';
+
+  it('divergent type resolved to pinned canonical: refuse-to-rewrite (no edit, no record)', () => {
+    // Sibling SD whose `type` last segment tokenizes to the pinned `Any`.
+    // The resolver would normally rewrite the `type` literal; the pin
+    // makes it refuse-to-rewrite (mirrors the `ambiguous` branch shape).
+    // The sibling's own `url` IS re-cased (proves the resolver refusal
+    // does NOT abort the rest of the planner — typeResolved=true only
+    // suppresses the `type` re-case path, not the `url` one).
+    const sibling = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "MY-SIBLING",',
+      '  "url" : "http://example.org/sd/MY-SIBLING",',
+      '  "type" : "Any"',
+      '}',
+    ]);
+    const pinned = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "Any",',
+      `  "url" : "${PINNED_ANY}"`,
+      '}',
+    ]);
+    const discovery = discoverSdCanonicals([
+      { relPath: 'sibling.json', source: sibling, root: parseTree(sibling)! },
+      { relPath: 'any.json', source: pinned, root: parseTree(pinned)! },
+    ]);
+    const r = planSCWithIndex(sibling, 'lower-kebab', discovery.canonicals, discovery.index);
+    expect(r.errors).toEqual([]);
+    // No type-resolve record (refuse-to-rewrite) and no `sd.type` record.
+    const fields = r.records.map((x) => x.field as string);
+    expect(fields).not.toContain('sd.type-resolve');
+    expect(fields).not.toContain('sd.type');
+    // The sibling's own url IS re-cased.
+    const urlRec = r.records.find((x) => (x.field as string) === 'sd.url');
+    expect(urlRec?.newValue).toBe('http://example.org/sd/my-sibling');
+  });
+});
+
 describe('runWith (end-to-end) > --structure-canonical', () => {
   it('end-to-end --structure-canonical resolves divergent type via the discovered-SD index (ADDRESSED-MESSAGE-style)', () => {
     const dir = makeTempDir();
@@ -1746,6 +1950,180 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
       expect(r.out).toContain('ACTIVITY.element[0].type[0].profile[0]');
       expect(r.out).not.toContain('ACTIVITY.differential.element');
       expect(r.out).not.toContain('ACTIVITY.snapshot.element');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('runWith (end-to-end) > pinned `Any` SD', () => {
+  const PINNED_ANY = 'http://openehr.org/fhir/StructureDefinition/Any';
+
+  function pinnedAnyFixture(): string {
+    return crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "Any",',
+      '  "name" : "Any",',
+      '  "title" : "Any",',
+      `  "url" : "${PINNED_ANY}",`,
+      `  "type" : "${PINNED_ANY}",`,
+      '  "abstract" : true,',
+      '  "kind" : "logical",',
+      '  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Base"',
+      '}',
+    ]);
+  }
+
+  function siblingFixture(name: string, basePinned: boolean): string {
+    return crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      `  "id" : "${name}",`,
+      `  "url" : "http://openehr.org/fhir/StructureDefinition/${name}",`,
+      `  "type" : "http://openehr.org/fhir/StructureDefinition/${name}",`,
+      `  "baseDefinition" : "${basePinned ? PINNED_ANY : 'http://hl7.org/fhir/StructureDefinition/Base'}"`,
+      '}',
+    ]);
+  }
+
+  it('per-file no-op (preview): Any.json absent from report; sibling files still process', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'Any.json', pinnedAnyFixture());
+      writeFixture(dir, 'MESSAGE.json', siblingFixture('MESSAGE', true));
+      const r = captureRun(
+        ['--structure-id', 'lower-kebab', '--structure-canonical', 'lower-kebab'],
+        dir,
+      );
+      expect(r.code).toBe(0);
+      expect(r.out).not.toContain('Any.json');
+      expect(r.out).toContain('MESSAGE.id');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('per-file no-op (--update): Any.json byte-identical on disk', () => {
+    const dir = makeTempDir();
+    try {
+      const original = pinnedAnyFixture();
+      writeFixture(dir, 'Any.json', original);
+      writeFixture(dir, 'MESSAGE.json', siblingFixture('MESSAGE', true));
+      const r = captureRun(
+        ['--structure-id', 'lower-kebab', '--structure-canonical', 'lower-kebab', '--update'],
+        dir,
+      );
+      expect(r.code).toBe(0);
+      const after = readFileSync(join(dir, 'Any.json'), 'utf8');
+      expect(after).toBe(original);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('cross-ref pin (--structure-canonical only, --update): isolates the cross-ref gate from the per-file gate', () => {
+    const dir = makeTempDir();
+    try {
+      const anyOriginal = pinnedAnyFixture();
+      writeFixture(dir, 'Any.json', anyOriginal);
+      writeFixture(dir, 'MESSAGE.json', siblingFixture('MESSAGE', true));
+      const r = captureRun(
+        ['--structure-canonical', 'lower-kebab', '--update'],
+        dir,
+      );
+      expect(r.code).toBe(0);
+      // Any.json untouched.
+      expect(readFileSync(join(dir, 'Any.json'), 'utf8')).toBe(anyOriginal);
+      // MESSAGE's baseDefinition value still literally the pinned canonical.
+      const m = readFileSync(join(dir, 'MESSAGE.json'), 'utf8');
+      expect(m).toContain(`"baseDefinition" : "${PINNED_ANY}"`);
+      // MESSAGE's own url and type ARE re-cased.
+      expect(m).toContain('"url" : "http://openehr.org/fhir/StructureDefinition/message"');
+      expect(m).toContain('"type" : "http://openehr.org/fhir/StructureDefinition/message"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('cross-ref pin (combined matrix, --update): per-file + cross-ref both fire, no /any in report', () => {
+    const dir = makeTempDir();
+    try {
+      const anyOriginal = pinnedAnyFixture();
+      writeFixture(dir, 'Any.json', anyOriginal);
+      writeFixture(dir, 'MESSAGE.json', siblingFixture('MESSAGE', true));
+      const r = captureRun(
+        ['--structure-id', 'lower-kebab', '--structure-canonical', 'lower-kebab', '--update'],
+        dir,
+      );
+      expect(r.code).toBe(0);
+      // Any.json untouched.
+      expect(readFileSync(join(dir, 'Any.json'), 'utf8')).toBe(anyOriginal);
+      // MESSAGE's baseDefinition still pinned.
+      const m = readFileSync(join(dir, 'MESSAGE.json'), 'utf8');
+      expect(m).toContain(`"baseDefinition" : "${PINNED_ANY}"`);
+      // Report contains MESSAGE's id and url records.
+      expect(r.out).toContain('MESSAGE.id');
+      expect(r.out).toContain('MESSAGE.url');
+      // No record line whose newValue ends in /any.
+      expect(r.out).not.toMatch(/-> "[^"]*\/any"/);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('op-side flags also no-op against `Any`: file with a synthesized contained OpDef stays byte-identical', () => {
+    const dir = makeTempDir();
+    try {
+      const original = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "Any",',
+        `  "url" : "${PINNED_ANY}",`,
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "MAGNITUDE",',
+        '    "name" : "MAGNITUDE",',
+        '    "code" : "MAGNITUDE"',
+        '  }]',
+        '}',
+      ]);
+      writeFixture(dir, 'Any.json', original);
+      const r = captureRun(['--operation-id', 'lower_snake', '--update'], dir);
+      expect(r.code).toBe(0);
+      expect(readFileSync(join(dir, 'Any.json'), 'utf8')).toBe(original);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('idempotence: a second --update run after the first reports zero changes', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'Any.json', pinnedAnyFixture());
+      writeFixture(dir, 'MESSAGE.json', siblingFixture('MESSAGE', true));
+      const argv = ['--structure-id', 'lower-kebab', '--structure-canonical', 'lower-kebab', '--update'];
+      const r1 = captureRun(argv, dir);
+      expect(r1.code).toBe(0);
+      const r2 = captureRun(argv, dir);
+      expect(r2.code).toBe(0);
+      // Second run should produce zero edit lines (no -> arrows).
+      expect(r2.out).not.toContain(' -> ');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('malformed Any.json still surfaces as a parse error (pin gate must come AFTER parse-error early-return)', () => {
+    const dir = makeTempDir();
+    try {
+      // Truncated: missing closing brace.
+      const malformed = `{"resourceType": "StructureDefinition", "url": "${PINNED_ANY}"`;
+      writeFixture(dir, 'Any.json', malformed);
+      const r = captureRun(['--structure-id', 'lower-kebab'], dir);
+      expect(r.code).toBe(1);
+      expect(r.out).toContain('malformed JSON:');
+      expect(r.out).toContain('Any.json');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
