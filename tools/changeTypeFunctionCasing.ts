@@ -217,10 +217,18 @@ function formatRecords(records: readonly ChangeRecord[]): string[] {
   for (const r of records) {
     // SD-rooted records use the "sd." prefix internally to disambiguate
     // from OpDef records; render as "<sd-id>.<field>" by stripping the
-    // prefix in the output.
-    const renderedField = r.field.startsWith("sd.")
-      ? r.field.slice("sd.".length)
-      : r.field;
+    // prefix in the output. SD-canonical cross-ref records carry a
+    // literal walk path (e.g. "differential.element[3].type[0].code");
+    // drop the leading "differential." or "snapshot." segment so the
+    // rendered output matches the spec's example.
+    let renderedField = r.field;
+    if (renderedField.startsWith("sd.")) {
+      renderedField = renderedField.slice("sd.".length);
+    } else if (renderedField.startsWith("differential.")) {
+      renderedField = renderedField.slice("differential.".length);
+    } else if (renderedField.startsWith("snapshot.")) {
+      renderedField = renderedField.slice("snapshot.".length);
+    }
     if (r.oldValue === null) {
       lines.push(`  ${r.opId}.${renderedField}: <inserted> "${r.newValue}"`);
     } else {

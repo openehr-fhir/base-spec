@@ -1249,6 +1249,92 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
       rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  // -------------------------------------------------------------------------
+  // Phase 5: cross-cutting + report-format polish
+  // -------------------------------------------------------------------------
+
+  it('preview-by-default matrix run (no --update) leaves every file byte-identical on disk', () => {
+    const dir = makeTempDir();
+    try {
+      const aOriginal = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/activity",',
+        '  "type" : "http://example.org/sd/activity",',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "magnitude",',
+        '    "name" : "magnitude",',
+        '    "code" : "magnitude"',
+        '  }]',
+        '}',
+      ]);
+      const eOriginal = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "EVENT",',
+        '  "url" : "http://example.org/sd/event"',
+        '}',
+      ]);
+      writeFixture(dir, 'ACTIVITY.json', aOriginal);
+      writeFixture(dir, 'EVENT.json', eOriginal);
+      const r = captureRun([
+        '--operation-id', 'lower-kebab',
+        '--structure-id', 'lower-kebab',
+        '--structure-canonical', 'Upper-Kebab',
+      ], dir);
+      expect(r.code).toBe(0);
+      // Report mentions changes; bytes on disk are unchanged.
+      expect(r.out).toContain('change(s) across');
+      expect(readFileSync(join(dir, 'ACTIVITY.json'), 'utf8')).toBe(aOriginal);
+      expect(readFileSync(join(dir, 'EVENT.json'), 'utf8')).toBe(eOriginal);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('SD-canonical cross-ref records render with differential./snapshot. prefix dropped', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'ACTIVITY.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/activity",',
+        '  "differential" : {',
+        '    "element" : [{',
+        '      "type" : [{ "code" : "http://example.org/sd/event" }]',
+        '    }]',
+        '  },',
+        '  "snapshot" : {',
+        '    "element" : [{',
+        '      "type" : [{ "profile" : ["http://example.org/sd/event"] }]',
+        '    }]',
+        '  }',
+        '}',
+      ]));
+      writeFixture(dir, 'EVENT.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "EVENT",',
+        '  "url" : "http://example.org/sd/event"',
+        '}',
+      ]));
+      const r = captureRun(['--structure-canonical', 'Upper-Kebab'], dir);
+      expect(r.code).toBe(0);
+      // Cross-ref records render with the differential./snapshot. prefix
+      // collapsed; we should see "ACTIVITY.element[0].type[0].code" not
+      // "ACTIVITY.differential.element[0].type[0].code".
+      expect(r.out).toContain('ACTIVITY.element[0].type[0].code');
+      expect(r.out).toContain('ACTIVITY.element[0].type[0].profile[0]');
+      expect(r.out).not.toContain('ACTIVITY.differential.element');
+      expect(r.out).not.toContain('ACTIVITY.snapshot.element');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('runWith (end-to-end)', () => {
