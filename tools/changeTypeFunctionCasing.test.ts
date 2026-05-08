@@ -61,6 +61,22 @@ describe("format", () => {
       "add",
     ],
     "Upper-Kebab": [
+      "IS-STRICTLY-COMPARABLE-TO",
+      "IS-STRICTLY-COMPARABLE-TO",
+      "IS-STRICTLY-COMPARABLE-TO",
+      "IS-STRICTLY-COMPARABLE-TO",
+      "MAGNITUDE",
+      "ADD",
+    ],
+    "Title-Kebab": [
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Magnitude",
+      "Add",
+    ],
+    "Pascal-Kebab": [
       "Is-Strictly-Comparable-To",
       "Is-Strictly-Comparable-To",
       "Is-Strictly-Comparable-To",
@@ -99,6 +115,24 @@ describe("format", () => {
   it("renders empty token list as empty string", () => {
     expect(format([], "UpperPascal")).toBe("");
   });
+
+  it("Upper-Kebab renders fully upper-case", () => {
+    expect(format(["activity", "item", "structure"], "Upper-Kebab")).toBe(
+      "ACTIVITY-ITEM-STRUCTURE",
+    );
+  });
+
+  it("Title-Kebab renders title-style with hyphen separators", () => {
+    expect(format(["activity", "item", "structure"], "Title-Kebab")).toBe(
+      "Activity-Item-Structure",
+    );
+  });
+
+  it("Pascal-Kebab renders identically to Title-Kebab", () => {
+    expect(format(["activity", "item", "structure"], "Pascal-Kebab")).toBe(
+      format(["activity", "item", "structure"], "Title-Kebab"),
+    );
+  });
 });
 
 describe("parseCaseName", () => {
@@ -114,11 +148,15 @@ describe("parseCaseName", () => {
     expect(parseCaseName("UpperPascal", ALLOWED_ID_CASES)).toBeNull();
     expect(parseCaseName("lowerCamel", ALLOWED_ID_CASES)).toBeNull();
     expect(parseCaseName("Upper-Kebab", ALLOWED_ID_CASES)).toBeNull();
+    expect(parseCaseName("Title-Kebab", ALLOWED_ID_CASES)).toBeNull();
+    expect(parseCaseName("Pascal-Kebab", ALLOWED_ID_CASES)).toBeNull();
   });
   it("accepts all canonical name-case values", () => {
     expect(parseCaseName("lower_snake", ALLOWED_NAME_CASES)).toBe("lower_snake");
     expect(parseCaseName("lower-kebab", ALLOWED_NAME_CASES)).toBe("lower-kebab");
     expect(parseCaseName("Upper-Kebab", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
+    expect(parseCaseName("Title-Kebab", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
+    expect(parseCaseName("Pascal-Kebab", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
     expect(parseCaseName("lowerCamel", ALLOWED_NAME_CASES)).toBe("lowerCamel");
     expect(parseCaseName("UpperPascal", ALLOWED_NAME_CASES)).toBe("UpperPascal");
   });
@@ -127,6 +165,10 @@ describe("parseCaseName", () => {
     expect(parseCaseName("lower-dash", ALLOWED_NAME_CASES)).toBe("lower-kebab");
     expect(parseCaseName("Upper-Hyphen", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
     expect(parseCaseName("Upper-Dash", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
+    expect(parseCaseName("title-hyphen", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
+    expect(parseCaseName("title-dash", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
+    expect(parseCaseName("pascal-hyphen", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
+    expect(parseCaseName("pascal-dash", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
     expect(parseCaseName("camel", ALLOWED_NAME_CASES)).toBe("lowerCamel");
     expect(parseCaseName("Pascal", ALLOWED_NAME_CASES)).toBe("UpperPascal");
   });

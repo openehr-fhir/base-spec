@@ -6,6 +6,8 @@ export type Case =
   | "lower_snake"
   | "lower-kebab"
   | "Upper-Kebab"
+  | "Title-Kebab"
+  | "Pascal-Kebab"
   | "lowerCamel"
   | "UpperPascal";
 
@@ -14,18 +16,30 @@ const NAME_CASES: readonly Case[] = [
   "lower_snake",
   "lower-kebab",
   "Upper-Kebab",
+  "Title-Kebab",
+  "Pascal-Kebab",
   "lowerCamel",
   "UpperPascal",
+];
+const SC_CASES: readonly Case[] = [
+  "lower_snake",
+  "lower-kebab",
+  "Upper-Kebab",
+  "Title-Kebab",
+  "Pascal-Kebab",
 ];
 
 export const ALLOWED_ID_CASES: readonly Case[] = ID_CASES;
 export const ALLOWED_NAME_CASES: readonly Case[] = NAME_CASES;
+export const ALLOWED_SC_CASES: readonly Case[] = SC_CASES;
 
 const ALIASES: Readonly<Record<string, Case>> = {
   // canonical
   lower_snake: "lower_snake",
   "lower-kebab": "lower-kebab",
   "upper-kebab": "Upper-Kebab",
+  "title-kebab": "Title-Kebab",
+  "pascal-kebab": "Pascal-Kebab",
   lowercamel: "lowerCamel",
   upperpascal: "UpperPascal",
   // aliases (compared case-insensitively)
@@ -33,6 +47,10 @@ const ALIASES: Readonly<Record<string, Case>> = {
   "lower-dash": "lower-kebab",
   "upper-hyphen": "Upper-Kebab",
   "upper-dash": "Upper-Kebab",
+  "title-hyphen": "Title-Kebab",
+  "title-dash": "Title-Kebab",
+  "pascal-hyphen": "Pascal-Kebab",
+  "pascal-dash": "Pascal-Kebab",
   camel: "lowerCamel",
   pascal: "UpperPascal",
 };
@@ -115,6 +133,9 @@ export function format(tokens: readonly string[], c: Case): string {
     case "lower-kebab":
       return tokens.map((t) => t.toLowerCase()).join("-");
     case "Upper-Kebab":
+      return tokens.map((t) => t.toUpperCase()).join("-");
+    case "Title-Kebab":
+    case "Pascal-Kebab":
       return tokens.map((t) => capitalize(t.toLowerCase())).join("-");
     case "lowerCamel":
       return (
