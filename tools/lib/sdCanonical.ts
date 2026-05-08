@@ -33,6 +33,19 @@ const REWRITE_KEYS: ReadonlySet<string> = new Set([
   "valueUrl",
 ]);
 
+/**
+ * Canonicals of StructureDefinitions that are pinned: their files
+ * are read-only to this tool and every cross-file reference to them
+ * must always render the literal final segment as it appears in the
+ * pinned SD's own url. Today this set holds exactly the openEHR
+ * abstract root `Any`; future "pin one more SD" requests should
+ * extend this set or graduate it to a configurable list (see
+ * scratch/0508-05/featurerequest.md, "Out of Scope / Future Work").
+ */
+export const PINNED_SD_CANONICALS: ReadonlySet<string> = new Set([
+  "http://openehr.org/fhir/StructureDefinition/Any",
+]);
+
 export interface SdFileInput {
   relPath: string;
   source: string;
@@ -90,6 +103,18 @@ export function isStructureDefinitionRoot(root: Node): boolean {
   if (root.type !== "object") return false;
   const rt = findNodeAtLocation(root, ["resourceType"]);
   return !!rt && rt.type === "string" && rt.value === "StructureDefinition";
+}
+
+/**
+ * True when `root` is an SD whose top-level `url` is in
+ * `PINNED_SD_CANONICALS`. Pure / no I/O; safe to call from the
+ * orchestrator before any planner runs.
+ */
+export function isPinnedSdFile(root: Node): boolean {
+  if (!isStructureDefinitionRoot(root)) return false;
+  const url = findNodeAtLocation(root, ["url"]);
+  if (!url || url.type !== "string") return false;
+  return PINNED_SD_CANONICALS.has(String(url.value));
 }
 
 /**

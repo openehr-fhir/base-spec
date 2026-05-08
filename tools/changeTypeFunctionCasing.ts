@@ -17,6 +17,7 @@ import { planCaseChanges, type ChangeRecord } from "./lib/edits.ts";
 import { planRepair } from "./lib/repair.ts";
 import {
   discoverSdCanonicals,
+  isPinnedSdFile,
   planSdCanonicalRewrite,
   type SdFileInput,
   type SdLookupIndex,
@@ -131,6 +132,14 @@ function processFile(
       relPath: file.relPath,
       records: [],
       errors: file.parseErrors,
+      newSource: null,
+    };
+  }
+  if (file.root !== null && isPinnedSdFile(file.root)) {
+    return {
+      relPath: file.relPath,
+      records: [],
+      errors: [],
       newSource: null,
     };
   }
