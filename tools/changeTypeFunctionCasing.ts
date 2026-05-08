@@ -10,10 +10,16 @@ import {
   parseTree,
   printParseErrorCode,
   type Edit,
+  type Node,
 } from "jsonc-parser";
 import { parseArgv, type ParsedArgs } from "./lib/argv.ts";
 import { planCaseChanges, type ChangeRecord } from "./lib/edits.ts";
 import { planRepair } from "./lib/repair.ts";
+import {
+  discoverSdCanonicals,
+  planSdCanonicalRewrite,
+  type SdFileInput,
+} from "./lib/sdCanonical.ts";
 
 const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions
 and the parent StructureDefinition.
@@ -78,25 +84,60 @@ interface FileResult {
   newSource: string | null;
 }
 
+interface ParsedFile {
+  relPath: string;
+  absPath: string;
+  source: string;
+  root: Node | null;
+  parseErrors: string[];
+}
+
+function readAndParseAll(
+  files: readonly string[],
+  resourcesDir: string,
+): ParsedFile[] {
+  const out: ParsedFile[] = [];
+  for (const name of files) {
+    const abs = join(resourcesDir, name);
+    const rel = relative(process.cwd(), abs).replace(/\\/g, "/");
+    const source = readFileSync(abs, "utf8");
+    const parseErrors: import("jsonc-parser").ParseError[] = [];
+    const root = parseTree(source, parseErrors);
+    if (!root || parseErrors.length > 0) {
+      const messages = parseErrors.map(
+        (e) => `${printParseErrorCode(e.error)} at offset ${e.offset}`,
+      );
+      out.push({
+        relPath: rel,
+        absPath: abs,
+        source,
+        root: null,
+        parseErrors: [
+          `malformed JSON: ${messages.join(", ") || "no parseable root"}`,
+        ],
+      });
+      continue;
+    }
+    out.push({ relPath: rel, absPath: abs, source, root, parseErrors: [] });
+  }
+  return out;
+}
+
 function processFile(
-  absPath: string,
-  relPath: string,
+  file: ParsedFile,
   args: ParsedArgs,
+  discoveredCanonicals: ReadonlySet<string> | null,
 ): FileResult {
-  const source = readFileSync(absPath, "utf8");
-  const parseErrors: import("jsonc-parser").ParseError[] = [];
-  const root = parseTree(source, parseErrors);
-  if (!root || parseErrors.length > 0) {
-    const messages = parseErrors.map(
-      (e) => `${printParseErrorCode(e.error)} at offset ${e.offset}`,
-    );
+  if (file.parseErrors.length > 0) {
     return {
-      relPath,
+      relPath: file.relPath,
       records: [],
-      errors: [`malformed JSON: ${messages.join(", ") || "no parseable root"}`],
+      errors: file.parseErrors,
       newSource: null,
     };
   }
+  const root = file.root!;
+  const source = file.source;
 
   // Unified pipeline: always run planCaseChanges with whatever matrix
   // cases were provided; additionally run planRepair when the user
@@ -130,11 +171,23 @@ function processFile(
     allRecords.push(...rp.records);
   }
 
+  if (args.structureCanonicalCase !== null && discoveredCanonicals !== null) {
+    const sc = planSdCanonicalRewrite({
+      source,
+      root,
+      targetCase: args.structureCanonicalCase,
+      discovered: discoveredCanonicals,
+    });
+    allErrors.push(...sc.errors);
+    allEdits.push(...sc.edits);
+    allRecords.push(...sc.records);
+  }
+
   if (allErrors.length > 0) {
-    return { relPath, records: [], errors: allErrors, newSource: null };
+    return { relPath: file.relPath, records: [], errors: allErrors, newSource: null };
   }
   if (allEdits.length === 0) {
-    return { relPath, records: [], errors: [], newSource: null };
+    return { relPath: file.relPath, records: [], errors: [], newSource: null };
   }
 
   // Sort edits by offset before applying.
@@ -147,7 +200,7 @@ function processFile(
     const cur = allEdits[i]!;
     if (prev.offset + prev.length > cur.offset) {
       return {
-        relPath,
+        relPath: file.relPath,
         records: [],
         errors: [`internal error: overlapping edits at offset ${cur.offset}`],
         newSource: null,
@@ -156,7 +209,7 @@ function processFile(
   }
 
   const newSource = applyEdits(source, allEdits);
-  return { relPath, records: allRecords, errors: [], newSource };
+  return { relPath: file.relPath, records: allRecords, errors: [], newSource };
 }
 
 function formatRecords(records: readonly ChangeRecord[]): string[] {
@@ -190,12 +243,12 @@ export function runWith(
   argv: readonly string[],
   opts: RunOptions,
 ): number {
-  const parsed = parseArgv(argv);
-  if ("error" in parsed) {
-    opts.err(parsed.error + "\n");
+  const parsedArgs = parseArgv(argv);
+  if ("error" in parsedArgs) {
+    opts.err(parsedArgs.error + "\n");
     return 2;
   }
-  if (parsed.help) {
+  if (parsedArgs.help) {
     opts.out(HELP);
     return 0;
   }
@@ -214,41 +267,57 @@ export function runWith(
     .filter((name) => name.toLowerCase().endsWith(".json"))
     .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
+  // Read+parse every file once (we may need to do a discovery pass over
+  // all parsed roots before the per-file edit pass).
+  const parsed = readAndParseAll(files, opts.resourcesDir);
+
+  // Discovery pass for --structure-canonical: collect every SD canonical
+  // url across the entire input/resources/ directory before any per-file
+  // edit work. Files of any other resourceType are skipped.
+  let discoveredCanonicals: ReadonlySet<string> | null = null;
+  if (parsedArgs.structureCanonicalCase !== null) {
+    const sdInputs: SdFileInput[] = [];
+    for (const f of parsed) {
+      if (f.root === null) continue;
+      sdInputs.push({ relPath: f.relPath, source: f.source, root: f.root });
+    }
+    const disc = discoverSdCanonicals(sdInputs);
+    discoveredCanonicals = disc.canonicals;
+  }
+
   let totalChanges = 0;
   let filesWithChanges = 0;
   let errorCount = 0;
   const blocks: string[] = [];
 
-  for (const name of files) {
-    const abs = join(opts.resourcesDir, name);
-    const rel = relative(process.cwd(), abs).replace(/\\/g, "/");
-    const result = processFile(abs, rel, parsed);
+  for (const f of parsed) {
+    const result = processFile(f, parsedArgs, discoveredCanonicals);
     if (result.errors.length > 0) {
-      const lines: string[] = [`=== ${rel} ===`];
+      const lines: string[] = [`=== ${f.relPath} ===`];
       for (const e of result.errors) lines.push(`  error: ${e}`);
       blocks.push(lines.join("\n"));
       errorCount += result.errors.length;
       continue;
     }
     if (result.records.length === 0) continue;
-    const lines: string[] = [`=== ${rel} ===`, ...formatRecords(result.records)];
+    const lines: string[] = [`=== ${f.relPath} ===`, ...formatRecords(result.records)];
     blocks.push(lines.join("\n"));
     totalChanges += result.records.length;
     filesWithChanges++;
 
-    if (parsed.update && result.newSource !== null) {
-      const original = readFileSync(abs);
+    if (parsedArgs.update && result.newSource !== null) {
+      const original = readFileSync(f.absPath);
       const last = original.length > 0 ? original[original.length - 1] : -1;
       const newBuf = Buffer.from(result.newSource, "utf8");
       const newLast = newBuf.length > 0 ? newBuf[newBuf.length - 1] : -1;
       if (!preservesTrailingByte(last, newLast)) {
         opts.err(
-          `error: refusing to write ${rel}: trailing-byte preservation guard failed (old=0x${(last ?? -1).toString(16)} new=0x${(newLast ?? -1).toString(16)})\n`,
+          `error: refusing to write ${f.relPath}: trailing-byte preservation guard failed (old=0x${(last ?? -1).toString(16)} new=0x${(newLast ?? -1).toString(16)})\n`,
         );
         errorCount++;
         continue;
       }
-      writeFileSync(abs, newBuf);
+      writeFileSync(f.absPath, newBuf);
     }
   }
 

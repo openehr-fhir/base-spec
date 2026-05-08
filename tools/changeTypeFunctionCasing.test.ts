@@ -18,6 +18,11 @@ import {
   parseCaseName,
   tokenize,
 } from "./lib/casing.ts";
+import {
+  discoverSdCanonicals,
+  isStructureDefinitionRoot,
+  planSdCanonicalRewrite,
+} from "./lib/sdCanonical.ts";
 
 const SAMPLES: Array<{ in: string; tokens: string[] }> = [
   { in: "is_strictly_comparable_to", tokens: ["is", "strictly", "comparable", "to"] },
@@ -907,6 +912,339 @@ describe('runWith (end-to-end) > SD field flags', () => {
       expect(r.out).toContain('ACTIVITY.id: "ACTIVITY" -> "activity"');
       const after = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
       expect(after).toContain('"id" : "activity"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Phase 4: --structure-canonical
+// ---------------------------------------------------------------------------
+
+describe('discoverSdCanonicals + isStructureDefinitionRoot', () => {
+  it('isStructureDefinitionRoot returns true for SD roots only', () => {
+    const sd = parseTree('{"resourceType":"StructureDefinition","url":"http://x/A"}')!;
+    const cs = parseTree('{"resourceType":"CodeSystem","url":"http://x/cs/A"}')!;
+    expect(isStructureDefinitionRoot(sd)).toBe(true);
+    expect(isStructureDefinitionRoot(cs)).toBe(false);
+  });
+
+  it('discoverSdCanonicals collects every SD url, skips non-SDs', () => {
+    const sd1 = parseTree('{"resourceType":"StructureDefinition","url":"http://x/A"}')!;
+    const sd2 = parseTree('{"resourceType":"StructureDefinition","url":"http://x/B"}')!;
+    const cs = parseTree('{"resourceType":"CodeSystem","url":"http://x/cs/C"}')!;
+    const r = discoverSdCanonicals([
+      { relPath: 'A.json', source: '', root: sd1 },
+      { relPath: 'B.json', source: '', root: sd2 },
+      { relPath: 'C.json', source: '', root: cs },
+    ]);
+    expect([...r.canonicals].sort()).toEqual(['http://x/A', 'http://x/B']);
+  });
+});
+
+function planSC(source: string, targetCase: Case, discovered: Set<string>) {
+  const root = parseTree(source);
+  if (!root) throw new Error('parse failed');
+  return planSdCanonicalRewrite({ source, root, targetCase, discovered });
+}
+
+describe('planSdCanonicalRewrite', () => {
+  it('per-trio: rewrites url, type, baseDefinition final segments only', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "type" : "http://example.org/sd/ACTIVITY",',
+      '  "baseDefinition" : "http://example.org/sd/LOCATABLE"',
+      '}',
+    ]);
+    const discovered = new Set([
+      'http://example.org/sd/ACTIVITY',
+      'http://example.org/sd/LOCATABLE',
+    ]);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    expect(r.records.length).toBe(3);
+    const fields = r.records.map((x) => x.field).sort();
+    expect(fields).toEqual(['sd.baseDefinition', 'sd.type', 'sd.url']);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"url" : "http://example.org/sd/activity"');
+    expect(out).toContain('"type" : "http://example.org/sd/activity"');
+    expect(out).toContain('"baseDefinition" : "http://example.org/sd/locatable"');
+  });
+
+  it('rewrites cross-refs at code, profile[i], targetProfile[i], valueCanonical, valueUrl', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "extension" : [{',
+      '    "url" : "http://example.org/ext/related",',
+      '    "valueUrl" : "http://example.org/sd/EVENT"',
+      '  }],',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "type" : [{',
+      '        "code" : "http://example.org/sd/EVENT",',
+      '        "profile" : ["http://example.org/sd/ACTIVITY"],',
+      '        "extension" : [{',
+      '          "url" : "http://example.org/ext/x",',
+      '          "valueCanonical" : "http://example.org/sd/EVENT"',
+      '        }]',
+      '      }]',
+      '    },',
+      '    {',
+      '      "type" : [{',
+      '        "code" : "Element",',
+      '        "targetProfile" : ["http://example.org/sd/ACTIVITY"]',
+      '      }]',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set([
+      'http://example.org/sd/ACTIVITY',
+      'http://example.org/sd/EVENT',
+    ]);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"url" : "http://example.org/sd/activity"');
+    expect(out).toContain('"valueUrl" : "http://example.org/sd/event"');
+    expect(out).toContain('"code" : "http://example.org/sd/event"');
+    expect(out).toContain('"profile" : ["http://example.org/sd/activity"]');
+    expect(out).toContain('"valueCanonical" : "http://example.org/sd/event"');
+    expect(out).toContain('"targetProfile" : ["http://example.org/sd/activity"]');
+    // Element (bare FHIR type, not in discovered) untouched.
+    expect(out).toContain('"code" : "Element"');
+  });
+
+  it('non-discovered references (HL7 base, foreign URLs) are untouched', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Element",',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "type" : [{ "code" : "Element" }]',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixture, r.edits);
+    // Only the SD's own url is rewritten (type missing, baseDefinition is HL7).
+    expect(out).toContain('"url" : "http://example.org/sd/activity"');
+    expect(out).toContain('"baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Element"');
+    expect(out).toContain('"code" : "Element"');
+  });
+
+  it('non-rewrite-key strings (binding.valueSet, code.coding.system) are untouched even on collision', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "binding" : {',
+      '        "valueSet" : "http://example.org/sd/ACTIVITY"',
+      '      }',
+      '    },',
+      '    {',
+      '      "code" : { "coding" : [{ "system" : "http://example.org/sd/ACTIVITY" }] }',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    const out = applyEdits(fixture, r.edits);
+    // SD's own url rewrites; valueSet (not in allowlist) and
+    // code.coding.system (key is "system", not in allowlist) are untouched.
+    expect(out).toContain('"url" : "http://example.org/sd/activity"');
+    expect(out).toContain('"valueSet" : "http://example.org/sd/ACTIVITY"');
+    expect(out).toContain('"system" : "http://example.org/sd/ACTIVITY"');
+  });
+
+  it('divergent url vs type → per-file error, zero edits', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "type" : "http://example.org/sd/Activity-Old"',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors.some((e) => e.includes('url and type final segments differ'))).toBe(true);
+    expect(r.edits).toEqual([]);
+  });
+
+  it('versioned canonicals (.../FOO|1.2.0) do not match exact membership; no edits', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "differential" : {',
+      '    "element" : [{',
+      '      "type" : [{ "profile" : ["http://example.org/sd/ACTIVITY|1.2.0"] }]',
+      '    }]',
+      '  }',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixture, r.edits);
+    // Only the SD's own url is rewritten; the versioned profile is untouched.
+    expect(out).toContain('"url" : "http://example.org/sd/activity"');
+    expect(out).toContain('"profile" : ["http://example.org/sd/ACTIVITY|1.2.0"]');
+  });
+
+  it('idempotent: re-running on already-canonical state emits zero edits', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "type" : "http://example.org/sd/ACTIVITY"',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const r = planSC(fixture, 'Upper-Kebab', discovered);
+    expect(r.errors).toEqual([]);
+    expect(r.edits).toEqual([]);
+  });
+
+  it('foreign-prefix SD: re-cases its own url segment (no prefix gate, per request)', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "FOO",',
+      '  "url" : "http://hl7.org/fhir/StructureDefinition/FOO"',
+      '}',
+    ]);
+    const discovered = new Set(['http://hl7.org/fhir/StructureDefinition/FOO']);
+    const r = planSC(fixture, 'lower_snake', discovered);
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"url" : "http://hl7.org/fhir/StructureDefinition/foo"');
+  });
+});
+
+describe('runWith (end-to-end) > --structure-canonical', () => {
+  it('end-to-end --structure-canonical Upper-Kebab + --update with cross-refs', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'ACTIVITY.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/activity",',
+        '  "type" : "http://example.org/sd/activity",',
+        '  "differential" : {',
+        '    "element" : [{',
+        '      "type" : [{ "code" : "http://example.org/sd/event" }]',
+        '    }]',
+        '  }',
+        '}',
+      ]));
+      writeFixture(dir, 'EVENT.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "EVENT",',
+        '  "url" : "http://example.org/sd/event",',
+        '  "type" : "http://example.org/sd/event"',
+        '}',
+      ]));
+      const r = captureRun(['--structure-canonical', 'Upper-Kebab', '--update'], dir);
+      expect(r.code).toBe(0);
+      const a = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
+      const e = readFileSync(join(dir, 'EVENT.json'), 'utf8');
+      expect(a).toContain('"url" : "http://example.org/sd/ACTIVITY"');
+      expect(a).toContain('"type" : "http://example.org/sd/ACTIVITY"');
+      expect(a).toContain('"code" : "http://example.org/sd/EVENT"');
+      expect(e).toContain('"url" : "http://example.org/sd/EVENT"');
+      expect(e).toContain('"type" : "http://example.org/sd/EVENT"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('CodeSystem file with same final segment is byte-identical after --structure-canonical run', () => {
+    const dir = makeTempDir();
+    try {
+      const csOriginal = crlf([
+        '{',
+        '  "resourceType" : "CodeSystem",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/cs/ACTIVITY"',
+        '}',
+      ]);
+      writeFixture(dir, 'CS-ACTIVITY.json', csOriginal);
+      writeFixture(dir, 'ACTIVITY.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/ACTIVITY"',
+        '}',
+      ]));
+      const r = captureRun(['--structure-canonical', 'lower_snake', '--update'], dir);
+      expect(r.code).toBe(0);
+      // CodeSystem's url is not in the discovered SD set; no rewrite.
+      const csAfter = readFileSync(join(dir, 'CS-ACTIVITY.json'), 'utf8');
+      expect(csAfter).toBe(csOriginal);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('composes operation-side + sd-side + sd-canonical in one --update pass with CRLF preserved', () => {
+    const dir = makeTempDir();
+    try {
+      const original = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/ACTIVITY",',
+        '  "type" : "http://example.org/sd/ACTIVITY",',
+        '  "contained" : [{',
+        '    "resourceType" : "OperationDefinition",',
+        '    "id" : "less-than",',
+        '    "name" : "LessThan",',
+        '    "code" : "less_than"',
+        '  }],',
+        '  "extension" : [{',
+        '    "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",',
+        '    "valueCanonical" : "#less-than"',
+        '  }]',
+        '}',
+      ]);
+      writeFixture(dir, 'ACTIVITY.json', original);
+      const r = captureRun([
+        '--operation-id', 'lower_snake',
+        '--structure-id', 'lower-kebab',
+        '--structure-canonical', 'Upper-Kebab',
+        '--update',
+      ], dir);
+      expect(r.code).toBe(0);
+      const after = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
+      expect(after).toContain('"id" : "activity"'); // structure-id (SD)
+      expect(after).toContain('"id" : "less_than"'); // operation-id (OpDef)
+      expect(after).toContain('"url" : "http://example.org/sd/ACTIVITY"'); // already Upper-Kebab segment
+      expect(after).toContain('"valueCanonical" : "#less_than"'); // operation #ref synced
+      // Trailing byte preserved (CRLF input ended with `}`).
+      expect(after.charCodeAt(after.length - 1)).toBe(original.charCodeAt(original.length - 1));
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
