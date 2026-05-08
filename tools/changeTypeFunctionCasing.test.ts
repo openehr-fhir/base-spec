@@ -21,6 +21,8 @@ import {
   discoverSdCanonicals,
   isStructureDefinitionRoot,
   planSdCanonicalRewrite,
+  resolveDivergentType,
+  type SdLookupIndex,
 } from "./lib/sdCanonical.ts";
 
 const SAMPLES: Array<{ in: string; tokens: string[] }> = [
@@ -1003,6 +1005,111 @@ describe('discoverSdCanonicals + isStructureDefinitionRoot', () => {
     ]);
     expect([...r.canonicals].sort()).toEqual(['http://x/A', 'http://x/B']);
   });
+
+  it('discoverSdCanonicals builds a tokenize-keyed index keyed by url-last-segment AND id', () => {
+    const sd1 = parseTree('{"resourceType":"StructureDefinition","id":"ADDRESSED-MESSAGE","url":"http://x/sd/ADDRESSED-MESSAGE"}')!;
+    const sd2 = parseTree('{"resourceType":"StructureDefinition","id":"DV_TEXT","url":"http://x/sd/DvText"}')!;
+    const r = discoverSdCanonicals([
+      { relPath: 'A.json', source: '', root: sd1 },
+      { relPath: 'B.json', source: '', root: sd2 },
+    ]);
+    // Token key for "ADDRESSED-MESSAGE" / "addressed_message" / "AddressedMessage"
+    // is "addressed|message" (tokenize lowercases + joins on a delimiter that
+    // cannot appear in a token).
+    const sd1Bucket = r.index.get('addressed|message');
+    expect(sd1Bucket).toBeDefined();
+    expect(sd1Bucket!.length).toBe(1);
+    expect(sd1Bucket![0]!.url).toBe('http://x/sd/ADDRESSED-MESSAGE');
+    expect(sd1Bucket![0]!.id).toBe('ADDRESSED-MESSAGE');
+
+    // SD2: id "DV_TEXT" tokenizes to "dv|text"; url last segment "DvText"
+    // tokenizes to "dv|text" as well. Single SD must NOT appear twice in
+    // the bucket (de-dup by url).
+    const sd2Bucket = r.index.get('dv|text');
+    expect(sd2Bucket).toBeDefined();
+    expect(sd2Bucket!.length).toBe(1);
+    expect(sd2Bucket![0]!.url).toBe('http://x/sd/DvText');
+  });
+
+  it('discoverSdCanonicals indexes id and url-segment under separate keys when they tokenize differently', () => {
+    const sd = parseTree('{"resourceType":"StructureDefinition","id":"alias","url":"http://x/sd/RealName"}')!;
+    const r = discoverSdCanonicals([
+      { relPath: 'A.json', source: '', root: sd },
+    ]);
+    expect(r.index.get('alias')!.length).toBe(1);
+    expect(r.index.get('real|name')!.length).toBe(1);
+    expect(r.index.get('alias')![0]!.url).toBe('http://x/sd/RealName');
+    expect(r.index.get('real|name')![0]!.url).toBe('http://x/sd/RealName');
+  });
+});
+
+describe('resolveDivergentType', () => {
+  function buildIndex(entries: Array<{ url: string; id?: string }>): SdLookupIndex {
+    const inputs = entries.map((e, i) => {
+      const idLine = e.id ? `"id":${JSON.stringify(e.id)},` : '';
+      const root = parseTree(`{"resourceType":"StructureDefinition",${idLine}"url":${JSON.stringify(e.url)}}`)!;
+      return { relPath: `f${i}.json`, source: '', root };
+    });
+    return discoverSdCanonicals(inputs).index;
+  }
+
+  it('exact tokenize match: separator-only difference', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/ADDRESSED-MESSAGE', id: 'ADDRESSED-MESSAGE' }]);
+    const r = resolveDivergentType('http://other/sd/ADDRESSED_MESSAGE', idx);
+    expect(r).toEqual({ kind: 'match', canonicalUrl: 'http://x/sd/ADDRESSED-MESSAGE' });
+  });
+
+  it('exact tokenize match: case-only difference', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/DV-TEXT', id: 'DV-TEXT' }]);
+    const r = resolveDivergentType('http://x/sd/dv-text', idx);
+    expect(r).toEqual({ kind: 'match', canonicalUrl: 'http://x/sd/DV-TEXT' });
+  });
+
+  it('bare-segment input matches by tokenization', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/ADDRESSED-MESSAGE', id: 'ADDRESSED-MESSAGE' }]);
+    const r = resolveDivergentType('AddressedMessage', idx);
+    expect(r).toEqual({ kind: 'match', canonicalUrl: 'http://x/sd/ADDRESSED-MESSAGE' });
+  });
+
+  it('id-only match (url last-segment differs from id)', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/Alpha', id: 'beta' }]);
+    const r = resolveDivergentType('http://x/sd/BETA', idx);
+    expect(r).toEqual({ kind: 'match', canonicalUrl: 'http://x/sd/Alpha' });
+  });
+
+  it('no-match returns kind:none', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/ALPHA', id: 'ALPHA' }]);
+    const r = resolveDivergentType('http://x/sd/Mismatch', idx);
+    expect(r).toEqual({ kind: 'none' });
+  });
+
+  it('empty input or empty token-key returns kind:none', () => {
+    const idx = buildIndex([{ url: 'http://x/sd/ALPHA', id: 'ALPHA' }]);
+    expect(resolveDivergentType('', idx)).toEqual({ kind: 'none' });
+    expect(resolveDivergentType('___', idx)).toEqual({ kind: 'none' });
+  });
+
+  it('ambiguous: two distinct SDs share the same tokenized name', () => {
+    const idx = buildIndex([
+      { url: 'http://a.example.org/sd/FOO-BAR', id: 'FOO-BAR' },
+      { url: 'http://b.example.org/sd/foo_bar', id: 'foo_bar' },
+    ]);
+    const r = resolveDivergentType('FooBar', idx);
+    expect(r.kind).toBe('ambiguous');
+    if (r.kind === 'ambiguous') {
+      expect(r.candidates).toEqual([
+        'http://a.example.org/sd/FOO-BAR',
+        'http://b.example.org/sd/foo_bar',
+      ]);
+    }
+  });
+
+  it('single SD whose id and url-segment tokenize identically is NOT counted as ambiguous', () => {
+    // Common case in input/resources/: id == url-last-segment.
+    const idx = buildIndex([{ url: 'http://x/sd/ADDRESSED-MESSAGE', id: 'ADDRESSED-MESSAGE' }]);
+    const r = resolveDivergentType('http://x/sd/ADDRESSED_MESSAGE', idx);
+    expect(r).toEqual({ kind: 'match', canonicalUrl: 'http://x/sd/ADDRESSED-MESSAGE' });
+  });
 });
 
 function planSC(source: string, targetCase: Case, discovered: Set<string>) {
@@ -1204,7 +1311,232 @@ describe('planSdCanonicalRewrite', () => {
   });
 });
 
+function planSCWithIndex(
+  source: string,
+  targetCase: Case,
+  discovered: Set<string>,
+  index: SdLookupIndex,
+) {
+  const root = parseTree(source);
+  if (!root) throw new Error('parse failed');
+  return planSdCanonicalRewrite({ source, root, targetCase, discovered, index });
+}
+
+describe('planSdCanonicalRewrite (divergent-type resolver via index)', () => {
+  it('self-resolves ADDRESSED-MESSAGE-style divergence: type rewritten to url, both re-cased', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ADDRESSED-MESSAGE",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE",',
+      '  "type" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED_MESSAGE"',
+      '}',
+    ]);
+    const discovered = new Set(['http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE']);
+    const indexFiles = [
+      { relPath: 'ADDRESSED-MESSAGE.json', source: fixture, root: parseTree(fixture)! },
+    ];
+    const index = discoverSdCanonicals(indexFiles).index;
+    const r = planSCWithIndex(fixture, 'lower_snake', discovered, index);
+    expect(r.errors).toEqual([]);
+    // Expect a sd.type-resolve record AND a sd.url re-case record.
+    const fields = r.records.map((x) => x.field).sort();
+    expect(fields).toEqual(['sd.type-resolve', 'sd.url']);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"url" : "http://openehr.org/fhir/StructureDefinition/addressed_message"');
+    expect(out).toContain('"type" : "http://openehr.org/fhir/StructureDefinition/addressed_message"');
+  });
+
+  it('self-resolves separator-only divergence even when the target case equals the current url case', () => {
+    // url is already kebab; targetCase is kebab. url emits no edit; type
+    // is still rewritten by the resolver (resolved value equals url).
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "DV-TEXT",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT",',
+      '  "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"',
+      '}',
+    ]);
+    const discovered = new Set(['http://openehr.org/fhir/StructureDefinition/DV-TEXT']);
+    const index = discoverSdCanonicals([
+      { relPath: 'DV-TEXT.json', source: fixture, root: parseTree(fixture)! },
+    ]).index;
+    const r = planSCWithIndex(fixture, 'UPPER-KEBAB', discovered, index);
+    expect(r.errors).toEqual([]);
+    const fields = r.records.map((x) => x.field).sort();
+    expect(fields).toEqual(['sd.type-resolve']);
+    const out = applyEdits(fixture, r.edits);
+    expect(out).toContain('"url" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"');
+    expect(out).toContain('"type" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"');
+  });
+
+  it('promotes a bare-segment divergent type to the matched SD full url', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ADDRESSED-MESSAGE",',
+      '  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE",',
+      '  "type" : "ADDRESSED_MESSAGE"',
+      '}',
+    ]);
+    const discovered = new Set(['http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE']);
+    const index = discoverSdCanonicals([
+      { relPath: 'ADDRESSED-MESSAGE.json', source: fixture, root: parseTree(fixture)! },
+    ]).index;
+    const r = planSCWithIndex(fixture, 'lower-kebab', discovered, index);
+    expect(r.errors).toEqual([]);
+    const out = applyEdits(fixture, r.edits);
+    // Bare segment is replaced by the full URL form (post-re-cased).
+    expect(out).toContain('"type" : "http://openehr.org/fhir/StructureDefinition/addressed-message"');
+    expect(out).toContain('"url" : "http://openehr.org/fhir/StructureDefinition/addressed-message"');
+  });
+
+  it('ambiguous divergent type: errors with the candidates listed; emits zero edits', () => {
+    const fileA = '{"resourceType":"StructureDefinition","id":"FOO-BAR","url":"http://a.example.org/sd/FOO-BAR"}';
+    const fileB = '{"resourceType":"StructureDefinition","id":"foo_bar","url":"http://b.example.org/sd/foo_bar"}';
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "CLIENT",',
+      '  "url" : "http://c.example.org/sd/CLIENT",',
+      '  "type" : "FooBar"',
+      '}',
+    ]);
+    const discovered = new Set([
+      'http://a.example.org/sd/FOO-BAR',
+      'http://b.example.org/sd/foo_bar',
+      'http://c.example.org/sd/CLIENT',
+    ]);
+    const index = discoverSdCanonicals([
+      { relPath: 'a.json', source: fileA, root: parseTree(fileA)! },
+      { relPath: 'b.json', source: fileB, root: parseTree(fileB)! },
+      { relPath: 'c.json', source: fixture, root: parseTree(fixture)! },
+    ]).index;
+    const r = planSCWithIndex(fixture, 'lower_snake', discovered, index);
+    expect(r.edits).toEqual([]);
+    expect(r.records).toEqual([]);
+    expect(r.errors.length).toBe(1);
+    expect(r.errors[0]!).toContain("type 'FooBar' is ambiguous");
+    expect(r.errors[0]!).toContain('http://a.example.org/sd/FOO-BAR');
+    expect(r.errors[0]!).toContain('http://b.example.org/sd/foo_bar');
+  });
+
+  it('no-match divergent type with index: still falls back to the legacy "refusing to re-case" error', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "type" : "http://example.org/sd/ENTIRELY-UNKNOWN"',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const index = discoverSdCanonicals([
+      { relPath: 'a.json', source: fixture, root: parseTree(fixture)! },
+    ]).index;
+    const r = planSCWithIndex(fixture, 'lower_snake', discovered, index);
+    expect(r.edits).toEqual([]);
+    expect(r.errors.some((e) => e.includes('url and type final segments differ'))).toBe(true);
+  });
+
+  it('non-divergent input: resolver does not fire (no sd.type-resolve record emitted)', () => {
+    const fixture = crlf([
+      '{',
+      '  "resourceType" : "StructureDefinition",',
+      '  "id" : "ACTIVITY",',
+      '  "url" : "http://example.org/sd/ACTIVITY",',
+      '  "type" : "http://example.org/sd/ACTIVITY"',
+      '}',
+    ]);
+    const discovered = new Set(['http://example.org/sd/ACTIVITY']);
+    const index = discoverSdCanonicals([
+      { relPath: 'a.json', source: fixture, root: parseTree(fixture)! },
+    ]).index;
+    const r = planSCWithIndex(fixture, 'lower_snake', discovered, index);
+    expect(r.errors).toEqual([]);
+    const fields = r.records.map((x) => x.field).sort();
+    expect(fields).toEqual(['sd.type', 'sd.url']);
+  });
+});
+
 describe('runWith (end-to-end) > --structure-canonical', () => {
+  it('end-to-end --structure-canonical resolves divergent type via the discovered-SD index (ADDRESSED-MESSAGE-style)', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'ADDRESSED-MESSAGE.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ADDRESSED-MESSAGE",',
+        '  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE",',
+        '  "type" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED_MESSAGE",',
+        '  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/MESSAGE"',
+        '}',
+      ]));
+      writeFixture(dir, 'MESSAGE.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "MESSAGE",',
+        '  "url" : "http://openehr.org/fhir/StructureDefinition/MESSAGE",',
+        '  "type" : "http://openehr.org/fhir/StructureDefinition/MESSAGE"',
+        '}',
+      ]));
+      const r = captureRun(['--structure-canonical', 'lower_snake', '--update'], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toBe('');
+      const a = readFileSync(join(dir, 'ADDRESSED-MESSAGE.json'), 'utf8');
+      // url re-cased; type rewritten by the resolver (and re-cased too).
+      expect(a).toContain('"url" : "http://openehr.org/fhir/StructureDefinition/addressed_message"');
+      expect(a).toContain('"type" : "http://openehr.org/fhir/StructureDefinition/addressed_message"');
+      expect(a).toContain('"baseDefinition" : "http://openehr.org/fhir/StructureDefinition/message"');
+      // The report mentions the resolve action (via the sd.type-resolve
+      // field name, rendered without the "sd." prefix).
+      expect(r.out).toContain('ADDRESSED-MESSAGE.type-resolve');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('end-to-end --structure-canonical reports the new ambiguous-type error and skips the file', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'A.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "FOO-BAR",',
+        '  "url" : "http://a.example.org/sd/FOO-BAR",',
+        '  "type" : "http://a.example.org/sd/FOO-BAR"',
+        '}',
+      ]));
+      writeFixture(dir, 'B.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "foo_bar",',
+        '  "url" : "http://b.example.org/sd/foo_bar",',
+        '  "type" : "http://b.example.org/sd/foo_bar"',
+        '}',
+      ]));
+      const clientOriginal = crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "CLIENT",',
+        '  "url" : "http://c.example.org/sd/CLIENT",',
+        '  "type" : "FooBar"',
+        '}',
+      ]);
+      writeFixture(dir, 'CLIENT.json', clientOriginal);
+      const r = captureRun(['--structure-canonical', 'lower_snake', '--update'], dir);
+      // Ambiguous-type counts as an error, so exit code is 1.
+      expect(r.code).toBe(1);
+      expect(r.out).toContain("type 'FooBar' is ambiguous");
+      // The CLIENT file is left untouched (zero edits emitted for it).
+      const clientAfter = readFileSync(join(dir, 'CLIENT.json'), 'utf8');
+      expect(clientAfter).toBe(clientOriginal);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('end-to-end --structure-canonical Upper-Kebab + --update with cross-refs', () => {
     const dir = makeTempDir();
     try {

@@ -39,11 +39,47 @@ export interface SdFileInput {
   root: Node;
 }
 
+/**
+ * One entry in the discovered-SD lookup index. `url` is the SD's
+ * top-level canonical url (exact string); `id` is the SD's top-level
+ * `id` value when present.
+ */
+export interface SdIndexEntry {
+  url: string;
+  id: string | null;
+}
+
+/**
+ * Tokenize-keyed lookup over discovered SDs. Keys are produced by
+ * `tokenKey()` (case- and separator-insensitive). Both each SD's
+ * url-last-segment and (when present) each SD's `id` are indexed under
+ * their respective tokenized keys, so divergent `type` values can be
+ * resolved against either dimension. Each candidate list is deduped
+ * by `url`.
+ */
+export type SdLookupIndex = ReadonlyMap<string, ReadonlyArray<SdIndexEntry>>;
+
 export interface DiscoveryResult {
   /** Set of every discovered SD top-level url (exact string). */
   canonicals: Set<string>;
+  /**
+   * Tokenize-keyed lookup over every discovered SD. Used by the
+   * divergent-type resolver in `planSdCanonicalRewrite`. Cross-ref
+   * matching still uses `canonicals` (exact-string membership).
+   */
+  index: SdLookupIndex;
   /** Per-file errors encountered during discovery (none today; reserved). */
   errors: Array<{ relPath: string; message: string }>;
+}
+
+/**
+ * Build the tokenize-key for a string. Case- and separator-insensitive
+ * by virtue of `tokenize` normalizing to lowercase word tokens; we join
+ * with a separator that cannot appear inside a token so distinct token
+ * sequences never collide.
+ */
+function tokenKey(s: string): string {
+  return tokenize(s).join("|");
 }
 
 /**
@@ -59,12 +95,15 @@ export function isStructureDefinitionRoot(root: Node): boolean {
 /**
  * Pass 1: collect every top-level `url` from files whose root
  * resourceType is exactly "StructureDefinition". Files of any other
- * resourceType are skipped and never indexed.
+ * resourceType are skipped and never indexed. Also build a tokenize-
+ * keyed lookup index over each SD's url-last-segment and (when present)
+ * `id`, used by the divergent-type resolver in pass 2.
  */
 export function discoverSdCanonicals(
   files: Iterable<SdFileInput>,
 ): DiscoveryResult {
   const canonicals = new Set<string>();
+  const indexMutable = new Map<string, SdIndexEntry[]>();
   const errors: Array<{ relPath: string; message: string }> = [];
   for (const f of files) {
     if (!isStructureDefinitionRoot(f.root)) continue;
@@ -73,8 +112,44 @@ export function discoverSdCanonicals(
     const value = String(url.value);
     if (value.length === 0) continue;
     canonicals.add(value);
+
+    const idNode = findNodeAtLocation(f.root, ["id"]);
+    const id =
+      idNode && idNode.type === "string" ? String(idNode.value) : null;
+    const entry: SdIndexEntry = { url: value, id };
+
+    const lastSlash = value.lastIndexOf("/");
+    const urlLastSeg = lastSlash >= 0 ? value.substring(lastSlash + 1) : value;
+    const urlKey = tokenKey(urlLastSeg);
+    if (urlKey.length > 0) addToIndex(indexMutable, urlKey, entry);
+
+    if (id && id.length > 0) {
+      const idKey = tokenKey(id);
+      if (idKey.length > 0 && idKey !== urlKey) {
+        addToIndex(indexMutable, idKey, entry);
+      }
+    }
   }
-  return { canonicals, errors };
+  return { canonicals, index: indexMutable, errors };
+}
+
+/**
+ * Push `entry` onto the bucket for `key`, but de-duplicate by `entry.url`
+ * so a single SD whose `id` and url-last-segment tokenize identically is
+ * counted once (avoids spurious "ambiguous" verdicts in the resolver).
+ */
+function addToIndex(
+  index: Map<string, SdIndexEntry[]>,
+  key: string,
+  entry: SdIndexEntry,
+): void {
+  const existing = index.get(key);
+  if (!existing) {
+    index.set(key, [entry]);
+    return;
+  }
+  if (existing.some((e) => e.url === entry.url)) return;
+  existing.push(entry);
 }
 
 /**
@@ -109,6 +184,50 @@ function prefixOf(url: string): string {
   return i < 0 ? "" : url.substring(0, i);
 }
 
+/**
+ * Verdict returned by `resolveDivergentType`. Pure data; the planner
+ * decides what edits or errors to emit.
+ */
+export type DivergentTypeResolution =
+  | { kind: "match"; canonicalUrl: string }
+  | { kind: "ambiguous"; candidates: string[] }
+  | { kind: "none" };
+
+/**
+ * Resolve a divergent `type` value (URL-form or bare-segment) against
+ * the tokenize-keyed SD lookup index. Tokenizes the type's final
+ * segment (or the whole value when no `/` is present) and queries the
+ * index. Candidate SDs are de-duplicated by canonical url. Exactly-one
+ * → `match`; two-or-more → `ambiguous`; zero → `none`.
+ *
+ * Pure / no I/O.
+ */
+export function resolveDivergentType(
+  typeValue: string,
+  index: SdLookupIndex,
+): DivergentTypeResolution {
+  if (!typeValue) return { kind: "none" };
+  const seg = lastSegmentOf(typeValue);
+  const key = tokenKey(seg);
+  if (key.length === 0) return { kind: "none" };
+  const bucket = index.get(key);
+  if (!bucket || bucket.length === 0) return { kind: "none" };
+  const seen = new Set<string>();
+  const dedup: SdIndexEntry[] = [];
+  for (const e of bucket) {
+    if (seen.has(e.url)) continue;
+    seen.add(e.url);
+    dedup.push(e);
+  }
+  if (dedup.length === 1) {
+    return { kind: "match", canonicalUrl: dedup[0]!.url };
+  }
+  return {
+    kind: "ambiguous",
+    candidates: dedup.map((e) => e.url).sort(),
+  };
+}
+
 export interface PlanSdCanonicalInput {
   source: string;
   root: Node;
@@ -116,6 +235,13 @@ export interface PlanSdCanonicalInput {
   targetCase: Case;
   /** Discovered SD canonical set (output of discoverSdCanonicals). */
   discovered: ReadonlySet<string>;
+  /**
+   * Tokenize-keyed lookup over discovered SDs. When provided, divergent
+   * `type` values are resolved against this index instead of aborting
+   * the file. When omitted (legacy callers), the planner falls back to
+   * the historical "refusing to re-case" behavior on every divergence.
+   */
+  index?: SdLookupIndex;
 }
 
 /**
@@ -131,7 +257,7 @@ export interface PlanSdCanonicalInput {
 export function planSdCanonicalRewrite(
   input: PlanSdCanonicalInput,
 ): PlannerOutput {
-  const { root, targetCase, discovered } = input;
+  const { root, targetCase, discovered, index } = input;
   const edits: Edit[] = [];
   const records: ChangeRecord[] = [];
   const errors: string[] = [];
@@ -171,27 +297,57 @@ export function planSdCanonicalRewrite(
   const oldSegment = urlValue.substring(lastSlash + 1);
   const newSegment = format(tokenize(oldSegment), targetCase);
 
-  // Divergent-url-vs-type check (must beat any rewrite emission).
+  // Divergent-url-vs-type handling. When url and type segments (and, for
+  // URL-form types, prefixes) already agree, fall through to the
+  // standard re-case path. Otherwise, attempt to resolve `type` against
+  // the discovered-SD index; on a unique match, replace the entire
+  // `type` literal with the matched SD's canonical url (post-re-cased
+  // to `targetCase`) and skip the standard type re-case branch.
+  let typeResolved = false;
   if (typeNode && typeNode.type === "string") {
     const typeValue = String(typeNode.value);
     const urlSeg = lastSegmentOf(urlValue);
     const typeSeg = lastSegmentOf(typeValue);
     const urlPrefix = prefixOf(urlValue);
     const typePrefix = prefixOf(typeValue);
-    // type may be a bare segment (e.g. "Activity") with no prefix; we
-    // only flag divergence when type is itself a URL (contains "/")
-    // and either its prefix or its final segment differs from url's.
     const typeIsUrl = typeValue.includes("/");
-    if (typeIsUrl) {
-      if (urlSeg !== typeSeg || urlPrefix !== typePrefix) {
+    const segsAgree = urlSeg === typeSeg;
+    const prefixesAgree = typeIsUrl ? urlPrefix === typePrefix : true;
+
+    if (!segsAgree || !prefixesAgree) {
+      const resolution: DivergentTypeResolution = index
+        ? resolveDivergentType(typeValue, index)
+        : { kind: "none" };
+
+      if (resolution.kind === "match") {
+        const matchedUrl = resolution.canonicalUrl;
+        const matchedPrefix = prefixOf(matchedUrl);
+        const matchedSeg = lastSegmentOf(matchedUrl);
+        const matchedNewSeg = format(tokenize(matchedSeg), targetCase);
+        const resolvedFinal =
+          matchedPrefix.length > 0
+            ? `${matchedPrefix}/${matchedNewSeg}`
+            : matchedNewSeg;
+        // Replace the entire string-literal contents (offset+1 .. -1
+        // strips the surrounding double quotes).
+        edits.push({
+          offset: typeNode.offset + 1,
+          length: typeNode.length - 2,
+          content: resolvedFinal,
+        });
+        records.push({
+          opId: rowKey,
+          field: "sd.type-resolve" as any,
+          oldValue: typeValue,
+          newValue: resolvedFinal,
+        });
+        typeResolved = true;
+      } else if (resolution.kind === "ambiguous") {
         errors.push(
-          `url and type final segments differ; refusing to re-case ('${urlSeg}' vs '${typeSeg}')`,
+          `type '${typeValue}' is ambiguous; matches multiple discovered SDs: ${resolution.candidates.join(", ")}; refusing to re-case`,
         );
         return { edits, records, errors };
-      }
-    } else {
-      // Bare-segment type: only flag if it disagrees with url's segment.
-      if (typeSeg !== urlSeg) {
+      } else {
         errors.push(
           `url and type final segments differ; refusing to re-case ('${urlSeg}' vs '${typeSeg}')`,
         );
@@ -201,7 +357,10 @@ export function planSdCanonicalRewrite(
   }
 
   // SD's own url/type/baseDefinition (each only when present and only
-  // when the segment actually changes).
+  // when the segment actually changes). When `typeResolved` is true,
+  // the resolver above has already emitted a full-literal replacement
+  // for `type` whose `content` already encodes the post-re-case form,
+  // so we must not also emit a final-segment edit on the same node.
   if (oldSegment !== newSegment) {
     if (urlNode && urlNode.type === "string") {
       const e = buildFinalSegmentEdit(urlNode, newSegment);
@@ -215,7 +374,7 @@ export function planSdCanonicalRewrite(
         });
       }
     }
-    if (typeNode && typeNode.type === "string") {
+    if (!typeResolved && typeNode && typeNode.type === "string") {
       const tValue = String(typeNode.value);
       // When type is a bare segment with no '/', treat the entire value
       // as the segment to replace.

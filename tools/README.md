@@ -154,6 +154,40 @@ bun tools/changeTypeFunctionCasing.ts \
     --update
 ```
 
+### Divergent SD `type` resolver
+
+When `--structure-canonical <case>` runs, every parsed StructureDefinition's
+top-level `url` and `type` are compared. If their final segments (and, when
+`type` is itself a URL, their prefixes) already agree, the standard
+final-segment re-case applies to both.
+
+If they **diverge** (e.g. `url = ".../ADDRESSED-MESSAGE"`, `type =
+".../ADDRESSED_MESSAGE"`), the planner now consults a tokenize-keyed
+lookup index built from the discovery pass. The index is keyed by the
+case- and separator-insensitive token sequence of every discovered SD's
+`url` last segment **and** every SD's `id`; bucket entries are
+de-duplicated by canonical url so a single SD whose `id` and url-segment
+tokenize identically is not counted twice.
+
+- **Unique match:** the entire `type` literal is rewritten to the
+  matched SD's full canonical url (with the final segment re-cased to
+  the requested `<case>`). Reported as `<sd-id>.type-resolve`. Bare-segment
+  `type` values (no `/`, e.g. `"ADDRESSED_MESSAGE"`) are promoted to
+  the matched SD's full URL form by the same path.
+- **Ambiguous match** (two or more discovered SDs share the tokenized
+  name): the file is skipped with the error
+  `type '<typeValue>' is ambiguous; matches multiple discovered SDs:
+  <candidate-1>, <candidate-2>, ...; refusing to re-case`. Exit code 1.
+- **No match:** the legacy error fires verbatim:
+  `url and type final segments differ; refusing to re-case ('<urlSeg>' vs
+  '<typeSeg>')`. Exit code 1.
+
+The resolver is **always on** when `--structure-canonical` is used; there
+is no opt-in/opt-out flag. Cross-ref values (`code`, `profile`,
+`targetProfile`, `valueCanonical`, `valueUrl`) are unaffected and still
+require exact-string membership in the discovered set.
+
+
 ### Report format
 
 ```
@@ -184,7 +218,7 @@ The same format is emitted for both preview and `--update` runs.
 | Code | Meaning |
 |------|---------|
 | `0` | Success — any number of changes (including zero). |
-| `1` | One or more files reported errors (malformed JSON, duplicate ids, dangling/ambiguous `#ref`, divergent SD `url` vs `type`, trailing-byte preservation failure). |
+| `1` | One or more files reported errors (malformed JSON, duplicate ids, dangling/ambiguous `#ref`, divergent SD `url` vs `type` with no resolver match, ambiguous SD `type` resolver match, trailing-byte preservation failure). |
 | `2` | Argv/usage error, or no matrix flag specified. |
 
 ## Out of scope (v1)

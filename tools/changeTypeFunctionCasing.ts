@@ -19,6 +19,7 @@ import {
   discoverSdCanonicals,
   planSdCanonicalRewrite,
   type SdFileInput,
+  type SdLookupIndex,
 } from "./lib/sdCanonical.ts";
 import { caseHasUnderscore } from "./lib/casing.ts";
 
@@ -123,6 +124,7 @@ function processFile(
   file: ParsedFile,
   args: ParsedArgs,
   discoveredCanonicals: ReadonlySet<string> | null,
+  discoveredIndex: SdLookupIndex | null,
 ): FileResult {
   if (file.parseErrors.length > 0) {
     return {
@@ -173,6 +175,7 @@ function processFile(
       root,
       targetCase: args.structureCanonicalCase,
       discovered: discoveredCanonicals,
+      index: discoveredIndex ?? undefined,
     });
     allErrors.push(...sc.errors);
     allEdits.push(...sc.edits);
@@ -299,6 +302,7 @@ export function runWith(
   // url across the entire input/resources/ directory before any per-file
   // edit work. Files of any other resourceType are skipped.
   let discoveredCanonicals: ReadonlySet<string> | null = null;
+  let discoveredIndex: SdLookupIndex | null = null;
   if (parsedArgs.structureCanonicalCase !== null) {
     const sdInputs: SdFileInput[] = [];
     for (const f of parsed) {
@@ -307,6 +311,7 @@ export function runWith(
     }
     const disc = discoverSdCanonicals(sdInputs);
     discoveredCanonicals = disc.canonicals;
+    discoveredIndex = disc.index;
   }
 
   let totalChanges = 0;
@@ -315,7 +320,7 @@ export function runWith(
   const blocks: string[] = [];
 
   for (const f of parsed) {
-    const result = processFile(f, parsedArgs, discoveredCanonicals);
+    const result = processFile(f, parsedArgs, discoveredCanonicals, discoveredIndex);
     if (result.errors.length > 0) {
       const lines: string[] = [`=== ${f.relPath} ===`];
       for (const e of result.errors) lines.push(`  error: ${e}`);
