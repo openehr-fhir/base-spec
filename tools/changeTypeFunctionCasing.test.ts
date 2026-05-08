@@ -64,6 +64,30 @@ describe("format", () => {
       "magnitude",
       "add",
     ],
+    Title_Snake: [
+      "Is_Strictly_Comparable_To",
+      "Is_Strictly_Comparable_To",
+      "Is_Strictly_Comparable_To",
+      "Is_Strictly_Comparable_To",
+      "Magnitude",
+      "Add",
+    ],
+    "Title-Kebab": [
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Is-Strictly-Comparable-To",
+      "Magnitude",
+      "Add",
+    ],
+    UPPER_SNAKE: [
+      "IS_STRICTLY_COMPARABLE_TO",
+      "IS_STRICTLY_COMPARABLE_TO",
+      "IS_STRICTLY_COMPARABLE_TO",
+      "IS_STRICTLY_COMPARABLE_TO",
+      "MAGNITUDE",
+      "ADD",
+    ],
     "UPPER-KEBAB": [
       "IS-STRICTLY-COMPARABLE-TO",
       "IS-STRICTLY-COMPARABLE-TO",
@@ -71,22 +95,6 @@ describe("format", () => {
       "IS-STRICTLY-COMPARABLE-TO",
       "MAGNITUDE",
       "ADD",
-    ],
-    "Title-Kebab": [
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Magnitude",
-      "Add",
-    ],
-    "Title-Kebab": [
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Is-Strictly-Comparable-To",
-      "Magnitude",
-      "Add",
     ],
     camel: [
       "isStrictlyComparableTo",
@@ -120,74 +128,100 @@ describe("format", () => {
     expect(format([], "Pascal")).toBe("");
   });
 
-  it("Upper-Kebab renders fully upper-case", () => {
+  it("UPPER-KEBAB renders fully upper-case with hyphens", () => {
     expect(format(["activity", "item", "structure"], "UPPER-KEBAB")).toBe(
       "ACTIVITY-ITEM-STRUCTURE",
     );
   });
 
-  it("Title-Kebab renders title-style with hyphen separators", () => {
-    expect(format(["activity", "item", "structure"], "Title-Kebab")).toBe(
-      "Activity-Item-Structure",
+  it("UPPER_SNAKE renders fully upper-case with underscores", () => {
+    expect(format(["activity", "item", "structure"], "UPPER_SNAKE")).toBe(
+      "ACTIVITY_ITEM_STRUCTURE",
     );
   });
 
-  it("Pascal-Kebab renders identically to Title-Kebab", () => {
-    expect(format(["activity", "item", "structure"], "Title-Kebab")).toBe(
-      format(["activity", "item", "structure"], "Title-Kebab"),
+  it("Title_Snake renders title-style with underscore separators", () => {
+    expect(format(["activity", "item", "structure"], "Title_Snake")).toBe(
+      "Activity_Item_Structure",
     );
+  });
+
+  // Render-rule pin-downs: format normalizes per-token (lowercase
+  // then shape). All-caps input tokens are NOT preserved -- this
+  // documents the deliberate deviation from the source request's
+  // "preserve all-caps token runs" rule (see plan.md Open Questions).
+  it("Pascal: all-caps input tokens are lowercased then capitalized (DV-EHR-URI -> DvEhrUri)", () => {
+    expect(format(["DV", "EHR", "URI"], "Pascal")).toBe("DvEhrUri");
+  });
+
+  it("Title-Kebab: all-caps input tokens are lowercased then capitalized (DV-EHR-URI -> Dv-Ehr-Uri)", () => {
+    expect(format(["DV", "EHR", "URI"], "Title-Kebab")).toBe("Dv-Ehr-Uri");
+  });
+
+  it("camel: all-caps input tokens are lowercased then capitalized (EHR-ACCESS -> ehrAccess)", () => {
+    expect(format(["EHR", "ACCESS"], "camel")).toBe("ehrAccess");
   });
 });
 
 describe("parseCaseName", () => {
-  it("accepts canonical id-case values", () => {
+  it("accepts every canonical case name (round-trips to itself)", () => {
     expect(parseCaseName("lower_snake")).toBe("lower_snake");
     expect(parseCaseName("lower-kebab")).toBe("lower-kebab");
-  });
-  it("accepts kebab aliases on id-case", () => {
-    expect(parseCaseName("lower-hyphen")).toBe("lower-kebab");
-    expect(parseCaseName("lower-dash")).toBe("lower-kebab");
-  });
-  it("rejects name-only cases on id-case", () => {
-    expect(parseCaseName("Pascal")).toBeNull();
-    expect(parseCaseName("camel")).toBeNull();
-    expect(parseCaseName("UPPER-KEBAB")).toBeNull();
-    expect(parseCaseName("Title-Kebab")).toBeNull();
-    expect(parseCaseName("Title-Kebab")).toBeNull();
-  });
-  it("accepts all canonical name-case values", () => {
-    expect(parseCaseName("lower_snake")).toBe("lower_snake");
-    expect(parseCaseName("lower-kebab")).toBe("lower-kebab");
+    expect(parseCaseName("Title_Snake")).toBe("Title_Snake");
+    expect(parseCaseName("Title-Kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("UPPER_SNAKE")).toBe("UPPER_SNAKE");
     expect(parseCaseName("UPPER-KEBAB")).toBe("UPPER-KEBAB");
-    expect(parseCaseName("Title-Kebab")).toBe("Title-Kebab");
-    expect(parseCaseName("Title-Kebab")).toBe("Title-Kebab");
     expect(parseCaseName("camel")).toBe("camel");
     expect(parseCaseName("Pascal")).toBe("Pascal");
   });
-  it("accepts every documented alias on name-case", () => {
-    expect(parseCaseName("lower-hyphen")).toBe("lower-kebab");
-    expect(parseCaseName("lower-dash")).toBe("lower-kebab");
-    expect(parseCaseName("Upper-Hyphen")).toBe("UPPER-KEBAB");
-    expect(parseCaseName("Upper-Dash")).toBe("UPPER-KEBAB");
-    expect(parseCaseName("title-hyphen")).toBe("Title-Kebab");
-    expect(parseCaseName("title-dash")).toBe("Title-Kebab");
-    expect(parseCaseName("pascal-hyphen")).toBe("Title-Kebab");
-    expect(parseCaseName("pascal-dash")).toBe("Title-Kebab");
+
+  it("is case-insensitive on the value (family keyword sets the canonical)", () => {
+    expect(parseCaseName("LOWER-KEBAB")).toBe("lower-kebab");
+    expect(parseCaseName("Lower-Kebab")).toBe("lower-kebab");
+    expect(parseCaseName("upper_snake")).toBe("UPPER_SNAKE");
+    expect(parseCaseName("title-kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("TITLE_SNAKE")).toBe("Title_Snake");
+    expect(parseCaseName("LoWeR_SnAkE")).toBe("lower_snake");
+  });
+
+  it("treats '-' and '_' as interchangeable separators", () => {
+    expect(parseCaseName("lower_kebab")).toBe("lower-kebab");
+    expect(parseCaseName("UPPER_KEBAB")).toBe("UPPER-KEBAB");
+    expect(parseCaseName("upper-snake")).toBe("UPPER_SNAKE");
+    expect(parseCaseName("Title_Kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("title-snake")).toBe("Title_Snake");
+  });
+
+  it("treats `pascal` family keyword as a synonym for `title`", () => {
+    expect(parseCaseName("pascal_snake")).toBe("Title_Snake");
+    expect(parseCaseName("pascal-kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("PASCAL-KEBAB")).toBe("Title-Kebab");
+    expect(parseCaseName("pascal_kebab")).toBe("Title-Kebab");
+  });
+
+  it("single-token: Pascal/camel selection follows first-character casing", () => {
+    expect(parseCaseName("Pascal")).toBe("Pascal");
     expect(parseCaseName("camel")).toBe("camel");
-    expect(parseCaseName("Pascal")).toBe("Pascal");
+    // Counterintuitive (but documented) caveats:
+    expect(parseCaseName("pascal")).toBe("camel");
+    expect(parseCaseName("CAMEL")).toBe("Pascal");
   });
-  it("is case-insensitive on the value", () => {
-    expect(parseCaseName("LOWER_SNAKE")).toBe("lower_snake");
-    expect(parseCaseName("Pascal")).toBe("Pascal");
-    expect(parseCaseName("UPPER-DASH")).toBe("UPPER-KEBAB");
-  });
-  it("returns null for unknown values", () => {
-    expect(parseCaseName("snake")).toBeNull();
+
+  it("rejects malformed input", () => {
     expect(parseCaseName("")).toBeNull();
+    expect(parseCaseName("snake")).toBeNull();
     expect(parseCaseName("kebab")).toBeNull();
+    expect(parseCaseName("title")).toBeNull();
+    expect(parseCaseName("upper")).toBeNull();
+    expect(parseCaseName("lower")).toBeNull();
+    expect(parseCaseName("title_octopus")).toBeNull();
+    expect(parseCaseName("weird_thing")).toBeNull();
+    expect(parseCaseName("a_b_c")).toBeNull();
+    expect(parseCaseName("title-")).toBeNull();
+    expect(parseCaseName("-snake")).toBeNull();
+    expect(parseCaseName("__")).toBeNull();
   });
 });
-
 function ok(r: ReturnType<typeof parseArgv>): asserts r is Exclude<ReturnType<typeof parseArgv>, { error: string }> {
   if ('error' in r) throw new Error('expected ok, got: ' + r.error);
 }
@@ -208,12 +242,6 @@ describe('parseArgv', () => {
     expect(r.error).toContain('--operation-id');
   });
 
-  it('rejects name-only case value on --operation-id', () => {
-    const r = parseArgv(['--operation-id', 'Pascal']);
-    err(r);
-    expect(r.error).toContain('--operation-id');
-  });
-
   it('rejects unknown --operation-name value', () => {
     const r = parseArgv(['--operation-name', 'kebab']);
     err(r);
@@ -224,6 +252,15 @@ describe('parseArgv', () => {
     const r = parseArgv(['--operation-title', 'spongebob']);
     err(r);
     expect(r.error).toContain('--operation-title');
+  });
+
+  it('error messages list the unified 8-name allowlist', () => {
+    const r = parseArgv(['--operation-name', 'spongebob']);
+    err(r);
+    expect(r.error).toContain('lower_snake');
+    expect(r.error).toContain('UPPER_SNAKE');
+    expect(r.error).toContain('camel');
+    expect(r.error).toContain('Pascal');
   });
 
   it('rejects unknown flag', () => {
@@ -362,16 +399,42 @@ describe('parseArgv', () => {
     expect(r.structureCanonicalCase).toBe('UPPER-KEBAB');
   });
 
-  it('--structure-canonical rejects lowerCamel (not in ALLOWED_SC_CASES)', () => {
-    const r = parseArgv(['--structure-canonical', 'camel']);
-    err(r);
-    expect(r.error).toContain('--structure-canonical');
+  // Slot-03: every case-taking flag accepts the unified 8-name allowlist.
+  // Flags previously restricted to a per-flag subset now accept the full set.
+  it('--operation-id accepts UPPER_SNAKE (previously restricted to id-case subset)', () => {
+    const r = parseArgv(['--operation-id', 'UPPER_SNAKE']);
+    ok(r);
+    expect(r.operationIdCase).toBe('UPPER_SNAKE');
   });
 
-  it('--structure-canonical rejects UpperPascal (not in ALLOWED_SC_CASES)', () => {
+  it('--structure-id accepts Title_Snake', () => {
+    const r = parseArgv(['--structure-id', 'Title_Snake']);
+    ok(r);
+    expect(r.structureIdCase).toBe('Title_Snake');
+  });
+
+  it('--operation-name accepts title_snake (parser disambiguates to Title_Snake)', () => {
+    const r = parseArgv(['--operation-name', 'title_snake']);
+    ok(r);
+    expect(r.operationNameCase).toBe('Title_Snake');
+  });
+
+  it('--operation-name accepts PASCAL-KEBAB (pascal family resolves to Title-Kebab)', () => {
+    const r = parseArgv(['--operation-name', 'PASCAL-KEBAB']);
+    ok(r);
+    expect(r.operationNameCase).toBe('Title-Kebab');
+  });
+
+  it('--structure-canonical camel parses (was previously restricted out)', () => {
+    const r = parseArgv(['--structure-canonical', 'camel']);
+    ok(r);
+    expect(r.structureCanonicalCase).toBe('camel');
+  });
+
+  it('--structure-canonical Pascal parses (was previously restricted out)', () => {
     const r = parseArgv(['--structure-canonical', 'Pascal']);
-    err(r);
-    expect(r.error).toContain('--structure-canonical');
+    ok(r);
+    expect(r.structureCanonicalCase).toBe('Pascal');
   });
 
   // Removed-flag hints
@@ -1175,6 +1238,27 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
       expect(a).toContain('"code" : "http://example.org/sd/EVENT"');
       expect(e).toContain('"url" : "http://example.org/sd/EVENT"');
       expect(e).toContain('"type" : "http://example.org/sd/EVENT"');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('end-to-end --structure-canonical camel + --update accepts the previously-restricted camel case', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'ACTIVITY.json', crlf([
+        '{',
+        '  "resourceType" : "StructureDefinition",',
+        '  "id" : "ACTIVITY",',
+        '  "url" : "http://example.org/sd/activity-item-structure",',
+        '  "type" : "http://example.org/sd/activity-item-structure"',
+        '}',
+      ]));
+      const r = captureRun(['--structure-canonical', 'camel', '--update'], dir);
+      expect(r.code).toBe(0);
+      const a = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
+      expect(a).toContain('"url" : "http://example.org/sd/activityItemStructure"');
+      expect(a).toContain('"type" : "http://example.org/sd/activityItemStructure"');
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
