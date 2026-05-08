@@ -1,74 +1,104 @@
 // Pure casing helpers: tokenize an identifier into lower-case word
 // tokens, format a token sequence into one of the supported cases, and
-// parse user-supplied case names (with aliases) from the CLI.
+// parse user-supplied case names from the CLI.
+//
+// The 8 canonical case names are unified across every case-taking flag.
+// Input parsing is case-insensitive and treats `-` and `_` as
+// interchangeable separators.
 
 export type Case =
   | "lower_snake"
   | "lower-kebab"
-  | "Upper-Kebab"
+  | "Title_Snake"
   | "Title-Kebab"
-  | "Pascal-Kebab"
-  | "lowerCamel"
-  | "UpperPascal";
-
-const ID_CASES: readonly Case[] = ["lower_snake", "lower-kebab"];
-const NAME_CASES: readonly Case[] = [
-  "lower_snake",
-  "lower-kebab",
-  "Upper-Kebab",
-  "Title-Kebab",
-  "Pascal-Kebab",
-  "lowerCamel",
-  "UpperPascal",
-];
-const SC_CASES: readonly Case[] = [
-  "lower_snake",
-  "lower-kebab",
-  "Upper-Kebab",
-  "Title-Kebab",
-  "Pascal-Kebab",
-];
-
-export const ALLOWED_ID_CASES: readonly Case[] = ID_CASES;
-export const ALLOWED_NAME_CASES: readonly Case[] = NAME_CASES;
-export const ALLOWED_SC_CASES: readonly Case[] = SC_CASES;
-
-const ALIASES: Readonly<Record<string, Case>> = {
-  // canonical
-  lower_snake: "lower_snake",
-  "lower-kebab": "lower-kebab",
-  "upper-kebab": "Upper-Kebab",
-  "title-kebab": "Title-Kebab",
-  "pascal-kebab": "Pascal-Kebab",
-  lowercamel: "lowerCamel",
-  upperpascal: "UpperPascal",
-  // aliases (compared case-insensitively)
-  "lower-hyphen": "lower-kebab",
-  "lower-dash": "lower-kebab",
-  "upper-hyphen": "Upper-Kebab",
-  "upper-dash": "Upper-Kebab",
-  "title-hyphen": "Title-Kebab",
-  "title-dash": "Title-Kebab",
-  "pascal-hyphen": "Pascal-Kebab",
-  "pascal-dash": "Pascal-Kebab",
-  camel: "lowerCamel",
-  pascal: "UpperPascal",
-};
+  | "UPPER_SNAKE"
+  | "UPPER-KEBAB"
+  | "camel"
+  | "Pascal";
 
 /**
- * Resolve a user-supplied case name (case-insensitive on the value) to
- * a canonical Case, or return null if it is not allowed for the given
- * field. The `allowed` argument restricts the set (e.g. id only
- * accepts the two lower cases).
+ * Every case-taking matrix flag accepts the same 8-name allowlist.
  */
-export function parseCaseName(
-  input: string,
-  allowed: readonly Case[],
-): Case | null {
+export const ALLOWED_CASES: readonly Case[] = [
+  "lower_snake",
+  "lower-kebab",
+  "Title_Snake",
+  "Title-Kebab",
+  "UPPER_SNAKE",
+  "UPPER-KEBAB",
+  "camel",
+  "Pascal",
+];
+
+/**
+ * Returns true for the three cases whose canonical name contains `_`.
+ * Used by the runWith id-flag warning path: FHIR `id` values forbid
+ * `_`, so a chosen id case carrying `_` is worth a one-line stderr
+ * warning. Defined here so the canonical-name source-of-truth lives
+ * next to the `Case` union.
+ */
+export function caseHasUnderscore(c: Case): boolean {
+  return c === "lower_snake" || c === "Title_Snake" || c === "UPPER_SNAKE";
+}
+
+/**
+ * Resolve a user-supplied case name to a canonical Case, or return
+ * null if it is not recognized.
+ *
+ * Parser rules:
+ * - Input is case-insensitive (the canonical chosen depends on the
+ *   *family* keyword, not on the input casing — except in the
+ *   single-token camel/Pascal branch, see below).
+ * - `-` and `_` are interchangeable separators (e.g. `lower_kebab`,
+ *   `lower-kebab`, and `LOWER-KEBAB` all resolve to `"lower-kebab"`).
+ * - Multi-token form is `<family>(-|_)<shape>`:
+ *     family ∈ {lower, title, upper, pascal} (pascal is a synonym for
+ *              title in this position)
+ *     shape  ∈ {snake, kebab}
+ *   The shape keyword forces the separator in the canonical name
+ *   regardless of which separator the caller used.
+ * - Single-token form: `camel` and `pascal` are the only legal
+ *   inputs. The chosen canonical depends on the *first character of
+ *   the original input* — uppercase first char picks `"Pascal"`,
+ *   anything else picks `"camel"`. Hence `parseCaseName("pascal")`
+ *   returns `"camel"` and `parseCaseName("CAMEL")` returns `"Pascal"`;
+ *   this is mildly counterintuitive but follows from the rule.
+ * - Anything else returns null.
+ */
+export function parseCaseName(input: string): Case | null {
   if (typeof input !== "string" || input.length === 0) return null;
-  const c = ALIASES[input.toLowerCase()];
-  if (!c) return null;
-  return allowed.includes(c) ? c : null;
+  const lower = input.toLowerCase();
+
+  // Single-token branch: only `camel` and `pascal` are legal.
+  if (!lower.includes("-") && !lower.includes("_")) {
+    if (lower === "camel" || lower === "pascal") {
+      const first = input[0]!;
+      const isUpperFirst = first >= "A" && first <= "Z";
+      return isUpperFirst ? "Pascal" : "camel";
+    }
+    return null;
+  }
+
+  // Multi-token branch: split on either separator; require exactly
+  // 2 non-empty parts.
+  const parts = lower.split(/[-_]/);
+  if (parts.length !== 2) return null;
+  const family = parts[0]!;
+  const shape = parts[1]!;
+  if (family.length === 0 || shape.length === 0) return null;
+
+  const isFamily = family === "lower" || family === "title" || family === "upper" || family === "pascal";
+  const isShape = shape === "snake" || shape === "kebab";
+  if (!isFamily || !isShape) return null;
+
+  if (family === "lower") {
+    return shape === "snake" ? "lower_snake" : "lower-kebab";
+  }
+  if (family === "title" || family === "pascal") {
+    return shape === "snake" ? "Title_Snake" : "Title-Kebab";
+  }
+  // family === "upper"
+  return shape === "snake" ? "UPPER_SNAKE" : "UPPER-KEBAB";
 }
 
 /**
@@ -124,6 +154,13 @@ function capitalize(token: string): string {
 /**
  * Render a token sequence in the requested case. An empty token list
  * renders as the empty string regardless of case.
+ *
+ * `tokenize` always lowercases its emitted tokens; `format` therefore
+ * applies the natural per-token rule for each canonical case (lowercase
+ * tokens, then snake/kebab/UPPERCASE/Title/Pascal/camel shaping). When
+ * callers pass mixed- or all-caps tokens directly to `format` (without
+ * going through `tokenize`), every case still re-normalizes per-token
+ * before applying the shape — there is no all-caps preservation rule.
  */
 export function format(tokens: readonly string[], c: Case): string {
   if (tokens.length === 0) return "";
@@ -132,12 +169,17 @@ export function format(tokens: readonly string[], c: Case): string {
       return tokens.map((t) => t.toLowerCase()).join("_");
     case "lower-kebab":
       return tokens.map((t) => t.toLowerCase()).join("-");
-    case "Upper-Kebab":
+    case "UPPER_SNAKE":
+      return tokens.map((t) => t.toUpperCase()).join("_");
+    case "UPPER-KEBAB":
       return tokens.map((t) => t.toUpperCase()).join("-");
+    case "Title_Snake":
+      return tokens.map((t) => capitalize(t.toLowerCase())).join("_");
     case "Title-Kebab":
-    case "Pascal-Kebab":
       return tokens.map((t) => capitalize(t.toLowerCase())).join("-");
-    case "lowerCamel":
+    case "Pascal":
+      return tokens.map((t) => capitalize(t.toLowerCase())).join("");
+    case "camel":
       return (
         tokens[0]!.toLowerCase() +
         tokens
@@ -145,7 +187,5 @@ export function format(tokens: readonly string[], c: Case): string {
           .map((t) => capitalize(t.toLowerCase()))
           .join("")
       );
-    case "UpperPascal":
-      return tokens.map((t) => capitalize(t.toLowerCase())).join("");
   }
 }

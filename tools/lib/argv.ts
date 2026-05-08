@@ -1,6 +1,7 @@
 // CLI argv parsing for changeTypeFunctionCasing.
 //
-// New (Phase 2+) flag matrix:
+// Flag matrix (every case-taking flag accepts the same 8-name allowlist
+// from `ALLOWED_CASES`):
 //   Operation-side: --operation-id / --op-id (alias)
 //                   --operation-name / --op-name (alias)
 //                   --operation-title / --op-title (alias)
@@ -12,23 +13,24 @@
 //                   --structure-name / --sd-name (alias)
 //                   --structure-title / --sd-title (alias)
 //                   --structure-canonical / --sd-canonical (alias)
-//                       — value is a Case from ALLOWED_SC_CASES.
 //   Mode flags:     --update / -u (default: preview-only)
 //                   --help / -h
 //
-// Removed legacy flags (Phase 2):
+// Removed legacy flags:
 //   --all-snake, --all-fhir, --id-case, --name-case, --title-case,
 //   --repair, --dry-run
 // Each emits a one-line replacement-hint stderr and exit code 2.
 
 import { parseArgs, type ParseArgsConfig } from "node:util";
 import {
-  ALLOWED_ID_CASES,
-  ALLOWED_NAME_CASES,
-  ALLOWED_SC_CASES,
+  ALLOWED_CASES,
   type Case,
   parseCaseName,
 } from "./casing.ts";
+
+function caseListMsg(): string {
+  return "use one of: " + ALLOWED_CASES.join(", ");
+}
 
 export interface ParsedArgs {
   operationIdCase: Case | null;
@@ -50,7 +52,7 @@ const REMOVED_FLAG_HINTS: Readonly<Record<string, string>> = {
   "all-snake":
     "removed; pass the equivalent matrix flags (e.g. `--operation-id lower_snake --operation-name lower_snake --operation-title lower_snake`)",
   "all-fhir":
-    "removed; pass the equivalent matrix flags (e.g. `--operation-id lower-kebab --operation-name UpperPascal --operation-title UpperPascal`)",
+    "removed; pass the equivalent matrix flags (e.g. `--operation-id lower-kebab --operation-name Pascal --operation-title Pascal`)",
   "id-case": "renamed to `--operation-id`",
   "name-case": "renamed to `--operation-name`",
   "title-case": "renamed to `--operation-title`",
@@ -183,28 +185,28 @@ export function parseArgv(argv: readonly string[]): ParseResult {
   let structureCanonicalCase: Case | null = null;
 
   if (opId !== undefined) {
-    const c = parseCaseName(opId, ALLOWED_ID_CASES);
+    const c = parseCaseName(opId);
     if (!c) {
       return {
-        error: `error: --operation-id value '${opId}' is not allowed (use lower_snake or lower-kebab)`,
+        error: `error: --operation-id value '${opId}' is not allowed (${caseListMsg()})`,
       };
     }
     operationIdCase = c;
   }
   if (opName !== undefined) {
-    const c = parseCaseName(opName, ALLOWED_NAME_CASES);
+    const c = parseCaseName(opName);
     if (!c) {
       return {
-        error: `error: --operation-name value '${opName}' is not allowed (use lower_snake, lower-kebab, Upper-Kebab, Title-Kebab, Pascal-Kebab, lowerCamel, or UpperPascal)`,
+        error: `error: --operation-name value '${opName}' is not allowed (${caseListMsg()})`,
       };
     }
     operationNameCase = c;
   }
   if (opTitle !== undefined) {
-    const c = parseCaseName(opTitle, ALLOWED_NAME_CASES);
+    const c = parseCaseName(opTitle);
     if (!c) {
       return {
-        error: `error: --operation-title value '${opTitle}' is not allowed (use lower_snake, lower-kebab, Upper-Kebab, Title-Kebab, Pascal-Kebab, lowerCamel, or UpperPascal)`,
+        error: `error: --operation-title value '${opTitle}' is not allowed (${caseListMsg()})`,
       };
     }
     operationTitleCase = c;
@@ -219,37 +221,37 @@ export function parseArgv(argv: readonly string[]): ParseResult {
     operationCanonicalRefSync = sentinel;
   }
   if (sdId !== undefined) {
-    const c = parseCaseName(sdId, ALLOWED_ID_CASES);
+    const c = parseCaseName(sdId);
     if (!c) {
       return {
-        error: `error: --structure-id value '${sdId}' is not allowed (use lower_snake or lower-kebab)`,
+        error: `error: --structure-id value '${sdId}' is not allowed (${caseListMsg()})`,
       };
     }
     structureIdCase = c;
   }
   if (sdName !== undefined) {
-    const c = parseCaseName(sdName, ALLOWED_NAME_CASES);
+    const c = parseCaseName(sdName);
     if (!c) {
       return {
-        error: `error: --structure-name value '${sdName}' is not allowed (use lower_snake, lower-kebab, Upper-Kebab, Title-Kebab, Pascal-Kebab, lowerCamel, or UpperPascal)`,
+        error: `error: --structure-name value '${sdName}' is not allowed (${caseListMsg()})`,
       };
     }
     structureNameCase = c;
   }
   if (sdTitle !== undefined) {
-    const c = parseCaseName(sdTitle, ALLOWED_NAME_CASES);
+    const c = parseCaseName(sdTitle);
     if (!c) {
       return {
-        error: `error: --structure-title value '${sdTitle}' is not allowed (use lower_snake, lower-kebab, Upper-Kebab, Title-Kebab, Pascal-Kebab, lowerCamel, or UpperPascal)`,
+        error: `error: --structure-title value '${sdTitle}' is not allowed (${caseListMsg()})`,
       };
     }
     structureTitleCase = c;
   }
   if (sdCanonical !== undefined) {
-    const c = parseCaseName(sdCanonical, ALLOWED_SC_CASES);
+    const c = parseCaseName(sdCanonical);
     if (!c) {
       return {
-        error: `error: --structure-canonical value '${sdCanonical}' is not allowed (use lower_snake, lower-kebab, Upper-Kebab, Title-Kebab, or Pascal-Kebab)`,
+        error: `error: --structure-canonical value '${sdCanonical}' is not allowed (${caseListMsg()})`,
       };
     }
     structureCanonicalCase = c;

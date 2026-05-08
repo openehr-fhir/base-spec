@@ -11,8 +11,7 @@ import { parseArgv } from "./lib/argv.ts";
 import { planCaseChanges } from "./lib/edits.ts";
 import { planRepair, resolveRefByTokens } from "./lib/repair.ts";
 import {
-  ALLOWED_ID_CASES,
-  ALLOWED_NAME_CASES,
+  ALLOWED_CASES,
   type Case,
   format,
   parseCaseName,
@@ -65,7 +64,7 @@ describe("format", () => {
       "magnitude",
       "add",
     ],
-    "Upper-Kebab": [
+    "UPPER-KEBAB": [
       "IS-STRICTLY-COMPARABLE-TO",
       "IS-STRICTLY-COMPARABLE-TO",
       "IS-STRICTLY-COMPARABLE-TO",
@@ -81,7 +80,7 @@ describe("format", () => {
       "Magnitude",
       "Add",
     ],
-    "Pascal-Kebab": [
+    "Title-Kebab": [
       "Is-Strictly-Comparable-To",
       "Is-Strictly-Comparable-To",
       "Is-Strictly-Comparable-To",
@@ -89,7 +88,7 @@ describe("format", () => {
       "Magnitude",
       "Add",
     ],
-    lowerCamel: [
+    camel: [
       "isStrictlyComparableTo",
       "isStrictlyComparableTo",
       "isStrictlyComparableTo",
@@ -97,7 +96,7 @@ describe("format", () => {
       "magnitude",
       "add",
     ],
-    UpperPascal: [
+    Pascal: [
       "IsStrictlyComparableTo",
       "IsStrictlyComparableTo",
       "IsStrictlyComparableTo",
@@ -118,11 +117,11 @@ describe("format", () => {
   }
 
   it("renders empty token list as empty string", () => {
-    expect(format([], "UpperPascal")).toBe("");
+    expect(format([], "Pascal")).toBe("");
   });
 
   it("Upper-Kebab renders fully upper-case", () => {
-    expect(format(["activity", "item", "structure"], "Upper-Kebab")).toBe(
+    expect(format(["activity", "item", "structure"], "UPPER-KEBAB")).toBe(
       "ACTIVITY-ITEM-STRUCTURE",
     );
   });
@@ -134,7 +133,7 @@ describe("format", () => {
   });
 
   it("Pascal-Kebab renders identically to Title-Kebab", () => {
-    expect(format(["activity", "item", "structure"], "Pascal-Kebab")).toBe(
+    expect(format(["activity", "item", "structure"], "Title-Kebab")).toBe(
       format(["activity", "item", "structure"], "Title-Kebab"),
     );
   });
@@ -142,50 +141,50 @@ describe("format", () => {
 
 describe("parseCaseName", () => {
   it("accepts canonical id-case values", () => {
-    expect(parseCaseName("lower_snake", ALLOWED_ID_CASES)).toBe("lower_snake");
-    expect(parseCaseName("lower-kebab", ALLOWED_ID_CASES)).toBe("lower-kebab");
+    expect(parseCaseName("lower_snake")).toBe("lower_snake");
+    expect(parseCaseName("lower-kebab")).toBe("lower-kebab");
   });
   it("accepts kebab aliases on id-case", () => {
-    expect(parseCaseName("lower-hyphen", ALLOWED_ID_CASES)).toBe("lower-kebab");
-    expect(parseCaseName("lower-dash", ALLOWED_ID_CASES)).toBe("lower-kebab");
+    expect(parseCaseName("lower-hyphen")).toBe("lower-kebab");
+    expect(parseCaseName("lower-dash")).toBe("lower-kebab");
   });
   it("rejects name-only cases on id-case", () => {
-    expect(parseCaseName("UpperPascal", ALLOWED_ID_CASES)).toBeNull();
-    expect(parseCaseName("lowerCamel", ALLOWED_ID_CASES)).toBeNull();
-    expect(parseCaseName("Upper-Kebab", ALLOWED_ID_CASES)).toBeNull();
-    expect(parseCaseName("Title-Kebab", ALLOWED_ID_CASES)).toBeNull();
-    expect(parseCaseName("Pascal-Kebab", ALLOWED_ID_CASES)).toBeNull();
+    expect(parseCaseName("Pascal")).toBeNull();
+    expect(parseCaseName("camel")).toBeNull();
+    expect(parseCaseName("UPPER-KEBAB")).toBeNull();
+    expect(parseCaseName("Title-Kebab")).toBeNull();
+    expect(parseCaseName("Title-Kebab")).toBeNull();
   });
   it("accepts all canonical name-case values", () => {
-    expect(parseCaseName("lower_snake", ALLOWED_NAME_CASES)).toBe("lower_snake");
-    expect(parseCaseName("lower-kebab", ALLOWED_NAME_CASES)).toBe("lower-kebab");
-    expect(parseCaseName("Upper-Kebab", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
-    expect(parseCaseName("Title-Kebab", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
-    expect(parseCaseName("Pascal-Kebab", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
-    expect(parseCaseName("lowerCamel", ALLOWED_NAME_CASES)).toBe("lowerCamel");
-    expect(parseCaseName("UpperPascal", ALLOWED_NAME_CASES)).toBe("UpperPascal");
+    expect(parseCaseName("lower_snake")).toBe("lower_snake");
+    expect(parseCaseName("lower-kebab")).toBe("lower-kebab");
+    expect(parseCaseName("UPPER-KEBAB")).toBe("UPPER-KEBAB");
+    expect(parseCaseName("Title-Kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("Title-Kebab")).toBe("Title-Kebab");
+    expect(parseCaseName("camel")).toBe("camel");
+    expect(parseCaseName("Pascal")).toBe("Pascal");
   });
   it("accepts every documented alias on name-case", () => {
-    expect(parseCaseName("lower-hyphen", ALLOWED_NAME_CASES)).toBe("lower-kebab");
-    expect(parseCaseName("lower-dash", ALLOWED_NAME_CASES)).toBe("lower-kebab");
-    expect(parseCaseName("Upper-Hyphen", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
-    expect(parseCaseName("Upper-Dash", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
-    expect(parseCaseName("title-hyphen", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
-    expect(parseCaseName("title-dash", ALLOWED_NAME_CASES)).toBe("Title-Kebab");
-    expect(parseCaseName("pascal-hyphen", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
-    expect(parseCaseName("pascal-dash", ALLOWED_NAME_CASES)).toBe("Pascal-Kebab");
-    expect(parseCaseName("camel", ALLOWED_NAME_CASES)).toBe("lowerCamel");
-    expect(parseCaseName("Pascal", ALLOWED_NAME_CASES)).toBe("UpperPascal");
+    expect(parseCaseName("lower-hyphen")).toBe("lower-kebab");
+    expect(parseCaseName("lower-dash")).toBe("lower-kebab");
+    expect(parseCaseName("Upper-Hyphen")).toBe("UPPER-KEBAB");
+    expect(parseCaseName("Upper-Dash")).toBe("UPPER-KEBAB");
+    expect(parseCaseName("title-hyphen")).toBe("Title-Kebab");
+    expect(parseCaseName("title-dash")).toBe("Title-Kebab");
+    expect(parseCaseName("pascal-hyphen")).toBe("Title-Kebab");
+    expect(parseCaseName("pascal-dash")).toBe("Title-Kebab");
+    expect(parseCaseName("camel")).toBe("camel");
+    expect(parseCaseName("Pascal")).toBe("Pascal");
   });
   it("is case-insensitive on the value", () => {
-    expect(parseCaseName("LOWER_SNAKE", ALLOWED_NAME_CASES)).toBe("lower_snake");
-    expect(parseCaseName("upperpascal", ALLOWED_NAME_CASES)).toBe("UpperPascal");
-    expect(parseCaseName("UPPER-DASH", ALLOWED_NAME_CASES)).toBe("Upper-Kebab");
+    expect(parseCaseName("LOWER_SNAKE")).toBe("lower_snake");
+    expect(parseCaseName("Pascal")).toBe("Pascal");
+    expect(parseCaseName("UPPER-DASH")).toBe("UPPER-KEBAB");
   });
   it("returns null for unknown values", () => {
-    expect(parseCaseName("snake", ALLOWED_NAME_CASES)).toBeNull();
-    expect(parseCaseName("", ALLOWED_NAME_CASES)).toBeNull();
-    expect(parseCaseName("kebab", ALLOWED_NAME_CASES)).toBeNull();
+    expect(parseCaseName("snake")).toBeNull();
+    expect(parseCaseName("")).toBeNull();
+    expect(parseCaseName("kebab")).toBeNull();
   });
 });
 
@@ -210,7 +209,7 @@ describe('parseArgv', () => {
   });
 
   it('rejects name-only case value on --operation-id', () => {
-    const r = parseArgv(['--operation-id', 'UpperPascal']);
+    const r = parseArgv(['--operation-id', 'Pascal']);
     err(r);
     expect(r.error).toContain('--operation-id');
   });
@@ -236,12 +235,12 @@ describe('parseArgv', () => {
   it('mix-and-match per-field flags work together', () => {
     const r = parseArgv([
       '--operation-id', 'lower-kebab',
-      '--operation-name', 'UpperPascal',
+      '--operation-name', 'Pascal',
       '--operation-title', 'lower_snake',
     ]);
     ok(r);
     expect(r.operationIdCase).toBe('lower-kebab');
-    expect(r.operationNameCase).toBe('UpperPascal');
+    expect(r.operationNameCase).toBe('Pascal');
     expect(r.operationTitleCase).toBe('lower_snake');
     expect(r.update).toBe(false);
   });
@@ -285,9 +284,9 @@ describe('parseArgv', () => {
   });
 
   it('--op-name is an alias for --operation-name', () => {
-    const r = parseArgv(['--op-name', 'UpperPascal']);
+    const r = parseArgv(['--op-name', 'Pascal']);
     ok(r);
-    expect(r.operationNameCase).toBe('UpperPascal');
+    expect(r.operationNameCase).toBe('Pascal');
   });
 
   it('--op-title is an alias for --operation-title', () => {
@@ -303,9 +302,9 @@ describe('parseArgv', () => {
   });
 
   it('--sd-name is an alias for --structure-name', () => {
-    const r = parseArgv(['--sd-name', 'UpperPascal']);
+    const r = parseArgv(['--sd-name', 'Pascal']);
     ok(r);
-    expect(r.structureNameCase).toBe('UpperPascal');
+    expect(r.structureNameCase).toBe('Pascal');
   });
 
   it('--sd-title is an alias for --structure-title', () => {
@@ -321,9 +320,9 @@ describe('parseArgv', () => {
   });
 
   it('--sd-canonical is an alias for --structure-canonical', () => {
-    const r = parseArgv(['--sd-canonical', 'Upper-Kebab']);
+    const r = parseArgv(['--sd-canonical', 'UPPER-KEBAB']);
     ok(r);
-    expect(r.structureCanonicalCase).toBe('Upper-Kebab');
+    expect(r.structureCanonicalCase).toBe('UPPER-KEBAB');
   });
 
   it('long-form takes precedence on alias collision (last-wins folding)', () => {
@@ -358,19 +357,19 @@ describe('parseArgv', () => {
   });
 
   it('--structure-canonical accepts SC values', () => {
-    const r = parseArgv(['--structure-canonical', 'Upper-Kebab']);
+    const r = parseArgv(['--structure-canonical', 'UPPER-KEBAB']);
     ok(r);
-    expect(r.structureCanonicalCase).toBe('Upper-Kebab');
+    expect(r.structureCanonicalCase).toBe('UPPER-KEBAB');
   });
 
   it('--structure-canonical rejects lowerCamel (not in ALLOWED_SC_CASES)', () => {
-    const r = parseArgv(['--structure-canonical', 'lowerCamel']);
+    const r = parseArgv(['--structure-canonical', 'camel']);
     err(r);
     expect(r.error).toContain('--structure-canonical');
   });
 
   it('--structure-canonical rejects UpperPascal (not in ALLOWED_SC_CASES)', () => {
-    const r = parseArgv(['--structure-canonical', 'UpperPascal']);
+    const r = parseArgv(['--structure-canonical', 'Pascal']);
     err(r);
     expect(r.error).toContain('--structure-canonical');
   });
@@ -398,7 +397,7 @@ describe('parseArgv', () => {
   });
 
   it('--name-case is removed (with rename hint)', () => {
-    const r = parseArgv(['--name-case', 'UpperPascal']);
+    const r = parseArgv(['--name-case', 'Pascal']);
     err(r);
     expect(r.error).toContain('--name-case');
     expect(r.error).toContain('--operation-name');
@@ -498,7 +497,7 @@ describe('planCaseChanges', () => {
   });
 
   it('--all-fhir on FIXTURE_WITH_TITLE only flips name/title (id+ext already kebab)', () => {
-    const r = plan(FIXTURE_WITH_TITLE, { idCase: 'lower-kebab', nameCase: 'UpperPascal', titleCase: 'UpperPascal' });
+    const r = plan(FIXTURE_WITH_TITLE, { idCase: 'lower-kebab', nameCase: 'Pascal', titleCase: 'Pascal' });
     expect(r.errors).toEqual([]);
     const out = applyEdits(FIXTURE_WITH_TITLE, r.edits);
     // OpDef1: id stays kebab (lower-kebab); name already Pascal; title flips snake->Pascal.
@@ -820,7 +819,7 @@ describe('SD field flags (planCaseChanges structureIdCase/etc)', () => {
       '}',
     ]);
     const r = plan(fixture, {
-      structureNameCase: 'UpperPascal',
+      structureNameCase: 'Pascal',
       structureTitleCase: 'Title-Kebab',
     } as any);
     expect(r.errors).toEqual([]);
@@ -871,7 +870,7 @@ describe('SD field flags (planCaseChanges structureIdCase/etc)', () => {
     ]);
     const r = plan(codeSystem, {
       structureIdCase: 'lower-kebab',
-      structureNameCase: 'UpperPascal',
+      structureNameCase: 'Pascal',
       structureTitleCase: 'lower_snake',
     } as any);
     expect(r.errors).toEqual([]);
@@ -1121,7 +1120,7 @@ describe('planSdCanonicalRewrite', () => {
       '}',
     ]);
     const discovered = new Set(['http://example.org/sd/ACTIVITY']);
-    const r = planSC(fixture, 'Upper-Kebab', discovered);
+    const r = planSC(fixture, 'UPPER-KEBAB', discovered);
     expect(r.errors).toEqual([]);
     expect(r.edits).toEqual([]);
   });
@@ -1167,7 +1166,7 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
         '  "type" : "http://example.org/sd/event"',
         '}',
       ]));
-      const r = captureRun(['--structure-canonical', 'Upper-Kebab', '--update'], dir);
+      const r = captureRun(['--structure-canonical', 'UPPER-KEBAB', '--update'], dir);
       expect(r.code).toBe(0);
       const a = readFileSync(join(dir, 'ACTIVITY.json'), 'utf8');
       const e = readFileSync(join(dir, 'EVENT.json'), 'utf8');
@@ -1234,7 +1233,7 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
       const r = captureRun([
         '--operation-id', 'lower_snake',
         '--structure-id', 'lower-kebab',
-        '--structure-canonical', 'Upper-Kebab',
+        '--structure-canonical', 'UPPER-KEBAB',
         '--update',
       ], dir);
       expect(r.code).toBe(0);
@@ -1283,7 +1282,7 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
       const r = captureRun([
         '--operation-id', 'lower-kebab',
         '--structure-id', 'lower-kebab',
-        '--structure-canonical', 'Upper-Kebab',
+        '--structure-canonical', 'UPPER-KEBAB',
       ], dir);
       expect(r.code).toBe(0);
       // Report mentions changes; bytes on disk are unchanged.
@@ -1322,7 +1321,7 @@ describe('runWith (end-to-end) > --structure-canonical', () => {
         '  "url" : "http://example.org/sd/event"',
         '}',
       ]));
-      const r = captureRun(['--structure-canonical', 'Upper-Kebab'], dir);
+      const r = captureRun(['--structure-canonical', 'UPPER-KEBAB'], dir);
       expect(r.code).toBe(0);
       // Cross-ref records render with the differential./snapshot. prefix
       // collapsed; we should see "ACTIVITY.element[0].type[0].code" not
