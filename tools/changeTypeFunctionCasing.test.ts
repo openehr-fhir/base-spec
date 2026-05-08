@@ -1461,7 +1461,8 @@ describe('runWith (end-to-end)', () => {
         '--update',
       ], dir);
       expect(result.code).toBe(0);
-      expect(result.err).toBe('');
+      // --operation-id lower_snake legitimately emits the FHIR-id underscore warning.
+      expect(result.err).toContain('--operation-id=lower_snake');
       // Per-file block for ALPHA only; BETA omitted.
       expect(result.out).toContain('=== ');
       expect(result.out).toContain('ALPHA.json');
@@ -1583,7 +1584,10 @@ describe('runWith (end-to-end)', () => {
         '--update',
       ], dir);
       expect(r.code).toBe(0);
-      expect(r.err).toBe('');
+      // --operation-id lower_snake emits the FHIR-id underscore warning;
+      // no other stderr lines should appear.
+      expect(r.err.trimEnd().split('\n').length).toBe(1);
+      expect(r.err).toContain('--operation-id=lower_snake');
       const after = readFileSync(join(dir, 'REDUN.json'), 'utf8');
       // id moved to snake; #ref already snake stays snake; no double-write
       // would be visible in the bytes anyway, but the file must parse and
@@ -1665,4 +1669,100 @@ describe('runWith (end-to-end)', () => {
     expect(r.out).toContain('Usage:');
     expect(r.err).toBe('');
   });
+
+  it('--help advertises the unified 8-name allowlist and the case-insensitive parser tagline', () => {
+    const r = captureRun(['--help'], '/this/dir/does/not/exist');
+    expect(r.code).toBe(0);
+    expect(r.out).toContain('lower_snake');
+    expect(r.out).toContain('lower-kebab');
+    expect(r.out).toContain('Title_Snake');
+    expect(r.out).toContain('Title-Kebab');
+    expect(r.out).toContain('UPPER_SNAKE');
+    expect(r.out).toContain('UPPER-KEBAB');
+    expect(r.out).toContain('camel');
+    expect(r.out).toContain('Pascal');
+    expect(r.out).toContain('case-insensitive');
+    expect(r.out).toContain("warns if case contains '_'");
+  });
 });
+
+describe('runWith warnings (id-flag underscore)', () => {
+  it('--operation-id lower_snake emits a single FHIR-id warning to stderr', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun(['--operation-id', 'lower_snake'], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toMatch(/^warning: FHIR id values forbid '_'/);
+      expect(r.err).toContain('--operation-id=lower_snake');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--operation-id UPPER_SNAKE emits a warning naming the chosen case', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun(['--operation-id', 'UPPER_SNAKE'], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toContain('--operation-id=UPPER_SNAKE');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--structure-id Title_Snake emits a warning naming --structure-id', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun(['--structure-id', 'Title_Snake'], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toContain('--structure-id=Title_Snake');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('--operation-id lower-kebab emits no warning (no underscore in the chosen case)', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun(['--operation-id', 'lower-kebab'], dir);
+      expect(r.code).toBe(0);
+      expect(r.err).toBe('');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('both id flags with underscore-bearing cases emits two warnings (operation then structure)', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun([
+        '--operation-id', 'lower_snake',
+        '--structure-id', 'lower_snake',
+      ], dir);
+      expect(r.code).toBe(0);
+      const lines = r.err.trimEnd().split('\n');
+      expect(lines.length).toBe(2);
+      expect(lines[0]).toContain('--operation-id=lower_snake');
+      expect(lines[1]).toContain('--structure-id=lower_snake');
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('exit code remains 0 for an otherwise-valid invocation that triggered warnings', () => {
+    const dir = makeTempDir();
+    try {
+      writeFixture(dir, 'EMPTY.json', '{}');
+      const r = captureRun(['--operation-id', 'lower_snake'], dir);
+      expect(r.code).toBe(0);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+

@@ -20,6 +20,7 @@ import {
   planSdCanonicalRewrite,
   type SdFileInput,
 } from "./lib/sdCanonical.ts";
+import { caseHasUnderscore } from "./lib/casing.ts";
 
 const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions
 and the parent StructureDefinition.
@@ -28,32 +29,27 @@ Usage:
   bun tools/changeTypeFunctionCasing.ts [matrix flags] [--update]
 
 Operation-side flags (re-case contained OperationDefinitions):
-  --operation-id <case>          (alias: --op-id)
-                                 lower_snake | lower-kebab
+  --operation-id <case>          (alias: --op-id) [warns if case contains '_']
   --operation-name <case>        (alias: --op-name)
-                                 lower_snake | lower-kebab | Upper-Kebab
-                                 | Title-Kebab | Pascal-Kebab | lowerCamel
-                                 | UpperPascal
   --operation-title <case>       (alias: --op-title)
-                                 same value set as --operation-name
   --operation-canonical <#ref>   (alias: --op-canonical)
                                  sentinel: one of {none, na, ref, #, #ref}.
                                  Sync the type-operation valueCanonical
                                  #refs to match contained OpDef.id values.
 
 Structure-side flags (re-case the parent StructureDefinition):
-  --structure-id <case>          (alias: --sd-id)
-                                 lower_snake | lower-kebab
+  --structure-id <case>          (alias: --sd-id) [warns if case contains '_']
   --structure-name <case>        (alias: --sd-name)
-                                 same values as --operation-name
   --structure-title <case>       (alias: --sd-title)
-                                 same values as --operation-name
   --structure-canonical <case>   (alias: --sd-canonical)
-                                 lower_snake | lower-kebab | Upper-Kebab
-                                 | Title-Kebab | Pascal-Kebab.
                                  Re-case the SD's url/type/baseDefinition
                                  final segment AND every in-package
                                  reference to a discovered SD canonical.
+
+  <case> ::= one of: lower_snake | lower-kebab | Title_Snake | Title-Kebab
+            | UPPER_SNAKE | UPPER-KEBAB | camel | Pascal
+            (input is case-insensitive; '-' and '_' are interchangeable
+             separators)
 
 Mode flags:
   --update, -u                   Apply edits. Default is preview-only.
@@ -259,6 +255,26 @@ export function runWith(
   if (parsedArgs.help) {
     opts.out(HELP);
     return 0;
+  }
+
+  // FHIR `id` values forbid `_`; warn (once per id flag) when the
+  // chosen case carries an underscore. Warning only — exit code is
+  // unchanged. Both id flags can warn on a single run.
+  if (
+    parsedArgs.operationIdCase !== null &&
+    caseHasUnderscore(parsedArgs.operationIdCase)
+  ) {
+    opts.err(
+      `warning: FHIR id values forbid '_'; --operation-id=${parsedArgs.operationIdCase} may produce ids that fail FHIR validation. Proceeding anyway.\n`,
+    );
+  }
+  if (
+    parsedArgs.structureIdCase !== null &&
+    caseHasUnderscore(parsedArgs.structureIdCase)
+  ) {
+    opts.err(
+      `warning: FHIR id values forbid '_'; --structure-id=${parsedArgs.structureIdCase} may produce ids that fail FHIR validation. Proceeding anyway.\n`,
+    );
   }
 
   let entries: string[];
