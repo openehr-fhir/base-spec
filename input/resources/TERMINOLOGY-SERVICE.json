@@ -8,9 +8,9 @@
     "title" : "terminology",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return an interface to the terminology named name. Allowable names include:-\n\n* openehr, \n* centc251,\n* any name from are taken from the US NLM UMLS meta-data list at http://www.nlm.nih.gov/research/umls/metaa1.html ",
-    "code" : "terminology",
+    "description" : "Return an interface to the terminology named name. Allowable names include:-\n\n* openehr, \n* centc251,\n* any name from are taken from the US NLM UMLS meta-data list at http://www.nlm.nih.gov/research/umls/metaa1.html",    "code" : "terminology",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "name",
@@ -29,14 +29,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set",
+    "id" : "code-set",
     "name" : "code_set",
     "title" : "code_set",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return an interface to the code_set identified by the external identifier name (e.g.  ISO_639-1). ",
-    "code" : "code_set",
+    "description" : "Return an interface to the code_set identified by the external identifier name (e.g.  ISO_639-1).",    "code" : "code_set",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "name",
@@ -55,14 +55,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set_for_id",
+    "id" : "code-set-for-id",
     "name" : "code_set_for_id",
     "title" : "code_set_for_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return an interface to the code_set identified internally in openEHR by id. \n",
-    "code" : "code_set_for_id",
+    "description" : "Return an interface to the code_set identified internally in openEHR by id.",    "code" : "code_set_for_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "id",
@@ -81,7 +81,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_terminology",
+    "id" : "has-terminology",
     "name" : "has_terminology",
     "title" : "has_terminology",
     "status" : "active",
@@ -89,6 +89,7 @@
     "description" : "True if terminology named name known by this service. Allowable names include:-\n\n*  openehr  \n* centc251  \n* any name from are taken from the US NLM UMLS meta-data list at       http://www.nlm.nih.gov/research/umls/metaa1.html",
     "code" : "has_terminology",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "name",
@@ -107,14 +108,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_code_set",
+    "id" : "has-code-set",
     "name" : "has_code_set",
     "title" : "has_code_set",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if code_set linked to internal name (e.g. languages ) is available. ",
-    "code" : "has_code_set",
+    "description" : "True if code_set linked to internal name (e.g. languages ) is available.",    "code" : "has_code_set",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "name",
@@ -133,14 +134,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "terminology_identifiers",
+    "id" : "terminology-identifiers",
     "name" : "terminology_identifiers",
     "title" : "terminology_identifiers",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Set of all terminology identifiers known in the terminology service. Values from the US NLM UMLS meta-data list at:- http://www.nlm.nih.gov/research/umls/metaa1.html ",
-    "code" : "terminology_identifiers",
+    "description" : "Set of all terminology identifiers known in the terminology service. Values from the US NLM UMLS meta-data list at:- http://www.nlm.nih.gov/research/umls/metaa1.html",    "code" : "terminology_identifiers",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -152,14 +153,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "openehr_code_sets",
+    "id" : "openehr-code-sets",
     "name" : "openehr_code_sets",
     "title" : "openehr_code_sets",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Set of all code set identifiers known in the terminology service. \n",
-    "code" : "openehr_code_sets",
+    "description" : "Set of all code set identifiers known in the terminology service.",    "code" : "openehr_code_sets",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -171,14 +172,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "code_set_identifiers",
+    "id" : "code-set-identifiers",
     "name" : "code_set_identifiers",
     "title" : "code_set_identifiers",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Set of all code sets identifiers for which there is an internal openEHR name; returned as a Map of ids keyed by internal name. ",
-    "code" : "code_set_identifiers",
+    "description" : "Set of all code sets identifiers for which there is an internal openEHR name; returned as a Map of ids keyed by internal name.",    "code" : "code_set_identifiers",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -194,33 +195,33 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set"
+    "valueCanonical" : "#code-set"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set_for_id"
+    "valueCanonical" : "#code-set-for-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_terminology"
+    "valueCanonical" : "#has-terminology"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_code_set"
+    "valueCanonical" : "#has-code-set"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#terminology_identifiers"
+    "valueCanonical" : "#terminology-identifiers"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#openehr_code_sets"
+    "valueCanonical" : "#openehr-code-sets"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#code_set_identifiers"
+    "valueCanonical" : "#code-set-identifiers"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-SERVICE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_SERVICE",
   "version" : "1.2.0",
   "name" : "TERMINOLOGY_SERVICE",
   "title" : "TERMINOLOGY_SERVICE",
@@ -235,19 +236,17 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines an object providing proxy access to a terminology service. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines an object providing proxy access to a terminology service.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_SERVICE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-TERMINOLOGY-GROUP-IDENTIFIERS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_TERMINOLOGY_GROUP_IDENTIFIERS",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "TERMINOLOGY_SERVICE",
       "short" : "Defines an object providing proxy access to a terminology service.",
-      "definition" : "Defines an object providing proxy access to a terminology service. ",
-      "min" : 0,
+      "definition" : "Defines an object providing proxy access to a terminology service.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

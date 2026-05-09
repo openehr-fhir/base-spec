@@ -3,7 +3,7 @@
   "id" : "DV-SCALE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Test if this Scale value is strictly comparable to `_other_`.",
     "code" : "is_strictly_comparable_to",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -29,7 +30,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -37,6 +38,7 @@
     "description" : "True if this Scale value is less than `_other_`.",
     "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -59,16 +61,16 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "can-bind"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-SCALE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_SCALE",
   "version" : "1.2.0",
   "name" : "DV_SCALE",
   "title" : "DV_SCALE",
@@ -88,7 +90,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_SCALE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -106,15 +108,14 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
     {
       "path" : "DV_SCALE.value",
       "short" : "Real number value of Scale item.",
-      "definition" : "Real number value of Scale item.\n",
-      "min" : 1,
+      "definition" : "Real number value of Scale item.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "decimal"

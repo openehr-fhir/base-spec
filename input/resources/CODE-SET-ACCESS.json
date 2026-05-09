@@ -11,6 +11,7 @@
     "description" : "External identifier of this code set.",
     "code" : "id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_codes",
+    "id" : "all-codes",
     "name" : "all_codes",
     "title" : "all_codes",
     "status" : "active",
@@ -30,6 +31,7 @@
     "description" : "Return all codes known in this code set.",
     "code" : "all_codes",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,14 +43,15 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_lang",
+    "id" : "has-lang",
     "name" : "has_lang",
     "title" : "has_lang",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if code set knows about 'a_lang' .",
+    "description" : "True if code set knows about 'a_lang'.",
     "code" : "has_lang",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_lang",
@@ -67,7 +70,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_code",
+    "id" : "has-code",
     "name" : "has_code",
     "title" : "has_code",
     "status" : "active",
@@ -75,6 +78,7 @@
     "description" : "True if code set knows about  'a_code'.",
     "code" : "has_code",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_code",
@@ -97,17 +101,17 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_codes"
+    "valueCanonical" : "#all-codes"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_lang"
+    "valueCanonical" : "#has-lang"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_code"
+    "valueCanonical" : "#has-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/CODE-SET-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/CODE_SET_ACCESS",
   "version" : "1.2.0",
   "name" : "CODE_SET_ACCESS",
   "title" : "CODE_SET_ACCESS",

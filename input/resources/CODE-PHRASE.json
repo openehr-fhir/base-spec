@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_code_phrase_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE",
   "version" : "1.2.0",
   "name" : "CODE_PHRASE",
   "title" : "CODE_PHRASE",
@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology). ",
+  "description" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology).",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -30,12 +30,12 @@
   "differential" : {
     "element" : [{
       "path" : "CODE_PHRASE",
-      "short" : "A fully coordinated (i.",
-      "definition" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology). ",
+      "short" : "A fully coordinated",
+      "definition" : "A fully coordinated (i.e. all coordination has been performed) term from a terminology service (as distinct from a particular terminology).",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Code_string_valid",
+        "key" : "code-string-valid",
         "severity" : "error",
         "human" : "Code string valid must not be empty",
         "expression" : "code_string.empty().not()"
@@ -49,14 +49,14 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ID"
       }],
       "isModifier" : false
     },
     {
       "path" : "CODE_PHRASE.code_string",
       "short" : "The key used by the terminology service to identify a concept or coordination of concepts.",
-      "definition" : "The key used by the terminology service to identify a concept or coordination of concepts. This string is most likely parsable inside the terminology service, but nothing can be assumed about its syntax outside that context. ",
+      "definition" : "The key used by the terminology service to identify a concept or coordination of concepts. This string is most likely parsable inside the terminology service, but nothing can be assumed about its syntax outside that context.",
       "min" : 1,
       "max" : "1",
       "type" : [{

@@ -11,6 +11,7 @@
     "description" : "Addition of a Duration to this temporal entity.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -37,6 +38,7 @@
     "description" : "Subtract a Duration from this temporal entity.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -63,6 +65,7 @@
     "description" : "Difference between this temporal entity and `_other_`.",
     "code" : "diff",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -96,9 +99,9 @@
     "valueCanonical" : "#diff"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
-    "valueCode" : "is-continous"
+    "valueCode" : "is-continuous"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
   "version" : "1.2.0",
   "name" : "DV_TEMPORAL",
   "title" : "DV_TEMPORAL",
@@ -113,19 +116,17 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_TEMPORAL",
       "short" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",
-      "definition" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`. ",
-      "min" : 0,
+      "definition" : "Specialised temporal variant of `DV_ABSOLUTE_QUANTITY` whose diff type is `DV_DURATION`.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },
@@ -136,7 +137,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     }]

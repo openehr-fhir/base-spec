@@ -3,14 +3,14 @@
   "id" : "DV-QUANTIFIED",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_magnitude_status",
+    "id" : "valid-magnitude-status",
     "name" : "valid_magnitude_status",
     "title" : "valid_magnitude_status",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Test whether a string value is one of the valid values for the magnitude_status attribute. ",
-    "code" : "valid_magnitude_status",
+    "description" : "Test whether a string value is one of the valid values for the magnitude_status attribute.",    "code" : "valid_magnitude_status",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -29,6 +29,7 @@
     "kind" : "operation",
     "code" : "magnitude",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -40,7 +41,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "accuracy_unknown",
+    "id" : "accuracy-unknown",
     "name" : "accuracy_unknown",
     "title" : "accuracy_unknown",
     "status" : "active",
@@ -48,6 +49,7 @@
     "description" : "True if accuracy is not known, e.g. due to not being recorded or discernable.",
     "code" : "accuracy_unknown",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -59,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_equal",
+    "id" : "is-equal",
     "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
@@ -67,6 +69,7 @@
     "description" : "Return True if this `DV_QUANTIFIED` is considered equal to `_other_`.",
     "code" : "is_equal",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -85,7 +88,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -93,6 +96,7 @@
     "description" : "True if this Quantified object is less than `_other_`, based on comparison of `_magnitude_`.",
     "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -115,7 +119,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#valid_magnitude_status"
+    "valueCanonical" : "#valid-magnitude-status"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -123,20 +127,20 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#accuracy_unknown"
+    "valueCanonical" : "#accuracy-unknown"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_equal"
+    "valueCanonical" : "#is-equal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "has-range"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "version" : "1.2.0",
   "name" : "DV_QUANTIFIED",
   "title" : "DV_QUANTIFIED",
@@ -156,7 +160,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ORDERED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -166,7 +170,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Magnitude_status_valid",
+        "key" : "magnitude-status-valid",
         "severity" : "error",
         "human" : "Magnitude status valid must be present",
         "expression" : "magnitude_status.exists() implies valid_magnitude_status()"
@@ -175,9 +179,7 @@
     },
     {
       "path" : "DV_QUANTIFIED.magnitude_status",
-      "short" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"` .",
-      "definition" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"` . \n",
-      "min" : 0,
+      "short" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"`.",      "definition" : "Optional status of magnitude with values: \n\n* `\"=\"`   :   magnitude is a point value \n* `\"<\"`   :   value is < magnitude \n* `\">\"`   :   value is > magnitude \n* `\"<=\"` : value is <= magnitude \n* `\">=\"` : value is >= magnitude \n* `\"~\"`   :   value is approximately magnitude \n\nIf not present, assumed meaning is  `\"=\"`.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"

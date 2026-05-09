@@ -3,14 +3,14 @@
   "id" : "ITEM-TREE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "has_element_path",
+    "id" : "has-element-path",
     "name" : "has_element_path",
     "title" : "has_element_path",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if path  a_path' is a valid leaf path.\n",
-    "code" : "has_element_path",
+    "description" : "True if path  a_path' is a valid leaf path.",    "code" : "has_element_path",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -29,7 +29,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "element_at_path",
+    "id" : "element-at-path",
     "name" : "element_at_path",
     "title" : "element_at_path",
     "status" : "active",
@@ -37,6 +37,7 @@
     "description" : "Return the leaf element at the path  a_path'.",
     "code" : "element_at_path",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -55,7 +56,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -63,6 +64,7 @@
     "description" : "Generate a CEN EN13606-compatible hierarchy, which is the same as the tree's physical representation.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -78,17 +80,17 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_element_path"
+    "valueCanonical" : "#has-element-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#element_at_path"
+    "valueCanonical" : "#element-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TREE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
   "version" : "1.2.0",
   "name" : "ITEM_TREE",
   "title" : "ITEM_TREE",
@@ -108,7 +110,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TREE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

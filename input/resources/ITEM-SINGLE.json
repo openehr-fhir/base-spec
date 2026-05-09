@@ -3,7 +3,7 @@
   "id" : "ITEM-SINGLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `ELEMENT`.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -26,9 +27,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-SINGLE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_SINGLE",
   "version" : "1.2.0",
   "name" : "ITEM_SINGLE",
   "title" : "ITEM_SINGLE",
@@ -48,7 +49,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_SINGLE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

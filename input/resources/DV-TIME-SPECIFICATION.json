@@ -3,7 +3,7 @@
   "id" : "DV-TIME-SPECIFICATION",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "calendar_alignment",
+    "id" : "calendar-alignment",
     "name" : "calendar_alignment",
     "title" : "calendar_alignment",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Indicates what prototypical point in the calendar the specification is aligned to, e.g.  5th of the month . Empty if not aligned. Extracted from the  value' attribute.",
     "code" : "calendar_alignment",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +23,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "event_alignment",
+    "id" : "event-alignment",
     "name" : "event_alignment",
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute. ",
-    "code" : "event_alignment",
+    "description" : "Indicates what real-world event the specification is aligned to if any. Extracted from the  value' attribute.",    "code" : "event_alignment",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,7 +42,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "institution_specified",
+    "id" : "institution-specified",
     "name" : "institution_specified",
     "title" : "institution_specified",
     "status" : "active",
@@ -49,6 +50,7 @@
     "description" : "Indicates if the specification is aligned with institution schedules, e.g. a hospital nursing changeover or meal serving times. Extracted from the  value' attribute.",
     "code" : "institution_specified",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -64,17 +66,17 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#calendar_alignment"
+    "valueCanonical" : "#calendar-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#event_alignment"
+    "valueCanonical" : "#event-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#institution_specified"
+    "valueCanonical" : "#institution-specified"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-TIME-SPECIFICATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
   "version" : "1.2.0",
   "name" : "DV_TIME_SPECIFICATION",
   "title" : "DV_TIME_SPECIFICATION",
@@ -89,19 +91,17 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_TIME_SPECIFICATION",
       "short" : "This is an abstract class of which all timing specifications are specialisations.",
-      "definition" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast. ",
-      "min" : 0,
+      "definition" : "This is an abstract class of which all timing specifications are specialisations. Specifies points in time, possibly linked to the calendar, or a real world repeating event, such as  breakfast.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },
@@ -112,7 +112,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     }]

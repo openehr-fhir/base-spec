@@ -1,13 +1,55 @@
 == Suppressed Messages ==
 
-# copied/inherited from openEHR
+# 01. copied/inherited from openEHR
 TYPE_SPECIFIC_CHECKS_DT_MARKDOWN_HTML
-Constraint failed: cnl-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation' (defined in http://hl7.org/fhir/StructureDefinition/CodeSystem)
-Constraint failed: cnl-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation' (defined in http://hl7.org/fhir/StructureDefinition/ValueSet)
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
-# openEHR type and path names have their own rules
+# 02. openEHR type and path names have their own rules
 Rule eld-20: 'The first component of the path should be UpperCamelCase.%
 
-# don't care
+# 03. Known issue with published version
 Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+
+# 04. openEHR IG publishes operations on logical-model SDs by attaching the hl7.fhir.uv.tools `type-operation` extension at the SD root.
+Extension_EXTP_Context_Wrong
+The extension http://hl7.org/fhir/tools/StructureDefinition/type-operation v1.1.2 is not allowed to be used at this point (this element is [StructureDefinition]; allowed for this version = e:Extension, e:Extension.value)
+
+# 05. === stale entries: refreshed for IG Publisher 2.2.7 message text ===
+
+# 06. === the validator's new cnl-0 message includes the FHIRPath expression ===
+Constraint failed: cnl-0: 'Name should be usable as an identifier for the module by machine processing applications such as code generation%
+
+# 07. === openEHR uses generic type parameters; we do not publish SDs for them. ===
+SD_TYPE_PARAMETER_UNKNOWN
+The reference http://openehr.org/fhir/StructureDefinition/T could not be resolved
+The reference http://openehr.org/fhir/StructureDefinition/Hash could not be resolved
+The reference http://openehr.org/fhir/StructureDefinition/Iso8601-date-time could not be resolved
+The type definition % has the type parameter 'http://openehr.org/fhir/StructureDefinition/T' but it is not a known type so derivation consistency cannot be checked
+The type definition % has the type parameter 'http://openehr.org/fhir/StructureDefinition/Hash' but it is not a known type so derivation consistency cannot be checked
+The type definition % has the type parameter 'http://openehr.org/fhir/StructureDefinition/Iso8601-date-time' but it is not a known type so derivation consistency cannot be checked
+The link 'http://openehr.org/fhir/StructureDefinition/T.html' for "http://openehr.org/fhir/StructureDefinition/T" cannot be resolved
+The link 'http://openehr.org/fhir/StructureDefinition/Hash.html' for "http://openehr.org/fhir/StructureDefinition/Hash" cannot be resolved
+The link 'http://openehr.org/fhir/StructureDefinition/Iso8601-date-time.html' for "http://openehr.org/fhir/StructureDefinition/Iso8601-date-time" cannot be resolved
+Hyperlink 'http://openehr.org/fhir/StructureDefinition/T.html' at % for 'http://openehr.org/fhir/StructureDefinition/T' does not resolve
+Hyperlink 'http://openehr.org/fhir/StructureDefinition/Hash.html' at % for 'http://openehr.org/fhir/StructureDefinition/Hash' does not resolve
+Hyperlink 'http://openehr.org/fhir/StructureDefinition/Iso8601-date-time.html' at % for 'http://openehr.org/fhir/StructureDefinition/Iso8601-date-time' does not resolve
+
+# 08. === defining-url extension points at the openEHR spec website ===
+Type_Specific_Checks_DT_URL_Resolve
+No definition could be found for URL value 'https://specifications.openehr.org/%
+
+# 09. === view-hint extension is mis-declared upstream as a simple extension ===
+The Extension 'http://hl7.org/fhir/tools/StructureDefinition/view-hint' definition is for a simple extension
+Extension.value[x]: minimum required = 1, but only found 0 (from http://hl7.org/fhir/tools/StructureDefinition/view-hint|1.1.2)
+
+# 10. === abstract logical types with no concrete descendants in this package - openEHR uses multiple inheritance ===
+% is labeled as an abstract type, but no concrete descendants were found
+
+# 11. === we want canonicals based on the openEHR values, but id type does not allow underscores ===
+RESOURCE_ID_MISMATCH
+RESOURCE_CANONICAL_MISMATCH
+Resource id/url mismatch: %
+Conformance resource % - the canonical URL (http://openehr.org/fhir/StructureDefinition/%) does not match the URL (http://openehr.org/fhir/StructureDefinition/%). Use the special-url parameter if you really mean for it not to match
+URL Mismatch http://openehr.org/fhir/StructureDefinition/% vs http://openehr.org/fhir/StructureDefinition/%
+
+

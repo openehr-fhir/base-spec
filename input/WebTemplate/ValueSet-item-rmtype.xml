@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="item-rmtype"/>
-  <url value="https://specifications.openehr.org/fhir/valueset-item-rmtype"/>
+  <url value="http://openehr.org/fhir/ValueSet/item-rmtype"/>
   <version value="3.1.0"/>
   <name value="ItemRMTypeVS"/>
   <title value="Item rmType ValueSet"/>
@@ -15,7 +15,7 @@
   <description value="Item rmType ValueSet"/>
   <compose>
     <include>
-      <system value="https://specifications.openehr.org/fhir/codesystem-item-rmtype"/>
+      <system value="http://openehr.org/fhir/CodeSystem/item-rmtype"/>
     </include>
   </compose>
 </ValueSet>

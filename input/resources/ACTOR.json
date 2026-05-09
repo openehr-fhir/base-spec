@@ -35,13 +35,13 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Roles_valid",
+        "key" : "roles-valid",
         "severity" : "error",
         "human" : "Roles valid must be present",
         "expression" : "roles.exists() implies roles.empty().not()"
       },
       {
-        "key" : "Legal_identity_exists",
+        "key" : "legal-identity-exists",
         "severity" : "error",
         "human" : "Legal identity exists",
         "expression" : "{} // : manual translation needed"
@@ -55,7 +55,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -66,7 +66,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     }]

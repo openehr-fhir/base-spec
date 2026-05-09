@@ -3,14 +3,15 @@
   "id" : "DATA-STRUCTURE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Hierarchical equivalent of the physical representation of each subtype, compatible with CEN EN 13606 structures. ",
+    "description" : "Hierarchical equivalent of the physical representation of each subtype, compatible with CEN EN 13606 structures.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -26,9 +27,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DATA-STRUCTURE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DATA_STRUCTURE",
   "version" : "1.2.0",
   "name" : "DATA_STRUCTURE",
   "title" : "DATA_STRUCTURE",
@@ -43,7 +44,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract parent class of all data structure types. Includes the `_as_hierarchy_` function which can generate the equivalent CEN EN13606 single hierarchy for each subtype's physical representation. For example, the physical representation of an `ITEM_LIST` is `List<ELEMENT>`; its implementation of `_as_hierarchy_` will generate a `CLUSTER` containing the set of `ELEMENT` nodes from the list. ",
+  "description" : "Abstract parent class of all data structure types. Includes the `_as_hierarchy_` function which can generate the equivalent CEN EN13606 single hierarchy for each subtype's physical representation. For example, the physical representation of an `ITEM_LIST` is `List<ELEMENT>`; its implementation of `_as_hierarchy_` will generate a `CLUSTER` containing the set of `ELEMENT` nodes from the list.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
@@ -54,7 +55,7 @@
     "element" : [{
       "path" : "DATA_STRUCTURE",
       "short" : "Abstract parent class of all data structure types.",
-      "definition" : "Abstract parent class of all data structure types. Includes the `_as_hierarchy_` function which can generate the equivalent CEN EN13606 single hierarchy for each subtype's physical representation. For example, the physical representation of an `ITEM_LIST` is `List<ELEMENT>`; its implementation of `_as_hierarchy_` will generate a `CLUSTER` containing the set of `ELEMENT` nodes from the list. ",
+      "definition" : "Abstract parent class of all data structure types. Includes the `_as_hierarchy_` function which can generate the equivalent CEN EN13606 single hierarchy for each subtype's physical representation. For example, the physical representation of an `ITEM_LIST` is `List<ELEMENT>`; its implementation of `_as_hierarchy_` will generate a `CLUSTER` containing the set of `ELEMENT` nodes from the list.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false

@@ -1,0 +1,211 @@
+{
+    "resourceType": "CodeSystem",
+    "id": "time-definitions",
+    "extension": [
+        {
+            "url": "http://hl7.org/fhir/StructureDefinition/web-source",
+            "valueUrl": "https://specifications.openehr.org/releases/BASE/1.1.0/foundation_types.html#_time_definitions_class"
+        }
+    ],
+    "url": "https://specifications.openehr.org/fhir/codesystem-time_definitions",
+    "version": "1.1.0",
+    "name": "TIME_DEFINITIONS",
+    "title": "TIME_DEFINITIONS Code System",
+    "status": "active",
+    "experimental": false,
+    "date": "2023-06-27T18:45:58+10:00",
+    "publisher": "openEHR",
+    "contact": [
+        {
+            "name": "openEHR",
+            "telecom": [
+                {
+                    "system": "url",
+                    "value": "https://specifications.openehr.org"
+                }
+            ]
+        }
+    ],
+    "description": "Class of enumeration constants defining constants for the Time_Definitions class.",
+    "content": "complete",
+    "caseSensitive": true,
+    "property": [
+        {
+            "code": "constant-integer-value",
+            "description": "Integer value of the enumeration constant.",
+            "type": "integer"
+        },
+        {
+            "code": "constant-decimal-value",
+            "description": "Decimal value of the enumeration constant.",
+            "type": "decimal"
+        }
+    ],
+    "concept": [
+        {
+            "code": "Seconds_in_minute",
+            "display": "Seconds_in_minute",
+            "definition": "Number of seconds in a minute.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 60
+                }
+            ]
+        },
+        {
+            "code": "Minutes_in_hour",
+            "display": "Minutes_in_hour",
+            "definition": "Number of minutes in an hour.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 60
+                }
+            ]
+        },
+        {
+            "code": "Hours_in_day",
+            "display": "Hours_in_day",
+            "definition": "Number of hours in a day.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 24
+                }
+            ]
+        },
+        {
+            "code": "Average_days_in_month",
+            "display": "Average_days_in_month",
+            "definition": "Used for conversions of durations containing months to days and / or seconds.",
+            "property": [
+                {
+                    "code": "constant-decimal-value",
+                    "valueDecimal": 30.42
+                }
+            ]
+        },
+        {
+            "code": "Max_days_in_month",
+            "display": "Max_days_in_month",
+            "definition": "Maximum number of days in a month.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 31
+                }
+            ]
+        },
+        {
+            "code": "Days_in_year",
+            "display": "Days_in_year",
+            "definition": "Calendar days in a normal year, i.e. 365.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 365
+                }
+            ]
+        },
+        {
+            "code": "Average_days_in_year",
+            "display": "Average_days_in_year",
+            "definition": "Used for conversions of durations containing years to days and / or seconds.",
+            "property": [
+                {
+                    "code": "constant-decimal-value",
+                    "valueDecimal": 365.25
+                }
+            ]
+        },
+        {
+            "code": "Days_in_leap_year",
+            "display": "Days_in_leap_year",
+            "definition": "Calendar days in a standard leap year, i.e. 366.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 366
+                }
+            ]
+        },
+        {
+            "code": "Max_days_in_year",
+            "display": "Max_days_in_year",
+            "definition": "Maximum number of days in a year, i.e. accounting for leap years.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 366
+                }
+            ]
+        },
+        {
+            "code": "Days_in_week",
+            "display": "Days_in_week",
+            "definition": "Number of days in a week.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 7
+                }
+            ]
+        },
+        {
+            "code": "Months_in_year",
+            "display": "Months_in_year",
+            "definition": "Number of months in a year.",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 12
+                }
+            ]
+        },
+        {
+            "code": "Min_timezone_hour",
+            "display": "Min_timezone_hour",
+            "definition": "Minimum hour value of a timezone according to ISO 8601 (note that the -ve sign is supplied in the ISO8601_TIMEZONE class).",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 12
+                }
+            ]
+        },
+        {
+            "code": "Max_timezone_hour",
+            "display": "Max_timezone_hour",
+            "definition": "Maximum hour value of a timezone according to ISO 8601 (note that the +ve sign is supplied in the ISO8601_TIMEZONE class).",
+            "property": [
+                {
+                    "code": "constant-integer-value",
+                    "valueInteger": 14
+                }
+            ]
+        },
+        {
+            "code": "Nominal_days_in_month",
+            "display": "Nominal_days_in_month",
+            "definition": "Used for conversions of durations containing months to days and / or seconds.",
+            "property": [
+                {
+                    "code": "constant-decimal-value",
+                    "valueDecimal": 30.42
+                }
+            ]
+        },
+        {
+            "code": "Nominal_days_in_year",
+            "display": "Nominal_days_in_year",
+            "definition": "Used for conversions of durations containing years to days and / or seconds.",
+            "property": [
+                {
+                    "code": "constant-decimal-value",
+                    "valueDecimal": 365.24
+                }
+            ]
+        }
+    ]
+}

@@ -11,6 +11,7 @@
     "description" : "Sum of this `DV_QUANTITY` and `_other_`.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -37,6 +38,7 @@
     "description" : "Difference of this `DV_QUANTITY` and `_other_`.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -63,6 +65,7 @@
     "description" : "Product of this `DV_QUANTITY` and `_factor_`.",
     "code" : "multiply",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "factor",
@@ -81,7 +84,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -89,6 +92,7 @@
     "description" : "True if this Quantity object is less than `_other_`, based on comparison of `_magnitude_`. Only valid if `_is_strictly_comparable_to()_` is True.",
     "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -107,7 +111,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_integral",
+    "id" : "is-integral",
     "name" : "is_integral",
     "title" : "is_integral",
     "status" : "active",
@@ -115,6 +119,7 @@
     "description" : "True if `_precision_` = 0, meaning that the `_magnitude_` is a whole number.",
     "code" : "is_integral",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -126,7 +131,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -134,6 +139,7 @@
     "description" : "True if this quantity and `_other_` have the same `_units_` and also `_units_system_` if it exists.",
     "code" : "is_strictly_comparable_to",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -168,15 +174,15 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_integral"
+    "valueCanonical" : "#is-integral"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   },{
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "is-continuous"
@@ -184,7 +190,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics",
     "valueCode" : "has-units"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTITY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTITY",
   "version" : "1.2.0",
   "name" : "DV_QUANTITY",
   "title" : "DV_QUANTITY",
@@ -204,7 +210,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTITY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -251,8 +257,7 @@
     {
       "path" : "DV_QUANTITY.normal_range",
       "short" : "Optional normal range.",
-      "definition" : "Optional normal range. ",
-      "min" : 0,
+      "definition" : "Optional normal range.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{
@@ -266,7 +271,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -288,7 +293,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE"
       }],
       "isModifier" : false
     },

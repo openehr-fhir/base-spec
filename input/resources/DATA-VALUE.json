@@ -11,7 +11,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/view-hint",
     "valueCode" : "element-view-defns-parent"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "version" : "1.2.0",
   "name" : "DATA_VALUE",
   "title" : "DATA_VALUE",
@@ -31,7 +31,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR-DEFINITIONS",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/OPENEHR_DEFINITIONS",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

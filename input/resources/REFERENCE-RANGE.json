@@ -3,14 +3,14 @@
   "id" : "REFERENCE-RANGE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_in_range",
+    "id" : "is-in-range",
     "name" : "is_in_range",
     "title" : "is_in_range",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Indicates if the value  `_v_` is inside the range.\n",
-    "code" : "is_in_range",
+    "description" : "Indicates if the value  `_v_` is inside the range.",    "code" : "is_in_range",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "v",
@@ -44,9 +44,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_in_range"
+    "valueCanonical" : "#is-in-range"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE",
   "version" : "1.2.0",
   "name" : "REFERENCE_RANGE",
   "title" : "REFERENCE_RANGE",
@@ -76,7 +76,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Range_is_simple",
+        "key" : "range-is-simple",
         "severity" : "error",
         "human" : "Range is simple",
         "expression" : "{} // : manual translation needed"
@@ -90,7 +90,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
@@ -101,7 +101,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     }]

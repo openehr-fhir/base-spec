@@ -3,7 +3,7 @@
   "id" : "INTERVAL-EVENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "interval_start_time",
+    "id" : "interval-start-time",
     "name" : "interval_start_time",
     "title" : "interval_start_time",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Start time of the interval of this event.",
     "code" : "interval_start_time",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -37,9 +38,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#interval_start_time"
+    "valueCanonical" : "#interval-start-time"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL-EVENT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/INTERVAL_EVENT",
   "version" : "1.2.0",
   "name" : "INTERVAL_EVENT",
   "title" : "INTERVAL_EVENT",
@@ -54,8 +55,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines a single interval event in a series. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines a single interval event in a series.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/INTERVAL_EVENT",
@@ -65,17 +65,16 @@
     "element" : [{
       "path" : "INTERVAL_EVENT",
       "short" : "Defines a single interval event in a series.",
-      "definition" : "Defines a single interval event in a series. ",
-      "min" : 0,
+      "definition" : "Defines a single interval event in a series.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Math_function_validity",
+        "key" : "math-function-validity",
         "severity" : "error",
         "human" : "Math function validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Interval_start_time_valid",
+        "key" : "interval-start-time-valid",
         "severity" : "error",
         "human" : "Interval start time valid",
         "expression" : "interval_start_time() = time - width"
@@ -89,7 +88,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     },
@@ -111,7 +110,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     }]

@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/valueset-extract_content_type"/>
   <version value="3.1.0"/>
   <name value="Extract_content_type"/>
-  <title value="Extract Content Type"/>
+  <title value="Extract Content Type Value Set"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

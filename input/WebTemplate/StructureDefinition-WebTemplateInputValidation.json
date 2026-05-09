@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Validation rules applied to an openEHR Web Template input value (e.g. ranges, patterns, precision constraints).",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

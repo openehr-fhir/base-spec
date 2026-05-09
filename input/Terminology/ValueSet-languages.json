@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "languages",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/TERM/3.0.0/SupportTerminology.html#_languages"
+  }],
+  "url" : "https://specifications.openehr.org/fhir/valueset-languages",
+  "version" : "3.0.0",
+  "name" : "LANGUAGES",
+  "title" : "LANGUAGES",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Language tags as defined by RFC-5646. The syntax consists of the ISO 639-1 'alpha-2' form of names of languages, often followed by a region subtag from the ISO 3166-1 'alpha-2' country list. These are maintained by the IANA Language Subtag Registry. NOTE: This code set does not cover all languages, whereas ISO 639-2 'alpha-3' covers many more languages of cultural or indigenous interest, but which nevertheless are unlikely to be supported by current software or operating systems. Note that the source Code Set explicitly defines all codes as `active`, even ones that include 'DEPRECATED' in the display name, because the source Code Set is intended to be a complete list of all language tags that are likely to be used in practice, including deprecated ones.",
+  "compose" : {
+    "include" : [{
+      "system" : "https://specifications.openehr.org/fhir/codesystem-languages"
+    }]
+  }
+}

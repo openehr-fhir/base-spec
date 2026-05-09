@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Application-specific annotations attached to nodes of an openEHR archetype, used for documentation, conversion guidance and similar non-validating notes.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

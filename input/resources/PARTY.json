@@ -11,6 +11,7 @@
     "description" : "Type of party, such as  `PERSON`,  `ORGANISATION`, etc. Role name, e.g.  general practitioner ,  nurse ,  private citizen . Taken from inherited `_name_` attribute.",
     "code" : "type",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -58,43 +59,43 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Type_valid",
+        "key" : "type-valid",
         "severity" : "error",
         "human" : "Type valid",
         "expression" : "type() = name"
       },
       {
-        "key" : "Identities_valid",
+        "key" : "identities-valid",
         "severity" : "error",
         "human" : "Identities valid must not be empty",
         "expression" : "identities.empty().not()"
       },
       {
-        "key" : "Contacts_valid",
+        "key" : "contacts-valid",
         "severity" : "error",
         "human" : "Contacts valid must be present",
         "expression" : "contacts.exists() implies contacts.empty().not()"
       },
       {
-        "key" : "Relationships_validity",
+        "key" : "relationships-validity",
         "severity" : "error",
         "human" : "Relationships validity must be present",
         "expression" : "relationships.exists() implies (relationships.empty().not() and relationships.all (r.source = self))"
       },
       {
-        "key" : "Reverse_relationships_validity",
+        "key" : "reverse-relationships-validity",
         "severity" : "error",
         "human" : "Reverse relationships validity must be present",
         "expression" : "reverse_relationships.exists() implies (reverse_relationships.empty().not() and reverse_relationships.all(repository ('demographics').all_party_relationships.has_object (item) and repository('demographics').all_party_relationships.object (item).target = self))"
       },
       {
-        "key" : "Is_archetype_root",
+        "key" : "is-archetype-root",
         "severity" : "error",
         "human" : "Is archetype root",
         "expression" : "is_archetype_root()"
       },
       {
-        "key" : "Uid_mandatory",
+        "key" : "uid-mandatory",
         "severity" : "error",
         "human" : "Uid mandatory must be present",
         "expression" : "uid.exists()"
@@ -108,7 +109,7 @@
       "min" : 1,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-IDENTITY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_IDENTITY"
       }],
       "isModifier" : false
     },
@@ -130,7 +131,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     },
@@ -141,7 +142,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/LOCATABLE_REF"
       }],
       "isModifier" : false
     },
@@ -152,7 +153,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATIONSHIP"
       }],
       "isModifier" : false
     }]

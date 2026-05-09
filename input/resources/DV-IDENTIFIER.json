@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/Release-1.1.0/data_types.html#_dv_identifier_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-IDENTIFIER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_IDENTIFIER",
   "version" : "1.2.0",
   "name" : "DV_IDENTIFIER",
   "title" : "DV_IDENTIFIER",
@@ -25,7 +25,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_IDENTIFIER",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -35,25 +35,25 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Issuer_valid",
+        "key" : "issuer-valid",
         "severity" : "error",
         "human" : "Issuer valid must not be empty",
         "expression" : "issuer.empty().not()"
       },
       {
-        "key" : "Assigner_valid",
+        "key" : "assigner-valid",
         "severity" : "error",
         "human" : "Assigner valid must not be empty",
         "expression" : "assigner.empty().not()"
       },
       {
-        "key" : "Id_valid",
+        "key" : "id-valid",
         "severity" : "error",
         "human" : "Id valid must not be empty",
         "expression" : "id.empty().not()"
       },
       {
-        "key" : "Type_valid",
+        "key" : "type-valid",
         "severity" : "error",
         "human" : "Type valid must not be empty",
         "expression" : "type.empty().not()"
@@ -63,8 +63,7 @@
     {
       "path" : "DV_IDENTIFIER.issuer",
       "short" : "Optional authority which issues the kind of id used in the id field of this object.",
-      "definition" : "Optional authority which issues the kind of id used in the id field of this object. ",
-      "min" : 0,
+      "definition" : "Optional authority which issues the kind of id used in the id field of this object.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -85,8 +84,7 @@
     {
       "path" : "DV_IDENTIFIER.id",
       "short" : "The identifier value.",
-      "definition" : "The identifier value. Often structured, according to the definition of the issuing authority's rules. ",
-      "min" : 1,
+      "definition" : "The identifier value. Often structured, according to the definition of the issuing authority's rules.",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "string"
@@ -95,8 +93,7 @@
     },
     {
       "path" : "DV_IDENTIFIER.type",
-      "short" : "Optional identifier type, such as  prescription , or  Social Security Number .",
-      "definition" : "Optional identifier type, such as  prescription , or  Social Security Number . One day a controlled vocabulary might be possible for this.",
+      "short" : "Optional identifier type, such as  prescription , or  Social Security Number.",      "definition" : "Optional identifier type, such as  prescription , or  Social Security Number . One day a controlled vocabulary might be possible for this.",
       "min" : 0,
       "max" : "1",
       "type" : [{

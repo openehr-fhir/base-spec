@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines a single activity within an Instruction, such as a medication administration. ",
+  "description" : "Defines a single activity within an Instruction, such as a medication administration.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -31,11 +31,11 @@
     "element" : [{
       "path" : "ACTIVITY",
       "short" : "Defines a single activity within an Instruction, such as a medication administration.",
-      "definition" : "Defines a single activity within an Instruction, such as a medication administration. ",
+      "definition" : "Defines a single activity within an Instruction, such as a medication administration.",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Action_archetype_id_valid",
+        "key" : "action-archetype-id-valid",
         "severity" : "error",
         "human" : "Action archetype id valid must not be empty",
         "expression" : "action_archetype_id.empty().not()"
@@ -49,7 +49,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     },
@@ -71,7 +71,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

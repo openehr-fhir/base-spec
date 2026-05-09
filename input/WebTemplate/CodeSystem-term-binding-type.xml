@@ -1,6 +1,6 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
   <id value="term-binding-type"/>
-  <url value="https://specifications.openehr.org/fhir/codesystem-term-binding-type"/>
+  <url value="http://openehr.org/fhir/CodeSystem/term-binding-type"/>
   <version value="3.1.0"/>
   <name value="TermBindingTypeCS"/>
   <title value="Term Binding CodeSystem"/>

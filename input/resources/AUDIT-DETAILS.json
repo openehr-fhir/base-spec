@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/common.html#_audit_details_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS",
   "version" : "1.2.0",
   "name" : "AUDIT_DETAILS",
   "title" : "AUDIT_DETAILS",
@@ -20,7 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The set of attributes required to document the committal of an information item to a repository. ",
+  "description" : "The set of attributes required to document the committal of an information item to a repository.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -31,17 +31,17 @@
     "element" : [{
       "path" : "AUDIT_DETAILS",
       "short" : "The set of attributes required to document the committal of an information item to a repository.",
-      "definition" : "The set of attributes required to document the committal of an information item to a repository. ",
+      "definition" : "The set of attributes required to document the committal of an information item to a repository.",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "System_id_valid",
+        "key" : "system-id-valid",
         "severity" : "error",
         "human" : "System id valid must not be empty",
         "expression" : "system_id.empty().not()"
       },
       {
-        "key" : "Change_type_valid",
+        "key" : "change-type-valid",
         "severity" : "error",
         "human" : "Change type valid",
         "expression" : "{} // : manual translation needed"
@@ -62,11 +62,11 @@
     {
       "path" : "AUDIT_DETAILS.time_committed",
       "short" : "Time of committal of the item.",
-      "definition" : "Time of committal of the item. ",
+      "definition" : "Time of committal of the item.",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -77,7 +77,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -88,18 +88,18 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     },
     {
       "path" : "AUDIT_DETAILS.committer",
       "short" : "Identity and optional reference into identity management service, of user who committed the item.",
-      "definition" : "Identity and optional reference into identity management service, of user who committed the item. ",
+      "definition" : "Identity and optional reference into identity management service, of user who committed the item.",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     }]

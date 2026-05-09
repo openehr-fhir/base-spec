@@ -8,9 +8,9 @@
     "title" : "parent",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Parent of this node in a compositional hierarchy. \n",
-    "code" : "parent",
+    "description" : "Parent of this node in a compositional hierarchy.",    "code" : "parent",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +22,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "item_at_path",
+    "id" : "item-at-path",
     "name" : "item_at_path",
     "title" : "item_at_path",
     "status" : "active",
     "kind" : "operation",
-    "description" : "The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item. ",
-    "code" : "item_at_path",
+    "description" : "The item at a path (relative to this item); only valid for unique paths, i.e. paths that resolve to a single item.",    "code" : "item_at_path",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -48,7 +48,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "items_at_path",
+    "id" : "items-at-path",
     "name" : "items_at_path",
     "title" : "items_at_path",
     "status" : "active",
@@ -56,6 +56,7 @@
     "description" : "List of items corresponding to a non-unique path.",
     "code" : "items_at_path",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -74,14 +75,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_exists",
+    "id" : "path-exists",
     "name" : "path_exists",
     "title" : "path_exists",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if the path exists in the data with respect to the current item. ",
-    "code" : "path_exists",
+    "description" : "True if the path exists in the data with respect to the current item.",    "code" : "path_exists",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -100,14 +101,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_unique",
+    "id" : "path-unique",
     "name" : "path_unique",
     "title" : "path_unique",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if the path corresponds to a single item in the data. ",
-    "code" : "path_unique",
+    "description" : "True if the path corresponds to a single item in the data.",    "code" : "path_unique",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_path",
@@ -126,7 +127,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "path_of_item",
+    "id" : "path-of-item",
     "name" : "path_of_item",
     "title" : "path_of_item",
     "status" : "active",
@@ -134,6 +135,7 @@
     "description" : "The path to an item relative to the root of this archetyped structure.",
     "code" : "path_of_item",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_loc",
@@ -160,23 +162,23 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#item_at_path"
+    "valueCanonical" : "#item-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#items_at_path"
+    "valueCanonical" : "#items-at-path"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_exists"
+    "valueCanonical" : "#path-exists"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_unique"
+    "valueCanonical" : "#path-unique"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#path_of_item"
+    "valueCanonical" : "#path-of-item"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/PATHABLE",
   "version" : "1.2.0",

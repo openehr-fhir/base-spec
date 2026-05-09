@@ -1,0 +1,382 @@
+#!/usr/bin/env bun
+// Bulk-toggle casing of openEHR type-function OperationDefinitions and
+// (Phase 3+) the parent StructureDefinition's id/name/title and (Phase 4+)
+// canonical-URL trio. See tools/README.md for full usage.
+
+import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { join, relative } from "node:path";
+import {
+  applyEdits,
+  parseTree,
+  printParseErrorCode,
+  type Edit,
+  type Node,
+} from "jsonc-parser";
+import { parseArgv, type ParsedArgs } from "./lib/argv.ts";
+import { planCaseChanges, type ChangeRecord } from "./lib/edits.ts";
+import { planRepair } from "./lib/repair.ts";
+import {
+  discoverSdCanonicals,
+  isPinnedSdFile,
+  planSdCanonicalRewrite,
+  type SdFileInput,
+  type SdLookupIndex,
+} from "./lib/sdCanonical.ts";
+import { caseHasUnderscore } from "./lib/casing.ts";
+
+const HELP = `changeTypeFunctionCasing - re-case openEHR type-function OperationDefinitions
+and the parent StructureDefinition.
+
+Usage:
+  bun tools/changeTypeFunctionCasing.ts [matrix flags] [--update]
+
+Operation-side flags (re-case contained OperationDefinitions):
+  --operation-id <case>          (alias: --op-id) [warns if case contains '_']
+  --operation-name <case>        (alias: --op-name)
+  --operation-title <case>       (alias: --op-title)
+  --operation-canonical <#ref>   (alias: --op-canonical)
+                                 sentinel: one of {none, na, ref, #, #ref}.
+                                 Sync the type-operation valueCanonical
+                                 #refs to match contained OpDef.id values.
+
+Structure-side flags (re-case the parent StructureDefinition):
+  --structure-id <case>          (alias: --sd-id) [warns if case contains '_']
+  --structure-name <case>        (alias: --sd-name)
+  --structure-title <case>       (alias: --sd-title)
+  --structure-canonical <case>   (alias: --sd-canonical)
+                                 Re-case the SD's url/type/baseDefinition
+                                 final segment AND every in-package
+                                 reference to a discovered SD canonical.
+
+  <case> ::= one of: lower_snake | lower-kebab | Title_Snake | Title-Kebab
+            | UPPER_SNAKE | UPPER-KEBAB | camel | Pascal
+            (input is case-insensitive; '-' and '_' are interchangeable
+             separators)
+
+Mode flags:
+  --update, -u                   Apply edits. Default is preview-only.
+  --help, -h                     Print this message.
+
+At least one matrix flag must be present (or --help).
+
+Operates on every *.json directly under input/resources/ (resolved
+relative to the current working directory). The summary line counts
+files that contain at least one change.
+
+Exit codes:
+  0  success (any number of changes, including zero)
+  1  one or more files reported errors
+  2  argv/usage error
+
+Tip: --operation-canonical typically needs shell quoting on POSIX
+shells (the '#' is a comment character). PowerShell is fine.
+
+See tools/README.md for examples and the full flag-combination rules.
+`;
+
+interface FileResult {
+  relPath: string;
+  records: ChangeRecord[];
+  errors: string[];
+  /** New file source if changes were applied (and write should occur). */
+  newSource: string | null;
+}
+
+interface ParsedFile {
+  relPath: string;
+  absPath: string;
+  source: string;
+  root: Node | null;
+  parseErrors: string[];
+}
+
+function readAndParseAll(
+  files: readonly string[],
+  resourcesDir: string,
+): ParsedFile[] {
+  const out: ParsedFile[] = [];
+  for (const name of files) {
+    const abs = join(resourcesDir, name);
+    const rel = relative(process.cwd(), abs).replace(/\\/g, "/");
+    const source = readFileSync(abs, "utf8");
+    const parseErrors: import("jsonc-parser").ParseError[] = [];
+    const root = parseTree(source, parseErrors);
+    if (!root || parseErrors.length > 0) {
+      const messages = parseErrors.map(
+        (e) => `${printParseErrorCode(e.error)} at offset ${e.offset}`,
+      );
+      out.push({
+        relPath: rel,
+        absPath: abs,
+        source,
+        root: null,
+        parseErrors: [
+          `malformed JSON: ${messages.join(", ") || "no parseable root"}`,
+        ],
+      });
+      continue;
+    }
+    out.push({ relPath: rel, absPath: abs, source, root, parseErrors: [] });
+  }
+  return out;
+}
+
+function processFile(
+  file: ParsedFile,
+  args: ParsedArgs,
+  discoveredCanonicals: ReadonlySet<string> | null,
+  discoveredIndex: SdLookupIndex | null,
+): FileResult {
+  if (file.parseErrors.length > 0) {
+    return {
+      relPath: file.relPath,
+      records: [],
+      errors: file.parseErrors,
+      newSource: null,
+    };
+  }
+  if (file.root !== null && isPinnedSdFile(file.root)) {
+    return {
+      relPath: file.relPath,
+      records: [],
+      errors: [],
+      newSource: null,
+    };
+  }
+  const root = file.root!;
+  const source = file.source;
+
+  // Unified pipeline: always run planCaseChanges with whatever matrix
+  // cases were provided; additionally run planRepair when the user
+  // asked for ref-sync but did NOT pass --operation-id (id-casing
+  // already syncs the #refs, so combining them would double-edit).
+  const allEdits: Edit[] = [];
+  const allRecords: ChangeRecord[] = [];
+  const allErrors: string[] = [];
+
+  const cc = planCaseChanges({
+    source,
+    root,
+    idCase: args.operationIdCase,
+    nameCase: args.operationNameCase,
+    titleCase: args.operationTitleCase,
+    structureIdCase: args.structureIdCase,
+    structureNameCase: args.structureNameCase,
+    structureTitleCase: args.structureTitleCase,
+  });
+  allErrors.push(...cc.errors);
+  allEdits.push(...cc.edits);
+  allRecords.push(...cc.records);
+
+  if (
+    args.operationCanonicalRefSync &&
+    args.operationIdCase === null
+  ) {
+    const rp = planRepair({ source, root });
+    allErrors.push(...rp.errors);
+    allEdits.push(...rp.edits);
+    allRecords.push(...rp.records);
+  }
+
+  if (args.structureCanonicalCase !== null && discoveredCanonicals !== null) {
+    const sc = planSdCanonicalRewrite({
+      source,
+      root,
+      targetCase: args.structureCanonicalCase,
+      discovered: discoveredCanonicals,
+      index: discoveredIndex ?? undefined,
+    });
+    allErrors.push(...sc.errors);
+    allEdits.push(...sc.edits);
+    allRecords.push(...sc.records);
+  }
+
+  if (allErrors.length > 0) {
+    return { relPath: file.relPath, records: [], errors: allErrors, newSource: null };
+  }
+  if (allEdits.length === 0) {
+    return { relPath: file.relPath, records: [], errors: [], newSource: null };
+  }
+
+  // Sort edits by offset before applying.
+  allEdits.sort((a, b) => a.offset - b.offset);
+
+  // Defensive overlap check: each planner emits non-overlapping edits;
+  // when planners are merged we revalidate the joined sequence.
+  for (let i = 1; i < allEdits.length; i++) {
+    const prev = allEdits[i - 1]!;
+    const cur = allEdits[i]!;
+    if (prev.offset + prev.length > cur.offset) {
+      return {
+        relPath: file.relPath,
+        records: [],
+        errors: [`internal error: overlapping edits at offset ${cur.offset}`],
+        newSource: null,
+      };
+    }
+  }
+
+  const newSource = applyEdits(source, allEdits);
+  return { relPath: file.relPath, records: allRecords, errors: [], newSource };
+}
+
+function formatRecords(records: readonly ChangeRecord[]): string[] {
+  const lines: string[] = [];
+  for (const r of records) {
+    // SD-rooted records use the "sd." prefix internally to disambiguate
+    // from OpDef records; render as "<sd-id>.<field>" by stripping the
+    // prefix in the output. SD-canonical cross-ref records carry a
+    // literal walk path (e.g. "differential.element[3].type[0].code");
+    // drop the leading "differential." or "snapshot." segment so the
+    // rendered output matches the spec's example.
+    let renderedField = r.field;
+    if (renderedField.startsWith("sd.")) {
+      renderedField = renderedField.slice("sd.".length);
+    } else if (renderedField.startsWith("differential.")) {
+      renderedField = renderedField.slice("differential.".length);
+    } else if (renderedField.startsWith("snapshot.")) {
+      renderedField = renderedField.slice("snapshot.".length);
+    }
+    if (r.oldValue === null) {
+      lines.push(`  ${r.opId}.${renderedField}: <inserted> "${r.newValue}"`);
+    } else {
+      lines.push(`  ${r.opId}.${renderedField}: "${r.oldValue}" -> "${r.newValue}"`);
+    }
+  }
+  return lines;
+}
+
+export interface RunOptions {
+  /** Absolute or repo-relative path to the resources directory. */
+  resourcesDir: string;
+  /** stdout writer. */
+  out: (s: string) => void;
+  /** stderr writer. */
+  err: (s: string) => void;
+}
+
+export function runWith(
+  argv: readonly string[],
+  opts: RunOptions,
+): number {
+  const parsedArgs = parseArgv(argv);
+  if ("error" in parsedArgs) {
+    opts.err(parsedArgs.error + "\n");
+    return 2;
+  }
+  if (parsedArgs.help) {
+    opts.out(HELP);
+    return 0;
+  }
+
+  // FHIR `id` values forbid `_`; warn (once per id flag) when the
+  // chosen case carries an underscore. Warning only — exit code is
+  // unchanged. Both id flags can warn on a single run.
+  if (
+    parsedArgs.operationIdCase !== null &&
+    caseHasUnderscore(parsedArgs.operationIdCase)
+  ) {
+    opts.err(
+      `warning: FHIR id values forbid '_'; --operation-id=${parsedArgs.operationIdCase} may produce ids that fail FHIR validation. Proceeding anyway.\n`,
+    );
+  }
+  if (
+    parsedArgs.structureIdCase !== null &&
+    caseHasUnderscore(parsedArgs.structureIdCase)
+  ) {
+    opts.err(
+      `warning: FHIR id values forbid '_'; --structure-id=${parsedArgs.structureIdCase} may produce ids that fail FHIR validation. Proceeding anyway.\n`,
+    );
+  }
+
+  let entries: string[];
+  try {
+    entries = readdirSync(opts.resourcesDir);
+  } catch (e) {
+    opts.err(
+      `error: cannot read resources directory '${opts.resourcesDir}': ${e instanceof Error ? e.message : String(e)}\n`,
+    );
+    return 1;
+  }
+
+  const files = entries
+    .filter((name) => name.toLowerCase().endsWith(".json"))
+    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+
+  // Read+parse every file once (we may need to do a discovery pass over
+  // all parsed roots before the per-file edit pass).
+  const parsed = readAndParseAll(files, opts.resourcesDir);
+
+  // Discovery pass for --structure-canonical: collect every SD canonical
+  // url across the entire input/resources/ directory before any per-file
+  // edit work. Files of any other resourceType are skipped.
+  let discoveredCanonicals: ReadonlySet<string> | null = null;
+  let discoveredIndex: SdLookupIndex | null = null;
+  if (parsedArgs.structureCanonicalCase !== null) {
+    const sdInputs: SdFileInput[] = [];
+    for (const f of parsed) {
+      if (f.root === null) continue;
+      sdInputs.push({ relPath: f.relPath, source: f.source, root: f.root });
+    }
+    const disc = discoverSdCanonicals(sdInputs);
+    discoveredCanonicals = disc.canonicals;
+    discoveredIndex = disc.index;
+  }
+
+  let totalChanges = 0;
+  let filesWithChanges = 0;
+  let errorCount = 0;
+  const blocks: string[] = [];
+
+  for (const f of parsed) {
+    const result = processFile(f, parsedArgs, discoveredCanonicals, discoveredIndex);
+    if (result.errors.length > 0) {
+      const lines: string[] = [`=== ${f.relPath} ===`];
+      for (const e of result.errors) lines.push(`  error: ${e}`);
+      blocks.push(lines.join("\n"));
+      errorCount += result.errors.length;
+      continue;
+    }
+    if (result.records.length === 0) continue;
+    const lines: string[] = [`=== ${f.relPath} ===`, ...formatRecords(result.records)];
+    blocks.push(lines.join("\n"));
+    totalChanges += result.records.length;
+    filesWithChanges++;
+
+    if (parsedArgs.update && result.newSource !== null) {
+      const original = readFileSync(f.absPath);
+      const last = original.length > 0 ? original[original.length - 1] : -1;
+      const newBuf = Buffer.from(result.newSource, "utf8");
+      const newLast = newBuf.length > 0 ? newBuf[newBuf.length - 1] : -1;
+      if (!preservesTrailingByte(last, newLast)) {
+        opts.err(
+          `error: refusing to write ${f.relPath}: trailing-byte preservation guard failed (old=0x${(last ?? -1).toString(16)} new=0x${(newLast ?? -1).toString(16)})\n`,
+        );
+        errorCount++;
+        continue;
+      }
+      writeFileSync(f.absPath, newBuf);
+    }
+  }
+
+  const report = blocks.length > 0 ? blocks.join("\n\n") + "\n\n" : "";
+  opts.out(`${report}${totalChanges} change(s) across ${filesWithChanges} file(s).\n`);
+
+  return errorCount > 0 ? 1 : 0;
+}
+
+export function preservesTrailingByte(oldLast: number | undefined, newLast: number | undefined): boolean {
+  return (oldLast ?? -1) === (newLast ?? -1);
+}
+
+export function main(argv: readonly string[]): number {
+  return runWith(argv, {
+    resourcesDir: join(process.cwd(), "input", "resources"),
+    out: (s) => process.stdout.write(s),
+    err: (s) => process.stderr.write(s),
+  });
+}
+
+if (import.meta.main) {
+  process.exit(main(process.argv.slice(2)));
+}

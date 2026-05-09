@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-UPDATE-SPEC",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-UPDATE-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_UPDATE_SPEC",
   "version" : "1.2.0",
   "name" : "EXTRACT_UPDATE_SPEC",
   "title" : "EXTRACT_UPDATE_SPEC",
@@ -31,19 +31,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Overall_validity",
+        "key" : "overall-validity",
         "severity" : "error",
         "human" : "Overall validity must be present",
         "expression" : "repeat_period.exists() or trigger_events.exists()"
       },
       {
-        "key" : "Trigger_events_validity",
+        "key" : "trigger-events-validity",
         "severity" : "error",
         "human" : "Trigger events validity must be present",
         "expression" : "trigger_events.exists() implies trigger_events.empty().not()"
       },
       {
-        "key" : "Send_changes_only_validity",
+        "key" : "send-changes-only-validity",
         "severity" : "error",
         "human" : "Send changes only validity must satisfy conditional constraints",
         "expression" : "{} // : manual translation needed"
@@ -68,7 +68,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION"
       }],
       "isModifier" : false
     },
@@ -79,7 +79,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -90,7 +90,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

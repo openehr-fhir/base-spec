@@ -11,6 +11,7 @@
     "description" : "The period of the repetition, computationally derived from the syntax representation. Extracted from the  value' attribute.",
     "code" : "period",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +23,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "calendar_alignment",
+    "id" : "calendar-alignment",
     "name" : "calendar_alignment",
     "title" : "calendar_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Calendar alignment extracted from value. ",
-    "code" : "calendar_alignment",
+    "description" : "Calendar alignment extracted from value.",    "code" : "calendar_alignment",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,14 +42,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "event_alignment",
+    "id" : "event-alignment",
     "name" : "event_alignment",
     "title" : "event_alignment",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Event alignment extracted from value. ",
-    "code" : "event_alignment",
+    "description" : "Event alignment extracted from value.",    "code" : "event_alignment",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -60,7 +61,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "institution_specified",
+    "id" : "institution-specified",
     "name" : "institution_specified",
     "title" : "institution_specified",
     "status" : "active",
@@ -68,6 +69,7 @@
     "description" : "Extracted from value.",
     "code" : "institution_specified",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -87,17 +89,17 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#calendar_alignment"
+    "valueCanonical" : "#calendar-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#event_alignment"
+    "valueCanonical" : "#event-alignment"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#institution_specified"
+    "valueCanonical" : "#institution-specified"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-PERIODIC-TIME-SPECIFICATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_PERIODIC_TIME_SPECIFICATION",
   "version" : "1.2.0",
   "name" : "DV_PERIODIC_TIME_SPECIFICATION",
   "title" : "DV_PERIODIC_TIME_SPECIFICATION",
@@ -112,22 +114,20 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PERIODIC_TIME_SPECIFICATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TIME-SPECIFICATION",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_TIME_SPECIFICATION",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_PERIODIC_TIME_SPECIFICATION",
       "short" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked).",
-      "definition" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model. ",
-      "min" : 0,
+      "definition" : "Specifies periodic points in time, linked to the calendar (phase-linked), or a real world repeating event, such as  breakfast  (event-linked). Based on the HL7v3 data types `PIVL<T>` and `EIVL<T>`. \n\nUsed in therapeutic prescriptions, expressed as `INSTRUCTIONs` in the openEHR model.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Value_valid",
+        "key" : "value-valid",
         "severity" : "error",
         "human" : "Value valid",
         "expression" : "{} // : manual translation needed"

@@ -3,7 +3,7 @@
   "id" : "ITEM-LIST",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "item_count",
+    "id" : "item-count",
     "name" : "item_count",
     "title" : "item_count",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Count of all items.",
     "code" : "item_count",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -30,6 +31,7 @@
     "description" : "Retrieve the names of all items.",
     "code" : "names",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,14 +43,15 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "named_item",
+    "id" : "named-item",
     "name" : "named_item",
     "title" : "named_item",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Retrieve the item with name ‘a_name’.",
+    "description" : "Retrieve the item with name 'a_name'.",
     "code" : "named_item",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_name",
@@ -67,7 +70,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "ith_item",
+    "id" : "ith-item",
     "name" : "ith_item",
     "title" : "ith_item",
     "status" : "active",
@@ -75,6 +78,7 @@
     "description" : "Retrieve the i-th item with name.",
     "code" : "ith_item",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "i",
@@ -93,7 +97,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
@@ -101,6 +105,7 @@
     "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `CLUSTER` containing the `ELEMENTs` of this list.",
     "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -116,7 +121,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#item_count"
+    "valueCanonical" : "#item-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -124,17 +129,17 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#named_item"
+    "valueCanonical" : "#named-item"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#ith_item"
+    "valueCanonical" : "#ith-item"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-LIST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_LIST",
   "version" : "1.2.0",
   "name" : "ITEM_LIST",
   "title" : "ITEM_LIST",
@@ -154,7 +159,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_LIST",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -164,18 +169,17 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Valid_structure",
+        "key" : "valid-structure",
         "severity" : "error",
         "human" : "Valid structure",
-        "expression" : " items.all(ITEM or i.type() = 'ELEMENT')"
+        "expression" : "items.all(ITEM or i.type() = 'ELEMENT')"
       }],
       "isModifier" : false
     },
     {
       "path" : "ITEM_LIST.items",
       "short" : "Physical representation of the list.",
-      "definition" : "Physical representation of the list. ",
-      "min" : 0,
+      "definition" : "Physical representation of the list.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/ELEMENT"

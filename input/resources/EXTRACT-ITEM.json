@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-ITEM",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ITEM",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
   "version" : "1.2.0",
   "name" : "EXTRACT_ITEM",
   "title" : "EXTRACT_ITEM",

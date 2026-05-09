@@ -39,18 +39,17 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/AUDIT_DETAILS"
       }],
       "isModifier" : false
     },
     {
       "path" : "MESSAGE.author",
-      "short" : "Party responsible for the message content, who may or may not be technically responsible for its creation (e.",
-      "definition" : "Party responsible for the message content, who may or may not be technically responsible for its creation (e.g. by data entry etc).",
+      "short" : "Party responsible for the message content, who may or may not be technically responsible for its creation",      "definition" : "Party responsible for the message content, who may or may not be technically responsible for its creation (e.g. by data entry etc).",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-PROXY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_PROXY"
       }],
       "isModifier" : false
     },
@@ -61,7 +60,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/MESSAGE-CONTENT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/MESSAGE_CONTENT"
       }],
       "isModifier" : false
     },

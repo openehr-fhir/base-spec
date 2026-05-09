@@ -26,7 +26,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Root structure of the openEHR Web Template format: a JSON serialisation of an operational template optimised for clinical-UI consumption.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

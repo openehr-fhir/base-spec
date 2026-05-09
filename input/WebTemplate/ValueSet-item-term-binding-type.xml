@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="term-binding-type"/>
-  <url value="https://specifications.openehr.org/fhir/valueset-term-binding-type"/>
+  <url value="http://openehr.org/fhir/ValueSet/term-binding-type"/>
   <version value="3.1.0"/>
   <name value="TermBindingTypeVS"/>
   <title value="Term Binding Type ValueSet"/>
@@ -15,7 +15,7 @@
   <description value="Term Binding Type ValueSet"/>
   <compose>
     <include>
-      <system value="https://specifications.openehr.org/fhir/codesystem-term-binding-type"/>
+      <system value="http://openehr.org/fhir/CodeSystem/term-binding-type"/>
     </include>
   </compose>
 </ValueSet>

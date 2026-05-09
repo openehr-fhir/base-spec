@@ -11,6 +11,7 @@
     "description" : "Type of address, e.g. electronic,  locality. Taken from value of inherited `_name_` attribute.",
     "code" : "type",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -58,7 +59,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Type_valid",
+        "key" : "type-valid",
         "severity" : "error",
         "human" : "Type valid",
         "expression" : "type() = name"
@@ -72,7 +73,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

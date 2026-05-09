@@ -11,6 +11,7 @@
     "description" : "Addition of a differential amount to this quantity. \n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -37,6 +38,7 @@
     "description" : "Result of subtracting a differential amount from this quantity.\n\nThe value of `_accuracy_` in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -63,6 +65,7 @@
     "description" : "Difference of two quantities.\n\nThe value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.",
     "code" : "diff",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -95,7 +98,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#diff"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-ABSOLUTE-QUANTITY",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
   "version" : "1.2.0",
   "name" : "DV_ABSOLUTE_QUANTITY",
   "title" : "DV_ABSOLUTE_QUANTITY",
@@ -115,7 +118,7 @@
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_ABSOLUTE_QUANTITY",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -131,7 +134,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT"
       }],
       "isModifier" : false
     }]

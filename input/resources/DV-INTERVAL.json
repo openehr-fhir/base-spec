@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL",
   "version" : "1.2.0",
   "name" : "DV_INTERVAL",
   "title" : "DV_INTERVAL",
@@ -31,25 +31,89 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, `T`, must be a descendant of the type `DV_ORDERED`, which is necessary (but not sufficient) for instances to be compared (`_strictly_comparable_` is also needed). \n\nWithout the `DV_INTERVAL` class, quite a few more `DV_` classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison. \n\nThe basic semantics are derived from the class `Interval<T>`, described in the support RM. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, `T`, must be a descendant of the type `DV_ORDERED`, which is necessary (but not sufficient) for instances to be compared (`_strictly_comparable_` is also needed). \n\nWithout the `DV_INTERVAL` class, quite a few more `DV_` classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison. \n\nThe basic semantics are derived from the class `Interval<T>`, described in the support RM.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_INTERVAL",
-      "short" : "Generic class defining an interval (i.",
-      "definition" : "Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, `T`, must be a descendant of the type `DV_ORDERED`, which is necessary (but not sufficient) for instances to be compared (`_strictly_comparable_` is also needed). \n\nWithout the `DV_INTERVAL` class, quite a few more `DV_` classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison. \n\nThe basic semantics are derived from the class `Interval<T>`, described in the support RM. ",
-      "min" : 0,
+      "short" : "Generic class defining an interval",
+      "definition" : "Generic class defining an interval (i.e. range) of a comparable type. An interval is a contiguous subrange of a comparable base type. Used to define intervals of dates, times, quantities (whose units match) and so on. The type parameter, `T`, must be a descendant of the type `DV_ORDERED`, which is necessary (but not sufficient) for instances to be compared (`_strictly_comparable_` is also needed). \n\nWithout the `DV_INTERVAL` class, quite a few more `DV_` classes would be needed to express logical intervals, namely interval versions of all the date/time classes, and of quantity classes. Further, it allows the semantics of intervals to be stated in one place unequivocally, including the conditions for strict comparison. \n\nThe basic semantics are derived from the class `Interval<T>`, described in the support RM.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Limits_consistent",
+        "key" : "limits-consistent",
         "severity" : "error",
         "human" : "Limits consistent must satisfy range constraints",
         "expression" : "(upper_unbounded.not() and lower_unbounded.not()) implies (lower.is_strictly_comparable_to(upper) and lower <= upper)"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower",
+      "short" : "Lower bound of the interval.",
+      "definition" : "Lower bound of the interval. Void if the interval is lower-unbounded.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper",
+      "short" : "Upper bound of the interval.",
+      "definition" : "Upper bound of the interval. Void if the interval is upper-unbounded.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_ORDERED"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower_unbounded",
+      "short" : "True if the interval has no lower bound.",
+      "definition" : "True if the interval has no lower bound. If True, lower is Void.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper_unbounded",
+      "short" : "True if the interval has no upper bound.",
+      "definition" : "True if the interval has no upper bound. If True, upper is Void.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.lower_included",
+      "short" : "True if the lower bound is included in the interval.",
+      "definition" : "True if the lower bound is included in the interval. Only meaningful if lower_unbounded is False.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
+      }],
+      "isModifier" : false
+    },
+    {
+      "path" : "DV_INTERVAL.upper_included",
+      "short" : "True if the upper bound is included in the interval.",
+      "definition" : "True if the upper bound is included in the interval. Only meaningful if upper_unbounded is False.",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "boolean"
       }],
       "isModifier" : false
     }]

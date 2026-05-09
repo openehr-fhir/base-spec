@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-SPEC",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_SPEC",
   "version" : "1.2.0",
   "name" : "EXTRACT_SPEC",
   "title" : "EXTRACT_SPEC",
@@ -39,18 +39,17 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-VERSION-SPEC"
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_VERSION_SPEC"
       }],
       "isModifier" : false
     },
     {
       "path" : "EXTRACT_SPEC.manifest",
-      "short" : "Specification of entities (e.",
-      "definition" : "Specification of entities (e.g. records) to include in the Extract.",
+      "short" : "Specification of entities",      "definition" : "Specification of entities (e.g. records) to include in the Extract.",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-MANIFEST"
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_MANIFEST"
       }],
       "isModifier" : false
     },
@@ -61,7 +60,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -90,8 +89,7 @@
     {
       "path" : "EXTRACT_SPEC.link_depth",
       "short" : "Degree of links to follow emanating from content items specified for inclusion.",
-      "definition" : "Degree of links to follow emanating from content items specified for inclusion. The kind of links to follow is dependent on the type of Extract.\n\nAll items at the target end of followed links at the given depth are also included in the extract; `EXTRACT_CONTENT_ITEM._is_primary_` is used to differentiate.\n\n* 0 = don't follow;\n* 1 = follow first degree links;\n* 2 = follow 2nd degree links;\n* ....\n* n = follow nth degree links\n",
-      "min" : 1,
+      "definition" : "Degree of links to follow emanating from content items specified for inclusion. The kind of links to follow is dependent on the type of Extract.\n\nAll items at the target end of followed links at the given depth are also included in the extract; `EXTRACT_CONTENT_ITEM._is_primary_` is used to differentiate.\n\n* 0 = don't follow;\n* 1 = follow first degree links;\n* 2 = follow 2nd degree links;\n* ....\n* n = follow nth degree links",      "min" : 1,
       "max" : "1",
       "type" : [{
         "code" : "integer"
@@ -105,7 +103,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE"
       }],
       "isModifier" : false
     },
@@ -116,7 +114,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

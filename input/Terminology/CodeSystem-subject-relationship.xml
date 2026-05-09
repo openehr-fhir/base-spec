@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/codesystem-subject_relationship"/>
   <version value="3.1.0"/>
   <name value="Subject_relationship"/>
-  <title value="Subject Relationship"/>
+  <title value="Subject Relationship Code System"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

@@ -11,6 +11,7 @@
     "description" : "Size in bytes of value.",
     "code" : "size",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -28,7 +29,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#size"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-PARSABLE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE",
   "version" : "1.2.0",
   "name" : "DV_PARSABLE",
   "title" : "DV_PARSABLE",
@@ -43,28 +44,26 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_PARSABLE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ENCAPSULATED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_PARSABLE",
       "short" : "Encapsulated data expressed as a parsable String.",
-      "definition" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data. ",
-      "min" : 0,
+      "definition" : "Encapsulated data expressed as a parsable String. The internal model of the data item is not described in the openEHR model in common with other encapsulated types, but in this case, the form of the data is assumed to be plaintext, rather than compressed or other types of large binary data.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Formalism_valid",
+        "key" : "formalism-valid",
         "severity" : "error",
         "human" : "Formalism valid must not be empty",
         "expression" : "formalism.empty().not()"
       },
       {
-        "key" : "Size_valid",
+        "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
         "expression" : "size() >= 0"

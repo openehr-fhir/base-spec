@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The EHR object is the root object and access point of an EHR for a subject of care.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EHR",
@@ -31,47 +30,46 @@
     "element" : [{
       "path" : "EHR",
       "short" : "The EHR object is the root object and access point of an EHR for a subject of care.",
-      "definition" : "The EHR object is the root object and access point of an EHR for a subject of care. ",
-      "min" : 0,
+      "definition" : "The EHR object is the root object and access point of an EHR for a subject of care.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Contributions_valid",
+        "key" : "contributions-valid",
         "severity" : "error",
         "human" : "Contributions valid",
         "expression" : "contributions.all(type().is_equal('CONTRIBUTION'))"
       },
       {
-        "key" : "Ehr_access_valid",
+        "key" : "ehr-access-valid",
         "severity" : "error",
         "human" : "Ehr access valid",
         "expression" : "ehr_access.type().is_equal ('VERSIONED_EHR_ACCESS')"
       },
       {
-        "key" : "Ehr_status_valid",
+        "key" : "ehr-status-valid",
         "severity" : "error",
         "human" : "Ehr status valid",
         "expression" : "ehr_status.type().is_equal('VERSIONED_EHR_STATUS')"
       },
       {
-        "key" : "Compositions_valid",
+        "key" : "compositions-valid",
         "severity" : "error",
         "human" : "Compositions valid",
         "expression" : "compositions.all(type().is_equal ('VERSIONED_COMPOSITION'))"
       },
       {
-        "key" : "Directory_valid",
+        "key" : "directory-valid",
         "severity" : "error",
         "human" : "Directory valid must be present",
         "expression" : "directory.exists() implies directory.type().is_equal ('VERSIONED_FOLDER')"
       },
       {
-        "key" : "Folders_valid",
+        "key" : "folders-valid",
         "severity" : "error",
         "human" : "Folders valid must be present",
         "expression" : "folders.exists() implies folders.all(type().is_equal('VERSIONED_FOLDER'))"
       },
       {
-        "key" : "Directory_in_folders",
+        "key" : "directory-in-folders",
         "severity" : "error",
         "human" : "Directory in folders must be present",
         "expression" : "folders.exists() implies folders.item(1) = directory"
@@ -81,11 +79,10 @@
     {
       "path" : "EHR.system_id",
       "short" : "The identifier of the logical EHR management system in which this EHR was created.",
-      "definition" : "The identifier of the logical EHR management system in which this EHR was created. \n",
-      "min" : 1,
+      "definition" : "The identifier of the logical EHR management system in which this EHR was created.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
       }],
       "isModifier" : false
     },
@@ -96,18 +93,17 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
       }],
       "isModifier" : false
     },
     {
       "path" : "EHR.contributions",
       "short" : "List of contributions causing changes to this EHR.",
-      "definition" : "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`. ",
-      "min" : 0,
+      "definition" : "List of contributions causing changes to this EHR. Each contribution contains a list of versions, which may include references to any number of `VERSION` instances, i.e. items of type `VERSIONED_COMPOSITION` and `VERSIONED_FOLDER`.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -118,7 +114,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -129,7 +125,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -140,7 +136,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -151,7 +147,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -162,7 +158,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -173,7 +169,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
@@ -184,7 +180,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     }]

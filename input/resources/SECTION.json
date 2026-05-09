@@ -20,22 +20,20 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures. \n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/SECTION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "SECTION",
       "short" : "Represents a heading in a heading structure, or  section tree.",
-      "definition" : "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures. \n",
-      "min" : 0,
+      "definition" : "Represents a heading in a heading structure, or  section tree.  Created according to archetyped structures for typical headings such as SOAP,  physical examination, but also pathology result heading structures.  Should not be used instead of `ENTRY` hierarchical structures.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Items_valid",
+        "key" : "items-valid",
         "severity" : "error",
         "human" : "Items valid must be present",
         "expression" : "items.exists() implies items.empty().not()"
@@ -49,7 +47,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT-ITEM"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CONTENT_ITEM"
       }],
       "isModifier" : false
     }]

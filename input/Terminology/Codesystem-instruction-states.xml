@@ -5,7 +5,7 @@
   <url value="https://specifications.openehr.org/fhir/codesystem-instruction_states"/>
   <version value="3.1.0"/>
   <name value="Instruction_states"/>
-  <title value="Instruction States"/>
+  <title value="Instruction States Code System"/>
   <status value="active"/>
   <experimental value="false"/>
   <date value="2024-08-22"/>

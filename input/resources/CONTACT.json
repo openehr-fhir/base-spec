@@ -11,6 +11,7 @@
     "description" : "Purpose for which this contact is used, e.g. mail,  daytime phone, etc. Taken from value of inherited `_name_` attribute.",
     "code" : "purpose",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -58,7 +59,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Purpose_valid",
+        "key" : "purpose-valid",
         "severity" : "error",
         "human" : "Purpose valid",
         "expression" : "purpose() = name"
@@ -94,7 +95,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     }]

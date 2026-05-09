@@ -11,6 +11,7 @@
     "description" : "The mapping is to a narrower term.",
     "code" : "narrower",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -30,6 +31,7 @@
     "description" : "The mapping is to a broader term.",
     "code" : "broader",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -49,6 +51,7 @@
     "description" : "The mapping is to an equivalent term.",
     "code" : "equivalent",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -68,6 +71,7 @@
     "description" : "The kind of mapping is unknown.",
     "code" : "unknown",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -79,7 +83,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_valid_match_code",
+    "id" : "is-valid-match-code",
     "name" : "is_valid_match_code",
     "title" : "is_valid_match_code",
     "status" : "active",
@@ -87,6 +91,7 @@
     "description" : "True if match valid.",
     "code" : "is_valid_match_code",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "c",
@@ -125,9 +130,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_valid_match_code"
+    "valueCanonical" : "#is-valid-match-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERM-MAPPING",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERM_MAPPING",
   "version" : "1.2.0",
   "name" : "TERM_MAPPING",
   "title" : "TERM_MAPPING",
@@ -142,8 +147,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of `DV_CODED_TEXT`.\n\nUsed for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies). \n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of `DV_CODED_TEXT`.\n\nUsed for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies).",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TERM_MAPPING",
@@ -153,17 +157,16 @@
     "element" : [{
       "path" : "TERM_MAPPING",
       "short" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item.",
-      "definition" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of `DV_CODED_TEXT`.\n\nUsed for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies). \n",
-      "min" : 0,
+      "definition" : "Represents a coded term mapped to a `DV_TEXT`, and the relative match of the target term with respect to the mapped item. Plain or coded text items may appear in the EHR for which one or mappings in alternative terminologies are required. Mappings are only used to enable computer processing, so they can only be instances of `DV_CODED_TEXT`.\n\nUsed for adding classification terms (e.g. adding ICD classifiers to SNOMED descriptive terms), or mapping into equivalents in other terminologies (e.g. across nursing vocabularies).",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Purpose_valid",
+        "key" : "purpose-valid",
         "severity" : "error",
         "human" : "Purpose valid must be present",
         "expression" : "purpose.exists() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_term_mapping_purpose, purpose.defining_code)"
       },
       {
-        "key" : "Match_valid",
+        "key" : "match-valid",
         "severity" : "error",
         "human" : "Match valid",
         "expression" : "is_valid_match_code()"
@@ -173,13 +176,16 @@
     {
       "path" : "TERM_MAPPING.match",
       "short" : "The relative match of the target term with respect to the mapped text item.",
-      "definition" : "The relative match of the target term with respect to the mapped text item. Result meanings: \n\n* `'>'`: the mapping is to a broader term e.g. orginal text =  arbovirus infection , target =  viral infection  \n* `'='`: the mapping is to a (supposedly) equivalent to the original item \n* `'<'`: the mapping is to a narrower term. e.g. original text =  diabetes , mapping =  diabetes mellitus . \n* `'?'`: the kind of mapping is unknown. \n\nThe first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri). \n",
-      "min" : 1,
+      "definition" : "The relative match of the target term with respect to the mapped text item. Result meanings: \n\n* `'>'`: the mapping is to a broader term e.g. orginal text =  arbovirus infection , target =  viral infection  \n* `'='`: the mapping is to a (supposedly) equivalent to the original item \n* `'<'`: the mapping is to a narrower term. e.g. original text =  diabetes , mapping =  diabetes mellitus . \n* `'?'`: the kind of mapping is unknown. \n\nThe first three values are taken from the ISO standards 2788 ( Guide to Establishment and development of monolingual thesauri) and 5964 (Guide to Establishment and development of multilingual thesauri).",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "string"
+        "code" : "code"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-term_mapping_match"
+      }
     },
     {
       "path" : "TERM_MAPPING.purpose",
@@ -188,18 +194,17 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
     {
       "path" : "TERM_MAPPING.target",
       "short" : "The target term of the mapping.",
-      "definition" : "The target term of the mapping. ",
-      "min" : 1,
+      "definition" : "The target term of the mapping.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     }]

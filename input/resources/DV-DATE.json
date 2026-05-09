@@ -11,6 +11,7 @@
     "description" : "Numeric value of the date as days since the calendar origin date `0001-01-01`.",
     "code" : "magnitude",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_equal",
+    "id" : "is-equal",
     "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
@@ -30,6 +31,7 @@
     "description" : "Return True if this `DV_QUANTIFIED` is considered equal to `_other_`.",
     "code" : "is_equal",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -56,6 +58,7 @@
     "description" : "Addition of a Duration to this Date.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -82,6 +85,7 @@
     "description" : "Subtract a Duration from this Date.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_diff",
@@ -108,6 +112,7 @@
     "description" : "Difference between this Date and `_other_`.",
     "code" : "diff",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -126,14 +131,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this date object is less than `_other_`, based on comparison of `_magnitude()_`. ",
-    "code" : "less_than",
+    "description" : "True if this date object is less than `_other_`, based on comparison of `_magnitude()_`.",    "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -152,7 +157,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -160,6 +165,7 @@
     "description" : "True, for any two Dates.",
     "code" : "is_strictly_comparable_to",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -186,7 +192,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_equal"
+    "valueCanonical" : "#is-equal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -202,13 +208,13 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DATE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_DATE",
   "version" : "1.2.0",
   "name" : "DV_DATE",
   "title" : "DV_DATE",
@@ -223,22 +229,20 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.\n",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DATE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-TEMPORAL",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_TEMPORAL",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_DATE",
       "short" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day.",
-      "definition" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.\n",
-      "min" : 0,
+      "definition" : "Represents an absolute point in time, as measured on the Gregorian calendar, and specified only to the day. Semantics defined by ISO 8601. Used for recording dates in real world time. The partial form is used for approximate birth dates, dates of death, etc.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Value_valid",
+        "key" : "value-valid",
         "severity" : "error",
         "human" : "Value valid",
         "expression" : "{} // : manual translation needed"

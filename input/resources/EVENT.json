@@ -11,6 +11,7 @@
     "description" : "Offset of this event from origin, computed as time.diff(parent.origin).",
     "code" : "offset",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -54,8 +55,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT<ITEM_LIST>`. Subtypes express point or intveral data. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT<ITEM_LIST>`. Subtypes express point or intveral data.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/EVENT",
@@ -65,17 +65,16 @@
     "element" : [{
       "path" : "EVENT",
       "short" : "Defines the abstract notion of a single event in a series.",
-      "definition" : "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT<ITEM_LIST>`. Subtypes express point or intveral data. ",
-      "min" : 0,
+      "definition" : "Defines the abstract notion of a single event in a series. This class is generic, allowing types to be generated which are locked to particular spatial types, such as `EVENT<ITEM_LIST>`. Subtypes express point or intveral data.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Offset_validity",
+        "key" : "offset-validity",
         "severity" : "error",
         "human" : "Offset validity",
         "expression" : "{} // : manual translation needed"
       },
       {
-        "key" : "Offset_validity1",
+        "key" : "offset-validity1",
         "severity" : "error",
         "human" : "Offset validity1 must be present",
         "expression" : "offset().exists() and offset() = time.diff (parent().origin)"
@@ -85,11 +84,10 @@
     {
       "path" : "EVENT.time",
       "short" : "Time of this event.",
-      "definition" : "Time of this event. If the width is non-zero, it is the time point of the trailing edge of the event. ",
-      "min" : 1,
+      "definition" : "Time of this event. If the width is non-zero, it is the time point of the trailing edge of the event.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     },
@@ -119,7 +117,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     },

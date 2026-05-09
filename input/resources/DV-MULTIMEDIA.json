@@ -3,7 +3,7 @@
   "id" : "DV-MULTIMEDIA",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_external",
+    "id" : "is-external",
     "name" : "is_external",
     "title" : "is_external",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Computed from the value of the `_uri_` attribute: True if  the data is stored externally to the record, as indicated by `_uri_`. A copy may also be stored internally, in which case `_is_expanded_` is also true.",
     "code" : "is_external",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +23,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_inline",
+    "id" : "is-inline",
     "name" : "is_inline",
     "title" : "is_inline",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the data attribute. True if  the  data is stored  in  expanded  form, ie within the EHR itself. ",
-    "code" : "is_inline",
+    "description" : "Computed from the value of the data attribute. True if  the  data is stored  in  expanded  form, ie within the EHR itself.",    "code" : "is_inline",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,14 +42,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_compressed",
+    "id" : "is-compressed",
     "name" : "is_compressed",
     "title" : "is_compressed",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the `_compression_algorithm_` attribute: True if  the  data is stored in compressed form. ",
-    "code" : "is_compressed",
+    "description" : "Computed from the value of the `_compression_algorithm_` attribute: True if  the  data is stored in compressed form.",    "code" : "is_compressed",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -60,14 +61,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_integrity_check",
+    "id" : "has-integrity-check",
     "name" : "has_integrity_check",
     "title" : "has_integrity_check",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Computed from the value of the `_integrity_check_algorithm_` attribute: True if an integrity check has been computed. ",
-    "code" : "has_integrity_check",
+    "description" : "Computed from the value of the `_integrity_check_algorithm_` attribute: True if an integrity check has been computed.",    "code" : "has_integrity_check",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -83,21 +84,21 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_external"
+    "valueCanonical" : "#is-external"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_inline"
+    "valueCanonical" : "#is-inline"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_compressed"
+    "valueCanonical" : "#is-compressed"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_integrity_check"
+    "valueCanonical" : "#has-integrity-check"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-MULTIMEDIA",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA",
   "version" : "1.2.0",
   "name" : "DV_MULTIMEDIA",
   "title" : "DV_MULTIMEDIA",
@@ -117,7 +118,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-ENCAPSULATED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_ENCAPSULATED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -127,22 +128,22 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Not_empty",
+        "key" : "not-empty",
         "severity" : "error",
         "human" : "Not empty",
         "expression" : "is_inline() or is_external()"
       },
       {
-        "key" : "Integrity_check_validity",
+        "key" : "integrity-check-validity",
         "severity" : "error",
         "human" : "Integrity check validity must be present",
         "expression" : "integrity_check.exists() implies integrity_check_algorithm.exists()"
       },
       {
-        "key" : "Size_valid",
+        "key" : "size-valid",
         "severity" : "error",
         "human" : "Size valid must satisfy range constraints",
-        "expression" : "{} // : manual translation needed"
+        "expression" : "size() >= 0"
       }],
       "isModifier" : false,
       "binding" : {
@@ -164,11 +165,10 @@
     {
       "path" : "DV_MULTIMEDIA.uri",
       "short" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.",
-      "definition" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference. \n",
-      "min" : 0,
+      "definition" : "URI reference to electronic information stored outside the record as a file, database entry etc, if supplied as a reference.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-URI"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_URI"
       }],
       "isModifier" : false
     },
@@ -186,24 +186,30 @@
     {
       "path" : "DV_MULTIMEDIA.media_type",
       "short" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set).",
-      "definition" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set). \n",
-      "min" : 1,
+      "definition" : "Data media type coded from openEHR code set  media types  (interface for the IANA MIME types code set).",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-media_types"
+      }
     },
     {
       "path" : "DV_MULTIMEDIA.compression_algorithm",
       "short" : "Compression type, a coded value from the openEHR Integrity check code set.",
-      "definition" : "Compression type, a coded value from the openEHR Integrity check code set. Void means no compression. ",
-      "min" : 0,
+      "definition" : "Compression type, a coded value from the openEHR Integrity check code set. Void means no compression.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
-      "isModifier" : false
+      "isModifier" : false,
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "https://specifications.openehr.org/fhir/valueset-compression_algorithms"
+      }
     },
     {
       "path" : "DV_MULTIMEDIA.integrity_check",
@@ -219,11 +225,10 @@
     {
       "path" : "DV_MULTIMEDIA.integrity_check_algorithm",
       "short" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set.",
-      "definition" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set. ",
-      "min" : 0,
+      "definition" : "Type of integrity check, a coded value from the openEHR `Integrity check` code set.",      "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },
@@ -234,7 +239,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-MULTIMEDIA"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_MULTIMEDIA"
       }],
       "isModifier" : false
     },

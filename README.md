@@ -20,3 +20,9 @@ This IG is hosted at https://build.fhir.org/ig/FHIR/openehr-base-ig/index.html
 As an implementation guide that includes no active content, there's no direct security related content. 
 
 For issues with the scripts that launch the publisher, see https://raw.githubusercontent.com/HL7/ig-publisher-scripts
+
+## Tools
+
+See [`tools/README.md`](tools/README.md) for repo automation scripts
+(e.g. `changeTypeFunctionCasing.ts`, which bulk-toggles the casing of
+contained openEHR type-function `OperationDefinition` resources).

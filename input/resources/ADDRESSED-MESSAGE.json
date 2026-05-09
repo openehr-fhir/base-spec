@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "ADDRESSED-MESSAGE",
-  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED-MESSAGE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ADDRESSED_MESSAGE",
   "version" : "1.2.0",
   "name" : "ADDRESSED_MESSAGE",
   "title" : "ADDRESSED_MESSAGE",

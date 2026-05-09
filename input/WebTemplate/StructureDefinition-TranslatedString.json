@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Language-tagged display text used by the openEHR Web Template format to carry per-locale translations of a single string value.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,

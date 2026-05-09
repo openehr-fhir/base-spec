@@ -4,7 +4,7 @@
   "url" : "https://specifications.openehr.org/fhir/valueset-character_sets",
   "version" : "3.1.0",
   "name" : "Character_sets",
-  "title" : "Character Set",
+  "title" : "Character Set Value Set",
   "status" : "active",
   "experimental" : false,
   "date" : "2024-04-11",

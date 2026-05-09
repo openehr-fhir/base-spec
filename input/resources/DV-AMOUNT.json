@@ -3,14 +3,15 @@
   "id" : "DV-AMOUNT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "valid_percentage",
+    "id" : "valid-percentage",
     "name" : "valid_percentage",
     "title" : "valid_percentage",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Test whether a number is a valid percentage, i.e. between 0 and 100. ",
+    "description" : "Test whether a number is a valid percentage, i.e. between 0 and 100.",
     "code" : "valid_percentage",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "number",
@@ -37,6 +38,7 @@
     "description" : "Sum of this amount and another. The value of accuracy in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* both operand accuracies are unknown_accuracy_value.\n\nIf the accuracy value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -63,6 +65,7 @@
     "description" : "Difference of this amount and another. The value of `_accuracy_` in the result is either:\n\n* the sum of the accuracies of the operands, if both present, or;\n* unknown, if either or both operand accuracies are unknown.\n\nIf the `_accuracy_` value is a percentage in one operand and not in the other, the form in the result is that of the larger operand.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -81,7 +84,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_equal",
+    "id" : "is-equal",
     "name" : "is_equal",
     "title" : "is_equal",
     "status" : "active",
@@ -89,6 +92,7 @@
     "description" : "Return True if this `DV_AMOUNT` is considered equal to `_other_`.",
     "code" : "is_equal",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -115,6 +119,7 @@
     "description" : "Product of this Amount and `_factor_`.",
     "code" : "multiply",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "factor",
@@ -141,6 +146,7 @@
     "description" : "Negated version of current object, such as used for representing a difference, e.g. a weight loss.",
     "code" : "negative",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -152,7 +158,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -160,6 +166,7 @@
     "description" : "True if this object is less than `_other_`. Based on comparison of `_magnitude_`.",
     "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -182,7 +189,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#valid_percentage"
+    "valueCanonical" : "#valid-percentage"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -194,7 +201,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_equal"
+    "valueCanonical" : "#is-equal"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -206,9 +213,9 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "version" : "1.2.0",
   "name" : "DV_AMOUNT",
   "title" : "DV_AMOUNT",
@@ -223,28 +230,28 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types). \n",
+  "description" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types).",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-QUANTIFIED",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_QUANTIFIED",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_AMOUNT",
       "short" : "Abstract class defining the concept of relative quantified  'amounts'.",
-      "definition" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types). \n",
+      "definition" : "Abstract class defining the concept of relative quantified  'amounts'. For relative quantities, the  `+` and  `-` operators are defined (unlike descendants of `DV_ABSOLUTE_QUANTITY`, such as the date/time types).",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Accuracy_is_percent_validity",
+        "key" : "accuracy-is-percent-validity",
         "severity" : "error",
         "human" : "Accuracy is percent validity must satisfy conditional constraints",
         "expression" : "accuracy = 0 implies accuracy_is_percent.not()"
       },
       {
-        "key" : "Accuracy_validity",
+        "key" : "accuracy-validity",
         "severity" : "error",
         "human" : "Accuracy validity must satisfy conditional constraints",
         "expression" : "accuracy_is_percent implies valid_percentage()"

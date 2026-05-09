@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-ENTITY-MANIFEST",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ENTITY-MANIFEST",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_MANIFEST",
   "version" : "1.2.0",
   "name" : "EXTRACT_ENTITY_MANIFEST",
   "title" : "EXTRACT_ENTITY_MANIFEST",
@@ -26,8 +26,7 @@
   "differential" : {
     "element" : [{
       "path" : "EXTRACT_ENTITY_MANIFEST",
-      "short" : "The manifest for one entity (e.",
-      "definition" : "The manifest for one entity (e.g. EHR subject), identifying the entity and optionally specifying top-level items to be included in the Extract. The list actually included may be modified by the `_version_spec_` part of the specification, and also by the link_depth attribute. In repeat (standing order) requests, the final inclusion may be modified by the send_changes_only value for `EXTRACT_UPDATE_SPEC._update_method_`.\n\nVarious identifiers may be provided for the entity; these are to be used by the receiver system to locate the entity. The `_extract_id_key_` attribute is used to record the identifier that will be used throughout the Extract for this entity, including in instances of `EXTRACT_ENTITY_IDENTIFIER`.",
+      "short" : "The manifest for one entity",      "definition" : "The manifest for one entity (e.g. EHR subject), identifying the entity and optionally specifying top-level items to be included in the Extract. The list actually included may be modified by the `_version_spec_` part of the specification, and also by the link_depth attribute. In repeat (standing order) requests, the final inclusion may be modified by the send_changes_only value for `EXTRACT_UPDATE_SPEC._update_method_`.\n\nVarious identifiers may be provided for the entity; these are to be used by the receiver system to locate the entity. The `_extract_id_key_` attribute is used to record the identifier that will be used throughout the Extract for this entity, including in instances of `EXTRACT_ENTITY_IDENTIFIER`.",
       "min" : 0,
       "max" : "*",
       "isModifier" : false
@@ -56,8 +55,7 @@
     },
     {
       "path" : "EXTRACT_ENTITY_MANIFEST.subject_id",
-      "short" : "Subject (i.",
-      "definition" : "Subject (i.e. patient or similar) identifier for the entity at the target system.",
+      "short" : "Subject",      "definition" : "Subject (i.e. patient or similar) identifier for the entity at the target system.",
       "min" : 0,
       "max" : "1",
       "type" : [{
@@ -83,7 +81,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     }]

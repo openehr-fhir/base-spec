@@ -11,6 +11,7 @@
     "description" : "Sum of this `DV_COUNT` and `_other_`.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -37,6 +38,7 @@
     "description" : "Difference of this `DV_COUNT` and `_other_`.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -63,6 +65,7 @@
     "description" : "Product of this `DV_COUNT` and `_factor_`.",
     "code" : "multiply",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "factor",
@@ -81,7 +84,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
@@ -89,6 +92,7 @@
     "description" : "True if this Quantified object is less than `_other_`, based on comparison of `_magnitude_`.",
     "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -107,7 +111,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -115,6 +119,7 @@
     "description" : "Return True.",
     "code" : "is_strictly_comparable_to",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -149,13 +154,13 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-COUNT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_COUNT",
   "version" : "1.2.0",
   "name" : "DV_COUNT",
   "title" : "DV_COUNT",
@@ -175,7 +180,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_COUNT",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -191,15 +196,14 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "integer"
+        "code" : "integer64"
       }],
       "isModifier" : false
     },
     {
       "path" : "DV_COUNT.normal_range",
       "short" : "Optional normal range.",
-      "definition" : "Optional normal range. ",
-      "min" : 0,
+      "definition" : "Optional normal range.",      "min" : 0,
       "max" : "1",
       "type" : [{
         "extension" : [{
@@ -213,7 +217,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -235,7 +239,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE-RANGE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REFERENCE_RANGE"
       }],
       "isModifier" : false
     }]

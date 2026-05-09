@@ -20,8 +20,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM",
@@ -31,8 +30,7 @@
     "element" : [{
       "path" : "ITEM",
       "short" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes.",
-      "definition" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes. ",
-      "min" : 0,
+      "definition" : "The abstract parent of `CLUSTER` and `ELEMENT` representation classes.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

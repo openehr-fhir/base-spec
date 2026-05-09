@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Folders_valid",
+        "key" : "folders-valid",
         "severity" : "error",
         "human" : "Folders valid must not be empty",
         "expression" : "folders.empty().not()"
@@ -45,19 +45,17 @@
     {
       "path" : "FOLDER.items",
       "short" : "The list of references to other (usually) versioned objects logically in this folder.",
-      "definition" : "The list of references to other (usually) versioned objects logically in this folder. ",
-      "min" : 0,
+      "definition" : "The list of references to other (usually) versioned objects logically in this folder.",      "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
     {
       "path" : "FOLDER.folders",
       "short" : "Sub-folders of this `FOLDER`.",
-      "definition" : "Sub-folders of this `FOLDER`. ",
-      "min" : 0,
+      "definition" : "Sub-folders of this `FOLDER`.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/FOLDER"
@@ -71,7 +69,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

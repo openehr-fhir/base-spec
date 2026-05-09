@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-VERSION-SPEC",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-VERSION-SPEC",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_VERSION_SPEC",
   "version" : "1.2.0",
   "name" : "EXTRACT_VERSION_SPEC",
   "title" : "EXTRACT_VERSION_SPEC",
@@ -31,7 +31,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Includes_revision_history_valid",
+        "key" : "includes-revision-history-valid",
         "severity" : "error",
         "human" : "Includes revision history valid must satisfy conditional constraints",
         "expression" : "include_data.not() implies include_revision_history"
@@ -67,7 +67,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },

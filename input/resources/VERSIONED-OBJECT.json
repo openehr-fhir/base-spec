@@ -3,7 +3,7 @@
   "id" : "VERSIONED-OBJECT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "version_count",
+    "id" : "version-count",
     "name" : "version_count",
     "title" : "version_count",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Return the total number of versions in this object.",
     "code" : "version_count",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +23,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_version_ids",
+    "id" : "all-version-ids",
     "name" : "all_version_ids",
     "title" : "all_version_ids",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return a list of ids of all versions in this object. ",
-    "code" : "all_version_ids",
+    "description" : "Return a list of ids of all versions in this object.",    "code" : "all_version_ids",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,14 +42,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_versions",
+    "id" : "all-versions",
     "name" : "all_versions",
     "title" : "all_versions",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return a list of all versions in this object. ",
-    "code" : "all_versions",
+    "description" : "Return a list of all versions in this object.",    "code" : "all_versions",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -60,14 +61,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_version_at_time",
+    "id" : "has-version-at-time",
     "name" : "has_version_at_time",
     "title" : "has_version_at_time",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if a version for time  `_a_time_` exists. ",
-    "code" : "has_version_at_time",
+    "description" : "True if a version for time  `_a_time_` exists.",    "code" : "has_version_at_time",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_time",
@@ -86,14 +87,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_version_id",
+    "id" : "has-version-id",
     "name" : "has_version_id",
     "title" : "has_version_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if a version with `_a_version_uid_` exists. ",
-    "code" : "has_version_id",
+    "description" : "True if a version with `_a_version_uid_` exists.",    "code" : "has_version_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_version_uid",
@@ -112,14 +113,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "version_with_id",
+    "id" : "version-with-id",
     "name" : "version_with_id",
     "title" : "version_with_id",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the version with `_uid_` =  `_a_version_uid_`. \n",
-    "code" : "version_with_id",
+    "description" : "Return the version with `_uid_` =  `_a_version_uid_`.",    "code" : "version_with_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_version_uid",
@@ -138,14 +139,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_original_version",
+    "id" : "is-original-version",
     "name" : "is_original_version",
     "title" : "is_original_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if version with `_a_version_uid_` is an `ORIGINAL_VERSION`. ",
-    "code" : "is_original_version",
+    "description" : "True if version with `_a_version_uid_` is an `ORIGINAL_VERSION`.",    "code" : "is_original_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_version_uid",
@@ -164,14 +165,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "version_at_time",
+    "id" : "version-at-time",
     "name" : "version_at_time",
     "title" : "version_at_time",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the version for time  `_a_time_`. ",
-    "code" : "version_at_time",
+    "description" : "Return the version for time  `_a_time_`.",    "code" : "version_at_time",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_time",
@@ -190,7 +191,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "revision_history",
+    "id" : "revision-history",
     "name" : "revision_history",
     "title" : "revision_history",
     "status" : "active",
@@ -198,6 +199,7 @@
     "description" : "History of all audits and attestations in this versioned repository.",
     "code" : "revision_history",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -209,14 +211,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "latest_version",
+    "id" : "latest-version",
     "name" : "latest_version",
     "title" : "latest_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the most recently added version (i.e. on trunk or any branch). ",
-    "code" : "latest_version",
+    "description" : "Return the most recently added version (i.e. on trunk or any branch).",    "code" : "latest_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -228,14 +230,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "latest_trunk_version",
+    "id" : "latest-trunk-version",
     "name" : "latest_trunk_version",
     "title" : "latest_trunk_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the most recently added trunk version. ",
-    "code" : "latest_trunk_version",
+    "description" : "Return the most recently added trunk version.",    "code" : "latest_trunk_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -247,14 +249,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "trunk_lifecycle_state",
+    "id" : "trunk-lifecycle-state",
     "name" : "trunk_lifecycle_state",
     "title" : "trunk_lifecycle_state",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Return the lifecycle state from the latest trunk version. Useful for determining if the version container is logically deleted. ",
-    "code" : "trunk_lifecycle_state",
+    "description" : "Return the lifecycle state from the latest trunk version. Useful for determining if the version container is logically deleted.",    "code" : "trunk_lifecycle_state",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -266,14 +268,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_original_version",
+    "id" : "commit-original-version",
     "name" : "commit_original_version",
     "title" : "commit_original_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new original version. ",
-    "code" : "commit_original_version",
+    "description" : "Add a new original version.",    "code" : "commit_original_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_contribution",
@@ -334,14 +336,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_original_merged_version",
+    "id" : "commit-original-merged-version",
     "name" : "commit_original_merged_version",
     "title" : "commit_original_merged_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new original merged version. This commit function adds a parameter containing the ids of other versions merged into the current one. ",
-    "code" : "commit_original_merged_version",
+    "description" : "Add a new original merged version. This commit function adds a parameter containing the ids of other versions merged into the current one.",    "code" : "commit_original_merged_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_contribution",
@@ -409,14 +411,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_imported_version",
+    "id" : "commit-imported-version",
     "name" : "commit_imported_version",
     "title" : "commit_imported_version",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new imported version. Details of version id etc come from the `ORIGINAL_VERSION` being committed. ",
-    "code" : "commit_imported_version",
+    "description" : "Add a new imported version. Details of version id etc come from the `ORIGINAL_VERSION` being committed.",    "code" : "commit_imported_version",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_contribution",
@@ -449,14 +451,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "commit_attestation",
+    "id" : "commit-attestation",
     "name" : "commit_attestation",
     "title" : "commit_attestation",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Add a new attestation to a specified original version. Attestations can only be added to Original versions. ",
-    "code" : "commit_attestation",
+    "description" : "Add a new attestation to a specified original version. Attestations can only be added to Original versions.",    "code" : "commit_attestation",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "an_attestation",
@@ -504,69 +506,69 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_count"
+    "valueCanonical" : "#version-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_version_ids"
+    "valueCanonical" : "#all-version-ids"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_versions"
+    "valueCanonical" : "#all-versions"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_version_at_time"
+    "valueCanonical" : "#has-version-at-time"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_version_id"
+    "valueCanonical" : "#has-version-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_with_id"
+    "valueCanonical" : "#version-with-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_original_version"
+    "valueCanonical" : "#is-original-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#version_at_time"
+    "valueCanonical" : "#version-at-time"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#revision_history"
+    "valueCanonical" : "#revision-history"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#latest_version"
+    "valueCanonical" : "#latest-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#latest_trunk_version"
+    "valueCanonical" : "#latest-trunk-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#trunk_lifecycle_state"
+    "valueCanonical" : "#trunk-lifecycle-state"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_original_version"
+    "valueCanonical" : "#commit-original-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_original_merged_version"
+    "valueCanonical" : "#commit-original-merged-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_imported_version"
+    "valueCanonical" : "#commit-imported-version"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#commit_attestation"
+    "valueCanonical" : "#commit-attestation"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "version" : "1.2.0",
   "name" : "VERSIONED_OBJECT",
   "title" : "VERSIONED_OBJECT",
@@ -596,31 +598,31 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Version_count_valid",
+        "key" : "version-count-valid",
         "severity" : "error",
         "human" : "Version count valid must satisfy range constraints",
         "expression" : "version_count() >= 0"
       },
       {
-        "key" : "All_version_ids_valid",
+        "key" : "all-version-ids-valid",
         "severity" : "error",
         "human" : "All version ids valid",
         "expression" : "all_version_ids().count() = version_count()"
       },
       {
-        "key" : "All_versions_valid",
+        "key" : "all-versions-valid",
         "severity" : "error",
         "human" : "All versions valid",
         "expression" : "all_versions().count() = version_count()"
       },
       {
-        "key" : "Latest_version_valid",
+        "key" : "latest-version-valid",
         "severity" : "error",
         "human" : "Latest version valid must be present",
         "expression" : "version_count() > 0 implies latest_version().exists()"
       },
       {
-        "key" : "Uid_validity",
+        "key" : "uid-validity",
         "severity" : "error",
         "human" : "Uid validity must not be empty",
         "expression" : "extension.empty()"
@@ -630,33 +632,30 @@
     {
       "path" : "VERSIONED_OBJECT.uid",
       "short" : "Unique identifier of this version container in the form of a UID with no extension.",
-      "definition" : "Unique identifier of this version container in the form of a UID with no extension. This id will be the same in all instances of the same container in a distributed environment, meaning that it can be understood as the uid of the  virtual version tree. ",
-      "min" : 1,
+      "definition" : "Unique identifier of this version container in the form of a UID with no extension. This id will be the same in all instances of the same container in a distributed environment, meaning that it can be understood as the uid of the  virtual version tree.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/HIER-OBJECT-ID"
+        "code" : "http://openehr.org/fhir/StructureDefinition/HIER_OBJECT_ID"
       }],
       "isModifier" : false
     },
     {
       "path" : "VERSIONED_OBJECT.owner_id",
       "short" : "Reference to object to which this version container belongs, e.",
-      "definition" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity. ",
-      "min" : 1,
+      "definition" : "Reference to object to which this version container belongs, e.g. the id of the containing EHR or other relevant owning entity.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/OBJECT_REF"
       }],
       "isModifier" : false
     },
     {
       "path" : "VERSIONED_OBJECT.time_created",
       "short" : "Time of initial creation of this versioned object.",
-      "definition" : "Time of initial creation of this versioned object. ",
-      "min" : 1,
+      "definition" : "Time of initial creation of this versioned object.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-DATE-TIME"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_DATE_TIME"
       }],
       "isModifier" : false
     }]

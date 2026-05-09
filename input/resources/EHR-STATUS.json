@@ -5,7 +5,7 @@
     "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
     "valueUrl" : "https://specifications.openehr.org/releases/RM/development/ehr.html#_ehr_status_class"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/EHR-STATUS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EHR_STATUS",
   "version" : "1.2.0",
   "name" : "EHR_STATUS",
   "title" : "EHR_STATUS",
@@ -35,7 +35,7 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Is_archetype_root",
+        "key" : "is-archetype-root",
         "severity" : "error",
         "human" : "Is archetype root",
         "expression" : "is_archetype_root()"
@@ -45,11 +45,10 @@
     {
       "path" : "EHR_STATUS.subject",
       "short" : "The subject of this EHR.",
-      "definition" : "The subject of this EHR. The `_external_ref_` attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons. ",
-      "min" : 1,
+      "definition" : "The subject of this EHR. The `_external_ref_` attribute can be used to contain a direct reference to the subject in a demographic or identity service. Alternatively, the association between patients and their records may be done elsewhere for security reasons.",      "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-SELF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_SELF"
       }],
       "isModifier" : false
     },
@@ -82,7 +81,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]

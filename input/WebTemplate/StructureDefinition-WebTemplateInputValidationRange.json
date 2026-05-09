@@ -16,7 +16,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "",
+  "description" : "Allowed numeric or temporal range for an openEHR Web Template input, expressed as inclusive/exclusive lower and upper bounds.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
@@ -41,7 +41,7 @@
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-range-minop"
+        "valueSet" : "http://openehr.org/fhir/ValueSet/range-minop"
       }
     },{
       "path" : "WebTemplateInputValidationRange.min",
@@ -61,7 +61,7 @@
       }],
       "binding" : {
         "strength" : "required",
-        "valueSet" : "https://specifications.openehr.org/fhir/valueset-range-maxop"
+        "valueSet" : "http://openehr.org/fhir/ValueSet/range-maxop"
       }
     },{
       "path" : "WebTemplateInputValidationRange.max",

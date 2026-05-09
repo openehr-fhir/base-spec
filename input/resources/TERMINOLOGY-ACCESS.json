@@ -11,6 +11,7 @@
     "description" : "Identification of this Terminology.",
     "code" : "id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "all_codes",
+    "id" : "all-codes",
     "name" : "all_codes",
     "title" : "all_codes",
     "status" : "active",
@@ -30,6 +31,7 @@
     "description" : "Return all codes known in this terminology.",
     "code" : "all_codes",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,7 +43,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes_for_group_id",
+    "id" : "codes-for-group-id",
     "name" : "codes_for_group_id",
     "title" : "codes_for_group_id",
     "status" : "active",
@@ -49,6 +51,7 @@
     "description" : "Return all codes under grouper 'a_group_id' from this terminology.",
     "code" : "codes_for_group_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_group_id",
@@ -67,7 +70,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "codes_for_group_name",
+    "id" : "codes-for-group-name",
     "name" : "codes_for_group_name",
     "title" : "codes_for_group_name",
     "status" : "active",
@@ -75,6 +78,7 @@
     "description" : "Return all codes under grouper whose name in 'a_lang' is 'a_name' from this terminology.",
     "code" : "codes_for_group_name",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_lang",
@@ -100,7 +104,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_code_for_group_id",
+    "id" : "has-code-for-group-id",
     "name" : "has_code_for_group_id",
     "title" : "has_code_for_group_id",
     "status" : "active",
@@ -108,6 +112,7 @@
     "description" : "True if  a_code' is known in group  group_id' in the openEHR terminology.",
     "code" : "has_code_for_group_id",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -119,7 +124,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "rubric_for_code",
+    "id" : "rubric-for-code",
     "name" : "rubric_for_code",
     "title" : "rubric_for_code",
     "status" : "active",
@@ -127,6 +132,7 @@
     "description" : "Return all rubric of code  code' in language  lang'.",
     "code" : "rubric_for_code",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_code",
@@ -149,25 +155,25 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#all_codes"
+    "valueCanonical" : "#all-codes"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#codes_for_group_id"
+    "valueCanonical" : "#codes-for-group-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#codes_for_group_name"
+    "valueCanonical" : "#codes-for-group-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_code_for_group_id"
+    "valueCanonical" : "#has-code-for-group-id"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#rubric_for_code"
+    "valueCanonical" : "#rubric-for-code"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY-ACCESS",
+  "url" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
   "version" : "1.2.0",
   "name" : "TERMINOLOGY_ACCESS",
   "title" : "TERMINOLOGY_ACCESS",
@@ -182,8 +188,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Defines an object providing proxy access to a terminology. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Defines an object providing proxy access to a terminology.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/TERMINOLOGY_ACCESS",
@@ -193,8 +198,7 @@
     "element" : [{
       "path" : "TERMINOLOGY_ACCESS",
       "short" : "Defines an object providing proxy access to a terminology.",
-      "definition" : "Defines an object providing proxy access to a terminology. ",
-      "min" : 0,
+      "definition" : "Defines an object providing proxy access to a terminology.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

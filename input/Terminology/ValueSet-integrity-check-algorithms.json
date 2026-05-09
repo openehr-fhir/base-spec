@@ -4,7 +4,7 @@
   "url" : "https://specifications.openehr.org/fhir/valueset-integrity_check_algorithms",
   "version" : "3.1.0",
   "name" : "integrity_check_algorithms",
-  "title" : "Integrity check algorithms",
+  "title" : "Integrity check algorithms Value Set",
   "description" : "Integrity check algorithms",
   "status" : "active",
   "experimental" : false,

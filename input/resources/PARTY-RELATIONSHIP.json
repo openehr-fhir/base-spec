@@ -8,9 +8,9 @@
     "title" : "type",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Type of relationship, such as  employment,  authority,  health provision ",
-    "code" : "type",
+    "description" : "Type of relationship, such as  employment,  authority,  health provision",    "code" : "type",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -28,7 +28,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#type"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY-RELATIONSHIP",
+  "url" : "http://openehr.org/fhir/StructureDefinition/PARTY_RELATIONSHIP",
   "version" : "1.2.0",
   "name" : "PARTY_RELATIONSHIP",
   "title" : "PARTY_RELATIONSHIP",
@@ -58,19 +58,19 @@
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Source_valid",
+        "key" : "source-valid",
         "severity" : "error",
         "human" : "Source valid must be present",
         "expression" : "source.exists() and source.relationships.has (self)"
       },
       {
-        "key" : "Target_valid",
+        "key" : "target-valid",
         "severity" : "error",
         "human" : "Target valid must be present",
         "expression" : "target.exists() and target.not().reverse_relationships.has (self)"
       },
       {
-        "key" : "Type_validity",
+        "key" : "type-validity",
         "severity" : "error",
         "human" : "Type validity",
         "expression" : "type() = name"
@@ -84,7 +84,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     },
@@ -95,7 +95,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     },
@@ -117,7 +117,7 @@
           }],
           "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
         }],
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-INTERVAL"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_INTERVAL"
       }],
       "isModifier" : false
     },
@@ -128,7 +128,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY-REF"
+        "code" : "http://openehr.org/fhir/StructureDefinition/PARTY_REF"
       }],
       "isModifier" : false
     }]

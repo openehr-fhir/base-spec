@@ -16,7 +16,7 @@
     }],
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-parameter"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-FOLDER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_FOLDER",
   "version" : "1.2.0",
   "name" : "VERSIONED_FOLDER",
   "title" : "VERSIONED_FOLDER",
@@ -31,19 +31,17 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_FOLDER",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED-OBJECT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/VERSIONED_OBJECT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "VERSIONED_FOLDER",
       "short" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",
-      "definition" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory. ",
-      "min" : 0,
+      "definition" : "A version-controlled hierarchy of `FOLDERs` giving the effect of a directory.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     }]

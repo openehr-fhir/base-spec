@@ -1,0 +1,29 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "time-definitions",
+  "extension" : [{ 
+    "url" : "http://hl7.org/fhir/StructureDefinition/web-source",
+    "valueUrl" : "https://specifications.openehr.org/releases/BASE/1.1.0/foundation_types.html#_time_definitions_class"
+  }],
+  "url" : "https://specifications.openehr.org/fhir/valueset-time_definitions",
+  "version" : "1.1.0",
+  "name" : "TIME_DEFINITIONS",
+  "title" : "TIME_DEFINITIONS Value Set",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-06-27T18:45:58+10:00",
+  "publisher" : "openEHR",
+  "contact" : [{
+    "name" : "openEHR",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://specifications.openehr.org"
+    }]
+  }],
+  "description" : "Class of enumeration constants defining constants for the Time_Definitions class.",
+  "compose" : {
+    "include" : [{
+      "system" : "https://specifications.openehr.org/fhir/codesystem-time_definitions"
+    }]
+  }
+}

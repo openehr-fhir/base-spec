@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-FOLDER",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-FOLDER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_FOLDER",
   "version" : "1.2.0",
   "name" : "EXTRACT_FOLDER",
   "title" : "EXTRACT_FOLDER",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_FOLDER",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ITEM",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
@@ -39,7 +39,7 @@
       "min" : 0,
       "max" : "*",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ITEM"
+        "code" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ITEM"
       }],
       "isModifier" : false
     }]

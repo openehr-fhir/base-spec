@@ -11,6 +11,7 @@
     "description" : "Sum of this Duration and `_other_`.",
     "code" : "add",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -37,6 +38,7 @@
     "description" : "Difference of this Duration and `_other_`.",
     "code" : "subtract",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -63,6 +65,7 @@
     "description" : "Product of this Duration and `_factor_`.",
     "code" : "multiply",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "factor",
@@ -81,14 +84,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "less_than",
+    "id" : "less-than",
     "name" : "less_than",
     "title" : "less_than",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if this duration object is less than `_other_`, based on comparison of `_magnitude()_`. ",
-    "code" : "less_than",
+    "description" : "True if this duration object is less than `_other_`, based on comparison of `_magnitude()_`.",    "code" : "less_than",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -107,7 +110,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "is_strictly_comparable_to",
+    "id" : "is-strictly-comparable-to",
     "name" : "is_strictly_comparable_to",
     "title" : "is_strictly_comparable_to",
     "status" : "active",
@@ -115,6 +118,7 @@
     "description" : "True, for any two Durations.",
     "code" : "is_strictly_comparable_to",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "other",
@@ -141,6 +145,7 @@
     "description" : "Negated version of current duration.\n\nAssuming the current duration is positive, the negated version represents a time prior to some origin point, or a negative age (e.g. so-called 'adjusted age' of premature infant).",
     "code" : "negative",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -160,6 +165,7 @@
     "description" : "Numeric value of the duration as a number of seconds. Computed using the method `_to_seconds()_` inherited from `Iso8601_duration`.",
     "code" : "magnitude",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -187,11 +193,11 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#less_than"
+    "valueCanonical" : "#less-than"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_strictly_comparable_to"
+    "valueCanonical" : "#is-strictly-comparable-to"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
@@ -201,7 +207,7 @@
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
     "valueCanonical" : "#magnitude"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/DV-DURATION",
+  "url" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION",
   "version" : "1.2.0",
   "name" : "DV_DURATION",
   "title" : "DV_DURATION",
@@ -216,22 +222,20 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards. \n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model. \n\nUsed for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. \n\nMisuse: Durations cannot be used to represent points in time, or intervals of time. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards. \n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model. \n\nUsed for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. \n\nMisuse: Durations cannot be used to represent points in time, or intervals of time.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/DV_DURATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV-AMOUNT",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/DV_AMOUNT",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "DV_DURATION",
       "short" : "Represents a period of time with respect to a notional point in time, which is not specified.",
-      "definition" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards. \n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model. \n\nUsed for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. \n\nMisuse: Durations cannot be used to represent points in time, or intervals of time. ",
-      "min" : 0,
+      "definition" : "Represents a period of time with respect to a notional point in time, which is not specified. A sign may be used to indicate the duration is  backwards  in time rather than forwards. \n\nNOTE: two deviations from ISO 8601 are supported, the first, to allow a negative sign, and the second allowing the 'W' designator to be mixed with other designators. See time types section in the Foundation Types model. \n\nUsed for recording the duration of something in the real world, particularly when there is a need a) to represent the duration in customary format, i.e. days, hours, minutes etc, and b) if it will be used in computational operations with date/time quantities, i.e. additions, subtractions etc. \n\nMisuse: Durations cannot be used to represent points in time, or intervals of time.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Value_valid",
+        "key" : "value-valid",
         "severity" : "error",
         "human" : "Value valid",
         "expression" : "{} // : manual translation needed"

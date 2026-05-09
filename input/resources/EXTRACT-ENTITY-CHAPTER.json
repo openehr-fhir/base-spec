@@ -1,7 +1,7 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "EXTRACT-ENTITY-CHAPTER",
-  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-ENTITY-CHAPTER",
+  "url" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_CHAPTER",
   "version" : "1.2.0",
   "name" : "EXTRACT_ENTITY_CHAPTER",
   "title" : "EXTRACT_ENTITY_CHAPTER",
@@ -21,7 +21,7 @@
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_ENTITY_CHAPTER",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT-CHAPTER",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/EXTRACT_CHAPTER",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{

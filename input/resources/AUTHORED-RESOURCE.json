@@ -3,14 +3,15 @@
   "id" : "AUTHORED-RESOURCE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "current_revision",
+    "id" : "current-revision",
     "name" : "current_revision",
     "title" : "current_revision",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Most recent revision in `_revision_history_` if `_is_controlled_` else  (uncontrolled) . ",
+    "description" : "Most recent revision in `_revision_history_` if `_is_controlled_` else  (uncontrolled).",
     "code" : "current_revision",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,14 +23,15 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "languages_available",
+    "id" : "languages-available",
     "name" : "languages_available",
     "title" : "languages_available",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Total list of languages available in this resource, derived from `_original_language_` and `_translations_`.\n",
+    "description" : "Total list of languages available in this resource, derived from `_original_language_` and `_translations_`.",
     "code" : "languages_available",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -45,13 +47,13 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#current_revision"
+    "valueCanonical" : "#current-revision"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#languages_available"
+    "valueCanonical" : "#languages-available"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/AUTHORED-RESOURCE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/AUTHORED_RESOURCE",
   "version" : "1.2.0",
   "name" : "AUTHORED_RESOURCE",
   "title" : "AUTHORED_RESOURCE",
@@ -66,7 +68,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Abstract idea of an online resource created by a human author. \n",
+  "description" : "Abstract idea of an online resource created by a human author.",
   "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : true,
@@ -77,35 +79,35 @@
     "element" : [{
       "path" : "AUTHORED_RESOURCE",
       "short" : "Abstract idea of an online resource created by a human author.",
-      "definition" : "Abstract idea of an online resource created by a human author. \n",
+      "definition" : "Abstract idea of an online resource created by a human author.",
       "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Languages_available_valid",
+        "key" : "languages-available-valid",
         "severity" : "error",
         "human" : "Languages available valid",
         "expression" : "languages_available().has (original_language)"
       },
       {
-        "key" : "Revision_history_valid",
+        "key" : "revision-history-valid",
         "severity" : "error",
         "human" : "Revision history valid must satisfy exclusive conditions",
         "expression" : "is_controlled xor revision_history .empty()"
       },
       {
-        "key" : "Current_revision_valid",
+        "key" : "current-revision-valid",
         "severity" : "error",
         "human" : "Current revision valid must be present",
         "expression" : "(current_revision().exists() and is_controlled.not()) implies current_revision().is_equal ('(uncontrolled)')"
       },
       {
-        "key" : "Translations_valid",
+        "key" : "translations-valid",
         "severity" : "error",
         "human" : "Translations valid must be present",
         "expression" : "translations.exists() implies (translations.empty().not() and translations.not().has (orginal_language.code_string))"
       },
       {
-        "key" : "Description_valid",
+        "key" : "description-valid",
         "severity" : "error",
         "human" : "Description valid must be present",
         "expression" : "translations.exists() implies (description.details.all(translations.has_key ($this.language.code_string)))"
@@ -119,18 +121,18 @@
     {
       "path" : "AUTHORED_RESOURCE.original_language",
       "short" : "Language in which this resource was initially authored.",
-      "definition" : "Language in which this resource was initially authored. Although there is no language primacy of resources overall, the language of original authoring is required to ensure natural language translations can preserve quality. Language is relevant in both the description and ontology sections. ",
+      "definition" : "Language in which this resource was initially authored. Although there is no language primacy of resources overall, the language of original authoring is required to ensure natural language translations can preserve quality. Language is relevant in both the description and ontology sections.",
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/CODE-PHRASE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/CODE_PHRASE"
       }],
       "isModifier" : false
     },
     {
       "path" : "AUTHORED_RESOURCE.is_controlled",
       "short" : "True if this resource is under any kind of change control (even file copying), in which case revision history is created.",
-      "definition" : "True if this resource is under any kind of change control (even file copying), in which case revision history is created. ",
+      "definition" : "True if this resource is under any kind of change control (even file copying), in which case revision history is created.",
       "min" : 0,
       "max" : "1",
       "type" : [{
@@ -145,7 +147,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION-DETAILS"
+        "code" : "http://openehr.org/fhir/StructureDefinition/TRANSLATION_DETAILS"
       }],
       "isModifier" : false
     },
@@ -156,18 +158,18 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/RESOURCE-DESCRIPTION"
+        "code" : "http://openehr.org/fhir/StructureDefinition/RESOURCE_DESCRIPTION"
       }],
       "isModifier" : false
     },
     {
       "path" : "AUTHORED_RESOURCE.revision_history",
       "short" : "The revision history of the resource.",
-      "definition" : "The revision history of the resource. Only required if `_is_controlled_ = True` (avoids large revision histories for informal or private editing situations). ",
+      "definition" : "The revision history of the resource. Only required if `_is_controlled_ = True` (avoids large revision histories for informal or private editing situations).",
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/REVISION-HISTORY"
+        "code" : "http://openehr.org/fhir/StructureDefinition/REVISION_HISTORY"
       }],
       "isModifier" : false
     }]

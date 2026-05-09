@@ -3,7 +3,7 @@
   "id" : "ITEM-TABLE",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "row_count",
+    "id" : "row-count",
     "name" : "row_count",
     "title" : "row_count",
     "status" : "active",
@@ -11,6 +11,7 @@
     "description" : "Number of rows in the table.",
     "code" : "row_count",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -22,7 +23,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "column_count",
+    "id" : "column-count",
     "name" : "column_count",
     "title" : "column_count",
     "status" : "active",
@@ -30,6 +31,7 @@
     "description" : "Return number of columns in the table.",
     "code" : "column_count",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -41,7 +43,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "row_names",
+    "id" : "row-names",
     "name" : "row_names",
     "title" : "row_names",
     "status" : "active",
@@ -49,6 +51,7 @@
     "description" : "Return set of row names.",
     "code" : "row_names",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -60,7 +63,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "column_names",
+    "id" : "column-names",
     "name" : "column_names",
     "title" : "column_names",
     "status" : "active",
@@ -68,6 +71,7 @@
     "description" : "Return set of column names.",
     "code" : "column_names",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -79,7 +83,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "ith_row",
+    "id" : "ith-row",
     "name" : "ith_row",
     "title" : "ith_row",
     "status" : "active",
@@ -87,6 +91,7 @@
     "description" : "Return i-th row.",
     "code" : "ith_row",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "i",
@@ -105,7 +110,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_row_with_name",
+    "id" : "has-row-with-name",
     "name" : "has_row_with_name",
     "title" : "has_row_with_name",
     "status" : "active",
@@ -113,6 +118,7 @@
     "description" : "Return `True` if there is a column with name = `_a_key_`.",
     "code" : "has_row_with_name",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_key",
@@ -131,7 +137,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_column_with_name",
+    "id" : "has-column-with-name",
     "name" : "has_column_with_name",
     "title" : "has_column_with_name",
     "status" : "active",
@@ -139,6 +145,7 @@
     "description" : "Return `True` if there is a column with name = `_a_key_`.",
     "code" : "has_column_with_name",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_key",
@@ -157,7 +164,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "named_row",
+    "id" : "named-row",
     "name" : "named_row",
     "title" : "named_row",
     "status" : "active",
@@ -165,6 +172,7 @@
     "description" : "Return row with name = `_a_key_`.",
     "code" : "named_row",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "a_key",
@@ -183,7 +191,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "has_row_with_key",
+    "id" : "has-row-with-key",
     "name" : "has_row_with_key",
     "title" : "has_row_with_key",
     "status" : "active",
@@ -191,6 +199,7 @@
     "description" : "Return `True` if there is a row with key `_keys_`.",
     "code" : "has_row_with_key",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "keys",
@@ -209,7 +218,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "row_with_key",
+    "id" : "row-with-key",
     "name" : "row_with_key",
     "title" : "row_with_key",
     "status" : "active",
@@ -217,6 +226,7 @@
     "description" : "Return rows with particular keys.",
     "code" : "row_with_key",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "keys",
@@ -235,7 +245,7 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "element_at_cell_ij",
+    "id" : "element-at-cell-ij",
     "name" : "element_at_cell_ij",
     "title" : "element_at_cell_ij",
     "status" : "active",
@@ -243,6 +253,7 @@
     "description" : "Return cell at a particular location.",
     "code" : "element_at_cell_ij",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "i",
@@ -268,14 +279,14 @@
   },
   {
     "resourceType" : "OperationDefinition",
-    "id" : "as_hierarchy",
+    "id" : "as-hierarchy",
     "name" : "as_hierarchy",
     "title" : "as_hierarchy",
     "status" : "active",
     "kind" : "operation",
-    "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `CLUSTER` containing the `CLUSTERs` representing the columns of this table. ",
-    "code" : "as_hierarchy",
+    "description" : "Generate a CEN EN13606-compatible hierarchy consisting of a single `CLUSTER` containing the `CLUSTERs` representing the columns of this table.",    "code" : "as_hierarchy",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -291,53 +302,53 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_count"
+    "valueCanonical" : "#row-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#column_count"
+    "valueCanonical" : "#column-count"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_names"
+    "valueCanonical" : "#row-names"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#column_names"
+    "valueCanonical" : "#column-names"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#ith_row"
+    "valueCanonical" : "#ith-row"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_row_with_name"
+    "valueCanonical" : "#has-row-with-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_column_with_name"
+    "valueCanonical" : "#has-column-with-name"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#named_row"
+    "valueCanonical" : "#named-row"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#has_row_with_key"
+    "valueCanonical" : "#has-row-with-key"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#row_with_key"
+    "valueCanonical" : "#row-with-key"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#element_at_cell_ij"
+    "valueCanonical" : "#element-at-cell-ij"
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#as_hierarchy"
+    "valueCanonical" : "#as-hierarchy"
   }],
-  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM-TABLE",
+  "url" : "http://openehr.org/fhir/StructureDefinition/ITEM_TABLE",
   "version" : "1.2.0",
   "name" : "ITEM_TABLE",
   "title" : "ITEM_TABLE",
@@ -352,22 +363,20 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other. Implemented using Cluster-per-row encoding. Each row Cluster must have an identical number of Elements, each of which in turn must have identical names and value types in the corresponding positions in each row. \n\nSome columns may be designated  key' columns, containing key data for each row, in the manner of relational tables. This allows row-naming, where each row represents a body site, a blood antigen etc. All values in a column have the same data type. \n\nUsed for representing any data which is logically a table of values, such as blood pressure, most protocols, many blood tests etc. \n\nMisuse: Not to be used for time-based data, which should be represented with the temporal class `HISTORY`. The table may be empty. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other. Implemented using Cluster-per-row encoding. Each row Cluster must have an identical number of Elements, each of which in turn must have identical names and value types in the corresponding positions in each row. \n\nSome columns may be designated  key' columns, containing key data for each row, in the manner of relational tables. This allows row-naming, where each row represents a body site, a blood antigen etc. All values in a column have the same data type. \n\nUsed for representing any data which is logically a table of values, such as blood pressure, most protocols, many blood tests etc. \n\nMisuse: Not to be used for time-based data, which should be represented with the temporal class `HISTORY`. The table may be empty.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ITEM_TABLE",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "ITEM_TABLE",
       "short" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other.",
-      "definition" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other. Implemented using Cluster-per-row encoding. Each row Cluster must have an identical number of Elements, each of which in turn must have identical names and value types in the corresponding positions in each row. \n\nSome columns may be designated  key' columns, containing key data for each row, in the manner of relational tables. This allows row-naming, where each row represents a body site, a blood antigen etc. All values in a column have the same data type. \n\nUsed for representing any data which is logically a table of values, such as blood pressure, most protocols, many blood tests etc. \n\nMisuse: Not to be used for time-based data, which should be represented with the temporal class `HISTORY`. The table may be empty. ",
-      "min" : 0,
+      "definition" : "Logical relational database style table data structure, in which columns are named and ordered with respect to each other. Implemented using Cluster-per-row encoding. Each row Cluster must have an identical number of Elements, each of which in turn must have identical names and value types in the corresponding positions in each row. \n\nSome columns may be designated  key' columns, containing key data for each row, in the manner of relational tables. This allows row-naming, where each row represents a body site, a blood antigen etc. All values in a column have the same data type. \n\nUsed for representing any data which is logically a table of values, such as blood pressure, most protocols, many blood tests etc. \n\nMisuse: Not to be used for time-based data, which should be represented with the temporal class `HISTORY`. The table may be empty.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Valid_structure",
+        "key" : "valid-structure",
         "severity" : "error",
         "human" : "Valid structure",
         "expression" : "{} // : manual translation needed"
@@ -377,8 +386,7 @@
     {
       "path" : "ITEM_TABLE.rows",
       "short" : "Physical representation of the table as a list of `CLUSTERs`, each containing the data of one row of the table.",
-      "definition" : "Physical representation of the table as a list of `CLUSTERs`, each containing the data of one row of the table. ",
-      "min" : 0,
+      "definition" : "Physical representation of the table as a list of `CLUSTERs`, each containing the data of one row of the table.",      "min" : 0,
       "max" : "*",
       "type" : [{
         "code" : "http://openehr.org/fhir/StructureDefinition/CLUSTER"

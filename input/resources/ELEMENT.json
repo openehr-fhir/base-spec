@@ -3,14 +3,14 @@
   "id" : "ELEMENT",
   "contained" : [{
     "resourceType" : "OperationDefinition",
-    "id" : "is_null",
+    "id" : "is-null",
     "name" : "is_null",
     "title" : "is_null",
     "status" : "active",
     "kind" : "operation",
-    "description" : "True if value logically not known, e.g. if indeterminate, not asked etc. ",
-    "code" : "is_null",
+    "description" : "True if value logically not known, e.g. if indeterminate, not asked etc.",    "code" : "is_null",
     "system" : false,
+    "type" : false,
     "instance" : true,
     "parameter" : [{
       "name" : "return",
@@ -26,7 +26,7 @@
   },
   {
     "url" : "http://hl7.org/fhir/tools/StructureDefinition/type-operation",
-    "valueCanonical" : "#is_null"
+    "valueCanonical" : "#is-null"
   }],
   "url" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
   "version" : "1.2.0",
@@ -43,8 +43,7 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/ELEMENT",
@@ -54,29 +53,28 @@
     "element" : [{
       "path" : "ELEMENT",
       "short" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",
-      "definition" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached. ",
-      "min" : 0,
+      "definition" : "The leaf variant of `ITEM`, to which a `DATA_VALUE` instance is attached.",      "min" : 0,
       "max" : "*",
       "constraint" : [{
-        "key" : "Inv_is_null_valid",
+        "key" : "inv-is-null-valid",
         "severity" : "error",
         "human" : "Inv is null valid",
         "expression" : "is_null() = (value .empty())"
       },
       {
-        "key" : "Inv_null_flavour_indicated",
+        "key" : "inv-null-flavour-indicated",
         "severity" : "error",
         "human" : "Inv null flavour indicated must satisfy exclusive conditions",
         "expression" : "is_null() xor null_flavour .empty()"
       },
       {
-        "key" : "Inv_null_flavour_valid",
+        "key" : "inv-null-flavour-valid",
         "severity" : "error",
         "human" : "Inv null flavour valid must satisfy conditional constraints",
         "expression" : "is_null() implies terminology (Terminology_id_openehr).has_code_for_group_id (Group_id_null_flavour, null_flavour.defining_code)"
       },
       {
-        "key" : "Inv_null_reason_valid",
+        "key" : "inv-null-reason-valid",
         "severity" : "error",
         "human" : "Inv null reason valid must be present",
         "expression" : "null_reason.exists() implies is_null()"
@@ -90,7 +88,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-CODED-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_CODED_TEXT"
       }],
       "isModifier" : false
     },
@@ -101,7 +99,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DATA-VALUE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DATA_VALUE"
       }],
       "isModifier" : false
     },
@@ -112,7 +110,7 @@
       "min" : 0,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/DV-TEXT"
+        "code" : "http://openehr.org/fhir/StructureDefinition/DV_TEXT"
       }],
       "isModifier" : false
     }]

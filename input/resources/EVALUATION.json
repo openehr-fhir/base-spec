@@ -20,19 +20,17 @@
       "value" : "https://specifications.openehr.org"
     }]
   }],
-  "description" : "Entry type for evaluation statements. Used for all kinds of statements which evaluate other information, such as interpretations of observations, diagnoses, differential diagnoses, hypotheses, risk assessments, goals and plans. \n\nShould not be used for actionable statements such as medication orders - these are represented using the `INSTRUCTION` type. ",
-  "fhirVersion" : "5.0.0",
+  "description" : "Entry type for evaluation statements. Used for all kinds of statements which evaluate other information, such as interpretations of observations, diagnoses, differential diagnoses, hypotheses, risk assessments, goals and plans. \n\nShould not be used for actionable statements such as medication orders - these are represented using the `INSTRUCTION` type.",  "fhirVersion" : "5.0.0",
   "kind" : "logical",
   "abstract" : false,
   "type" : "http://openehr.org/fhir/StructureDefinition/EVALUATION",
-  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE-ENTRY",
+  "baseDefinition" : "http://openehr.org/fhir/StructureDefinition/CARE_ENTRY",
   "derivation" : "specialization",
   "differential" : {
     "element" : [{
       "path" : "EVALUATION",
       "short" : "Entry type for evaluation statements.",
-      "definition" : "Entry type for evaluation statements. Used for all kinds of statements which evaluate other information, such as interpretations of observations, diagnoses, differential diagnoses, hypotheses, risk assessments, goals and plans. \n\nShould not be used for actionable statements such as medication orders - these are represented using the `INSTRUCTION` type. ",
-      "min" : 0,
+      "definition" : "Entry type for evaluation statements. Used for all kinds of statements which evaluate other information, such as interpretations of observations, diagnoses, differential diagnoses, hypotheses, risk assessments, goals and plans. \n\nShould not be used for actionable statements such as medication orders - these are represented using the `INSTRUCTION` type.",      "min" : 0,
       "max" : "*",
       "isModifier" : false
     },
@@ -43,7 +41,7 @@
       "min" : 1,
       "max" : "1",
       "type" : [{
-        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM-STRUCTURE"
+        "code" : "http://openehr.org/fhir/StructureDefinition/ITEM_STRUCTURE"
       }],
       "isModifier" : false
     }]
