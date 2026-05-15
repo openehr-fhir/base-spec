@@ -1,10 +1,8 @@
-# OpenEHR Base IG
+# OpenEHR RM IG
 
 This provides a FHIR based representation of the base openEHR reference model.
 This is a technical artifact - it's not something intended for either FHIR or 
 openEHR developer consumption.
-
-This IG is hosted at https://build.fhir.org/ig/FHIR/openehr-base-ig/index.html
 
 ## FHIR Foundation Project Statement
 
