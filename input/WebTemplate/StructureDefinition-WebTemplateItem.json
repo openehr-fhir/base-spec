@@ -108,6 +108,10 @@
         "code" : "string"
       }]
     },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-property-key",
+        "valueCode" : "language"
+      }],
       "path" : "WebTemplateItem.localizedNames",
       "short" : "Map with labels in additional languages",
       "min" : 0,
@@ -116,6 +120,10 @@
         "code" : "http://openehr.org/fhir/StructureDefinition/TranslatedString"
       }]
     },{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/json-property-key",
+        "valueCode" : "language"
+      }],
       "path" : "WebTemplateItem.localizedDescriptions",
       "short" : "Map with element descriptions",
       "min" : 0,
